@@ -31,4 +31,9 @@ scenarios. [month 24]
    1. Battery Awareness of Sensor Collector
    2. Service Line Detection (new method)
    3. Issue Analysis
+
 2. Privacy Protection
+   1. Analysis of WP1 storage and mining components
+   2. Identification of Privacy Threads
+   3. Proposed privacy protection Measures
+   4. Implementation
