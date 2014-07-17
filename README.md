@@ -37,3 +37,9 @@ scenarios. [month 24]
    2. Identification of Privacy Threads
    3. Proposed privacy protection Measures
    4. Implementation
+
+# Work Plan and Deadlines
+
+* Final Delivery Deadline 2014-10-31
+* Beta Delivery Deadline 2014-10-15
+
