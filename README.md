@@ -5,7 +5,7 @@ Deliverable D1.3 - Privacy Aware Storage and Miner
 
 DoW Excerpts:
 
-* T1.4 PM7-24
+* **T1.4 PM7-24)**
 In this task we will develop a data store using an approach of Privacy-by-Design. First, we will
 apply information security risk assessment techniques (e.g. OCTAVE) to identify the main legal and ethical risks 
 of collecting and mining privacy data and appropriate technical countermeasures. Implementation of countermeasures 
@@ -19,7 +19,7 @@ Before mining occurs in the Live+Gov backend, data will be randomized using the 
 data mining, where specific user input is distorted in ways that retain the validity of the analysis without 
 retaining the accuracy of data from individuals.
 
-* D1.3)
+* **D1.3)**
 Privacy Aware Sensor Data Storage and Miner: This deliverable will provide the server based reality
 sensing infrastructure for Live+Gov applications. In line with WP1 requirements, this component will provide
 appropriate anonymization techniques and dynamic contextualization methods for user support in eGovernance
