@@ -28,11 +28,16 @@ scenarios. [month 24]
 # Proposed Outline
 
 1. Updates on Server Side Mining
-   1. Battery Awareness of Sensor Collector
+   1. Battery Awareness of Sensor Collector  
+      - Results from Projektprakikum (Wifi/Zip)
+      - New implementatins for 2nd field trial
    2. Service Line Detection (new method)
+      - MA thesis results from Sven Milker
    3. Issue Analysis
+      - Christoph Schäfer with Niko Beck
 
-2. Privacy Protection
+2. Privacy Protection  
+   with support from Maximilian Meffert, and Grimm Work Group.  
    1. Analysis of WP1 storage and mining components
    2. Identification of Privacy Threads
    3. Proposed privacy protection Measures
@@ -42,4 +47,12 @@ scenarios. [month 24]
 
 * Final Delivery Deadline 2014-10-31
 * Beta Delivery Deadline 2014-10-15
+
+# People Involved
+
+* Heinrich Hartmann (HH)
+* Christoph Schäfer (CS)
+* Maximilian Meffert (MM)
+* Niko Beck (master student) (NB)
+* Sven Milker (master student) (SM)
 
