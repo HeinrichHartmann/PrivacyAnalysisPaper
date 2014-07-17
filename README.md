@@ -28,7 +28,7 @@ scenarios. [month 24]
 # Proposed Outline
 
 1. Updates on Server Side Mining
-1.1. Battery Awareness of Sensor Collector
-1.2. Service Line Detection (new method)
-1.3. Issue Analysis
+   1. Battery Awareness of Sensor Collector
+   2. Service Line Detection (new method)
+   3. Issue Analysis
 2. Privacy Protection
