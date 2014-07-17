@@ -1,9 +1,9 @@
-LiveGovD1.3
-===========
+LiveGov Deliverable D1.3
+========================
 
-Deliverable D1.3 - Privacy Aware Storage and Miner
+Privacy Aware Storage and Miner
 
-DoW Excerpts:
+# DoW Excerpts
 
 * **T1.4 PM7-24)**
 In this task we will develop a data store using an approach of Privacy-by-Design. First, we will
