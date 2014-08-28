@@ -18,3 +18,8 @@
 # Risks / Attacks
 * Infer Home Location -> Address, Name
 * Even mixing different users GPS data withough ID often gives restorable data
+
+# Literature
+* Krum - A survey on computational location privacy
+* Westin - Privacy and Freedom
+* Duckham et. al. -  A spatiotemporal model for Location Privacy Protection
