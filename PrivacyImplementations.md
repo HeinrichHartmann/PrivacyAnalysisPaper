@@ -1,4 +1,4 @@
-# Privacy Protection Methods for GPS Data
+# Privacy Protection Methods for Sensor (GPS) Data
 
 ## General
 * Have a single point of data storage
