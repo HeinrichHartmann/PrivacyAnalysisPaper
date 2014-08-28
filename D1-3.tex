@@ -8,7 +8,7 @@
 \usepackage{color, colortbl}
 %\usepackage{showkeys}
 
-\LGtitle{\LiveGovThirtyTitleFonts \textbf{D1.2 - Mobile Sensor App with Mining Functionality} }
+\LGtitle{\LiveGovThirtyTitleFonts \textbf{D1.3 - Privacy Aware Sensor Data Storage and Miner} }
 %\LGnumber{WP.NR} % e.g 6.7 no letters D or ID
 
 \LGnumber{1.2}
@@ -17,11 +17,11 @@
 
 \LGdissemination{PU - Public}
 
-\LGcontractdate{Month 27, March 2014}
+\LGcontractdate{Month 30, October 2014}
 
-\LGactualdate{Month 26, February 2014}
+\LGactualdate{Month 30, October 2014}
 
-\LGtask{T1.1, T1.2, T1.3}
+\LGtask{T1.3, T1.4}
 
 \LGtype{Prototype}
 
@@ -40,9 +40,9 @@
 
 %\LGabstract{Put abstract here (separate paragraphs using
 %{\tt\char92 par}.)}
-\LGabstract{ 
+\LGabstract{
 
-\TODO{Add abstract}
+% \TODO{Add abstract}
 
 %  This deliverable describes the mobile sensor mining component.
 %  Along with this document we supply the source code of the
@@ -94,9 +94,7 @@
 % add a \LGaddhistory{version}{date}{reason}{revised by} for each new
 % version
 \begin{LGhistory}
-\LGaddhistory{01}{2013-10-14}{Outline}{Heinrich Hartmann}
-\LGaddhistory{02}{2014-01-06}{Added section on topic modeling}{Christoph Kling}
-\LGaddhistory{03}{2014-01-07}{Revised Outline}{Heinrich Hartmann}
+\LGaddhistory{01}{2014-07-17}{Outline}{Heinrich Hartmann}
 
 \end{LGhistory}
 
@@ -115,19 +113,18 @@
 \LGaddauthor{UKob}{Christoph Schaefer}{+49 261 287 2786 }%
 {+49 261 287 100 2786}{\small chrisschaefer@uni-koblenz.de}
 
-\LGaddauthor{UKob}{Christoph Kling}{+49 261 287 2702 }%
-{+49 261 287 100 2702}{\small ckling@uni-koblenz.de}
+%% \LGaddauthor{UKob}{Christoph Kling}{+49 261 287 2702 }%
+%% {+49 261 287 100 2702}{\small ckling@uni-koblenz.de}
 
-\LGaddauthorNoPhone{MTS}{Laura Niittyl\"a}%
-{\small Laura.Niittyla@mattersoft.fi}
+%% \LGaddauthorNoPhone{MTS}{Laura Niittyl\"a}%
+%% {\small Laura.Niittyla@mattersoft.fi}
 
 \end{LGauthors}
 
 
 
 \begin{LGExecutiveSummary}
-  \vspace{10pt} 
-  This deliverable describes the Mobile Sensor Mining Component.
+  \vspace{10pt}
 
   The deliverable is accompanied with source code of the components in
   Java, API documentation (javadoc), and pre-compiled packages for
@@ -244,9 +241,40 @@
 
 \clearpage
 
-% Topic Models
-\input{sections/TopicModels.tex}
+\chapter{Privacy Protection}
+Intro
+\section{Historical Definitions}
+Aristotle
+Warren and Brandeis
+Fried
+\section{Privacy Definition and Taxonomy}
+\section{Privacy and Law}
+European Convention on Human Rights - Article 8
+EU Data Protection Direvtive
+\section{IT Security Analysis}
+Live+Gov Privacy Protection Analysis
+Step 1. World Analysis
+Assets: Privacy
+IT-Systems and Humans
+Conflict of Interests
+Vulnerabilities
+Step 2. Potential Analysis
+Step 3. Plan Development
+\section{Implementation}
+* Sensor Data Privacy Control
+* Rising Awareness
 
-\bibliography{D1-2}
+
+\chapter{Improved Sensor Data Mining Methods}
+\section{Battery Awareness of Sensor Collector}
+Results from Projektprakikum (Wifi/Zip)
+
+\section{Service Line Detection (new method)}
+MA thesis results from Sven Milker
+
+\section{Issue Analysis}
+Christoph Schäfer with Niko Beck
+
+\bibliography{D1-3}
 
 \end{document}
