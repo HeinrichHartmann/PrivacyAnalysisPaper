@@ -1,0 +1,123 @@
+% =================================================
+% Threat Table Macros
+
+% Const Column Width
+\newcommand{\ThreatTableColWidth}{5cm}
+
+% Const Header Row Height
+\newcommand{\ThreatTableHeaderRowHeight}{0.7cm}
+
+% Const Content Row Height
+\newcommand{\ThreatTableContentRowHeight}{1cm}
+
+% Define Header Cell Makro
+\newcommand{\ThreatTableHeaderCell}[1]{
+\begin{minipage}[t][\ThreatTableHeaderRowHeight][c]{\ThreatTableColWidth}
+\centering
+\textbf{#1}
+\end{minipage}
+}
+
+% Define Content Cell Makro
+\newcommand{\ThreatTableContentCell}[1]{
+\begin{minipage}[t][][c]{\ThreatTableColWidth}
+\begin{flushleft}
+\scriptsize
+#1
+\newline
+\end{flushleft}
+\end{minipage}
+}
+
+% Define Header Row Makro
+\newcommand{\ThreatTableHeaderRow}[4]{
+\ThreatTableHeaderCell{#1}
+&\ThreatTableHeaderCell{#2}
+&\ThreatTableHeaderCell{#3}
+&\ThreatTableHeaderCell{#4}
+\\ \hline
+}
+
+% Define Content Row Makro
+\newcommand{\ThreatTableContentRow}[4]{
+\ThreatTableContentCell{#1}
+&\ThreatTableContentCell{#2}
+&\ThreatTableContentCell{#3}
+&\ThreatTableContentCell{#4}
+\\ \hline
+}
+
+%  Define Threat Table Environment
+\newenvironment{ThreatTable}
+{
+\begin{tabular}{|c|c|c|c|}
+\hline
+\ThreatTableHeaderRow
+{Description}
+{Conflict of Interest}
+{Vulnerabilites}
+{Assets (Privacy Types)}
+}
+{\end{tabular}}
+
+
+% =================================================
+% Threat Table Content
+
+\begin{landscape}
+\begin{figure}
+\centering
+\begin{ThreatTable}
+
+\ThreatTableContentRow
+{\textbf{(Zero Day) Exploits}
+\\A criminal uses (Zero Day) Exploits to obtain access to hardware or software which stores or processes
+privacy sensitive data in order to get that data.}
+{Criminals want to obtain access or data for personal profit, i.e. by (re-)selling the data or  by processing it themselves. 
+However, criminals may have no financial interest, they could 
+\\\textbf{Criminal vs Citizen}
+\\
+\\ \textbf{Criminal vs Local Authorities}
+\\ \textbf{Criminal vs Maintenance Staff}}
+{Unsecure Hardware- or Software-Interfaces}
+{\textbf{Explicit:} 1,4,6,7}
+
+\ThreatTableContentRow
+{\textbf{Man in the Middle} 
+\\A criminal intercepts communication between mobile device and server or between server and application.}
+{arg2}
+{Unencrypted hardware or software communication}
+{\textbf{Explicit:} 1,4,6,7}
+
+\ThreatTableContentRow
+{\textbf{Corrupt Employees} 
+\\ Employee sells private data to advertisers}
+{\textbf{Employee vs Citizen} 
+\\ Employees want to make personal profit by selling citizen data. 
+\\ Citizens provide data for public improvement, they don't want their data to be used for other purposes.}
+{Full DB access of Employees}
+{\textbf{Explicit:} 1,4,6,7}
+
+\ThreatTableContentRow
+{\textbf{Corrupt Local Authorities}}
+{arg2}
+{arg3}
+{\textbf{Explicit:} 1,4,6,7}
+
+\ThreatTableContentRow
+{\textbf{Careless Citizen}}
+{arg2}
+{arg3}
+{\textbf{Explicit:} 1,4,6,7}
+
+\ThreatTableContentRow
+{\textbf{Intransparent Data Mining}}
+{arg2}
+{arg3}
+{arg4}
+
+\end{ThreatTable}
+
+\caption{Threat Table}
+\end{figure}
+\end{landscape}
