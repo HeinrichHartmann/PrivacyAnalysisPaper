@@ -5,7 +5,7 @@
 \newcommand{\ThreatTableColWidth}{5cm}
 
 % Const Header Row Height
-\newcommand{\ThreatTableHeaderRowHeight}{0.7cm}
+\newcommand{\ThreatTableHeaderRowHeight}{0.5cm}
 
 % Const Content Row Height
 \newcommand{\ThreatTableContentRowHeight}{1cm}
@@ -14,6 +14,7 @@
 \newcommand{\ThreatTableHeaderCell}[1]{
 \begin{minipage}[t][\ThreatTableHeaderRowHeight][c]{\ThreatTableColWidth}
 \centering
+\scriptsize
 \textbf{#1}
 \end{minipage}
 }
@@ -22,7 +23,7 @@
 \newcommand{\ThreatTableContentCell}[1]{
 \begin{minipage}[t][][c]{\ThreatTableColWidth}
 \begin{flushleft}
-\scriptsize
+\tiny
 #1
 \newline
 \end{flushleft}
@@ -74,49 +75,75 @@
 \\A criminal uses (Zero Day) Exploits to obtain access to hardware or software which stores or processes
 privacy sensitive data in order to get that data.}
 {Criminals want to obtain access or data for personal profit, i.e. by (re-)selling the data or  by processing it themselves. 
-However, criminals may have no financial interest, they could 
+However, criminals may have no financial interest, they could also gain personal (ego) profit by testing proof-of-concept attacks.
 \\\textbf{Criminal vs Citizen}
-\\
-\\ \textbf{Criminal vs Local Authorities}
-\\ \textbf{Criminal vs Maintenance Staff}}
-{Unsecure Hardware- or Software-Interfaces}
+\\Citizens only allowed Local Authorities to use their data. They want their data to be secret to others. (Additionally, citizens are
+also interested in a working system, which they payed for via taxes.)
+\\\textbf{Criminal vs Local Authorities}
+\\Local Authorities have capital and reputation invested in a working system. Successful attacks undermine both.
+\\\textbf{Criminal vs Maintenance Staff}
+\\Staff members have a professional ethos and a duty to provide working systems. Successful attacks offend the former and obstruct the latter.}
+{Unsecured Hardware- or Software-Interfaces}
 {\textbf{Explicit:} 1,4,6,7}
 
 \ThreatTableContentRow
 {\textbf{Man in the Middle} 
 \\A criminal intercepts communication between mobile device and server or between server and application.}
-{arg2}
+{\textit{Like Exploits}}
 {Unencrypted hardware or software communication}
 {\textbf{Explicit:} 1,4,6,7}
 
 \ThreatTableContentRow
 {\textbf{Corrupt Employees} 
-\\ Employee sells private data to advertisers}
-{\textbf{Employee vs Citizen} 
-\\ Employees want to make personal profit by selling citizen data. 
-\\ Citizens provide data for public improvement, they don't want their data to be used for other purposes.}
-{Full DB access of Employees}
+\\ An employee abuses his database access to obtain private citizen data in order to sell it to advertisers.}
+{\textbf{(Corrupt) Employee vs Citizen} 
+\\ Corrupt Employees want to make personal profit by selling citizen data. 
+Citizens provide data for public improvement, they don't want their data to be used for other purposes, which
+may lead to negative effects for themselves.
+Employees in general need easy database access to do their job. But this also means easy access to privacy
+sensitive data of citizens. This diametrically opposes the interest of citizens to have such information unknown
+to other individuals.}
+{Full database access of Employees}
 {\textbf{Explicit:} 1,4,6,7}
 
 \ThreatTableContentRow
-{\textbf{Corrupt Local Authorities}}
-{arg2}
-{arg3}
+{\textbf{Corrupt Local Authorities}
+\\A member of the Local Authority abuses his access to applications 
+to obtain aggregated citizen data in order to use it for illegitimate purposes, e.g. selling it.}
+{\textbf{(Corrupt) Local Authority Member vs Citizen}
+\\\textit{Like Corrupt Employees}}
+{Full application access of Local Authorities}
 {\textbf{Explicit:} 1,4,6,7}
 
 \ThreatTableContentRow
-{\textbf{Careless Citizen}}
-{arg2}
-{arg3}
+{\textbf{Careless Citizen}
+\\A careless citizen allows others (Criminals) to have unrestricted access to his mobile device. 
+Hence, he creates to possibility to install spy-ware or have the device destroyed.}
+{\textbf{Criminal vs Citizen}
+\\Criminals want to have access to mobile devices to obtain private data of citizens in order to 
+gain personal profit - or to simply render the device useless. On the other hand, citizens have a 
+natural interest in keeping personal data secret in order to prevent financial loss or because having
+sensitive information accessible to others violates their privacy.}
+{Insufficient access rules for mobile devices}
 {\textbf{Explicit:} 1,4,6,7}
 
 \ThreatTableContentRow
-{\textbf{Intransparent Data Mining}}
-{arg2}
-{arg3}
-{arg4}
+{\textbf{Intransparent Data Mining}
+\\Local Authorities or System Providers use their technical knowledge, data mining capabilities and 
+additional data sources to obtain/create more information about citizens.}
+{\textbf{Citizen vs Local Authority or System Provider}
+\\Citizens only agreed to share certain sensitive data with Local Authorities and System Providers to help society.
+They are not interested in negative effects as a result of such a good willing act.
+However, Local Authorities and System Providers have an interest to maximize the profit of their investments.
+Local Authorities could (secretly) use mined data for security or health care issues. System Providers could
+(secretly) sell mined data to illegitimate customers, e.g. the SCHUFA. This could lead to repressive behaviour of law
+enforcement or negative scores.}
+{Unaware Citizens}
+{1,2,3,4,5,6,7}
 
 \end{ThreatTable}
+
+{\scriptsize (\textbf{Note for Meeting:} I think we need discrete (numbered) lists of interests for each actor in the \textit{Humans} section.)}
 
 \caption{Threat Table}
 \end{figure}
