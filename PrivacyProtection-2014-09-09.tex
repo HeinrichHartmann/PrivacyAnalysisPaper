@@ -834,7 +834,6 @@ This section outlines the general architecture (Figure \ref{figure:IT Systems}) 
 
 \input{./figures/IT-Systems}
 
-\textbf{Description:}
 A \textit{Citizen (a)} carries a mobile device running the \textit{Sensor Collector (d)} application.
 The \textit{Sensor Collector} application collects sensor data (accelerometer, GPS, GSM, ...) and sends it to the \textit{Data Cetner (c)}. 
 The \textit{Data Center} on the other side sends beneficial information (traffic jam reports, bus schedule) for \textit{Citizens} to the mobile device.
@@ -842,18 +841,14 @@ The \textit{System Provider (b)} provides and operates technical infrastructure 
 The \textit{Report Tool} queries the \textit{Data Center} for aggregated data to visualize in form of charts and other means suitable to help understanding of monitored \textit{Citizens}. 
 \textit{Local Authorities (c)} use the \textit{Report Tool} to get information in order to understand citizen movement and improve public services. 
 
-In such systems, the most valuable information is not the raw sensor data, the beneficial information for \textit{Local Authorities} is produced via \textit{Data Mining}. 
+In such systems, the most valuable information is not the raw sensor data, the beneficial information for \textit{Local Authorities} is produced via \textit{Data Mining} (Human Activity Recognition: detect running, walking, standing, ...). 
+Usually, \textit{Data Mining} is heavily conduct within the \textit{Data Center}, but simpler mining processes can also be conducted on mobile devices.
 
-\textbf{In this
-scenario the mobile the server conducts data mining on aggregated user
-data and additionally trys to combine it with publicly accessible data
-to enhance the results.}
-
-When no connection to the L+G servers is available, the mining
-end-products are stored on the mobile device.
 
 
 \subsubsection{Humans}
+
+
 
 \subsubsection{Conflict of Interests (Figure \ref{figure:Live+Gov Conflicts of Interests})}
 
