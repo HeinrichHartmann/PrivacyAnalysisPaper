@@ -1,4 +1,4 @@
-\section{Privacy}
+\chapter{Privacy Protection}
 
 The goal of this document to analyze and identify the threads to personal privacy that are posed by collecting, storing and processing sensor data from mobile phones.
 We derive concrete privacy protection measures that address the main risks involved with handling such data.
@@ -13,13 +13,13 @@ The complexity of our systems and the variety of threads make a great number of 
 We approach this complexity with the aid of a general security analysis model developed in [Grimm].
 We give a brief introduction to this model and perform a IT Security Analysis with respect to the privacy asset for our system.
 
-\subsection{Histrocial Approaches to Privacy}
+\section{Histrocial Approaches to Privacy}
 
-\subsubsection{Aristotle}
+\subsection{Aristotle}
 
 Public Sphere vs. Private Sphere of politics. This distinction is concerned with the politic (public) life of politicians in early democracies opposed by their domestic (private) life.
 
-\subsubsection{Warren and Brandeis}
+\subsection{Warren and Brandeis}
 
 The Right to Privacy, 1890: Establish the term Informational Privacy. They argue innovations like photography and a growing press create the need for a new right to privacy, "the right to be left alone".
 
@@ -31,289 +31,203 @@ This right would be "the right to be left alone".
 
 The right to "protect the extent to wich one's thoughts, sentiments, and emotions could be shared with others" by Warren and Brandeis was later extend to cover arbitrary information and is now kown as the privacy concept "... the control we have over information about ourselves ..." [2].
 
-\subsubsection{Fried}
+\subsection{Fried}
 
 C. Freid, An Anatomy of Values, Harvard Univ. Press, 1970
 
 Defines privacy as the ability to control information about oneself. He argues that limited knowledge does not automatically create privacy.
 
-\subsection{Legal Aspects of Privacy}
+\section{Legal Aspects of Privacy}
 
 * Present legal view on privacy from European angle: ``Data Protection Directive`` and Implementation.
 
 * Some US Law
 
-\subsubsection{European Convention on Human Rights - Article 8}
+\subsection{European Convention on Human Rights - Article 8}
 
 ``(1) Everyone has the right to respect for his private and family life, his home and his correspondence. (2) There shall be no interference by a public authority with the exercise of this right except such as is in accordance with the law and is necessary in a democratic society in the interests of national security, public safety or the economic well-being of the country, for the prevention of disorder or crime, for the protection of health or morals, or for the protection of the rights and freedoms of others.'' {[}\hyperref[references]{3}{]}
 
 ``The European Court of Human has given this article a very broad
 interpretation in its juresprudence.'' {[}\hyperref[references]{2}{]}
 
-\subsubsection{EU Data Protection Direvtive}
+\subsection{EU Data Protection Direvtive}
 
 \emph{Directive 95/46/EC}
 
-EU directives in general do not hold any direct legal binding for EU
-citzens. Member states have to create their own legal implementation.
+EU directives in general do not hold any direct legal binding for EU citzens.
+Member states have to create their own legal implementation.
 
-``The directive regulates the processing of personal data regardless of
-whether such processing is automated or not.''
+``The directive regulates the processing of personal data regardless of whether such processing is automated or not.''
 {[}\hyperref[references]{1}{]} where:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
 \item
-  \textbf{personal data} is ``any information relating to an identified
-  or identifiable natural person {[}\ldots{}{]} (art. 2a)''
+  \textbf{personal data} is ``any information relating to an identified or identifiable natural person {[}\ldots{}{]} (art. 2a)''
   {[}\hyperref[references]{1}{]}
 \item
-  \textbf{processing} is ``any operation or set of operations which is
-  performed upon personal data {[}\ldots{}{]} (art. 2b)''
+  \textbf{processing} is ``any operation or set of operations which is performed upon personal data {[}\ldots{}{]} (art. 2b)''
   {[}\hyperref[references]{1}{]}
 \end{itemize}
 
-The ``identified or identifiable natural person'' is called \textbf{data
-subject}.
+The ``identified or identifiable natural person'' is called \textbf{data subject}.
 
-The sole responsibility for compliance is held by so called
-\textbf{controllers}. A controller is an actor ``which alone or jointly
-with others dertimines the purposes and means of the processing of
-personal data; (art 2d)'' {[}\hyperref[references]{1}{]}
+The sole responsibility for compliance is held by so called \textbf{controllers}.
+A controller is an actor ``which alone or jointly with others dertimines the purposes and means of the processing of personal data; (art 2d)''
+{[}\hyperref[references]{1}{]}
 
-(\textbf{Note:} this rule is applicable ``whenever the controller uses
-equipment situated within the EU''{[}\hyperref[references]{1}{]}. This
-will hold for every e-commerce provider \textbf{inside or outside} of
-the EU because the customer's computer is \emph{situated within the EU}
-anyways.)
+This rule is applicable ``whenever the controller uses equipment situated within the EU''{[}\hyperref[references]{1}{]}.
+This will hold for every e-commerce provider \textbf{inside or outside} of the EU because the customer's computer is \emph{situated within the EU} anyways.
 
-``Personal data should not be processed at all, except when certain
-conditions are met'' {[}\hyperref[references]{1}{]}. These conditions
-incorporate the seven OECD princepals and are futher categorized in the
-categories:
+``Personal data should not be processed at all, except when certain conditions are met'' {[}\hyperref[references]{1}{]}.
+These conditions incorporate the seven OECD princepals and are futher categorized in the categories:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
 \item
-  \textbf{Transparency}: ``The data subject has the right to be informed
-  when his personal data is being processed {[}\ldots{}{]} (art. 10 and
-  11)'' {[}\hyperref[references]{1}{]} and he has the right how and by
-  whom it is processed. Additionally other speficied requirements have
-  to be met, i.e.~giving consent.
+\textbf{Transparency}: ``The data subject has the right to be informed when his personal data is being processed {[}\ldots{}{]} (art. 10 and 11)'' {[}\hyperref[references]{1}{]} and he has the right how and by whom it is processed.
+Additionally other speficied requirements have to be met, i.e.~giving consent.
 \item
-  \textbf{Legitimate prupose}: ``Personal data can only be processed for
-  specified explicit and legitimate pruposes and may not be processes
-  futher in a way incompatible with those pruposes (art. 6b)''
-  {[}\hyperref[references]{1}{]}.
+\textbf{Legitimate prupose}: ``Personal data can only be processed for specified explicit and legitimate pruposes and may not be processes futher in a way incompatible with those pruposes (art. 6b)''
+{[}\hyperref[references]{1}{]}.
 \item
-  \textbf{Proportionality}: ``Personal data may be processed only
-  insofar as it is adequate {[}\ldots{}{]} in relation to {[}its{]}
-  pruposes {[}\ldots{}{]}; every reasonable step must be taken to ensure
-  that data wich are inaccurate or incomplete {[}\ldots{}{]} are erased
-  or rectified (art. 6)'' {[}\hyperref[references]{1}{]}
+\textbf{Proportionality}: ``Personal data may be processed only insofar as it is adequate {[}\ldots{}{]} in relation to {[}its{]} pruposes {[}\ldots{}{]}; every reasonable step must be taken to ensure that data wich are inaccurate or incomplete {[}\ldots{}{]} are erased or rectified (art. 6)'' {[}\hyperref[references]{1}{]}
 \end{itemize}
 
-(\textbf{Note:} The principles incorporated by the EU directive seem to
-closely map to \emph{the seven principles for user privacy control}.)
+(\textbf{Note:} The principles incorporated by the EU directive seem to closely map to \emph{the seven principles for user privacy control}.)
 
-Member states have to create independent \textbf{supervisory
-authorities} for personal data processing where controllers have to
-register before they start to process any data. The record has to be
-stored in public register {[}\hyperref[references]{1}{]}.
+Member states have to create independent \textbf{supervisory authorities} for personal data processing where controllers have to register before they start to process any data.
+The record has to be stored in public register {[}\hyperref[references]{1}{]}.
 
-Data transfer to thrid countries outside of the EU requires those
-countries to have a similar data protection level. Exceptions exists:
+Data transfer to thrid countries outside of the EU requires those countries to have a similar data protection level. Exceptions exists:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
 \item
   Save Harbor
 \item
   Passenger Name Record Aggreement
 \end{itemize}
 
-all between the US and the EU, although the US has no comparable law of
-data protection. The US Supreme Court regards privacy as
-\textbf{implicit} right granted with the First Amendment. However,
-european law states privacy as \textbf{explicit} right (ECHR Art. 8).
-Additionally the US government follows a doctrine which favors the
-economy to implement self-regulation {[}\hyperref[references]{1}{]}.
+all between the US and the EU, although the US has no comparable law of data protection. 
+The US Supreme Court regards privacy as \textbf{implicit} right granted with the First Amendment. However, european law states privacy as \textbf{explicit} right (ECHR Art. 8).
+Additionally the US government follows a doctrine which favors the economy to implement self-regulation {[}\hyperref[references]{1}{]}.
 
-\subsubsection{Implementation of the Data Protection Direvtive}
+\subsection{Implementation of the Data Protection Direvtive}
 
-\paragraph{Germany}
+\subsubsection*{Germany}
 
-Germany implements Directive 95/46 with the \emph{Federal Data
-Protection Act} from 2001 known as \emph{Bundesdatenschutzgesetz (BDSG)}
-{[}\hyperref[references]{1}{]}{[}\hyperref[references]{2}{]}{[}\hyperref[references]{6}{]}.
+Germany implements Directive 95/46 with the \emph{Federal Data Protection Act} from 2001 known as \emph{Bundesdatenschutzgesetz (BDSG)} {[}\hyperref[references]{1}{]}{[}\hyperref[references]{2}{]}{[}\hyperref[references]{6}{]}.
 However, Germany has violated the directive in two points:
 
 \begin{enumerate}
-\itemsep1pt\parskip0pt\parsep0pt
 \item
-  The BDSG has become effective three years too late, thus the EC filed
-  a treaty violation proceeding against Germany
-  {[}\hyperref[references]{6}{]}.
+The BDSG has become effective three years too late, thus the EC filed a treaty violation proceeding against Germany {[}\hyperref[references]{6}{]}.
+
 \item
-  The BDSG does not implement \textbf{independet} supervisory
-  authorities. The \emph{Bundesdatenschutzbeauftragter} is subordinate
-  to the Ministiry of Interior. Although he is not subject to technical
-  oversight (\emph{Fachaufsicht}), he is subject to staff supervision by
-  the government (\emph{Rechtsaufsicht} durch die Bundesregierung und
-  \emph{Dienstaufsicht} durch das Innenministerium) and budget oversight
-  (including approval of employees) by the ministry
-  {[}\hyperref[references]{7}{]}. Thus the EC filed a treaty violation
-  proceeding against Germany, again {[}\hyperref[references]{6}{]}. In
-  March 2010 Germany was found guilty of violation of Directive 95/46 by
-  the ECJ {[}\hyperref[references]{6}{]}.
+The BDSG does not implement \textbf{independet} supervisory authorities. 
+The \emph{Bundesdatenschutzbeauftragter} is subordinate to the Ministiry of Interior. 
+Although he is not subject to technical oversight (\emph{Fachaufsicht}), he is subject to staff supervision by the government (\emph{Rechtsaufsicht} durch die Bundesregierung und  \emph{Dienstaufsicht} durch das Innenministerium) and budget oversight (including approval of employees) by the ministry {[}\hyperref[references]{7}{]}. 
+Thus the EC filed a treaty violation proceeding against Germany, again {[}\hyperref[references]{6}{]}. 
+In March 2010 Germany was found guilty of violation of Directive 95/46 by the ECJ {[}\hyperref[references]{6}{]}.
 \end{enumerate}
 
-(\textbf{Note:} Germany still violates point 2!)
+Germany still violates point 2!
 
-The states of Germany have their own implementation of Directive 95/46
-(\emph{Landesdatenschutzgesetze}). Federal public authorites are only
-bound to their federal law. {[}\hyperref[references]{2}{]}
+The states of Germany have their own implementation of Directive 95/46 (\emph{Landesdatenschutzgesetze}).
+Federal public authorites are only bound to their federal law. {[}\hyperref[references]{2}{]}
 
 Churches are not subject the BDSG. {[}\hyperref[references]{2}{]}
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
-  \textbf{Roman Catholic Church:}
-  \href{http://de.wikipedia.org/wiki/Anordnung_\%C3\%BCber_den_kirchlichen_Datenschutz}{Anordnung
-  über den kirchlichen Datenschutz (KDO)}
+\textbf{Roman Catholic Church:}
+\href{http://de.wikipedia.org/wiki/Anordnung_\%C3\%BCber_den_kirchlichen_Datenschutz}{Anordnung  über den kirchlichen Datenschutz (KDO)}
+
 \item
-  \textbf{German Protestant Churches (Synode der Evangelischen Kirche in
-  Deutschland):}
-  \href{http://de.wikipedia.org/wiki/Datenschutzgesetz_der_Evangelischen_Kirche_in_Deutschland}{Kirchengesetz
-  über den Datenschutz der Evangelischen Kirche in Deutschland}
+\textbf{German Protestant Churches (Synode der Evangelischen Kirche in Deutschland):}
+\href{http://de.wikipedia.org/wiki/Datenschutzgesetz_der_Evangelischen_Kirche_in_Deutschland}{Kirchengesetz  über den Datenschutz der Evangelischen Kirche in Deutschland}
 \end{itemize}
 
-Data subjects have the right to\ldots{}
+Data subjects have the following rights.
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
 \item
-  \ldots{} \textbf{disclosure} of
+Right to disclosure of wether data about them is stored and processed, which data is stored and processed and the data sources.
 \item
-  wether data about them is stored and processed
+Right to correction of false data.
+
 \item
-  which data is stored and processed
+Right to file complaints to the supervisory authority.
+
 \item
-  the data sources
+Right to have data deleted or blocked, but controllers can prohibit deletion in favour of blocking.
+
 \item
-  \ldots{} \textbf{correction} of false data
-\item
-  \ldots{} \textbf{file complaints} to the supervisory authority
-\item
-  \ldots{} have data \textbf{deleted} or \textbf{blocked}, but
-  controllers can prohibit deletion in favour of blocking
-\item
-  \ldots{} \textbf{Decline} third party access to the data
+Right to decline third party access to the data.
 \end{itemize}
 
-\paragraph{United Kingdom}
+\subsubsection*{United Kingdom}
 
-The UK implements Directive 95/46 with the \emph{Data Protection Act
-1998 (DPA)}
-{[}\hyperref[references]{1}{]}{[}\hyperref[references]{3}{]}.
+The UK implements Directive 95/46 with the \emph{Data Protection Act 1998 (DPA)} {[}\hyperref[references]{1}{]}{[}\hyperref[references]{3}{]}.
 
-The act is knwon for its high complexity: a manual record of phone
-numbers for business purposes could be hold subject to the DPA
-{[}\hyperref[references]{3}{]}. Although the act seems to fully cover
-the directive. Even higher restriction apply for \emph{``sensitive
-personal data''} (race, ethnicity, politics, religion, trade union
-status, health, sex life or criminal record), i.e. \textbf{consent} must
-be given freely and has to be explicit. {[}\hyperref[references]{3}{]}
+The act is knwon for its high complexity: a manual record of phone numbers for business purposes could be hold subject to the DPA {[}\hyperref[references]{3}{]}.
+Although the act seems to fully cover the directive.
+Even higher restriction apply for \emph{``sensitive personal data''} (race, ethnicity, politics, religion, trade union status, health, sex life or criminal record), i.e. \textbf{consent} must be given freely and has to be explicit. {[}\hyperref[references]{3}{]}
 
-\emph{``The Act's definition of''personal data" covers any data that can
-be used to identify a living individual. Anonymised or aggregated data
-is not regulated by the Act, providing the anonymisation or aggregation
-has not been done in a reversible way. Individuals can be identified by
-various means including their name and address, telephone number or
-Email address. The Act applies only to data which is held, or intended
-to be held, on computers (`equipment operating automatically in response
-to instructions given for that purpose'), or held in a `relevant filing
-system'.}
+\emph{``The Act's definition of''personal data" covers any data that can be used to identify a living individual. Anonymised or aggregated data is not regulated by the Act, providing the anonymisation or aggregation has not been done in a reversible way.
+Individuals can be identified by various means including their name and address, telephone number or
+Email address.
+The Act applies only to data which is held, or intended to be held, on computers (`equipment operating automatically in response to instructions given for that purpose'), or held in a `relevant filing system'.}
 
-\emph{In some cases even a paper address book can be classified as a
-`relevant filing system', for example diaries used to support commercial
-activities such as a salesperson's diary.}
+\emph{In some cases even a paper address book can be classified as a `relevant filing system', for example diaries used to support commercial activities such as a salesperson's diary.}
 
-\emph{The Freedom of Information Act 2000 modified the act for public
-bodies and authorities, and the Durant case modified the interpretation
-of the act by providing case law and precedent.}
+\emph{The Freedom of Information Act 2000 modified the act for public bodies and authorities, and the Durant case modified the interpretation of the act by providing case law and precedent.}
 
-\emph{The Data Protection Act creates rights for those who have their
-data stored, and responsibilities for those who store, process or
-transmit such data. The person who has their data processed has the
-right to:}
+\emph{The Data Protection Act creates rights for those who have their data stored, and responsibilities for those who store, process or transmit such data.
+The person who has their data processed has the right to:}
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
-  \emph{View the data an organisation holds on them. A `subject access
-  request' can be obtained for a nominal fee. As of January 2014, the
-  maximum fee is £2 for requests to credit reference agencies, £50 for
-  health and educational request, and £10 per individual otherwise,}
+View the data an organisation holds on them.
+A `subject access request' can be obtained for a nominal fee. As of January 2014, the maximum fee is £2 for requests to credit reference agencies, £50 for health and educational request, and £10 per individual otherwise.
+
 \item
-  \emph{Request that incorrect information be corrected. If the company
-  ignores the request, a court can order the data to be corrected or
-  destroyed, and in some cases compensation can be awarded.}
+Request that incorrect information be corrected.
+If the company ignores the request, a court can order the data to be corrected or destroyed, and in some cases compensation can be awarded.
+
 \item
-  \emph{Require that data is not used in any way that may potentially
-  cause damage or distress.}
+Require that data is not used in any way that may potentially cause damage or distress.
+
 \item
-  *Require that their data is not used for direct marketing.``*
-  {[}\hyperref[references]{3}{]}
+Require that their data is not used for direct marketing. {[}\hyperref[references]{3}{]}
 \end{itemize}
 
-\paragraph{France}
+\subsubsection*{France}
 
-France implements Directive 95/46 with Law 2004-801 modifying law 78-17
-of 6.1.1978 (\emph{Loi n° 2004-801 du 6 août 2004} modifying \emph{loi
-n°78-17 relative à l'informatique, aux fichiers et aux libertés})
-{[}\hyperref[references]{1}{]}{[}\hyperref[references]{10}{]}{[}\hyperref[references]{11}{]}.
+France implements Directive 95/46 with Law 2004-801 modifying law 78-17 of 6.1.1978 (\emph{Loi n° 2004-801 du 6 août 2004} modifying \emph{loi n°78-17 relative à l'informatique, aux fichiers et aux libertés}) {[}\hyperref[references]{1}{]}{[}\hyperref[references]{10}{]}{[}\hyperref[references]{11}{]}.
 
-\paragraph{United States of America}
+\subsubsection*{United States of America}
 
-The USA do not implement the directive, nor is there any obligation for
-them to do so. However, companies subject to US jurisdiction can be
-certified to comply with the seven principles enforced by Directive
-95/46 (the seven OECD recommendations) {[}\hyperref[references]{5}{]}.
-Thus, those companies will act as \emph{safe harbors}. Without
-certification foreign companies are not allowed to send customer data
-back home {[}\hyperref[references]{9}{]}.
+The USA do not implement the directive, nor is there any obligation for them to do so.
+However, companies subject to US jurisdiction can be certified to comply with the seven principles enforced by Directive 95/46 (the seven OECD recommendations) {[}\hyperref[references]{5}{]}.
+Thus, those companies will act as \emph{safe harbors}. Without certification foreign companies are not allowed to send customer data back home {[}\hyperref[references]{9}{]}.
 
-(\textbf{Note:} \emph{Safe harbor} in general is the legal concept to
-regulate that a certain conduct will be deemed
-{[}\hyperref[references]{4}{]}, but in germany the term is commonly used
-as synonym for the agreement between the EU and the US regarding
-Directive 95/46.)
+\emph{Safe harbor} in general is the legal concept to regulate that a certain conduct will be deemed {[}\hyperref[references]{4}{]}, but in germany the term is commonly used as synonym for the agreement between the EU and the US regarding Directive 95/46.)
 
+\section{Privacy Definition and Taxonomy}
 
-\subsection{Privacy Definition and Taxonomy}
+\subsection{Defining Privacy}
 
-\subsubsection{Defining Privacy}
+Defining privacy is a challenge which seems impossible. This is well put to words by Serge Gutwirth, who notes: \emph{``The notion of privacy remains out of the grasp of every academic chasing it. Even when it is cornered by such additional modifiers as `our' privacy, it still finds a way to remain elusive.''} {[}\hyperref[references]{2}{]}.
 
-Defining privacy is a challenge which seems impossible. This is well put
-to words by Serge Gutwirth, who notes: \emph{``The notion of privacy
-remains out of the grasp of every academic chasing it. Even when it is
-cornered by such additional modifiers as `our' privacy, it still finds a
-way to remain elusive.''} {[}\hyperref[references]{2}{]}.
+Many privacy researchers seem to ``forcus on the ways in which privacy can be infrenged'' {[}\hyperref[references]{1}{]}.
+Thus they try to create taxonomies of \emph{privacy harms} instead of taxonomies of \emph{privacy types}.
+Those two differ in the respect that the former focuses on threats to prohibit whereas the latter focuses on values to protect.
+So one should rather evaluate what aspects are precious about privacy and develop measures to ensure their security than only forbid single actions against privacy {[}\hyperref[references]{1}{]}.
 
-Many privacy researchers seem to ``forcus on the ways in which privacy
-can be infrenged'' {[}\hyperref[references]{1}{]}. Thus they try to
-create taxonomies of \emph{privacy harms} instead of taxonomies of
-\emph{privacy types}. Those two differ in the respect that the former
-focuses on threats to prohibit whereas the latter focuses on values to
-protect. So one should rather evaluate what aspects are precious about
-privacy and develop measures to ensure their security than only forbid
-single actions against privacy {[}\hyperref[references]{1}{]}.
+%% TODO %%
 
-\begin{center}
-We follow Fried in defining privacy as the ability to control data about personal information.
-\end{center}
+* We follow Fried in defining privacy as the ability to control data about personal information.
 
 * What is the relation to legal aspects?
 
@@ -321,100 +235,66 @@ We follow Fried in defining privacy as the ability to control data about persona
 
 * Use Seven Privacy Types be Friedewald, Finn and Wrigtht.
 
-\paragraph{The Seven Types of Privacy}
+\subsection{The Seven Types of Privacy}
 
 Seven Types of Privacy based on four types of privacy by Clarke.
 Clarke's four types are outdated by contemporary technologies and no longer adequate. 
 In order to fix this Friedewald, Finn and Wright extend the former four to the now introduced seven types privacy as follows:
 
 \begin{enumerate}
+
 \item \textbf{Privacy of the Person.}
 
 This type is the right keep body functions and body characteristics
 private {[}\hyperref[references]{1}{]}. It maps the one by Clarke.
 
+Examples include:
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Body Characteristics
-\item
-  Weight
-\item
-  Height
-\item
-  Other body measures (shoulder width)
-\item
-  Fingerprints
-\item
-  DNA Sequence
-\item
-  Medical Conitions
-\item
-  Orthopedic conditions (e.g.~limping)
-\item
-  Having a cold
-\item
-  \ldots{}
-\end{itemize}
-\end{enumerate}
-
-\subparagraph{Privacy of Behaviour and Action}
-
-This type is also concerned with the ``protection against disclosure of
-personal matters'' {[}\hyperref[references]{1}{]} through behaviour,
-however Clarke's distinction between ``casual observation {[}\ldots{}{]}
-systematic recording and storage of information about those activities''
-{[}\hyperref[references]{1}{]}is lifted.
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  regular visit at church, backery, doctors
-\item
-  sexual habits
-\item
-  political activities
+\item Body Characteristics: weight, height, sholder width, \ldots
+\item Biometric Properties: Fingerprints, DNA Sequence, \ldots
+\item Medical Conitions: Orthopedic conditions (e.g.~limping), Having a cold, \ldots
 \end{itemize}
 
-\subparagraph{Privacy of Communication}
+\item \textbf{Privacy of Behaviour and Action}
 
-It ``aims to avoid the interception of communications''
-{[}\hyperref[references]{1}{]} either electronic or face-to-face.
+This type is also concerned with the ``protection against disclosure of personal matters'' {[}\hyperref[references]{1}{]} through behaviour, however Clarke's distinction between ``casual observation {[}\ldots{}{]} systematic recording and storage of information about those activities'' {[}\hyperref[references]{1}{]}is lifted.
 
+Examples include:
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Briefgeheimnis (in german Legislation)
-\item
-  Email contents
-\item
-  Personal direct communication
-\item
-  Right to free discussion, i.e.~without third parties listening
+\item regular visit at church, backery, doctors
+\item sexual habits
+\item political activities
 \end{itemize}
 
-\subparagraph{Privacy of Data and Image}
+\item \textbf{Privacy of Communication}
+
+It ``aims to avoid the interception of communications'' {[}\hyperref[references]{1}{]} either electronic or face-to-face.
+
+Examples include:
+\begin{itemize}
+\item Secrecy of letters ('Briefgeheimnis' in german Legislation).
+\item Email contents
+\item Personal direct communication
+\item Right to free discussion, i.e.~without third parties listening
+\end{itemize}
+
+\item \textbf{Privacy of Data and Image}
 
 This type is concerned with ``making sure that individuals's data is not
 automatically available to other individuals and organisations''
 {[}\hyperref[references]{1}{]}. This is Informational Privacy in an
 intuitive sense.
 
+Examples include:
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Telefonnummer
-\item
-  IP Addresse
-\item
-  Public-administrative Data (Date of Birth, Melderegister)
-\item
-  Data held by organizations, like Banks or Insurance Companies
-\item
-  All data that is stored in online services (facebook)
+\item Phone number
+\item IP address
+\item Public-administrative Data (Date of Birth, Melderegister)
+\item Data held by organizations, like Banks or Insurance Companies
+\item All data that is stored in online services (facebook)
 \end{itemize}
 
-\subparagraph{Privacy of Thoughts and Feelings}
+\item \textbf{Privacy of Thoughts and Feelings}
 
 This type is the right ``not to share their thoughts or feelings or to
 have those thoughts or feeling (sic!) revealed''
@@ -422,45 +302,253 @@ have those thoughts or feeling (sic!) revealed''
 detection. This type is the counterpart the \emph{Privacy of the Person}
 like body and mind are counterparts of one another (dualism).
 
+Examples include:
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Current feeling: Depression, tiredness, stressed, awake
-\item
-  Thoughts in general
+\item Current feeling: Depression, tiredness, stressed, awake
+\item Thoughts in general.
 \end{itemize}
 
-\subparagraph{6 Privacy of Location and Space}
+\item \textbf{Privacy of Location and Space}
 
 This type is the right ``to move about in public or semi-public space
-withoug being identified, tracked or monitored''
-{[}\hyperref[references]{1}{]}. Additionally this type is concerned with
-the protection of one's home and private places (``right to solitude''
-{[}\hyperref[references]{1}{]}).
+withoug being identified, tracked or monitored'' {[}\hyperref[references]{1}{]}.
+Additionally this type is concerned with the protection of one's home and private places (``right to solitude'' {[}\hyperref[references]{1}{]}).
+
+Examples include:
+\begin{itemize}
+\item GPS position tracking
+\item Location of home address
+\end{itemize}
+
+\item \textbf{Privacy of Association}
+
+This type is the right ``to associate with whomever {[}one{]} wish, withoug being monitored'' {[}\hyperref[references]{1}{]}.
+It is concerned with the protection against the automatic record of one's contacts.
+It does not imply that one is monitored because of the associations.
+
+Examples include:
+\begin{itemize}
+\item Friends
+\item Joining of orgnaizations (e.g.~political parties)
+\end{itemize}
+\end{enumerate}
+
+\subsection{Implicit Privacy Type Violation}
+
+Cf. Figure \ref{figure:Implicit Privacy Violation Matrix}
+
+%\includegraphics{../diagrams/png/implicit-privacy-violation-matrix.png}
+\input{./figures/Implicit-Privacy-Violation-Matrix}
+\input{./figures/ThreatTable}
+
+\subparagraph{Privacy of The Person}
+
+The Privacy of The Person is concerned with one's biometric privacy. If
+this type is violated, following implicit violations are possible:
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  GPS position tracking
+  \textbf{Privacy of The Person:} reflexive violation
 \item
-  Location of home address
+  \textbf{Privacy of Behaviour and Action:} none
+\item
+  \textbf{Privacy of Communication:} none
+\item
+  \textbf{Privacy of Data and Image:} none
+\item
+  \textbf{Privacy of Thoughts and Feelings:} Some psychological diseases
+  (e.g.~depression) have physiological impact. Such physiological
+  patterns could be detected.
+\item
+  \textbf{Privacy of Location and Space:} none
+\item
+  \textbf{Privacy of Association:} none
+\end{itemize}
+
+\subparagraph{Privacy of Behaviour and Action}
+
+The Privacy of Behaviour and Action is concerned with one's privacy
+regarding social activities (religious, political, sexual, \ldots{}). If
+this type is violated, following implicit violations are possible:
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \textbf{Privacy of The Person:} Religious practices may include body
+  modifications (e.g.~circumcision).
+\item
+  \textbf{Privacy of Behaviour and Action:} reflexive violation
+\item
+  \textbf{Privacy of Communication:} none
+\item
+  \textbf{Privacy of Data and Image:} none
+\item
+  \textbf{Privacy of Thoughts and Feelings:} Social activities in
+  general depend on a certain intellectual attitude. Such an actvity is
+  the expressions of such an attitude.
+\item
+  \textbf{Privacy of Location and Space:} none
+\item
+  \textbf{Privacy of Association:} Recording religious, politcal or
+  sexual activities can reveal association with churches, political
+  parties or sexual partners.
+\end{itemize}
+
+\subparagraph{Privacy of Communication}
+
+The Privacy of Communication is concerned with not havin such
+communication (corresponence or vis-a-vis) intercepted. This is very
+broad type of privacy. Depending on the contens of the intercepted
+communication every other type can be violated:
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \textbf{Privacy of The Person:} Communication about body
+  characteristics.
+\item
+  \textbf{Privacy of Behaviour and Action:} Communicatio about social
+  activities.
+\item
+  \textbf{Privacy of Communication:} reflexive violation
+\item
+  \textbf{Privacy of Data and Image:} Communication containing one's
+  passwords or other sensitive data.
+\item
+  \textbf{Privacy of Thoughts and Feelings:} Communication of thoughts
+  and feelings, e.g.~wiretapping a flirt or a catholic confession
+  ritual.
+\item
+  \textbf{Privacy of Location and Space:} Interception of face-to-face
+  communication is only possible if one's location and space is violated
+  (wiretapping).
+\item
+  \textbf{Privacy of Association:} Communication about one's
+  associations (family members, churches, etc.).
+\end{itemize}
+
+\subparagraph{Privacy of Data and Image}
+
+The Privacy of Data and Image is concered with one's data not beeing
+automatically availabel to others. This also is a very broad type of
+privacy. Depending of the data or image contents erery other type can be
+violated:
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \textbf{Privacy of The Person:} Images or stored biometric information
+  reveal one's physical characteristics.
+\item
+  \textbf{Privacy of Behaviour and Action:} Images or diaries can reveal
+  one's social activities.
+\item
+  \textbf{Privacy of Communication:} Modern communication systems
+  usually contain some sort of archive function, e.g.~E-mail clients do
+  not automatically delete messages. Such messages are data and reveal
+  one's communication.
+\item
+  \textbf{Privacy of Data and Image:} reflexive violation
+\item
+  \textbf{Privacy of Thoughts and Feelings:} Images can show one's
+  emotional state.
+\item
+  \textbf{Privacy of Location and Space:} Images can reveal one's
+  location, e.g.~making a picture in front of the Eifel Tower.
+\item
+  \textbf{Privacy of Association:} E-mail data can also reveal
+  association.
+\end{itemize}
+
+\subparagraph{Privacy of Thoughts and Feelings}
+
+The Privacy of Thoughts and Feelings is concerned with keeping such
+thoughts and feelings secret. If this type is violated, following
+implicit violations are possible:
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \textbf{Privacy of The Person:} Thoughts and feelings can reveal
+  medical conditions.
+\item
+  \textbf{Privacy of Behaviour and Action:} Thoughts and feelings can
+  reveal a certain attitudes which create a foundation for certain
+  social activities.
+\item
+  \textbf{Privacy of Communication:} none
+\item
+  \textbf{Privacy of Data and Image:} none
+\item
+  \textbf{Privacy of Thoughts and Feelings:} reflexive violation
+\item
+  \textbf{Privacy of Location and Space:} none
+\item
+  \textbf{Privacy of Association:} Thoughts and feelings can reveal
+  individual association, e.g amorous feelings for a certain person.
+\end{itemize}
+
+\subparagraph{Privacy of Location and Space}
+
+The Privacy of Location and Space is concerned with one's right to move
+freely without being tracked and one's right to private places. If this
+type is violated, following implicit violations are possible:
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \textbf{Privacy of The Person:} Frequently visited doctors can reveal
+  certain medical conditions, if such doctors are known specialsts. In
+  general it could imply ill-being.
+\item
+  \textbf{Privacy of Behaviour and Action:} Frequently visited places in
+  general can reveal association and hence implies social activities.
+\item
+  \textbf{Privacy of Communication:} If one's location is knwon, it is
+  possible to intercept (wiretap) one's communication. This also may
+  violate the right to private spaces.
+\item
+  \textbf{Privacy of Data and Image:} If one's location is known, it is
+  possible shoot pictures. This violates the right to one's image
+  (\emph{``Recht am eigenen Bild''}).
+\item
+  \textbf{Privacy of Thoughts and Feelings:} Frequently visited persons
+  may imply certain thoughts and feelings, e.g.~having a mistress.
+\item
+  \textbf{Privacy of Location and Space:} reflexive violation
+\item
+  \textbf{Privacy of Association:} Frequently visted places can reveal
+  associations simply by searching in maps or yellow-pages.
 \end{itemize}
 
 \subparagraph{Privacy of Association}
 
-This type is the right ``to associate with whomever {[}one{]} wish,
-withoug being monitored'' {[}\hyperref[references]{1}{]}. It is
-concerned with the protection against the automatic record of one's
-contacts. It does not imply that one is monitored because of the
-associations.
+The Privacy of Association is concerned with one's right to associate
+with whomever one wants, without that association having recorded.If
+this type is violated, following implicit violations are possible:
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  Friends
+  \textbf{Privacy of The Person:} Association with tatoo artists could
+  imply having tatoos or other body modifications
 \item
-  Joining of orgnaizations (e.g.~political parties)
+  \textbf{Privacy of Behaviour and Action:} Association with churches or
+  poltical organizations could imply certain activities.
+\item
+  \textbf{Privacy of Communication:} none
+\item
+  \textbf{Privacy of Data and Image:} none
+\item
+  \textbf{Privacy of Thoughts and Feelings:} Association with churchs of
+  political organizations could imply a certain intellectual attitude.
+\item
+  \textbf{Privacy of Location and Space:} none
+\item
+  \textbf{Privacy of Association:} reflexive violation
 \end{itemize}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -804,10 +892,11 @@ end-products are stored on the mobile device.
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
-\item
-  citizens want to be unidentifiable
-\item
-  citizens want certain informations about them to be secret
+
+\item Citizen want to exercise their legal right to privacy. I.e. their right to control information about themselves.
+- citizens want to be unidentifiable
+- citizens want certain informations about them to be secret
+\item Citizen wants to prevent abuse of their private data, and the related negative consequences.
 \item
   technical staff needs more or less unrestricted access to data in
   order to maintain the system
@@ -952,219 +1041,6 @@ with making data \emph{automatically} available to others.)
   \end{itemize}
 \end{itemize}
 
-\paragraph{Implicit Privacy Type Violation (Figure \ref{figure:Implicit Privacy Violation Matrix})}
-
-%\includegraphics{../diagrams/png/implicit-privacy-violation-matrix.png}
-\input{./figures/Implicit-Privacy-Violation-Matrix}
-\input{./figures/ThreatTable}
-
-\subparagraph{Privacy of The Person}
-
-The Privacy of The Person is concerned with one's biometric privacy. If
-this type is violated, following implicit violations are possible:
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  \textbf{Privacy of The Person:} reflexive violation
-\item
-  \textbf{Privacy of Behaviour and Action:} none
-\item
-  \textbf{Privacy of Communication:} none
-\item
-  \textbf{Privacy of Data and Image:} none
-\item
-  \textbf{Privacy of Thoughts and Feelings:} Some psychological diseases
-  (e.g.~depression) have physiological impact. Such physiological
-  patterns could be detected.
-\item
-  \textbf{Privacy of Location and Space:} none
-\item
-  \textbf{Privacy of Association:} none
-\end{itemize}
-
-\subparagraph{Privacy of Behaviour and Action}
-
-The Privacy of Behaviour and Action is concerned with one's privacy
-regarding social activities (religious, political, sexual, \ldots{}). If
-this type is violated, following implicit violations are possible:
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  \textbf{Privacy of The Person:} Religious practices may include body
-  modifications (e.g.~circumcision).
-\item
-  \textbf{Privacy of Behaviour and Action:} reflexive violation
-\item
-  \textbf{Privacy of Communication:} none
-\item
-  \textbf{Privacy of Data and Image:} none
-\item
-  \textbf{Privacy of Thoughts and Feelings:} Social activities in
-  general depend on a certain intellectual attitude. Such an actvity is
-  the expressions of such an attitude.
-\item
-  \textbf{Privacy of Location and Space:} none
-\item
-  \textbf{Privacy of Association:} Recording religious, politcal or
-  sexual activities can reveal association with churches, political
-  parties or sexual partners.
-\end{itemize}
-
-\subparagraph{Privacy of Communication}
-
-The Privacy of Communication is concerned with not havin such
-communication (corresponence or vis-a-vis) intercepted. This is very
-broad type of privacy. Depending on the contens of the intercepted
-communication every other type can be violated:
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  \textbf{Privacy of The Person:} Communication about body
-  characteristics.
-\item
-  \textbf{Privacy of Behaviour and Action:} Communicatio about social
-  activities.
-\item
-  \textbf{Privacy of Communication:} reflexive violation
-\item
-  \textbf{Privacy of Data and Image:} Communication containing one's
-  passwords or other sensitive data.
-\item
-  \textbf{Privacy of Thoughts and Feelings:} Communication of thoughts
-  and feelings, e.g.~wiretapping a flirt or a catholic confession
-  ritual.
-\item
-  \textbf{Privacy of Location and Space:} Interception of face-to-face
-  communication is only possible if one's location and space is violated
-  (wiretapping).
-\item
-  \textbf{Privacy of Association:} Communication about one's
-  associations (family members, churches, etc.).
-\end{itemize}
-
-\subparagraph{Privacy of Data and Image}
-
-The Privacy of Data and Image is concered with one's data not beeing
-automatically availabel to others. This also is a very broad type of
-privacy. Depending of the data or image contents erery other type can be
-violated:
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  \textbf{Privacy of The Person:} Images or stored biometric information
-  reveal one's physical characteristics.
-\item
-  \textbf{Privacy of Behaviour and Action:} Images or diaries can reveal
-  one's social activities.
-\item
-  \textbf{Privacy of Communication:} Modern communication systems
-  usually contain some sort of archive function, e.g.~E-mail clients do
-  not automatically delete messages. Such messages are data and reveal
-  one's communication.
-\item
-  \textbf{Privacy of Data and Image:} reflexive violation
-\item
-  \textbf{Privacy of Thoughts and Feelings:} Images can show one's
-  emotional state.
-\item
-  \textbf{Privacy of Location and Space:} Images can reveal one's
-  location, e.g.~making a picture in front of the Eifel Tower.
-\item
-  \textbf{Privacy of Association:} E-mail data can also reveal
-  association.
-\end{itemize}
-
-\subparagraph{Privacy of Thoughts and Feelings}
-
-The Privacy of Thoughts and Feelings is concerned with keeping such
-thoughts and feelings secret. If this type is violated, following
-implicit violations are possible:
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  \textbf{Privacy of The Person:} Thoughts and feelings can reveal
-  medical conditions.
-\item
-  \textbf{Privacy of Behaviour and Action:} Thoughts and feelings can
-  reveal a certain attitudes which create a foundation for certain
-  social activities.
-\item
-  \textbf{Privacy of Communication:} none
-\item
-  \textbf{Privacy of Data and Image:} none
-\item
-  \textbf{Privacy of Thoughts and Feelings:} reflexive violation
-\item
-  \textbf{Privacy of Location and Space:} none
-\item
-  \textbf{Privacy of Association:} Thoughts and feelings can reveal
-  individual association, e.g amorous feelings for a certain person.
-\end{itemize}
-
-\subparagraph{Privacy of Location and Space}
-
-The Privacy of Location and Space is concerned with one's right to move
-freely without being tracked and one's right to private places. If this
-type is violated, following implicit violations are possible:
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  \textbf{Privacy of The Person:} Frequently visited doctors can reveal
-  certain medical conditions, if such doctors are known specialsts. In
-  general it could imply ill-being.
-\item
-  \textbf{Privacy of Behaviour and Action:} Frequently visited places in
-  general can reveal association and hence implies social activities.
-\item
-  \textbf{Privacy of Communication:} If one's location is knwon, it is
-  possible to intercept (wiretap) one's communication. This also may
-  violate the right to private spaces.
-\item
-  \textbf{Privacy of Data and Image:} If one's location is known, it is
-  possible shoot pictures. This violates the right to one's image
-  (\emph{``Recht am eigenen Bild''}).
-\item
-  \textbf{Privacy of Thoughts and Feelings:} Frequently visited persons
-  may imply certain thoughts and feelings, e.g.~having a mistress.
-\item
-  \textbf{Privacy of Location and Space:} reflexive violation
-\item
-  \textbf{Privacy of Association:} Frequently visted places can reveal
-  associations simply by searching in maps or yellow-pages.
-\end{itemize}
-
-\subparagraph{Privacy of Association}
-
-The Privacy of Association is concerned with one's right to associate
-with whomever one wants, without that association having recorded.If
-this type is violated, following implicit violations are possible:
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  \textbf{Privacy of The Person:} Association with tatoo artists could
-  imply having tatoos or other body modifications
-\item
-  \textbf{Privacy of Behaviour and Action:} Association with churches or
-  poltical organizations could imply certain activities.
-\item
-  \textbf{Privacy of Communication:} none
-\item
-  \textbf{Privacy of Data and Image:} none
-\item
-  \textbf{Privacy of Thoughts and Feelings:} Association with churchs of
-  political organizations could imply a certain intellectual attitude.
-\item
-  \textbf{Privacy of Location and Space:} none
-\item
-  \textbf{Privacy of Association:} reflexive violation
-\end{itemize}
 
 \paragraph{Sensor Privacy Matrix (Figure \ref{figure:Live+Gov Sensor-Privacy Matrix})}
 
