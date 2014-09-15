@@ -833,25 +833,23 @@ through out the analysis.
 We focus on the Asset privacy as described in Section \ref{sec:taxonomy}
 
 
-\subsubsection{IT-Systems \& Humans}
+\subsubsection{IT-Systems}
 
-\paragraph{Server Side Mining Scenario (Figure \ref{figure:Live+Gov Operation Scenario 01 - Server Side Mining})}
+This section outlines the general architecture (Figure \ref{figure:IT Systems}) of IT systems for public monitoring comparable to the Live+Gov project.
 
-%\includegraphics{../diagrams/png/scenario01-ServerSideMining.png}
-\input{./figures/LG-Operation-Scenario-01-Server-Side-Mining}
 \input{./figures/IT-Systems}
 
+\textbf{Description:}
+A \textit{Citizen (a)} carries a mobile device running the \textit{Sensor Collector (d)} application.
+The \textit{Sensor Collector} application collects sensor data (accelerometer, GPS, GSM, ...) and sends it to the \textit{Data Cetner (c)}. 
+The \textit{Data Center} on the other side sends beneficial information (traffic jam reports, bus schedule) for \textit{Citizens} to the mobile device.
+The \textit{System Provider (b)} provides and operates technical infrastructure like the Data Center and the \textit{Report Tool (f)}.
+The \textit{Report Tool} queries the \textit{Data Center} for aggregated data to visualize in form of charts and other means suitable to help understanding of monitored \textit{Citizens}. 
+\textit{Local Authorities (c)} use the \textit{Report Tool} to get information in order to understand citizen movement and improve public services. 
 
-A citizen (a) carries a mobile device (b) running the L+G client. The
-mobile device collects sensor data and sends it to the L+G Data Cetner
-(c). The L+G Data Center also sends beneficial information for citizens
-to the mobile device.
+In such systems, the most valuable information is not the raw sensor data, the beneficial information for \textit{Local Authorities} is produced via \textit{Data Mining}. 
 
-The L+G Maintenance Crew (d) maintaince the L+G Data Center.
-
-The Aggregation Monitor (e) queries the L+G Data Center for aggregated
-data. Local Authorities (f) use the Aggregation Monitor to get
-information in order to improve public services. \textbf{In this
+\textbf{In this
 scenario the mobile the server conducts data mining on aggregated user
 data and additionally trys to combine it with publicly accessible data
 to enhance the results.}
@@ -859,26 +857,8 @@ to enhance the results.}
 When no connection to the L+G servers is available, the mining
 end-products are stored on the mobile device.
 
-\paragraph{Mobile Mining Scenario (Figure \ref{figure:Live+Gov Operation Scenario 02 - Mobile Mining})}
 
-%\includegraphics{../diagrams/png/scenario02-MobileMining.png}
-\input{./figures/LG-Operation-Scenario-02-Mobile-Mining}
-
-A citizen (a) carries a mobile device (b) running the L+G client. The
-mobile device collects sensor data and sends it to the L+G Data Cetner
-(c). The L+G Data Center also sends beneficial information for citizens
-to the mobile device. \textbf{In this scenario the mobile device also
-conducts data mining previously to sending the results to the L+G Data
-Center.}
-
-The L+G Maintenance Crew (d) maintaince the L+G Data Center.
-
-The Aggregation Monitor (e) queries the L+G Data Center for aggregated
-data. Local Authorities (f) use the Aggregation Monitor to get
-information in order to improve public services.
-
-When no connection to the L+G servers is available, the mining
-end-products are stored on the mobile device.
+\subsubsection{Humans}
 
 \subsubsection{Conflict of Interests (Figure \ref{figure:Live+Gov Conflicts of Interests})}
 
