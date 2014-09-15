@@ -1,4 +1,4 @@
-\chapter{Privacy Protection}
+\chapter{Legal and Ethical aspects of Privacy}
 
 The goal of this document to analyze and identify the threads to personal privacy that are posed by collecting, storing and processing sensor data from mobile phones.
 We derive concrete privacy protection measures that address the main risks involved with handling such data.
@@ -339,15 +339,14 @@ Cf. Figure \ref{figure:Implicit Privacy Violation Matrix}
 
 %\includegraphics{../diagrams/png/implicit-privacy-violation-matrix.png}
 \input{./figures/Implicit-Privacy-Violation-Matrix}
-\input{./figures/ThreatTable}
 
-\subparagraph{Privacy of The Person}
+\paragraph*{Privacy of The Person}
 
 The Privacy of The Person is concerned with one's biometric privacy. If
 this type is violated, following implicit violations are possible:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   \textbf{Privacy of The Person:} reflexive violation
 \item
@@ -366,14 +365,14 @@ this type is violated, following implicit violations are possible:
   \textbf{Privacy of Association:} none
 \end{itemize}
 
-\subparagraph{Privacy of Behaviour and Action}
+\paragraph*{Privacy of Behaviour and Action}
 
 The Privacy of Behaviour and Action is concerned with one's privacy
 regarding social activities (religious, political, sexual, \ldots{}). If
 this type is violated, following implicit violations are possible:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   \textbf{Privacy of The Person:} Religious practices may include body
   modifications (e.g.~circumcision).
@@ -395,7 +394,7 @@ this type is violated, following implicit violations are possible:
   parties or sexual partners.
 \end{itemize}
 
-\subparagraph{Privacy of Communication}
+\paragraph*{Privacy of Communication}
 
 The Privacy of Communication is concerned with not havin such
 communication (corresponence or vis-a-vis) intercepted. This is very
@@ -403,7 +402,7 @@ broad type of privacy. Depending on the contens of the intercepted
 communication every other type can be violated:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   \textbf{Privacy of The Person:} Communication about body
   characteristics.
@@ -428,7 +427,7 @@ communication every other type can be violated:
   associations (family members, churches, etc.).
 \end{itemize}
 
-\subparagraph{Privacy of Data and Image}
+\paragraph*{Privacy of Data and Image}
 
 The Privacy of Data and Image is concered with one's data not beeing
 automatically availabel to others. This also is a very broad type of
@@ -436,7 +435,7 @@ privacy. Depending of the data or image contents erery other type can be
 violated:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   \textbf{Privacy of The Person:} Images or stored biometric information
   reveal one's physical characteristics.
@@ -461,14 +460,14 @@ violated:
   association.
 \end{itemize}
 
-\subparagraph{Privacy of Thoughts and Feelings}
+\paragraph*{Privacy of Thoughts and Feelings}
 
 The Privacy of Thoughts and Feelings is concerned with keeping such
 thoughts and feelings secret. If this type is violated, following
 implicit violations are possible:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   \textbf{Privacy of The Person:} Thoughts and feelings can reveal
   medical conditions.
@@ -489,14 +488,14 @@ implicit violations are possible:
   individual association, e.g amorous feelings for a certain person.
 \end{itemize}
 
-\subparagraph{Privacy of Location and Space}
+\paragraph*{Privacy of Location and Space}
 
 The Privacy of Location and Space is concerned with one's right to move
 freely without being tracked and one's right to private places. If this
 type is violated, following implicit violations are possible:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   \textbf{Privacy of The Person:} Frequently visited doctors can reveal
   certain medical conditions, if such doctors are known specialsts. In
@@ -522,14 +521,14 @@ type is violated, following implicit violations are possible:
   associations simply by searching in maps or yellow-pages.
 \end{itemize}
 
-\subparagraph{Privacy of Association}
+\paragraph*{Privacy of Association}
 
 The Privacy of Association is concerned with one's right to associate
 with whomever one wants, without that association having recorded.If
 this type is violated, following implicit violations are possible:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   \textbf{Privacy of The Person:} Association with tatoo artists could
   imply having tatoos or other body modifications
@@ -555,75 +554,66 @@ this type is violated, following implicit violations are possible:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{IT Security}
+\pagebreak
+
+\chapter{Privacy Analysis of Live+Gov Systems}
+
+\section{IT Security Analysis according to Grimm et. al}
+
+Grimm et al. create a reference model for conducting IT security
+analyses consisting of:
+
+\begin{itemize}
+
+\item
+  a \textbf{model}, which aims to organize common security
+  terminology in a reasonable and practical way
+\item
+  and a systematic analysis \textbf{procedure} based on that ontology
+\end{itemize}
 
 \subsection{Basic Terminology}
 
 %\includegraphics{diagrams/png/itsecterminology.png}
 \input{./figures/Basic-IT-Security-Terminology}
 
-\subsubsection{threat}
+\begin{itemize}
 
-\emph{threat} is a class of potential events whose manifestation can
+\item A \emph{threat} is a class of potential events whose manifestation can
 cause damage or harm.
 
-\subsubsection{vulnerability}
+\item A \emph{vulnerability} is a weakness which can cause the loss of security.
 
-A weakness which can cause the loss of security.
-
-\subsubsection{hazard}
-
-Concrete risk due to one or more concrete vulnerabilities \textbf{AND}
-corresponding threats.
+\item a \emph{hazard} is a concrete risk due to one or more concrete vulnerabilities and corresponding threats.
 
 \texttt{threat + vulnerability -\textgreater{} hazard}
 
-\subsubsection{incident}
-
-An event caused by a threat manifestation against one or more
+\item An \emph{incident} is an event caused by a threat manifestation against one or more
 corresponding vulnerabilities.
 
 \texttt{threat manifestation + vulnerability -\textgreater{} hazard}
 
-\subsubsection{accident}
+\item An \emph{accident} is an incident which did cause damage or harm. (Translates to 'Schandensfall/Zwischenfall/Störfall' in the German language).
 
-An incident which did cause damage or harm. (Translates to
-\emph{Schandensfall/Zwischenfall/Störfall} in german)
+\item A \emph {non-accident} is an incident which did not cause any damage or harm.
 
-\subsubsection{non-accident}
-
-An incident which \textbf{did not} cause any damage or harm.
-
-\subsubsection{measure}
-
-A well defined set of one or more activities which reduce or eliminate
+\item A security \emph{measure} is a set of one or more activities which reduce or eliminate
 vulnerabilities.
 
-\subsection{IT Security Analysis according to Grimm et. al}
-
-Grimm et al. create a reference model for conducting IT security
-analyses consisting of:
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  an \textbf{ontology}, which aims to organize common security
-  terminology in a reasonable and practical way
-\item
-  and a systematic analysis \textbf{procedure} based on that ontology
 \end{itemize}
 
-\subsubsection{Ontology}
+
+\subsection{Model}
 
 %\includegraphics{../diagrams/png/itsec-ref-model-grimm.png}
 \input{./figures/The-IT-Security-Reference-Model-Grimm}
 
 \paragraph{Views}
 
-The ontology is organized in four views:
+The model is organized in four views:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   \textbf{World:} Contains all components describing the current state.
 \item
@@ -646,7 +636,7 @@ The ontology is organized in four views:
 \subparagraph{World}
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   \textbf{Assets:} Things of value to one or more stakeholders. The
   value can be \emph{``hard''} (money, data, etc.) or \emph{``soft''}
@@ -682,7 +672,7 @@ The ontology is organized in four views:
 \subparagraph{Potential}
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   \textbf{Chances/Risks:} Chances and Risks \emph{affect}
   \textbf{Business Objectives} (and \textbf{Threats}).
@@ -704,7 +694,7 @@ The ontology is organized in four views:
 \subparagraph{Plan}
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   \textbf{Business Model:} The plan to achieve \textbf{Business
   Objectives}
@@ -726,7 +716,7 @@ The ontology is organized in four views:
 \subparagraph{Event}
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   \textbf{Business Process:} The actual, running instance of the
   \textbf{Busieness Modell}
@@ -756,7 +746,7 @@ At first, one has to outline the current state of the system under
 study. This includes description of:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   all \textbf{Assets} which must be protected
 \item
@@ -778,7 +768,7 @@ study. This includes both the dreaded (\textbf{Threats} and
 produces four artefacts:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   a \emph{threat specifiation}, which identifies the \textbf{Threat} and
   its targeted \textbf{Assets}
@@ -827,6 +817,7 @@ The utilized abstraction level is not important for the analysis
 procedure, it depends on the intended audience for the analysis.
 However, it is important to use one abstraction level consistently
 through out the analysis.
+
 
 \section{Live+Gov Privacy Protection Analysis}
 
@@ -892,7 +883,7 @@ end-products are stored on the mobile device.
 \textbf{Citizen vs L+G Maintenance Crew}
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 
 \item Citizen want to exercise their legal right to privacy. I.e. their right to control information about themselves.
 - citizens want to be unidentifiable
@@ -906,7 +897,7 @@ end-products are stored on the mobile device.
 \textbf{Citizen vs Local Authority}
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   citizens want to be unidentifiable
 \item
@@ -916,7 +907,7 @@ end-products are stored on the mobile device.
 \textbf{L+G Maintenance Crew vs Local Authority}
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   staff wants proper payment
 \item
@@ -926,7 +917,7 @@ end-products are stored on the mobile device.
 \textbf{Criminal vs Citizen}
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   citizens want to be unidentifiable
 \item
@@ -938,7 +929,7 @@ end-products are stored on the mobile device.
 \textbf{Criminal vs L+G Maintenance Crew}
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   criminals want to harm the system
 \item
@@ -948,7 +939,7 @@ end-products are stored on the mobile device.
 \textbf{Criminal vs Local Authority}
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   criminals want to harm the system
 \item
@@ -1018,8 +1009,10 @@ with making data \emph{automatically} available to others.)
 
 \subsubsection{Threats}
 
+\input{./figures/ThreatTable}
+
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   \textbf{Unauthorized access to privacy sensitive data}, caused by
   \begin{itemize}
@@ -1047,8 +1040,6 @@ with making data \emph{automatically} available to others.)
 
 %\includegraphics{../diagrams/png/sensor-privacy-matrix.png}
 \input{./figures/LG-Sensor-Privacy-Matrix}
-
-
 
 \subparagraph{Privacy of The Person}
 
@@ -1175,7 +1166,7 @@ organisations'\,''} {[}\hyperref[references]{1}{]}. This is
 Informational Privacy in an intuitive sense regarding data like:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   Phone Number
 \item
@@ -1273,7 +1264,7 @@ This C implements transparancy regarding user data and user privacy.
 Comprehension should answer the following questions:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   \emph{WHO} collects data?
 \item
@@ -1379,7 +1370,7 @@ make substantiated choices and enable \emph{adequate} control a user
 needs have
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   \textbf{Comprehension:} access to hard facts
 \item
@@ -1396,7 +1387,7 @@ possibilites to actually make choices. Additionally to having choices at
 all, the 7 C's have 3 special choice categories:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   \textbf{Choice}
   \begin{itemize}
@@ -1411,4 +1402,4 @@ all, the 7 C's have 3 special choice categories:
 
 \end{itemize}
 
-\section{References}
+% \section{References}
