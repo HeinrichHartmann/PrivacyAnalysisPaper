@@ -563,7 +563,7 @@ It supersedes earlier efforts by \cite{Avizienis}.
 
 The reference model consists of a \emph{model} and a \emph{procedure}.
 The model aims to organize common security terminology in a reasonable and practical way.
-The procedure describes a systematic way to analysis the IT system based on that model.
+The procedure describes a method to analysis the IT system based on that model.
 In this section we give a brief overview over the reference model.
 
 \subsection{Model}
@@ -574,21 +574,24 @@ In this section we give a brief overview over the reference model.
 The model is depictured in Figure \ref{fig:refmodel}.
 It is organized in four views (round boexes) that contain a number of components (rectangular boxes).
 
-The \textbf{world view} contains all components describing the current state.
+
+
+
+The \emph{world view} contains all components describing the current state.
 It consists of the following components:
 \begin{itemize}
-\item
-\textbf{Assets.} Things of value to one or more stakeholders.
-The value can be ``hard'' (money, data, etc.) or ``soft'' (trust, privacy,etc.).
-In our case the only asset we are concerned with is the privacy of the citizen.
-
-\item \textbf{IT-Systems.}
-A description of the IT-Systems under study.
-The level of garnularity has to be detailed enough to express all possible threats to the assets at stake.
-
 \item \textbf{Actors.}
 All identifiable stakeholders of the system under study.
 Typical actors include, users, developers, clients and criminals.
+
+\item
+\textbf{Assets.} Things of value to one or more stakeholders.
+The value can be hard (money, data, etc.) or soft (trust, privacy,etc.).
+In our case the only asset we are concerned with is the privacy of the citizen.
+
+\item \textbf{IT-Systems.}
+The releveant IT-Systems under study. This encompasses hardware (e.g. servers, network infrastructure), as well as software and third party services.
+The level of garnularity has to be detailed enough to express all possible threats to the assets at stake.
 
 \item \textbf{Conflicts of Interests.}
 Different actors have different interests which can be in conflict which each other.
@@ -609,14 +612,16 @@ This point captures all possible interactions between assets, IT-Systems, humans
 It is described in more detail in the next view.
 \end{itemize}
 
-The \textbf{potential view} describes the intended and unintended interactions of the components of the world view.
+
+
+
+The \emph{potential view} displays the intended and unintended interactions of the components in the world view.
 The intended interactions support the underlying business objectives.
 Unintended interactions lead to threats.
 The potential view consists of the following components.
-
 \begin{itemize}
 \item \textbf{Business Objectives.}
-Describes how IT-system and actors should interact in order to reach the goals of operation.
+Interaction of IT-system and actors that realize a business goals of the system owner.
 
 \item \textbf{Threats.}
 A threat is a potential interaction that destroys or harms assets of the system.
@@ -635,138 +640,109 @@ be modeled probabilistically, the risk is given by the procuct
 In practice such a quantitative risk evaluation is often not possible, and a qualitative, heursitic, analysis is performed instead.
 
 \item \textbf{Security Requirements.}
-Targeted change in specify interactions that may not occure within the system in order to acieve its business objectives.
+A set of interactions (e.g. threats) that shall not occure within the system in order to acieve its business objectives.
 Security requirements are targeted to protect one or more assets.
 
+An example of a security requirement is that a given communication channel shall not be infringed by criminals.
 \end{itemize}
 
-The \textbf{concept view} is a realization of the the potential view of the system.
-It describes a plan of sufficient measures to secure the intended interactions and to aviod the unintended interactions.
+
+
+
+The \emph{concept view} is a realization of the the potential view of the system.
+It specifies important interactions that require further planning.
 It contians the following components:
 \begin{itemize}
 \item \textbf{Business Model.}
 The plan to achieve business objectives.
 
 \item \textbf{Accident Scenario.}
-This is either the plan of a certain attack or the concrete outline of random disaster.
-Although the latter is most likely hard to anticipate.
+A concrete outline of an interaction that leads to an accident.
+In particular the asset under threatened and expolited vulnerability need to be described.
 
 \item \textbf{Attack Technique.}
 A specific technique or technology to attack IT-Systems (Man in the Middel, Phishing, etc.).
-
-%TODO: (\textbf{Note:} This component is not conform to the glossary as the term \emph{accident} there covers both disaster and attack!)
+In particular the attacking actor, the conflict of interest and the expolited vulnerability need to be described.
 
 \item \textbf{Security Measures.}
-The plan to achieve a safe and secure system.
-Each security mesaure opposes an accident scenario or an attack technique.
+It describes a plan of sufficient measures to secure the intended interactions and to aviod the unintended interactions.
+Each security mesaure targets a vulnearbility of the system in order to reduce a risk for a certain thread.
 \end{itemize}
 
 
-The \textbf{event view} contains all actual events through out the lifetime of the system.
+
+The \emph{event view} contains all actual events through out the lifetime of the system.
 The event view instantiates the concept view of the system.
 It contains the following components:
 \begin{itemize}
-\item
-  \textbf{Business Process:} The actual, running instance of the business model.
-\item
-\textbf{Accidents:} All actually happened accidents.
+\item \textbf{Business Process.}
+The actual, running instance of the business model.
 
-\item
-\textbf{Attacks:} All actually happened attacks. (\textbf{Note:} This
-component is not conform to the glossary as the term \emph{accident}
-there covers both disaster and attack!)
+\item \textbf{Accidents.}
+All actually happened accidents.
 
-\item
-\textbf{Security Operations:} Instances of \textbf{Security Measures}.
-Security Measures \emph{secure} the system against \textbf{Accidents}
-and \textbf{Attacks}.
+\item \textbf{Attacks.}
+All actually happened attacks.
+
+\item \textbf{Security Operations.}
+Instances of security measures.
 \end{itemize}
+
+
+
 
 \subsection{Procedure}
 
-The analysis procedure is an incremental and iterative process following
-the four views of the previously described ontology.
+The analysis procedure is an incremental and iterative process following the four views of the previously described model.
 
 %\includegraphics{../diagrams/png/itsec-ref-model-grimm-procedure.png}
 \input{./figures/The-IT-Security-Reference-Analysis-Grimm}
 
-\paragraph{Step 1. World Analysis}
+\paragraph*{Step 1. World Analysis}
 
-At first, one has to outline the current state of the system under
-study. This includes description of:
-
-\begin{itemize}
-
-\item
-  all \textbf{Assets} which must be protected
-\item
-  all relevant \textbf{IT-Systems}
-\item
-  all involved \textbf{Humans} and their \textbf{Conflicts of Interests}
-\item
-  all known \textbf{Vulnerabilities}
-\item
-  and all important \textbf{Interactions} between the former components.
-\end{itemize}
-
-\paragraph{Step 2. Potential Analysis}
-
-Secondly, one needs to outline the potential state of the system under
-study. This includes both the dreaded (\textbf{Threats} and
-\textbf{Risks}) and the desired (\textbf{Business Objectives},
-\textbf{Chances}, \textbf{Security Requirements} state. This step
-produces four artefacts:
+At first, one has to outline the current state of the system under study. This includes description of:
 
 \begin{itemize}
-
-\item
-  a \emph{threat specifiation}, which identifies the \textbf{Threat} and
-  its targeted \textbf{Assets}
-\item
-  a \emph{threat risk evaluation}, which detrmines the likelyhood of a
-  threat manifestation
-\item
-  a \emph{hazard matrix}, which maps threats to known
-  \textbf{Vulnerabilities} and identifies potential hazards
-\item
-  a \emph{security requirement specifiation}, which specifies
-  requirments in order to deal with identified hazards
+\item all \textbf{Assets} which must be protected
+\item all relevant \textbf{IT-Systems}
+\item all involved \textbf{Humans} and their \textbf{Conflicts of Interests}
+\item all known \textbf{Vulnerabilities}
+\item and all important \textbf{Interactions} between the former components.
 \end{itemize}
 
-\paragraph{Step 3. Plan Development}
+\paragraph*{Step 2. Potential Analysis}
 
-Based on \textbf{Step 2.}, the identified hazards are used alongside
-realistic \textbf{Accident Scenarios} (\textbf{Attack Techniques}) to
-create a \emph{risk matrix}. With this matrix it is possible to decide
-if the risk is acceptable or not. Together with the previously specified
-\textbf{Security Requirements}, the matrix is used to define adequate
-\textbf{Security Measures}. Like a \textbf{Business Model} is an
-abstract concept to achieve \textbf{Business Objectives}, this step
-creates an abstract concept to improve the system's security.
+Secondly, one needs to outline the potential insteractions of the system under study.
+This includes both the unintended interactions (threads) and the intended interactions (business objectives).
+This step produces four artefacts:
+\begin{itemize}
+\item a \emph{threat specifiation}, which identifies the threat, its targeted assets, the involved actors and thier conflicts of interest.
+\item a \emph{threat risk evaluation}, which quantifies the likelyhood of a threat manifestation in relation to its associated loss.
+\item a \emph{security requirement specifiation}, which specifies requirments in order to deal with identified hazards
+\end{itemize}
 
-\paragraph{Step 4. Plan Deployment}
+\paragraph*{Step 3. Plan Development}
 
-Finally, the \textbf{Security Measures} have to be implemented.
-Additionally, all \textbf{Business Operations}, \textbf{Accidents}
-(\textbf{Attacks}) and executed \textbf{Security Operations} will be
-recorded through out the production phase.
+Based on \textbf{Step 2.}, the identified hazards are used alongside realistic accident ccenarios and attack techniques to create a \emph{risk matrix}.
+With this matrix it is possible to decide if the risk is acceptable or not.
+Together with the previously specified security requirements, the matrix is used to define adequate security measures.
+Like a business model is an abstract concept to achieve business objectives, this step creates an concept to improve the system's security.
 
-The implementation of \textbf{Security Measures} evantually changes the
-\textbf{World} and renders the conducted analysis outdated. So this
-analysis procedure needs to be conducted again.
+\paragraph*{Step 4. Plan Deployment}
 
-\subsubsection{Abstraction Levels of the Reference Model}
+Finally, the security measures have to be implemented.
+Additionally, all business operations, accidents, attacks and executed security operations will be recorded in the following time.
 
-The Reference Model can be used on different levels of abstraction. This
-means each component can be used within a wide range of granularity, for
-instance the security measure \emph{Encryption} can be explored in
-genral or on the level of different concrete encryption tools; or on the
-even finer level of concrete algorithms.
+The implementation of security measures changes the world view (e.g. IT-systems, actors) and renders the conducted analysis outdated.
+So this analysis procedure needs to be conducted again.
 
-The utilized abstraction level is not important for the analysis
-procedure, it depends on the intended audience for the analysis.
-However, it is important to use one abstraction level consistently
-through out the analysis.
+\subsection{Abstraction Levels of the Reference Model}
+
+The Reference Model can be used on different levels of abstraction.
+This means each component can be used within a wide range of granularity, for instance the security measure \emph{Encryption} can be explored in genral or on the level of different concrete encryption tools; or on the even finer level of concrete algorithms.
+
+The utilized abstraction level is not important for the analysis procedure, it depends on the intended audience for the analysis.
+However, it is important to use one abstraction level consistently through out the analysis.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
