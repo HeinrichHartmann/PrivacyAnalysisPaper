@@ -1,17 +1,8 @@
 \chapter{Legal and Ethical aspects of Privacy}
 
-The goal of this document to analyze and identify the threads to personal privacy that are posed by collecting, storing and processing sensor data from mobile phones.
-We derive concrete privacy protection measures that address the main risks involved with handling such data.
-In the last part we describe how these measures are implemented in the Live+Gov toolkit.
-
 As privacy is a very general and hard to grasp term, we need to fix a definition of privacy that is suitable for our needs.
 As background information we include an overview about historical treatments of privacy as well as legal regulation of privacy in the European Union.
-Based on this we propose a definition of privacy as {\em control over personal data}, and introduce a taxonomy of privacy attributes that give specify the term {\em personal data} in the context of mobile
-sensor data collection.
-
-The complexity of our systems and the variety of threads make a great number of counter measures plausible.
-We approach this complexity with the aid of a general security analysis model developed in [Grimm].
-We give a brief introduction to this model and perform a IT Security Analysis with respect to the privacy asset for our system.
+Based on this we propose a definition of privacy as {\em control over personal data}, and introduce a taxonomy of privacy attributes that give specify the term {\em personal data} in the context of mobile sensor data collection.
 
 \section{Histrocial Approaches to Privacy}
 
@@ -558,21 +549,22 @@ this type is violated, following implicit violations are possible:
 
 \chapter{Privacy Analysis of Live+Gov Systems}
 
+The goal of this chapter to analyze and identify the threads to personal privacy that are posed by collecting, storing and processing sensor data from mobile phones.
+We derive concrete privacy protection measures that address the main risks involved with handling such data.
+
+The complexity of our systems and the variety of threads make a great number of counter measures plausible.
+We approach this complexity with the aid of a general security analysis model developed in \cite{Grimm}.
+We give a brief introduction to this model and perform a IT Security Analysis with respect to the privacy asset for our system.
+
 \section{IT Security Analysis according to Grimm et. al}
 
-Grimm et al. create a reference model for conducting IT security
-analyses consisting of:
+We follow the Reference Model for IT Security Analyis as described in \cite{Grimm}.
+It supersedes earlier efforts by \cite{Avizienis}.
 
-\begin{itemize}
+The \emph{reference model} consists of a \emph{model}, which aims to organize common security terminology in a reasonable and practical way and a systematic analysis \emph{procedure} based on that model.
 
-\item
-  a \textbf{model}, which aims to organize common security
-  terminology in a reasonable and practical way
-\item
-  and a systematic analysis \textbf{procedure} based on that ontology
-\end{itemize}
-
-\subsection{Basic Terminology}
+In this section we give a brief overview over the reference model.
+Before we can start with the description of model and procedure we introduce the following basic terminology (cf. Figure \ref{fig:terminology}).
 
 %\includegraphics{diagrams/png/itsecterminology.png}
 \input{./figures/Basic-IT-Security-Terminology}
@@ -602,121 +594,94 @@ vulnerabilities.
 
 \end{itemize}
 
-
 \subsection{Model}
 
 %\includegraphics{../diagrams/png/itsec-ref-model-grimm.png}
 \input{./figures/The-IT-Security-Reference-Model-Grimm}
 
-\paragraph{Views}
+The model is depictured in Figure \ref{fig:refmodel}.
+It is organized in four views (round boexes) that contain a number of components (rectangular boxes).
 
-The model is organized in four views:
-
+The \textbf{world view} contains all components describing the current state.
+It consists of the following components:
 \begin{itemize}
+\item
+\textbf{Assets.}
+Things of value to one or more stakeholders.
+The value can be ``hard'' (money, data, etc.) or ``soft'' (trust,privacy,etc.).
 
-\item
-  \textbf{World:} Contains all components describing the current state.
-\item
-  \textbf{Potential:} Contains all components describing both the
-  desired and dreaded state.
-\item
-  \textbf{Plan:} Contains all conceptual components required to develop
-  sufficient measures to achieve and secure the desired state
-  \textbf{or} to create the dreaded state. The \textbf{Plan} view
-  \emph{realizes} the \textbf{Potential} view of the system.
-  (\textbf{Note:} this should rather be translated with \emph{Concept})
-\item
-  \textbf{Event:} Contains all actual operations and events through out
-  the production phase. The \textbf{Event} view \emph{instantiates} the
-  \textbf{Plan} view of the system.
+\item \textbf{IT-Systems.}
+The IT-Systems under study.
+
+\item \textbf{Humans.}
+All identifiable actors of the system under study.
+Many problems arise due to misunderstandings during man-machine interaction.
+
+\item \textbf{Conflicts of Interests.}
+Different actors have different interests.
+Those interest can be in conflict.
+A trival conflict is the \emph{Attacker-Attackee-Conflict}:
+A service provider offers private data storage, therefore the provider is interested in having the access restricted.
+An attacker is naturally interested in easy access in order captialize the stolen data.
+However, heavy security restriction are also a burden for the service operator, as they are interested in efficient work flows.
+This kind of conflict can create vulnerabilities.
+
+\item \textbf{Vulnerabilities.}
+All indentifiable weaknesses in the current system layout.
+
+\item \textbf{Interactions.}
+Assets, IT-Systems, Humans and Vulnerabilites are in continous interaction with each other in order to support the business objectives.
+Those interactionscan also lead to threats, e.g. having unencrypted communication with a server.
+Therefore all interactions which occur in the system's outline have to be documented.
 \end{itemize}
 
-\paragraph{Components}
-
-\subparagraph{World}
-
+The \textbf{potential view} describes both the desired and dreaded state.
+It consists of the following components.
 \begin{itemize}
+\item \textbf{Chances/Risk.}
+Chances and Risks affect business objectives and threats.
+
+\item \textbf{Business Objectives.}
+Chances the system under study.
+This describes the desired state.
+
+\item \textbf{Threats.}
+Risks for business objectives, this can simply be the integrety of the IT-System.
+Threats target one or more assets and violate security requirements}.
+This describes the dreaded state.
 
 \item
-  \textbf{Assets:} Things of value to one or more stakeholders. The
-  value can be \emph{``hard''} (money, data, etc.) or \emph{``soft''}
-  (trust,privacy,etc.).
-\item
-  \textbf{IT-Systems:} The IT-Systems under study.
-\item
-  \textbf{Humans:} All identifiable actors of the system under study.
-  Many problems arise due to misunderstandings during man-machine
-  interaction.
-\item
-  \textbf{Conflicts of Interests:} Different actors have different
-  interests. Those interest can be in conflict. A trival conflict is the
-  \emph{Attacker-Attackee}-Conflict: a service provider offers private
-  data storage, therefore the provider is interested in having the
-  access restricted. An attacker is naturally interested in easy access
-  in order captialize the stolen data. However, heavy security
-  restriction are also a burden for maintenance staff, as they are
-  interested in having an easy life. This kind of conflict can create
-  vulnerabilities.
-\item
-  \textbf{Vulnerabilities:} All indentifiable weaknesses in the current
-  system layout.
-\item
-  \textbf{Interactions:} Assets, IT-Systems, Humans and Vulnerabilites
-  are in continous interaction with each other in order to
-  \emph{support} the \textbf{Business Objectives}. Those interactionscan
-  also \emph{lead to} \textbf{Threats}, i.e.~having unencrypted
-  communication with a server. Therefore all interactions which occur in
-  the system's outline have to be documented.
+\textbf{Security Requirements:} A set of distinct requirements for a safe and secure system.
+Security requirements hold for one or more assets.
+This describes the potential state after this procedure.
 \end{itemize}
 
-\subparagraph{Potential}
-
+The \textbf{concept view} is a realization of the the potential view of the system.
+It describes a plan of sufficient measures to secure the desired state and to aviod the dreaded state of the system.
+It contians the following components:
 \begin{itemize}
+\item \textbf{Business Model.}
+The plan to achieve business objectives.
 
-\item
-  \textbf{Chances/Risks:} Chances and Risks \emph{affect}
-  \textbf{Business Objectives} (and \textbf{Threats}).
-\item
-  \textbf{Business Objectives:} Chances the system under study. This
-  describes the desired state.
-\item
-  \textbf{Threats:} Risks for business objectives, this can simply be
-  the integrety of the IT-System. Threats \emph{target} one or more
-  \textbf{Assets} and violate \textbf{Security Requirements}. This
-  describes the dreaded state.
-\item
-  \textbf{Security Requirements:} A set of distinct requirements for a
-  safe and secure system. Security requirements \emph{hold for} one or
-  more \textbf{Assets}. This describes the potential state after this
-  procedure.
+\item \textbf{Accident Scenario.}
+This is either the plan of a certain attack or the concrete outline of random disaster.
+Although the latter is most likely hard to anticipate.
+
+\item \textbf{Attack Technique.}
+A specific technique or technology to attack IT-Systems (Man in the Middel, Phishing, etc.).
+(\textbf{Note:} This component is not conform to the glossary as the term \emph{accident} there covers both disaster and attack!)
+
+\item \textbf{Security Measures.}
+The plan to achieve a safe and secure system.
+Each security mesaure opposes an accident scenario or an attack technique.
+
 \end{itemize}
 
-\subparagraph{Plan}
 
+The \textbf{event view} contains all actual operations and events through out the production phase.
+The event view instantiates the concept view of the system.
+It contains the following components:
 \begin{itemize}
-
-\item
-  \textbf{Business Model:} The plan to achieve \textbf{Business
-  Objectives}
-\item
-  \textbf{Accident Scenario:} This is either the plan of a certain
-  attack or the concrete outline of random disaster. Although the latter
-  is most likely hard to anticipate.
-\item
-  \textbf{Attack Technique:} A specific technique or technology to
-  attack IT-Systems (Man in the Middel, Phishing, etc.). (\textbf{Note:}
-  This component is not conform to the glossary as the term
-  \emph{accident} there covers both disaster and attack!)
-\item
-  \textbf{Security Measures:} The plan to achieve a safe and secure
-  system. Each \textbf{Security Mesaure} \emph{opposes} an
-  \textbf{Accident Scenario} or an \textbf{Attack Technique}.
-\end{itemize}
-
-\subparagraph{Event}
-
-\begin{itemize}
-
 \item
   \textbf{Business Process:} The actual, running instance of the
   \textbf{Busieness Modell}
@@ -732,7 +697,7 @@ The model is organized in four views:
   and \textbf{Attacks}.
 \end{itemize}
 
-\subsubsection{Procedure}
+\subsection{Procedure}
 
 The analysis procedure is an incremental and iterative process following
 the four views of the previously described ontology.
