@@ -3,6 +3,8 @@ LiveGov Deliverable D1.3
 
 Privacy Aware Storage and Miner
 
+[![PDF Status](https://www.sharelatex.com/github/repos/Institute-Web-Science-and-Technologies/LiveGovD1.3/builds/latest/badge.svg)](https://www.sharelatex.com/github/repos/Institute-Web-Science-and-Technologies/LiveGovD1.3/builds/latest/output.pdf)
+
 # DoW Excerpts
 
 * **T1.4 PM7-24)**
