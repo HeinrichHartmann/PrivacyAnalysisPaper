@@ -1,4 +1,5 @@
 \chapter{Legal and Ethical aspects of Privacy}
+\label{chap:privacy}
 
 As privacy is a very general and hard to grasp term, we need to fix a definition of privacy that is suitable for our needs.
 As background information we include an overview about historical treatments of privacy as well as legal regulation of privacy in the European Union.
@@ -206,6 +207,7 @@ Thus, those companies will act as \emph{safe harbors}. Without certification for
 \emph{Safe harbor} in general is the legal concept to regulate that a certain conduct will be deemed {[}\hyperref[references]{4}{]}, but in germany the term is commonly used as synonym for the agreement between the EU and the US regarding Directive 95/46.)
 
 \section{Privacy Definition and Taxonomy}
+\label{sec:taxonomy}
 
 \subsection{Defining Privacy}
 
@@ -677,6 +679,7 @@ Each security mesaure targets a vulnearbility of the system in order to reduce a
 
 
 
+
 The \emph{event view} contains all actual events through out the lifetime of the system.
 The event view instantiates the concept view of the system.
 It contains the following components:
@@ -707,13 +710,12 @@ The analysis procedure is an incremental and iterative process following the fou
 \paragraph*{Step 1. World Analysis}
 
 At first, one has to outline the current state of the system under study. This includes description of:
-
 \begin{itemize}
 \item all \textbf{Assets} which must be protected
 \item all relevant \textbf{IT-Systems}
 \item all involved \textbf{Humans} and their \textbf{Conflicts of Interests}
 \item all known \textbf{Vulnerabilities}
-\item and all important \textbf{Interactions} between the former components.
+% \item and all important \textbf{Interactions} between the former components.
 \end{itemize}
 
 \paragraph*{Step 2. Potential Analysis}
@@ -762,19 +764,41 @@ However, it is important to use one abstraction level consistently through out t
 
 \subsubsection{Assets: Privacy}
 
-We focus on the Asset privacy as described in Section \ref{sec:taxonomy}
+In this document we focus our attention to only one asset: The privacy of the citizen.
 
+%TODO: UPDATE
+Our definition of privacy is descibed in detail in Chapter \ref{chap:privacy}. In Section \ref{sec:taxonomy} we define privacy as the ``control over private data'' and introduce the following seven different types of privacy:
+\begin{enumerate}
+\item Privacy of the Person
+\item Privacy of Behaviour and Action
+\item Privacy of Communication
+\item Privacy of Data and Image
+\item Privacy of Thoughts and Feelings
+\item Privacy of Location and Space
+\item Privacy os Association
+\end{enumerate}
+
+Please refer to Section \ref{sec:taxonomy} for more details.
 
 \subsubsection{IT-Systems}
 \label{subsubsection:it-systems}
 
 This section outlines the general architecture (Figure \ref{figure:IT Systems}) of IT systems for public monitoring comparable to the Live+Gov project.
 
+The IT infrastructure of the Live+Gov system, i.e. the Live+Gov toolkit and the customization of the software components are described in detail in various project deliverables: D4.1, D4.3, D1.1, D5.1.
+In this section we give an abstraction of those systems from the perspective of WP1.
+
 \input{./figures/IT-Systems}
 
-A \textit{Citizen (a)} carries a mobile device running the \textit{Sensor Collector (d)} application.
-The \textit{Sensor Collector} application collects sensor data (accelerometer, GPS, GSM, ...) and sends it to the \textit{Data Cetner (c)}. 
-The \textit{Data Center} on the other side sends beneficial information (traffic jam reports, bus schedule) for \textit{Citizens} to the mobile device.
+A citizen (a) carries a mobile device running the \emph{sensor collector} (d) application.
+The sensor collector application collects sensor data (accelerometer, GPS, GSM, ...) and sends it to the \emph{data center} (c).
+The sensor collector can also be able to perform certain data mining operations.
+Examples of such data mining operations include human activity recognition,the detection of service lines, detection of characters and faces from images.
+
+The \emph{data center} stores and processes sensor data collected with the sensor collector application.
+Again the amount 
+
+ sends beneficial information (traffic jam reports, bus schedule) for \textit{Citizens} to the mobile device.
 The \textit{System Provider (b)} provides and operates technical infrastructure like the \textit{Data Center} and the \textit{Report Tool (f)}.
 The \textit{Report Tool} queries the \textit{Data Center} for aggregated data to visualize in form of charts and other means suitable to help understanding of monitored \textit{Citizens}. 
 \textit{Local Authorities (c)} use the \textit{Report Tool} to get information in order to understand citizen movement and improve public services. 
