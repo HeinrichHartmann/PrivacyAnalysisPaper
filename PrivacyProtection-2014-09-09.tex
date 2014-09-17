@@ -775,12 +775,12 @@ This section outlines the general architecture (Figure \ref{figure:IT Systems}) 
 A \textit{Citizen (a)} carries a mobile device running the \textit{Sensor Collector (d)} application.
 The \textit{Sensor Collector} application collects sensor data (accelerometer, GPS, GSM, ...) and sends it to the \textit{Data Cetner (c)}. 
 The \textit{Data Center} on the other side sends beneficial information (traffic jam reports, bus schedule) for \textit{Citizens} to the mobile device.
-The \textit{System Provider (b)} provides and operates technical infrastructure like the Data Center and the \textit{Report Tool (f)}.
+The \textit{System Provider (b)} provides and operates technical infrastructure like the \textit{Data Center} and the \textit{Report Tool (f)}.
 The \textit{Report Tool} queries the \textit{Data Center} for aggregated data to visualize in form of charts and other means suitable to help understanding of monitored \textit{Citizens}. 
 \textit{Local Authorities (c)} use the \textit{Report Tool} to get information in order to understand citizen movement and improve public services. 
 
 In such systems, the most valuable information is not the raw sensor data, the beneficial information for \textit{Local Authorities} is produced via \textit{Data Mining} (Human Activity Recognition: detect running, walking, standing, ...). 
-Usually, \textit{Data Mining} is heavily conduct within the \textit{Data Center}, but simpler mining processes can also be conducted on mobile devices.
+Usually, \textit{Data Mining} is heavily conducted within the \textit{Data Center}, but simpler mining processes can also be conducted on mobile devices.
 
 
 
@@ -791,16 +791,23 @@ This section outlines the human actors previously introduced within the IT syste
 It is described which individual interests they have invested in monitoring systems comparable to the Live+Gov system. 
 Also the additional actor \textit{Criminal} is introduced as an possible obstacle.
 
-\textbf{Citizen:}
-\begin{itemize}
-\item legal right to privacy
-\item no spam
-\item no stalking
-\item no loss / gain of money
-\item physical wellbeing / personal health (attack because someone knows your gps location)
-\item transparency: who has my data
-\item good pricing of insurance policies
-\end{itemize}
+\textbf{Citizen:} 
+Citizens are persons who take part in the monitoring system as the monitored subjects.
+They offer their privacy sensitive data, because by participating they expect a higher level of comfort in their lives through the offered services in return.
+E.g. they will have access to real time bus schedules and traffic jam reports, localized social networking or they generally benefit from public improvement by Local Authorities.
+
+However, they have a legal right to privacy and are interested in having that privacy respected by others.
+For example, all humans have a natural interest in physical wellbeing and personal health. 
+If someone monitors their immediate location (GPS) or frequently used routes (stalking), people with access to that information could attack and harm citizens.
+
+In general, citizens are not interested in having information about them exploited by others. 
+This includes just annoying spam, where their technical identity is used to send them unwanted commercials.
+But it also includes more severe phishing attacks, which try to rob citizens of their TAN numbers and disrespect their financial interests.
+
+Such financial interests of monitored citizens, the interest in not losing / gaining money, could be disrespected on an even larger scale.
+Collected data could be used for scoring and analysis, which may affect the pricing of policies or credits, if sold to insurances or banks.
+
+So citizens have an inherent interest in transparency and disclosure of who uses their data for which purposes, as it may affect their physical and financial wellbeing.
 
 In short, Citizens are interested in ...
 \begin{itemize}
@@ -847,8 +854,6 @@ This effects product quality and thus effects customer satisfaction.
 If employees cannot satisfy their demand for professional excellence, they might get discontent, deliver poor work or produce higher costs through sick days.
 The worst case scenario could be, that a discontent employee gets angry and steals data or harms the running systems.
 
-
-
 In short, System Providers are interested in ...
 \begin{itemize}
 \item ... financial profit
@@ -858,11 +863,20 @@ In short, System Providers are interested in ...
 
 
 \textbf{Local Authority:} 
+Local Authorities are public offices (ministry, agency, department, ...) which act as direct customers of Service Providers and order a proposed monitoring and mining system specialized for their needs. 
+For example a low level department, like departments for public mobility, orders a monitoring and mining system to better understand and improve urban traffic flow.
+
+Such systems are heavy investments, so naturally Local Authorities are interested in a profitable return.
+However, since a Local Authority is not a company, the return of investment is not solely of financial nature.
+The main goal of monitoring and mining system is to reveal hidden information. 
+So Local Authorities are heavily interested in business intelligence.
+
 
 In short, Local Authorities are interested in ...
 \begin{itemize}
-\item ... business intelligence (profit, RoI)
+\item ... business intelligence
 \item ... political reputation
+\item ... good working conditions
 \end{itemize}
 
 
