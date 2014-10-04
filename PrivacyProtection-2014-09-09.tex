@@ -798,7 +798,7 @@ Examples of such data mining operations include human activity recognition,the d
 The \emph{data center} stores and processes sensor data collected with the sensor collector application.
 Again the amount 
 
- sends beneficial information (traffic jam reports, bus schedule) for \textit{Citizens} to the mobile device.
+Vice versa, it sends beneficial information (traffic jam reports, bus schedule) for \textit{Citizens} to the mobile device.
 The \textit{System Provider (b)} provides and operates technical infrastructure like the \textit{Data Center} and the \textit{Report Tool (f)}.
 The \textit{Report Tool} queries the \textit{Data Center} for aggregated data to visualize in form of charts and other means suitable to help understanding of monitored \textit{Citizens}. 
 \textit{Local Authorities (c)} use the \textit{Report Tool} to get information in order to understand citizen movement and improve public services. 
@@ -825,7 +825,7 @@ For example, all humans have a natural interest in physical wellbeing and person
 If someone monitors their immediate location (GPS) or frequently used routes (stalking), people with access to that information could attack and harm citizens.
 
 In general, citizens are not interested in having information about them exploited by others. 
-This includes just annoying spam, where their technical identity is used to send them unwanted commercials.
+This includes just annoying spam, where their technical identity is used to send unwanted commercials.
 But it also includes more severe phishing attacks, which try to rob citizens of their TAN numbers and disrespect their financial interests.
 
 Such financial interests of monitored citizens, the interest in not losing / gaining money, could be disrespected on an even larger scale.
@@ -852,7 +852,7 @@ Because Local Authorities are involved in the general outline of a public monito
 Criminals could want to harm or destroy the systems in order to damage the reputation of Local Authorities (politicians or other officials) or to make a political statement of their own, e.g. "Stop Surveillance!".
 
 Another possible motivation for criminal activities could be social appreciation.
-A hacker could attack critical infrastructure just to show his skills.
+A hacker could attack critical infrastructure just to prove his skills.
 
 In short, Criminals are interested in ...
 \begin{itemize}
@@ -864,25 +864,38 @@ In short, Criminals are interested in ...
 \textbf{System Provider:}
 System Providers provide and operate the technical infrastructure (hardware and software) of the proposed monitoring system.
 They are normal companies which offer to provide a service, so different roles of employees are involved:
-an administrator, who maintains and operates the running system;
-a programmer/developer, who develops the system;
-a support manager, who handles customer relations;
-...
+ an administrator, who maintains and operates the running system;
+ a programmer/developer, who develops the system;
+ a support manager, who handles customer relations;
+ etc.
 
-As companies, they follow typical business objectives. 
-They are interested in gaining financial profit, which heavily depends on the customer's satisfaction.
-But it also depends on the happiness of their employees. 
+As companies, they are interested in gaining financial profit.
+Among other things, this depends on customer satisfaction, employee happiness and task complexity.
+Unsatisfied customers may not want to pay for the service or do not continue the business relation.
+Moreover, unsatisfied customers can create a bad reputation, which affects the market for future customers.
+
+Customer satisfaction is connected with the quality of the offered product or service.
+This quality depends on the happiness of employees. 
 Employees have a claim to professional excellence.
 They want to deliver a good job within their means.
-This effects product quality and thus effects customer satisfaction.
-If employees cannot satisfy their demand for professional excellence, they might get discontent, deliver poor work or produce higher costs through sick days.
+If employees cannot satisfy their demand for professional excellence, they might get discontent and deliver poor work.
+Moreover, unhappy employees can produce higher costs through sick days.
+Ill employees stay on payroll, but stress the project schedule by splitting the workload on fewer heads.
 The worst case scenario could be, that a discontent employee gets angry and steals data or harms the running systems.
+
+At last, the financial success of System Providers depends on the task complexity.
+The complexity of a task has to be in reasonable bounds, so that System Providers can complete it within time, with a satisfying quality.
+If a task has a higher complexity than expected, financial loss is almost determined.
+Either System Providers need to hire additional competence to meet schedule and requirements.
+Or System Providers they stress the time-line, which also results in a higher man-hour salary ratio and additionally endangers customer satisfaction.
+Ultimately, high task complexities can affect employee happiness, if employees cannot complete it within their claim to professional excellence.  
 
 In short, System Providers are interested in ...
 \begin{itemize}
 \item ... financial profit
 \item ... good working conditions
 \item ... professional excellence
+\item ... reasonable complexity
 \end{itemize}
 
 
@@ -919,9 +932,37 @@ In short, Local Authorities are interested in ...
 \label{subsubsection:Conflicts of Interests}
 This section outlines the Conflicts of Interests (Figure \ref{figure:Live+Gov Conflicts of Interests}) between the actors of the proposed IT system architecture. 
 The individual interests of all actors is already described in the previous section and are not elaborated any further.
-The emphasis here is put on the existing conflicts.
+The emphasis here is put on prominent existing conflicts, because they provide a foundation for vulnerabilities an subsequent threats.
 
 \input{./figures/LG-Conflicts-Of-Interests}
+
+
+\textbf{System Complexity vs Privacy}
+System Providers offer a service to Local Authorities, which is to provide and maintain a monitoring and mining system, e.g. for public mobility.
+This system shall produce business intelligence, so that Local Authorities can improve their public services.
+This task in it self has a high technical complexity and is the sole asset with financial return for System Providers.
+However, this task operates on privacy sensitive data provided by monitored Citizens.
+In order to ensure their privacy, System Provider would have to implement additional mechanisms, which allow Citizens to exercise control of their data.
+But this will eventually raise the complexity of the monitoring and mining system.
+
+
+\textbf{Business Intelligence vs Privacy}
+Local Authorities order a monitoring and mining system from System Providers, which allows them to produce business intelligence for public services.
+
+
+
+\textbf{Money vs Privacy}
+asdf
+
+\textbf{Money vs Professional Reputation}
+asdf
+
+\textbf{Political Power vs Political Reputation}
+asdf
+
+
+
+
 
 \textbf{Citizen vs L+G Maintenance Crew}
 
