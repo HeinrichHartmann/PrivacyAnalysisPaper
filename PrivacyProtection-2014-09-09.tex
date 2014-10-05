@@ -780,10 +780,11 @@ Our definition of privacy is descibed in detail in Chapter \ref{chap:privacy}. I
 
 Please refer to Section \ref{sec:taxonomy} for more details.
 
-\subsubsection{IT-Systems}
+\subsubsection{IT-Systems \& Interactions}
 \label{subsubsection:it-systems}
 
 This section outlines the general architecture (Figure \ref{figure:IT Systems}) of IT systems for public monitoring comparable to the Live+Gov project.
+This includes a description of it technical infrastructure and the interactions between its components.
 
 The IT infrastructure of the Live+Gov system, i.e. the Live+Gov toolkit and the customization of the software components are described in detail in various project deliverables: D4.1, D4.3, D1.1, D5.1.
 In this section we give an abstraction of those systems from the perspective of WP1.
@@ -1002,11 +1003,14 @@ Local Authority staff has access to the Report Tool.
 This all enables staff members to have potential access to privacy sensitive information.
 Those accesses have to be secured against unauthorized third parties, e.g. Criminals.
 Moreover, we need to ensure that no single person has to many access rights.
-For example, a system administrator should not be able to download the whole database on a flash-drive.
+For example, a system administrator should not be able to secretly download the whole database on a flash-drive.
 
 \textbf{Insufficiently Secured Infrastructure:}
 The proposed monitoring system consists of many hardware and software components, each with its own concrete weaknesses.
-
+For instance, operating systems can be outdated or not subject to frequent updates or virus scans.
+Web-applications can be carelessly implemented and not protected against SQL-Injections or Cross-Site-Scripting attacks.
+Databases can be ill-configured, so that access from outside the system is possible.
+All those weak points can be subject to various known exploit techniques.
 
 \textbf{Unaware Monitoring Subjects:}
 We define privacy as one's ability to control information about oneself. 
@@ -1050,7 +1054,7 @@ Subjects who are not aware of these things cannot effectively preserve control a
 \subsection{Step 2. Potential Analysis}
 
 \subsubsection{Threats}
-
+\input{./figures/LG-Threats}
 \input{./figures/ThreatTable}
 
 \begin{itemize}
