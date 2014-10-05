@@ -983,49 +983,65 @@ Criminals would gain political power, because their point of view would seem to 
 
 
 \subsubsection{Vulnerabilities}
+This section outlines the vulnerabilities (Figure \ref{figure:Live+Gov Vulnerabilities}) of the proposed monitoring and mining system.
+Note that vulnerabilities are not necessarily of technical nature.
+The weaknesses of IT systems are often created due to misuse or misconfiguration of the various components by one or more actors.
+
+
+\textbf{Unencrypted Data Transmission:}
+The proposed monitoring and mining system uses HTTP to exchange data between the Sensor Collector, the Data Center and the Report Tool.
+Per default, HTTP is a clear text protocol.
+This means, one can intercept the connection and read all sensitive information, which is send between the components.
+That is: passwords, raw sensor data and data mining results
+
+\textbf{Inadequate Access Rules:}
+The proposed IT system infrastructure has various accesses to privacy sensitive data.
+System Provider staff has access to Data Center hardware and software like databases, web-servers and other inspection tools.
+Local Authority staff has access to the Report Tool.
+This all enables staff members to have potential access to privacy sensitive information.
+Those accesses have to be secured against unauthorized third parties, e.g. Criminals.
+Moreover, we need to ensure that no single person has to many access rights.
+For example, a system administrator should not be able to download the whole database on a flash-drive.
+
+\textbf{Insufficiently Secured Infrastructure:}
+Outdated hard- and software
+
+\textbf{Unaware Monitoring Subjects:}
+asdf
+
 
 %\includegraphics{../diagrams/png/scenario-vulnerabilities.png}
 \input{./figures/LG-Vulnerabilities}
 
-\textbf{Unencrypted Data Transmission:}
-asdf
-
-\textbf{Outdated Infrastructure:}
-Outdated hard- and software
-
-\textbf{Inadequate Access Rules:}
-asdf
-
-
-\paragraph{List of Vulnerabilities}
-
-The vulnerabilities of Live+Gov system outline are:
-
-\begin{itemize}
-\item
-  unencrypted data transmission (Man In The Middel)
-\item
-  insecure mobile devices (Exploit)
-\item
-  insecure servers (Exploit)
-\item
-  inadequate access rules for
-  \begin{itemize}
-  \item
-    mobile devices (citizens)
-  \item
-    servers (staff)
-  \item
-    applications (local authority)
-  \end{itemize}
-\item
-  corrupt/unhappy authorities or staff (\textbf{Could be actually a
-  threat not a vulnerability})
-\end{itemize}
-
-(\textbf{Note:} The vulnerabilities seem to mostly open possibilities to
-violate the \textbf{Privacy of Data and Image}, as this type is concerd
-with making data \emph{automatically} available to others.)
+%\paragraph{List of Vulnerabilities}
+%
+%The vulnerabilities of Live+Gov system outline are:
+%
+%\begin{itemize}
+%\item
+%  unencrypted data transmission (Man In The Middel)
+%\item
+%  insecure mobile devices (Exploit)
+%\item
+%  insecure servers (Exploit)
+%\item
+%  inadequate access rules for
+%  \begin{itemize}
+%  \item
+%    mobile devices (citizens)
+%  \item
+%    servers (staff)
+%  \item
+%    applications (local authority)
+%  \end{itemize}
+%\item
+%  corrupt/unhappy authorities or staff (\textbf{Could be actually a
+%  threat not a vulnerability})
+%\end{itemize}
+%
+%(\textbf{Note:} The vulnerabilities seem to mostly open possibilities to
+%violate the \textbf{Privacy of Data and Image}, as this type is concerd
+%with making data \emph{automatically} available to others.)
 
 \subsection{Step 2. Potential Analysis}
 
