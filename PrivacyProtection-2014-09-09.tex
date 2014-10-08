@@ -723,14 +723,14 @@ This step produces four artefacts:
 \item a \emph{security requirement specifiation}, which specifies requirments in order to deal with identified hazards
 \end{itemize}
 
-\paragraph*{Step 3. Plan Development}
+\paragraph*{Step 3. Concept Development}
 
 Based on \textbf{Step 2.}, the identified hazards are used alongside realistic accident ccenarios and attack techniques to create a \emph{risk matrix}.
 With this matrix it is possible to decide if the risk is acceptable or not.
 Together with the previously specified security requirements, the matrix is used to define adequate security measures.
 Like a business model is an abstract concept to achieve business objectives, this step creates an concept to improve the system's security.
 
-\paragraph*{Step 4. Plan Deployment}
+\paragraph*{Step 4. Concept Deployment}
 
 Finally, the security measures have to be implemented.
 Additionally, all business operations, accidents, attacks and executed security operations will be recorded in the following time.
@@ -774,10 +774,11 @@ Our definition of privacy is descibed in detail in Chapter \ref{chap:privacy}. I
 
 Please refer to Section \ref{sec:taxonomy} for more details.
 
-\subsubsection{IT-Systems}
+\subsubsection{IT-Systems \& Interactions}
 \label{subsubsection:it-systems}
 
 This section outlines the general architecture (Figure \ref{figure:IT Systems}) of IT systems for public monitoring comparable to the Live+Gov project.
+This includes a description of it technical infrastructure and the interactions between its components.
 
 The IT infrastructure of the Live+Gov system, i.e. the Live+Gov toolkit and the customization of the software components are described in detail in various project deliverables: D4.1, D4.3, D1.1, D5.1.
 In this section we give an abstraction of those systems from the perspective of WP1.
@@ -792,7 +793,7 @@ Examples of such data mining operations include human activity recognition,the d
 The \emph{data center} stores and processes sensor data collected with the sensor collector application.
 Again the amount 
 
- sends beneficial information (traffic jam reports, bus schedule) for \textit{Citizens} to the mobile device.
+Vice versa, it sends beneficial information (traffic jam reports, bus schedule) for \textit{Citizens} to the mobile device.
 The \textit{System Provider (b)} provides and operates technical infrastructure like the \textit{Data Center} and the \textit{Report Tool (f)}.
 The \textit{Report Tool} queries the \textit{Data Center} for aggregated data to visualize in form of charts and other means suitable to help understanding of monitored \textit{Citizens}. 
 \textit{Local Authorities (c)} use the \textit{Report Tool} to get information in order to understand citizen movement and improve public services. 
@@ -819,7 +820,7 @@ For example, all humans have a natural interest in physical wellbeing and person
 If someone monitors their immediate location (GPS) or frequently used routes (stalking), people with access to that information could attack and harm citizens.
 
 In general, citizens are not interested in having information about them exploited by others. 
-This includes just annoying spam, where their technical identity is used to send them unwanted commercials.
+This includes just annoying spam, where their technical identity is used to send unwanted commercials.
 But it also includes more severe phishing attacks, which try to rob citizens of their TAN numbers and disrespect their financial interests.
 
 Such financial interests of monitored citizens, the interest in not losing / gaining money, could be disrespected on an even larger scale.
@@ -846,7 +847,7 @@ Because Local Authorities are involved in the general outline of a public monito
 Criminals could want to harm or destroy the systems in order to damage the reputation of Local Authorities (politicians or other officials) or to make a political statement of their own, e.g. "Stop Surveillance!".
 
 Another possible motivation for criminal activities could be social appreciation.
-A hacker could attack critical infrastructure just to show his skills.
+A hacker could attack critical infrastructure just to prove his skills.
 
 In short, Criminals are interested in ...
 \begin{itemize}
@@ -858,25 +859,38 @@ In short, Criminals are interested in ...
 \textbf{System Provider:}
 System Providers provide and operate the technical infrastructure (hardware and software) of the proposed monitoring system.
 They are normal companies which offer to provide a service, so different roles of employees are involved:
-an administrator, who maintains and operates the running system;
-a programmer/developer, who develops the system;
-a support manager, who handles customer relations;
-...
+ an administrator, who maintains and operates the running system;
+ a programmer/developer, who develops the system;
+ a support manager, who handles customer relations;
+ etc.
 
-As companies, they follow typical business objectives. 
-They are interested in gaining financial profit, which heavily depends on the customer's satisfaction.
-But it also depends on the happiness of their employees. 
+As companies, they are interested in gaining financial profit.
+Among other things, this depends on customer satisfaction, employee happiness and task complexity.
+Unsatisfied customers may not want to pay for the service or do not continue the business relation.
+Moreover, unsatisfied customers can create a bad reputation, which affects the market for future customers.
+
+Customer satisfaction is connected with the quality of the offered product or service.
+This quality depends on the happiness of employees. 
 Employees have a claim to professional excellence.
 They want to deliver a good job within their means.
-This effects product quality and thus effects customer satisfaction.
-If employees cannot satisfy their demand for professional excellence, they might get discontent, deliver poor work or produce higher costs through sick days.
+If employees cannot satisfy their demand for professional excellence, they might get discontent and deliver poor work.
+Moreover, unhappy employees can produce higher costs through sick days.
+Ill employees stay on payroll, but stress the project schedule by splitting the workload on fewer heads.
 The worst case scenario could be, that a discontent employee gets angry and steals data or harms the running systems.
+
+At last, the financial success of System Providers depends on the task complexity.
+The complexity of a task has to be in reasonable bounds, so that System Providers can complete it within time, with a satisfying quality.
+If a task has a higher complexity than expected, financial loss is almost determined.
+Either System Providers need to hire additional competence to meet schedule and requirements.
+Or System Providers they stress the time-line, which also results in a higher man-hour salary ratio and additionally endangers customer satisfaction.
+Ultimately, high task complexities can affect employee happiness, if employees cannot complete it within their claim to professional excellence.  
 
 In short, System Providers are interested in ...
 \begin{itemize}
 \item ... financial profit
 \item ... good working conditions
 \item ... professional excellence
+\item ... reasonable complexity
 \end{itemize}
 
 
@@ -913,139 +927,128 @@ In short, Local Authorities are interested in ...
 \label{subsubsection:Conflicts of Interests}
 This section outlines the Conflicts of Interests (Figure \ref{figure:Live+Gov Conflicts of Interests}) between the actors of the proposed IT system architecture. 
 The individual interests of all actors is already described in the previous section and are not elaborated any further.
-The emphasis here is put on the existing conflicts.
+The emphasis here is put on prominent existing conflicts, because they provide a foundation for vulnerabilities and subsequent threats.
 
 \input{./figures/LG-Conflicts-Of-Interests}
 
-\textbf{Citizen vs L+G Maintenance Crew}
 
-\begin{itemize}
+\textbf{System Complexity vs Privacy:}
+System Providers offer a service to Local Authorities, which is to provide and maintain a monitoring and mining system, e.g. for public mobility.
+This system shall produce business intelligence, so that Local Authorities can improve their public services.
+This task in it self has a high technical complexity and is the sole asset with financial return for System Providers.
+However, this task operates on privacy sensitive data provided by monitored Citizens.
+In order to ensure their privacy, System Provider would have to implement additional mechanisms, which allow Citizens to exercise control of their data.
+But this will eventually raise the complexity of the monitoring and mining system.
 
 
-\item Citizen want to exercise their legal right to privacy. I.e. their right to control information about themselves.
-- citizens want to be unidentifiable
-- citizens want certain informations about them to be secret
-\item Citizen wants to prevent abuse of their private data, and the related negative consequences.
-\item
-  technical staff needs more or less unrestricted access to data in
-  order to maintain the system
-\end{itemize}
+\textbf{Business Intelligence vs Privacy:}
+Local Authorities order a monitoring and mining system from System Providers, which allows them to produce business intelligence for public services.
+The system is a heavy investment for Local Authorities, so they are interested in as much intelligence as possible to achieve a profitable return.
+But the intelligence is the result of data mining conducted on privacy sensitive data of monitored Citizens.
+They are interested in the successful usage of their data, in a sense that they are also benefactors, e.g. improvement of public mobility.
+However, the main interest of Citizens lies in maintaining control over their data.
+In order do that, they need disclosure of the exact purposes their data is used for, so they can select which data to share.
+These purposes cannot be (secretly) exceeded.
 
-\textbf{Citizen vs Local Authority}
 
-\begin{itemize}
+\textbf{Money vs Privacy:}
+Criminals can gain financial profit from stealing privacy sensitive data.
+For example by selling raw contact information to advertisers or by selling mined data to scoring services.
+In such cases, Citizens lose complete control over their data.
 
-\item
-  citizens want to be unidentifiable
-\item
-  citizens want certain informations about them to be secret
-\end{itemize}
 
-\textbf{L+G Maintenance Crew vs Local Authority}
+\textbf{Money vs Professional Reputation:}
+Criminals have various business models as optional foundation for attacks on System Providers.
+For instance, they can try to invade the infrastructure for e-espionage reasons, to get control over servers to create a bot-net or to steal user data.
+All these approaches are motivated by financial interests.
+Gathered information can be sold, zombie servers can be leased.
+A successful attack proves the technical competence of System Providers wrong and subsequently harms their professional reputation.
+This can lead to a loss of future customers or a decrease of stock price for registered companies.
+Eventually the financial interests of System Providers are endangered.
 
-\begin{itemize}
 
-\item
-  staff wants proper payment
-\item
-  local authorities want to reduce cost
-\end{itemize}
+\textbf{Political Power vs Political Reputation:}
+Besides monetary reasons, Criminals can be motivated by political reasons to attack the monitoring and mining system.
+Criminals can break the system to make a political statement of their own, e.g. "Stop Surveillance!".
+Or they can steal user data to prove the system insecure.
+Both would harm the political reputation of Local Authorities, who endangered the privacy of monitored Citizens.
+Criminals would gain political power, because their point of view would seem to be valid.
 
-\textbf{Criminal vs Citizen}
 
-\begin{itemize}
 
-\item
-  citizens want to be unidentifiable
-\item
-  citizens want certain informations about them to be secret
-\item
-  criminals want to posses certain information about a citizen
-\end{itemize}
-
-\textbf{Criminal vs L+G Maintenance Crew}
-
-\begin{itemize}
-
-\item
-  criminals want to harm the system
-\item
-  technical staff has to keep the system safe and sound
-\end{itemize}
-
-\textbf{Criminal vs Local Authority}
-
-\begin{itemize}
-
-\item
-  criminals want to harm the system
-\item
-  criminals want access to collected data
-\item
-  local authorities have to keep collected data restricted
-\item
-  local authorities want a stable system
-\end{itemize}
 
 \subsubsection{Vulnerabilities}
+This section outlines the vulnerabilities (Figure \ref{figure:Live+Gov Vulnerabilities}) of the proposed monitoring and mining system.
+Note that vulnerabilities are not necessarily of technical nature.
+The weaknesses of IT systems are often created due to misuse or misconfiguration of the various components by one or more actors.
 
-%\includegraphics{../diagrams/png/scenario-vulnerabilities.png}
 \input{./figures/LG-Vulnerabilities}
 
-\paragraph{Combined Scenario (Figure \ref{figure:Live+Gov Vulnerabilities})}
+\textbf{Unencrypted Data Transmission:}
+The proposed monitoring and mining system uses HTTP to exchange data between the Sensor Collector, the Data Center and the Report Tool.
+Per default, HTTP is a clear text protocol.
+This means, one can intercept the connection and read all sensitive information, which is send between the components.
+That is: passwords, raw sensor data and data mining results
 
-A citizen (a) carries a mobile device (b) running the L+G client. The
-mobile device collects sensor data and sends it to the L+G Data Cetner
-(c). The L+G Data Center also sends beneficial information for citizens
-to the mobile device.
+\textbf{Inadequate Access Rules:}
+The proposed IT system infrastructure has various accesses to privacy sensitive data.
+System Provider staff has access to Data Center hardware and software like databases, web-servers and other inspection tools.
+Local Authority staff has access to the Report Tool.
+This all enables staff members to have potential access to privacy sensitive information.
+Those accesses have to be secured against unauthorized third parties, e.g. Criminals.
+Moreover, we need to ensure that no single person has to many access rights.
+For example, a system administrator should not be able to secretly download the whole database on a flash-drive.
 
-The L+G Maintenance Crew (d) maintaince the L+G Data Center.
+\textbf{Insufficiently Secured Infrastructure:}
+The proposed monitoring system consists of many hardware and software components, each with its own concrete weaknesses.
+For instance, operating systems can be outdated or not subject to frequent updates or virus scans.
+Web-applications can be carelessly implemented and not protected against SQL-Injections or Cross-Site-Scripting attacks.
+Databases can be ill-configured, so that access from outside the system is possible.
+All those weak points can be subject to various known exploit techniques.
 
-The Aggregation Monitor (e) queries the L+G Data Center for aggregated
-data. Local Authorities (f) use the Aggregation Monitor to get
-information in order to improve public services.
+\textbf{Unaware Monitoring Subjects:}
+We define privacy as one's ability to control information about oneself. 
+In order to do that, monitored subjects need to know, that they are monitored, who monitors them, what information is recorded and for what purposes.
+Subjects who are not aware of these things cannot effectively preserve control and thus lose their privacy.
 
-A criminal (g) threatens the L+G system by corrupting the L+G
-Maintenance Crew or Local Authority, or by forcing access to L+G
-system's hardware, software or communication. (It is also possible for
-criminals to corrupt the citizen, although technically this would be no
-threat to privacy but rather an exercise of privacy
-{[}\hyperref[references]{1}{]}.)
 
-\paragraph{List of Vulnerabilities}
+%\includegraphics{../diagrams/png/scenario-vulnerabilities.png}
 
-The vulnerabilities of Live+Gov system outline are:
 
-\begin{itemize}
-\item
-  unencrypted data transmission (Man In The Middel)
-\item
-  insecure mobile devices (Exploit)
-\item
-  insecure servers (Exploit)
-\item
-  inadequate access rules for
-  \begin{itemize}
-  \item
-    mobile devices (citizens)
-  \item
-    servers (staff)
-  \item
-    applications (local authority)
-  \end{itemize}
-\item
-  corrupt/unhappy authorities or staff (\textbf{Could be actually a
-  threat not a vulnerability})
-\end{itemize}
-
-(\textbf{Note:} The vulnerabilities seem to mostly open possibilities to
-violate the \textbf{Privacy of Data and Image}, as this type is concerd
-with making data \emph{automatically} available to others.)
+%\paragraph{List of Vulnerabilities}
+%
+%The vulnerabilities of Live+Gov system outline are:
+%
+%\begin{itemize}
+%\item
+%  unencrypted data transmission (Man In The Middel)
+%\item
+%  insecure mobile devices (Exploit)
+%\item
+%  insecure servers (Exploit)
+%\item
+%  inadequate access rules for
+%  \begin{itemize}
+%  \item
+%    mobile devices (citizens)
+%  \item
+%    servers (staff)
+%  \item
+%    applications (local authority)
+%  \end{itemize}
+%\item
+%  corrupt/unhappy authorities or staff (\textbf{Could be actually a
+%  threat not a vulnerability})
+%\end{itemize}
+%
+%(\textbf{Note:} The vulnerabilities seem to mostly open possibilities to
+%violate the \textbf{Privacy of Data and Image}, as this type is concerd
+%with making data \emph{automatically} available to others.)
 
 \subsection{Step 2. Potential Analysis}
 
 \subsubsection{Threats}
-
+\input{./figures/LG-Threats}
 \input{./figures/ThreatTable}
 
 \begin{itemize}

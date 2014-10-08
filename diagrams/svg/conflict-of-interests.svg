@@ -1714,7 +1714,7 @@
      </g>
      <g class="com.sun.star.drawing.TextShape">
       <g id="id47">
-       <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="917px" font-weight="700"><tspan class="TextPosition" x="4209" y="9833"><tspan fill="rgb(0,0,0)" stroke="none">Application Complexity</tspan></tspan></tspan><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="917px" font-weight="700"><tspan class="TextPosition" x="8807" y="10862"><tspan fill="rgb(0,0,0)" stroke="none">vs</tspan></tspan></tspan><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="917px" font-weight="700"><tspan class="TextPosition" x="7683" y="11891"><tspan fill="rgb(0,0,0)" stroke="none">Privacy</tspan></tspan></tspan></text>
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="917px" font-weight="700"><tspan class="TextPosition" x="5077" y="9833"><tspan fill="rgb(0,0,0)" stroke="none">System Complexity</tspan></tspan></tspan><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="917px" font-weight="700"><tspan class="TextPosition" x="8807" y="10862"><tspan fill="rgb(0,0,0)" stroke="none">vs</tspan></tspan></tspan><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="917px" font-weight="700"><tspan class="TextPosition" x="7683" y="11891"><tspan fill="rgb(0,0,0)" stroke="none">Privacy</tspan></tspan></tspan></text>
       </g>
      </g>
      <g class="com.sun.star.drawing.TextShape">
