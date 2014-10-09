@@ -5,29 +5,7 @@ As privacy is a very general and hard to grasp term, we need to fix a definition
 As background information we include an overview about historical treatments of privacy as well as legal regulation of privacy in the European Union.
 Based on this we propose a definition of privacy as {\em control over personal data}, and introduce a taxonomy of privacy attributes that give specify the term {\em personal data} in the context of mobile sensor data collection.
 
-\section{Histrocial Approaches to Privacy}
-
-\subsection{Aristotle}
-
-Public Sphere vs. Private Sphere of politics. This distinction is concerned with the politic (public) life of politicians in early democracies opposed by their domestic (private) life.
-
-\subsection{Warren and Brandeis}
-
-The Right to Privacy, 1890: Establish the term Informational Privacy. They argue innovations like photography and a growing press create the need for a new right to privacy, "the right to be left alone".
-
-The term informational privacy as conceptual foundation of privacy originates from the juristic discussion The Right to Privacy (1890) by Warren and Brandeis.
-The arise of new technologies like photography combined with a growing press created an increased publicity.
-Warren and Brandeis were worried that existing law like castle doctrines or libel and slander could not suffice.
-They felt a need for a new right to "protect the extent to which one's thoughts, sentiments, and emotions could be shared with others" \cite{1}.
-This right would be "the right to be left alone".
-
-The right to "protect the extent to which one's thoughts, sentiments, and emotions could be shared with others" by Warren and Brandeis was later extend to cover arbitrary information and is now kown as the privacy concept "... the control we have over information about ourselves ..." \cite{2}.
-
-\subsection{Fried}
-
-C. Freid, An Anatomy of Values, Harvard Univ. Press, 1970
-
-Defines privacy as the ability to control information about oneself. He argues that limited knowledge does not automatically create privacy.
+% \section{Histrocial Approaches to Privacy}
 
 \section{Legal Aspects of Privacy}
 
@@ -35,42 +13,49 @@ Defines privacy as the ability to control information about oneself. He argues t
 
 * Some US Law
 
-\subsection{European Convention on Human Rights - Article 8}
+\subsection{European Convention on Human Rights}
 
-``(1) Everyone has the right to respect for his private and family life, his home and his correspondence. (2) There shall be no interference by a public authority with the exercise of this right except such as is in accordance with the law and is necessary in a democratic society in the interests of national security, public safety or the economic well-being of the country, for the prevention of disorder or crime, for the protection of health or morals, or for the protection of the rights and freedoms of others.'' \cite{2}
+The \emph{Europen Convetion on Human Rights} \cite{ECHR} was created by the members of the Europen Council in 1953 as part of the aftermath of the second world war.
+All member states of the Council of Europe, which includes all EU members, have incorporated this convention into their national law.
 
-``The European Court of Human has given this article a very broad interpretation in its jurisprudence.'' \cite{2}
+Article 8 of the ECHR contains a protection of personal data:
+
+\begin{quote}
+(1) Everyone has the right to respect for his private and family life, his home and his correspondence.
+
+(2) There shall be no interference by a public authority with the exercise of this right except such as is in accordance with the law and is necessary in a democratic society in the interests of national security, public safety or the economic well-being of the country, for the prevention of disorder or crime, for the protection of health or morals, or for the protection of the rights and freedoms of others.''
+\end{quote}
+
+The protection of personal data under article 8 is not an absolute law but must be considered in relation to other laws such as the freedom of expression granted in Article 10 of the ECHR.
+The \emph{European Court of Human Rights} (ECtHR) overseas the implementation of this directive and has adopted a rather broad interpretation of the article.\footnote{\url{http://en.wikipedia.org/wiki/Article_8_of_the_European_Convention_on_Human_Rights}}
 
 \subsection{EU Data Protection Directive}
 
-\emph{Directive 95/46/EC}
+The \emph{Directive 95/46/EC} of 1995 \cite{DIR95} is the fundamental retulation of data protection in the Europen Union.
+EU directives in general do not hold any direct legal binding for EU citizens, but has to be implemented by national law of the EU memberstates.
 
-EU directives in general do not hold any direct legal binding for EU citizens.
-Member states have to create their own legal implementation.
+It roughly follows the OECD guidelines for privacy protection issues in 1980 \cite{OECD80}.
 
-``The directive regulates the processing of personal data regardless of whether such processing is automated or not.'' \cite{1} where \emph{personal data} is ``any information relating to an identified or identifiable natural person [...] (art. 2a)'' and \emph{processing} is ``any operation or set of operations which is performed upon personal data [...] (art. 2b)'' \cite{1}
+The directive regulates the processing of personal data regardless of whether such processing is automated or not.
+Where \emph{personal data} is any information relating to an identified or identifiable natural person [...] (Art. 2a)
+and \emph{processing} is any operation or set of operations which is performed upon personal data [...] (Art. 2b).
 
-The ``identified or identifiable natural person'' is called \emph{data subject}.
+The identified or identifiable natural person is called \emph{data subject}.
 
-The sole responsibility for compliance is held by so called \textbf{controllers}.
-A controller is an actor ``which alone or jointly with others determines the purposes and means of the processing of personal data; (art 2d)''
-\cite{1}
+The sole responsibility for compliance is held by so called \emph{controllers}.
+A controller is an actor which alone or jointly with others determines the purposes and means of the processing of personal data (Art 2d).
 
-This rule is applicable ``whenever the controller uses equipment situated within the EU''\cite{1}.
-This will hold for every e-commerce provider \textbf{inside or outside} of the EU because the customer's computer is \emph{situated within the EU} anyways.
+This rule is applicable whenever the controller uses equipment situated within the EU.
+This will hold for every e-commerce provider inside or outside of the EU because the customer's computer is situated within the EU anyways.
 
-``Personal data should not be processed at all, except when certain conditions are met'' \cite{1}.
+Personal data should not be processed at all, except when certain conditions are met.
 These conditions incorporate the seven OECD principals and are further categorized in the categories:
 
 \begin{itemize}
-\item
-\textbf{Transparency}: ``The data subject has the right to be informed when his personal data is being processed [...] (art. 10 and 11)'' \cite{1} and he has the right how and by whom it is processed.
+\item \textbf{Transparency}  (\cite{1} art. 10,11): ``The data subject has the right to be informed when his personal data is being processed [...]'' and he has the right how and by whom it is processed.
 Additionally other specified requirements have to be met, i.e.~giving consent.
-\item
-\textbf{Legitimate purpose}: ``Personal data can only be processed for specified explicit and legitimate purposes and may not be processes further in a way incompatible with those purposes (art. 6b)''
-\cite{1}.
-\item
-\textbf{Proportionality}: ``Personal data may be processed only insofar as it is adequate [...] in relation to [its] purposes [...]; every reasonable step must be taken to ensure that data which are inaccurate or incomplete [...] are erased or rectified (art. 6)'' \cite{1}
+\item \textbf{Legitimate purpose} (\cite{1} art. 6b): ``Personal data can only be processed for specified explicit and legitimate purposes and may not be processes further in a way incompatible with those purposes ''.
+\item \textbf{Proportionality}: ``Personal data may be processed only insofar as it is adequate [...] in relation to [its] purposes [...]; every reasonable step must be taken to ensure that data which are inaccurate or incomplete [...] are erased or rectified (art. 6)''
 \end{itemize}
 
 (\textbf{Note:} The principles incorporated by the EU directive seem to closely map to \emph{the seven principles for user privacy control}.)
