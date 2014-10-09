@@ -13,58 +13,130 @@ Based on this we propose a definition of privacy as {\em control over personal d
 
 * Some US Law
 
+* Good overview over EU Law can be found in the Handbook on European data protection law \cite{EU_HANDBOOK_2014}
+
 \subsection{European Convention on Human Rights}
 
-The \emph{Europen Convetion on Human Rights} \cite{ECHR} was created by the members of the Europen Council in 1953 as part of the aftermath of the second world war.
+The \emph{Europen Convetion on Human Rights} \cite{ECHR} was created by the members of the \emph{Council of Europe} (CoE) in 1953 as part of the aftermath of the second world war.
+It formulates universal rights of citizens against the state authroity.
 All member states of the Council of Europe, which includes all EU members, have incorporated this convention into their national law.
 
-Article 8 of the ECHR contains a protection of personal data:
+Article 8 of the ECHR contains a protection of personal data.
 
 \begin{quote}
 (1) Everyone has the right to respect for his private and family life, his home and his correspondence.
 
-(2) There shall be no interference by a public authority with the exercise of this right except such as is in accordance with the law and is necessary in a democratic society in the interests of national security, public safety or the economic well-being of the country, for the prevention of disorder or crime, for the protection of health or morals, or for the protection of the rights and freedoms of others.''
+(2) There shall be no interference by a public authority with the exercise of this right except such as is in accordance with the law and is necessary in a democratic society in the interests of national security, public safety or the economic well-being of the country, for the prevention of disorder or crime, for the protection of health or morals, or for the protection of the rights and freedoms of others.
 \end{quote}
 
 The protection of personal data under article 8 is not an absolute law but must be considered in relation to other laws such as the freedom of expression granted in Article 10 of the ECHR.
 The \emph{European Court of Human Rights} (ECtHR) overseas the implementation of this directive and has adopted a rather broad interpretation of the article.\footnote{\url{http://en.wikipedia.org/wiki/Article_8_of_the_European_Convention_on_Human_Rights}}
 
+In particular State actions of searching a persons home, gathereing and storing information in a secret police file, and stopping a prisonser's communication have been ruled to interfere with Article 8.
+
+% [CORRECT?] In the context of the Live+Gov project the ECHR is of limited relevance, since the Live+Gov System is offered by private companies and not directly by the State autority.
+
+\subsection{OECD Guidelines and CoE Convention 108}
+
+The emergence of information technologies that allow automated processing of personal data made more detailed rules for safeguarding the privacy of citizens necessary.
+In the light of this developments the OECD  \cite{OECD80} issued Guidelines on Protection of Privacy in 1980 which establish the following basic principles of data protection:
+\begin{enumerate}
+\item Collection Limitation Principle.
+  There should be limits to the collection of personal data and any such data should be obtained [...] with the knowledge or consent of the data subject.
+\item Data Quality Principle.
+  Personal data should be relevant to the purposes for which they are to be used, and,  [...] accurate, complete and kept up-to-date.
+\item Purpose Specification Principle.
+  The purposes for which personal data are collected should be specified [...] and the subsequent use limited to the fulfilment of those purposes [...].
+\item Use Limitation Principle.
+  Personal data should not be disclosed [...] except: a) with the consent of the data subject; or b) by the authority of law.
+\item Security Safeguards Principle.
+  Personal data should be protected by reasonable security safeguards [...].
+\item Openness Principle.
+  {[...]} Means should be readily available of establishing the existence and nature of personal data, and the main purposes of their use, as well as the identity and usual residence of the data controller.
+\item Individual Participation Principle.
+  An individual should have the right
+  \begin{itemize}
+  \item to obtain from a data controller, or otherwise, confirmation of whether or not the data controller has data relating to him;
+  \item to have communicated to him, data relating to him [...]
+  \item {[...]} to have the data erased, rectified, completed or amended.
+  \end{itemize}
+\item Accountability Principle.
+  A data controller should be accountable for complying with measures which give effect to the principles stated above.
+\end{enumerate}
+
+Where the following definitions are undestood.
+\begin{itemize}
+\item \emph{personal data} means any information relating to an identified or identifiable person (\emph{data subject}).
+  An identifiable person is is one who can be identified either directly, by reference to a name or identification number or indirectly,
+  by one or more factors which make it possible to find out who the data subject is by conducting further research.
+\item a \emph{data controller} means any party who is competent to decide about the contents and use of personal data.
+\end{itemize}
+
+The OCED guidelines were adopted by EU law in the Strassbourg Convention 108 of the Council of Europe \cite{CONV108} in 1981.
+
+% UPDATE 2013: http://www.oecd.org/sti/ieconomy/privacy.htm
+
 \subsection{EU Data Protection Directive}
 
 The \emph{Directive 95/46/EC} of 1995 \cite{DIR95} is the fundamental retulation of data protection in the Europen Union.
-EU directives in general do not hold any direct legal binding for EU citizens, but has to be implemented by national law of the EU memberstates.
+It was designed to give further substance to the Convetion 108.
+In particular it makes the creation of an independent supervisory authority necessary (Art. 28).
+In Section \ref{sec:ECIMPL} the status of the implementation is discussed in some example cases.
 
-It roughly follows the OECD guidelines for privacy protection issues in 1980 \cite{OECD80}.
+The ambition of the Directive is stated at the very beginning.
+\begin{quote}
+  (Art. 1.1) In Accordance with this Directive the Memebr States shall protect the fundamental rights and freedoms of natural persons, and in particular their right to privacy with respect to the processing of personal data.
+\end{quote}
 
-The directive regulates the processing of personal data regardless of whether such processing is automated or not.
-Where \emph{personal data} is any information relating to an identified or identifiable natural person [...] (Art. 2a)
-and \emph{processing} is any operation or set of operations which is performed upon personal data [...] (Art. 2b).
+The Directive follows the definition of personal data, data subject, and data controller of the OECD Guidelines (cf. Art. 2).
+Furthermore it introduces the role of a \emph{processor} as a person which processes, by wholly or partly automatic means (Art 3.), personal data on behalf of the controller.
 
-The identified or identifiable natural person is called \emph{data subject}.
+Data processing for operations concerning public security, defence, State security, and in areas of
+criminal law are explicitly excluded (Art. 3).
 
-The sole responsibility for compliance is held by so called \emph{controllers}.
-A controller is an actor which alone or jointly with others determines the purposes and means of the processing of personal data (Art 2d).
-
-This rule is applicable whenever the controller uses equipment situated within the EU.
-This will hold for every e-commerce provider inside or outside of the EU because the customer's computer is situated within the EU anyways.
-
-Personal data should not be processed at all, except when certain conditions are met.
-These conditions incorporate the seven OECD principals and are further categorized in the categories:
-
+The most important articles are summarized in the following paragraphs.
 \begin{itemize}
-\item \textbf{Transparency}  (\cite{1} art. 10,11): ``The data subject has the right to be informed when his personal data is being processed [...]'' and he has the right how and by whom it is processed.
-Additionally other specified requirements have to be met, i.e.~giving consent.
-\item \textbf{Legitimate purpose} (\cite{1} art. 6b): ``Personal data can only be processed for specified explicit and legitimate purposes and may not be processes further in a way incompatible with those purposes ''.
-\item \textbf{Proportionality}: ``Personal data may be processed only insofar as it is adequate [...] in relation to [its] purposes [...]; every reasonable step must be taken to ensure that data which are inaccurate or incomplete [...] are erased or rectified (art. 6)''
+\item Specification of Purpose (Art. 6.1b). Personal data must be collected for specified, explicit and legitimate purposes and not be processed in a way incompatible with this purposes.
+Further processing of data for historical, statistical or scientific purposes shall not be considered incompatible [...].
+
+\item Accuracy (Art. 6.1d). Personal data must be accurate and [...] every reasonable step must be taken to ensure that data which is inaccurate or incomplete [...] are erased or rectified.
+
+\item (Art. 6.1e). Personal data must be kept in a form which permits identification for no longer than is necessary [...].
+
+\item (Art 7). Personal data may be processed only if:
+  \begin{itemize}
+    \item [(a)] the data subject has unambiguously given his consent; or
+    \item [(b)] the processing is necessary for the performance of a contract to which the data subject is party [...]; or
+     \item [(..)] [further exceptions are made for legal obligations of the controller, to protect vital interests of the data subject, the public interest and]
+     \item [(f)] the processing is necessary for purposes of legitimate interests pursued by the controller or by a third party to whom the data are disclosed, except where such interests are overridden by the interests [...] of the data subject which require protection under Art. 1(1).
+  \end{itemize}
+
+\item (Art. 8.1). Member Stats shall prohibit the processing of personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade-union membership, and the processing of data concerning health or sex life. [Art. 8.2 lists several exceptions including explicit consent of the data subject.]
+
+\item (Art. 10) The controller [...] must provide a data subject [...] with the following information:
+  \begin{itemize}
+    \item [(a)] the identity of the controller [...]
+    \item [(b)] the purpose of processing for which the data are intended;
+    \item [(c)] any further information [...] that is necessary to guarantee fair processing in respect of the data subject. [This includes in particular the recipients of the data, the existence of the right to of access and the right to rectify the data.]
+  \end{itemize}
+
+\item Right to Access (Art. 12). Every data subject has the right to obtain from the controller
+\begin{itemize}
+  \item (a) [...] confirmation as to whether or not data relating to him are being processed [...], communication to him [...] the data undergoing processing and any available information as to their source, knowledge of the logic involved in any automatic processing [...];
+  \item (b) the rectification, erasure or blocking of data the procession of which does not comply with the provisions of this Directive [...];
+  \item (c) notification to third parties to whom the data have been disclosed [...].
 \end{itemize}
 
-(\textbf{Note:} The principles incorporated by the EU directive seem to closely map to \emph{the seven principles for user privacy control}.)
+\item Right to Object (Art. 14).
+
+\end{itemize}
+
+
 
 Member states have to create independent \textbf{supervisory authorities} for personal data processing where controllers have to register before they start to process any data.
-The record has to be stored in public register \cite{1}.
+The record has to be stored in public register.
 
 Data transfer to third countries outside of the EU requires those countries to have a similar data protection level. Exceptions exists:
-
 \begin{itemize}
 \item
   Save Harbor
@@ -72,100 +144,56 @@ Data transfer to third countries outside of the EU requires those countries to h
   Passenger Name Record Agreement
 \end{itemize}
 
-all between the US and the EU, although the US has no comparable law of data protection. 
-The US Supreme Court regards privacy as \textbf{implicit} right granted with the First Amendment. However, European law states privacy as \textbf{explicit} right (ECHR Art. 8).
-Additionally the US government follows a doctrine which favors the economy to implement self-regulation \cite{1}.
+all between the US and the EU, although the US has no comparable law of data protection.
+The US Supreme Court regards privacy as implicit right granted with the First Amendment.
+However, European law states privacy as explicit right (ECHR Art. 8).
+Additionally the US government follows a doctrine which favors the economy to implement self-regulation.
 
-\subsection{Implementation of the Data Protection Directive}
+\subsection{Implementation of the Data Protection Directive}\label{sec:ECIMPL}
 
 \subsubsection*{Germany}
 
-Germany implements Directive 95/46 with the \emph{Federal Data Protection Act} from 2001 known as \emph{Bundesdatenschutzgesetz (BDSG)} \cite{1}\cite{2}\cite{6}.
+Germany implements Directive 95/46 with the \emph{Federal Data Protection Act} from 2001 known as \emph{Bundesdatenschutzgesetz (BDSG)}.
 However, Germany has violated the directive in two points:
-
 \begin{enumerate}
-\item
-The BDSG has become effective three years too late, thus the EC filed a treaty violation proceeding against Germany \cite{6}.
-
-\item
-The BDSG does not implement \textbf{independent} supervisory authorities. 
-The \emph{Bundesdatenschutzbeauftragter} is subordinate to the Ministry of Interior. 
-Although he is not subject to technical oversight (\emph{Fachaufsicht}), he is subject to staff supervision by the government (\emph{Rechtsaufsicht} durch die Bundesregierung und  \emph{Dienstaufsicht} durch das Innenministerium) and budget oversight (including approval of employees) by the ministry \cite{7}. 
-Thus the EC filed a treaty violation proceeding against Germany, again \cite{6}. 
-In March 2010 Germany was found guilty of violation of Directive 95/46 by the ECJ \cite{6}.
+\item The BDSG has become effective three years too late, thus the EC filed a treaty violation proceeding against Germany.
+\item The BDSG does not implement independent supervisory authorities.
+The Bundesdatenschutzbeauftragter is subordinate to the Ministry of Interior.
+Although he is not subject to technical oversight (\emph{Fachaufsicht}), he is subject to staff supervision by the government (Rechtsaufsicht, Dienstaufsicht) and budget oversight by the ministry.
+In March 2010 Germany was found guilty of violation of Directive 95/46 by the ECJ.
 \end{enumerate}
 
-Germany still violates point 2!
-
 The states of Germany have their own implementation of Directive 95/46 (\emph{Landesdatenschutzgesetze}).
-Federal public authorities are only bound to their federal law. \cite{2}
-
-Churches are not subject the BDSG. \cite{2}
-
-\begin{itemize}
-
-\item
-\textbf{Roman Catholic Church:}
-\href{http://de.wikipedia.org/wiki/Anordnung_\%C3\%BCber_den_kirchlichen_Datenschutz}{Anordnung  über den kirchlichen Datenschutz (KDO)}
-
-\item
-\textbf{German Protestant Churches (Synode der Evangelischen Kirche in Deutschland):}
-\href{http://de.wikipedia.org/wiki/Datenschutzgesetz_der_Evangelischen_Kirche_in_Deutschland}{Kirchengesetz  über den Datenschutz der Evangelischen Kirche in Deutschland}
-\end{itemize}
-
-Data subjects have the following rights.
-
-\begin{itemize}
-\item
-Right to disclosure of whether data about them is stored and processed, which data is stored and processed and the data sources.
-\item
-Right to correction of false data.
-
-\item
-Right to file complaints to the supervisory authority.
-
-\item
-Right to have data deleted or blocked, but controllers can prohibit deletion in favour of blocking.
-
-\item
-Right to decline third party access to the data.
-\end{itemize}
+Federal public authorities are only bound to their federal law.
+Churches are not subject the BDSG.
 
 \subsubsection*{United Kingdom}
 
-The UK implements Directive 95/46 with the \emph{Data Protection Act 1998 (DPA)} \cite{1}\cite{3}.
+The UK implements Directive 95/46 with the \emph{Data Protection Act 1998} (DPA).
 
-The act is known for its high complexity: a manual record of phone numbers for business purposes could be hold subject to the DPA \cite{3}.
+The act is known for its high complexity: a manual record of phone numbers for business purposes could be hold subject to the DPA.
 Although the act seems to fully cover the directive.
-Even higher restriction apply for \emph{``sensitive personal data''} (race, ethnicity, politics, religion, trade union status, health, sex life or criminal record), i.e. \textbf{consent} must be given freely and has to be explicit. \cite{3}
+Even higher restriction apply for \emph{``sensitive personal data''} (race, ethnicity, politics, religion, trade union status, health, sex life or criminal record), i.e. consent must be given freely and has to be explicit.
 
-\emph{``The Act's definition of''personal data" covers any data that can be used to identify a living individual. Anonymised or aggregated data is not regulated by the Act, providing the anonymisation or aggregation has not been done in a reversible way.
-Individuals can be identified by various means including their name and address, telephone number or
-Email address.
-The Act applies only to data which is held, or intended to be held, on computers (`equipment operating automatically in response to instructions given for that purpose'), or held in a `relevant filing system'.}
+The Act's definition of''personal data" covers any data that can be used to identify a living individual.
+Anonymised or aggregated data is not regulated by the Act, providing the anonymisation or aggregation has not been done in a reversible way.
+Individuals can be identified by various means including their name and address, telephone number or Email address.
+The Act applies only to data which is held, or intended to be held, on computers (`equipment operating automatically in response to instructions given for that purpose'), or held in a `relevant filing system'.
 
-\emph{In some cases even a paper address book can be classified as a `relevant filing system', for example diaries used to support commercial activities such as a salesperson's diary.}
+In some cases even a paper address book can be classified as a `relevant filing system', for example diaries used to support commercial activities such as a salesperson's diary.
 
-\emph{The Freedom of Information Act 2000 modified the act for public bodies and authorities, and the Durant case modified the interpretation of the act by providing case law and precedent.}
+The Freedom of Information Act 2000 modified the act for public bodies and authorities, and the Durant case modified the interpretation of the act by providing case law and precedent.
 
-\emph{The Data Protection Act creates rights for those who have their data stored, and responsibilities for those who store, process or transmit such data.
-The person who has their data processed has the right to:}
-
+The Data Protection Act creates rights for those who have their data stored, and responsibilities for those who store, process or transmit such data.
+The person who has their data processed has the right to:
 \begin{itemize}
-
-\item
-View the data an organization holds on them.
-A `subject access request' can be obtained for a nominal fee. As of January 2014, the maximum fee is \pounds2 for requests to credit reference agencies, \pounds50 for health and educational request, and \pounds10 per individual otherwise.
-
-\item
-Request that incorrect information be corrected.
+\item View the data an organization holds on them.
+A `subject access request' can be obtained for a nominal fee.
+As of January 2014, the maximum fee is \pounds2 for requests to credit reference agencies, \pounds50 for health and educational request, and \pounds10 per individual otherwise.
+\item Request that incorrect information be corrected.
 If the company ignores the request, a court can order the data to be corrected or destroyed, and in some cases compensation can be awarded.
-
-\item
-Require that data is not used in any way that may potentially cause damage or distress.
-
-\item
-Require that their data is not used for direct marketing. \cite{3}
+\item Require that data is not used in any way that may potentially cause damage or distress.
+\item Require that their data is not used for direct marketing. \cite{3}
 \end{itemize}
 
 \subsubsection*{France}
@@ -179,6 +207,26 @@ However, companies subject to US jurisdiction can be certified to comply with th
 Thus, those companies will act as \emph{safe harbors}. Without certification foreign companies are not allowed to send customer data back home \cite{9}.
 
 \emph{Safe harbor} in general is the legal concept to regulate that a certain conduct will be deemed \cite{4}, but in Germany the term is commonly used as synonym for the agreement between the EU and the US regarding Directive 95/46.)
+
+\subsection{EU Charter of Fundamental Rights}
+
+The Treaty of Lisbon of 2007, which layed down the fundamental functioning of the European Union
+includes the \emph{Charter of Fundamental Rights of the Europen Union} \cite{EUFR2010}.
+This Charta summarizes the full range of civil, political and economic rights of EU citizens and contains the following two articles that safeguard the privacy of the citizen.
+\begin{quote}
+  Article 7. Respect for private and family life.\\
+  Everyone has the right to respect for his or her private and family life, home and communications.
+
+  Article 8. Protection of personal data.
+  \begin{enumerate}
+    \item [(1)] Everyone has the right to the protection of personal data concerning him or her.
+    \item [(2)] Such data must be processed fairly for specified purposes and on the basis of the consent of the person concerned or some other legitimate basis laid down by law.
+      Everyone has the right of access to data which has been collected concerning him or her, and the right to have it rectified.
+    \item [(3)] Compliance with these rules shall be subject to control by an independent authority.
+  \end{enumerate}
+\end{quote}
+
+Although the Charter does not extend the pre-exiting Directive 95/46/EC, it amplifies the importance of this privacy protection as a fundamental right.
 
 \section{Privacy Definition and Taxonomy}
 \label{sec:taxonomy}
