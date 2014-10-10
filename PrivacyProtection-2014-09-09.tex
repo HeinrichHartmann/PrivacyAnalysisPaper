@@ -1,6 +1,9 @@
 \chapter{Legal and Ethical aspects of Privacy}
 \label{chap:privacy}
 
+\newcommand{\om}{[...]\xspace} % omission
+%\newcommand{\om}{\ldots} % omission
+
 As privacy is a very general and hard to grasp term, we need to fix a definition of privacy that is suitable for our needs.
 As background information we include an overview about historical treatments of privacy as well as legal regulation of privacy in the European Union.
 Based on this we propose a definition of privacy as {\em control over personal data}, and introduce a taxonomy of privacy attributes that give specify the term {\em personal data} in the context of mobile sensor data collection.
@@ -13,12 +16,10 @@ Based on this we propose a definition of privacy as {\em control over personal d
 
 * Some US Law
 
-* Good overview over EU Law can be found in the Handbook on European data protection law \cite{EU_HANDBOOK_2014}
-
 \subsection{European Convention on Human Rights}
 
 The \emph{Europen Convetion on Human Rights} \cite{ECHR} was created by the members of the \emph{Council of Europe} (CoE) in 1953 as part of the aftermath of the second world war.
-It formulates universal rights of citizens against the state authroity.
+It formulates universal rights of citizens against the state authority.
 All member states of the Council of Europe, which includes all EU members, have incorporated this convention into their national law.
 
 Article 8 of the ECHR contains a protection of personal data.
@@ -29,12 +30,12 @@ Article 8 of the ECHR contains a protection of personal data.
 (2) There shall be no interference by a public authority with the exercise of this right except such as is in accordance with the law and is necessary in a democratic society in the interests of national security, public safety or the economic well-being of the country, for the prevention of disorder or crime, for the protection of health or morals, or for the protection of the rights and freedoms of others.
 \end{quote}
 
-The protection of personal data under article 8 is not an absolute law but must be considered in relation to other laws such as the freedom of expression granted in Article 10 of the ECHR.
+The protection of personal data under Article 8 is not an absolute law but must be considered in relation to other laws such as the freedom of expression (ECHR, Art. 10).
 The \emph{European Court of Human Rights} (ECtHR) overseas the implementation of this directive and has adopted a rather broad interpretation of the article.\footnote{\url{http://en.wikipedia.org/wiki/Article_8_of_the_European_Convention_on_Human_Rights}}
 
-In particular State actions of searching a persons home, gathereing and storing information in a secret police file, and stopping a prisonser's communication have been ruled to interfere with Article 8.
+In particular State actions of searching a persons home, gathering and storing information in a secret police file, and stopping a prisoner's communication have been ruled to interfere with Article 8.
 
-% [CORRECT?] In the context of the Live+Gov project the ECHR is of limited relevance, since the Live+Gov System is offered by private companies and not directly by the State autority.
+In the context of the Live+Gov project the ECHR is of limited relevance, since the Live+Gov System is offered by private companies and not directly by the State authority.
 
 \subsection{OECD Guidelines and CoE Convention 108}
 
@@ -42,29 +43,29 @@ The emergence of information technologies that allow automated processing of per
 In the light of this developments the OECD  \cite{OECD80} issued Guidelines on Protection of Privacy in 1980 which establish the following basic principles of data protection:
 \begin{enumerate}
 \item Collection Limitation Principle.
-  There should be limits to the collection of personal data and any such data should be obtained [...] with the knowledge or consent of the data subject.
+  There should be limits to the collection of personal data and any such data should be obtained \om with the knowledge or consent of the data subject.
 \item Data Quality Principle.
-  Personal data should be relevant to the purposes for which they are to be used, and,  [...] accurate, complete and kept up-to-date.
+  Personal data should be relevant to the purposes for which they are to be used, and,  \om accurate, complete and kept up-to-date.
 \item Purpose Specification Principle.
-  The purposes for which personal data are collected should be specified [...] and the subsequent use limited to the fulfilment of those purposes [...].
+  The purposes for which personal data are collected should be specified \om and the subsequent use limited to the fulfillment of those purposes \om.
 \item Use Limitation Principle.
-  Personal data should not be disclosed [...] except: a) with the consent of the data subject; or b) by the authority of law.
+  Personal data should not be disclosed \om except: a) with the consent of the data subject; or b) by the authority of law.
 \item Security Safeguards Principle.
-  Personal data should be protected by reasonable security safeguards [...].
+  Personal data should be protected by reasonable security safeguards \om.
 \item Openness Principle.
-  {[...]} Means should be readily available of establishing the existence and nature of personal data, and the main purposes of their use, as well as the identity and usual residence of the data controller.
+  {\om} Means should be readily available of establishing the existence and nature of personal data, and the main purposes of their use, as well as the identity and usual residence of the data controller.
 \item Individual Participation Principle.
   An individual should have the right
   \begin{itemize}
   \item to obtain from a data controller, or otherwise, confirmation of whether or not the data controller has data relating to him;
-  \item to have communicated to him, data relating to him [...]
-  \item {[...]} to have the data erased, rectified, completed or amended.
+  \item to have communicated to him, data relating to him \om
+  \item \om to have the data erased, rectified, completed or amended.
   \end{itemize}
 \item Accountability Principle.
   A data controller should be accountable for complying with measures which give effect to the principles stated above.
 \end{enumerate}
 
-Where the following definitions are undestood.
+Where the following definitions are understood.
 \begin{itemize}
 \item \emph{personal data} means any information relating to an identified or identifiable person (\emph{data subject}).
   An identifiable person is is one who can be identified either directly, by reference to a name or identification number or indirectly,
@@ -72,89 +73,154 @@ Where the following definitions are undestood.
 \item a \emph{data controller} means any party who is competent to decide about the contents and use of personal data.
 \end{itemize}
 
-The OCED guidelines were adopted by EU law in the Strassbourg Convention 108 of the Council of Europe \cite{CONV108} in 1981.
+The OECD guidelines were adopted by EU law in the Strassbourg Convention 108 of the Council of Europe \cite{CONV108} in 1981.
+
+Relevant for our investigations is in particular, that sensor data collected from mobile devices is considered personal data if the individual can be identified based on the data by any direct or indirect means.
+Therefore the above principles apply.
 
 % UPDATE 2013: http://www.oecd.org/sti/ieconomy/privacy.htm
 
 \subsection{EU Data Protection Directive}
 
-The \emph{Directive 95/46/EC} of 1995 \cite{DIR95} is the fundamental retulation of data protection in the Europen Union.
-It was designed to give further substance to the Convetion 108.
+The \emph{Directive 95/46/EC} of 1995 \cite{DIR95} is the fundamental regulation of data protection in the European Union.
+It was designed to give further substance to the Convention 108.
 In particular it makes the creation of an independent supervisory authority necessary (Art. 28).
+As this text is the main legal basis for our investigation we review it in detail.
 In Section \ref{sec:ECIMPL} the status of the implementation is discussed in some example cases.
+
+The interpretation and oversight of the Directive lies at the Court of Justice of the European Union (CJEU).
+A summary of the most important rulings can be found in Handbook on European data protection law \cite{EU_HANDBOOK_2014}.
 
 The ambition of the Directive is stated at the very beginning.
 \begin{quote}
-  (Art. 1.1) In Accordance with this Directive the Memebr States shall protect the fundamental rights and freedoms of natural persons, and in particular their right to privacy with respect to the processing of personal data.
+  (Art. 1.1) In Accordance with this Directive the Member States shall protect the fundamental rights and freedoms of natural persons, and in particular their right to privacy with respect to the processing of personal data.
 \end{quote}
 
 The Directive follows the definition of personal data, data subject, and data controller of the OECD Guidelines (cf. Art. 2).
 Furthermore it introduces the role of a \emph{processor} as a person which processes, by wholly or partly automatic means (Art 3.), personal data on behalf of the controller.
 
-Data processing for operations concerning public security, defence, State security, and in areas of
-criminal law are explicitly excluded (Art. 3).
+Data collection of intelligence agencies and the police is not restricted by the Directive (Art. 3).
 
 The most important articles are summarized in the following paragraphs.
+In order to keep the text more readable we have simplified the formulation by removing the formulation ``Member States shall provide that ...'' from each paragraph.
 \begin{itemize}
-\item Specification of Purpose (Art. 6.1b). Personal data must be collected for specified, explicit and legitimate purposes and not be processed in a way incompatible with this purposes.
-Further processing of data for historical, statistical or scientific purposes shall not be considered incompatible [...].
+\item (Art. 6.1.a) Personal data must be processed fairly and lawfully.
 
-\item Accuracy (Art. 6.1d). Personal data must be accurate and [...] every reasonable step must be taken to ensure that data which is inaccurate or incomplete [...] are erased or rectified.
+[The meaning of the term 'fair processing' is entailed in the following articles.
+In particular transparency of processing, information of the data subject, and right to access the data are implied (cf. \cite{EU_HANDBOOK_2014})]
 
-\item (Art. 6.1e). Personal data must be kept in a form which permits identification for no longer than is necessary [...].
+\item (Art. 6.1.b) \emph{Specification of Purpose.} Personal data must be collected for specified, explicit and legitimate purposes and not be processed in a way incompatible with this purposes.
 
-\item (Art 7). Personal data may be processed only if:
+Further processing of data for historical, statistical or scientific purposes shall not be considered incompatible \om.
+
+\item (Art. 6.1.c) Personal data must be adequate, relevant and non-excessive in relation to the purposes \om.
+
+\item (Art. 6.1.d) \emph{Accuracy.} Personal data must be accurate and \om every reasonable step must be taken to ensure that data which is inaccurate or incomplete \om are erased or rectified.
+
+\item (Art. 6.1e) Personal data must be kept in a form which permits identification for no longer than is necessary \om.
+% \item (Art. 6.2) It shall be for the controller to ensure that (Art. 6.1) is complied with.
+\end{itemize}
+
+In addition to strengthening the OECD Data Quality Principle in Article 6, the Directive requires a strong form of consent of the data subject, before any collection or processing of data can take place.
+
+\begin{itemize}
+\item (Art. 7). Personal data may be processed only if:
   \begin{itemize}
     \item [(a)] the data subject has unambiguously given his consent; or
-    \item [(b)] the processing is necessary for the performance of a contract to which the data subject is party [...]; or
-     \item [(..)] [further exceptions are made for legal obligations of the controller, to protect vital interests of the data subject, the public interest and]
-     \item [(f)] the processing is necessary for purposes of legitimate interests pursued by the controller or by a third party to whom the data are disclosed, except where such interests are overridden by the interests [...] of the data subject which require protection under Art. 1(1).
+    \item [(..)] [exceptions are made for performance of a contracts with the data subject,  legal obligations of the controller, to protect vital interests of the data subject, the public interest and]
+     \item [(f)] the processing is necessary for purposes of legitimate interests pursued by the controller or by a third party to whom the data are disclosed, except where such interests are overridden by the interests \om of the data subject which require protection under Art. 1(1).
   \end{itemize}
 
-\item (Art. 8.1). Member Stats shall prohibit the processing of personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade-union membership, and the processing of data concerning health or sex life. [Art. 8.2 lists several exceptions including explicit consent of the data subject.]
+\item (Art. 8.1) \emph{Special Categories.} Member Stats shall prohibit the processing of personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade-union membership, and the processing of data concerning health or sex life. [Art. 8.2 lists several exceptions, including explicitly explicit consent of the data subject.]
+\end{itemize}
 
-\item (Art. 10) The controller [...] must provide a data subject [...] with the following information:
+The OECD Participation Principle is addressed and extended in the following articles.
+
+\begin{itemize}
+\item (Art. 10, 11) The controller \om must provide a data subject \om with the following information:
   \begin{itemize}
-    \item [(a)] the identity of the controller [...]
+    \item [(a)] the identity of the controller \om
     \item [(b)] the purpose of processing for which the data are intended;
-    \item [(c)] any further information [...] that is necessary to guarantee fair processing in respect of the data subject. [This includes in particular the recipients of the data, the existence of the right to of access and the right to rectify the data.]
+    \item [(c)] any further information \om that is necessary to guarantee fair processing in respect of the data subject. [This includes in particular the recipients of the data, the existence of the right to of access and the right to rectify the data.]
   \end{itemize}
 
-\item Right to Access (Art. 12). Every data subject has the right to obtain from the controller
+\item (Art. 12) \emph{Right to Access.} Every data subject has the right to obtain from the controller
 \begin{itemize}
-  \item (a) [...] confirmation as to whether or not data relating to him are being processed [...], communication to him [...] the data undergoing processing and any available information as to their source, knowledge of the logic involved in any automatic processing [...];
-  \item (b) the rectification, erasure or blocking of data the procession of which does not comply with the provisions of this Directive [...];
-  \item (c) notification to third parties to whom the data have been disclosed [...].
+  \item (a) \om confirmation as to whether or not data relating to him are being processed \om, communication to him \om the data undergoing processing and any available information as to their source, knowledge of the logic involved in any automatic processing \om;
+  \item (b) the rectification, erasure or blocking of data the procession of which does not comply with the provisions of this Directive \om;
+  \item (c) notification to third parties to whom the data have been disclosed \om.
 \end{itemize}
 
-\item Right to Object (Art. 14).
-
+%\item Confidentiality of Processing (Art. 16).
+%Any person under the authority of the controller or of the processor \om who has access to personal data must not process them except on instructions from the controller, unless he is required to do so by law.
 \end{itemize}
 
+A similar form of the Security Safeguard Principle is contained in Article 17.
 
-
-Member states have to create independent \textbf{supervisory authorities} for personal data processing where controllers have to register before they start to process any data.
-The record has to be stored in public register.
-
-Data transfer to third countries outside of the EU requires those countries to have a similar data protection level. Exceptions exists:
 \begin{itemize}
-\item
-  Save Harbor
-\item
-  Passenger Name Record Agreement
+\item (Art. 17) \emph{Security of processing.}
+The controller must implement appropriate technical and organizational measures to protect personal data against accidental loss, alteration, unauthorized disclosure or access \om and against all other forms of unlawful processing.
+
+[The level of security has to be balanced against the risk of processing.]
+
+% Having regard to the state of the art and the cost of their implementation, such measures shall ensure a level of security appropriate to the risk represented by the processing and the nature of the data to be processed.
 \end{itemize}
 
-all between the US and the EU, although the US has no comparable law of data protection.
-The US Supreme Court regards privacy as implicit right granted with the First Amendment.
-However, European law states privacy as explicit right (ECHR Art. 8).
-Additionally the US government follows a doctrine which favors the economy to implement self-regulation.
+Furthermore the Directive demands all data processing to be reported to a supervisory authority.
+This obligation can be lifted if an internal data protection official is appointed, who is responsible in particular for keeping a processing register, that has to be made available on request.
+
+\begin{itemize}
+\item Notification (Art. 18. 1).
+The controller \om must notify the supervisory authority referred to in Article 28 before carrying out any wholly or partly automatic processing operation \om.
+
+\item (Art. 18.2).
+Simplification or exemption from notification may be provided only under the following conditions: \om where the controller \om appoints a personal data protection official, responsible in particular:
+\begin{itemize}
+\item for ensuring in an independent manner the internal application of the national provisions taken pursuant to this directive.
+\item for keeping the register of processing operations carried out by the controller, containing the items of information referred to in Article 21 (2)
+\end{itemize}
+thereby ensuring that the rights and freedoms of the data subjects are unlikely to be adversely affected by the processing operations.
+
+\item (Art. 19.1)
+The information to be given in the notification shall include at least:
+\begin{itemize}
+  \item [(a)] the name and address of the controller \om;
+  \item [(b)] the purpose \om of processing;
+  \item [(c)] a description of the category \om of the data \om;
+  \item [(d)] the recipients \om to whom the data might be disclosed;
+  \item [(e)] proposed transfer of data to third countries;
+  \item [(f)] a general description allowing a preliminary assessment to be made of the appropriateness of the measures taken pursuant of Article 17 to ensure the security of processing;
+\end{itemize}
+
+\item (Art. 21.2) \emph{Publication}.
+A register of processing information \om shall be kept at the supervisory authority.
+The register shall contain at least the information listed in Article 19.1 (a) to (e).
+
+The register may be inspected by any person.
+
+\item (Art. 21.3). In relation to processing operations not subject to notification, that controllers \om make available at least the information referred to in Article 19.1 (a) to (e) in an appropriate form to any person on request.
+
+\item (Art. 28) \emph{Supervisory Authority.}
+Each Member State shall provide that one or more public authorities are responsible for monitoring the application \om of this Directive.
+
+These authorities shall act in complete independence in exercising this functions entrusted to them.
+\end{itemize}
+
+Data transfer to third countries outside of the EU requires those countries to have an adequate level of data protection.
+\begin{itemize}
+\item (Art. 25.1) \emph{Transfer to third countries.}
+The transfer to a third country of personal data \om may take place only if \om the third country in question ensures an adequate level of protection.
+\end{itemize}
+The European Commission can decide whether a third country ensures an adequate level of protection (Art 25.6).
+The USA, is not considered to do so.
+Data exchange between the US and EU is possible under the Safe Harbor regulation \cite{SAFE_HABOR}.
+Further Exceptions are provided by the Passenger Name Record Agreement \cite{PNR}.
 
 \subsection{Implementation of the Data Protection Directive}\label{sec:ECIMPL}
 
-\subsubsection*{Germany}
-
-Germany implements Directive 95/46 with the \emph{Federal Data Protection Act} from 2001 known as \emph{Bundesdatenschutzgesetz (BDSG)}.
-However, Germany has violated the directive in two points:
+\textbf{Germany}.
+Germany implements Directive 95/46 with the \emph{Bundesdatenschutzgesetz (BDSG)}
+of 2001. However, Germany has violated the directive in two points:
 \begin{enumerate}
 \item The BDSG has become effective three years too late, thus the EC filed a treaty violation proceeding against Germany.
 \item The BDSG does not implement independent supervisory authorities.
@@ -167,8 +233,7 @@ The states of Germany have their own implementation of Directive 95/46 (\emph{La
 Federal public authorities are only bound to their federal law.
 Churches are not subject the BDSG.
 
-\subsubsection*{United Kingdom}
-
+\textbf{United Kingdom.}
 The UK implements Directive 95/46 with the \emph{Data Protection Act 1998} (DPA).
 
 The act is known for its high complexity: a manual record of phone numbers for business purposes could be hold subject to the DPA.
@@ -271,7 +336,7 @@ Examples include:
 
 \item \textbf{Privacy of Behaviour and Action}
 
-This type is also concerned with the ``protection against disclosure of personal matters'' through behaviour, however Clarke's distinction between ``casual observation [...] systematic recording and storage of information about those activities'' is lifted.
+This type is also concerned with the ``protection against disclosure of personal matters'' through behaviour, however Clarke's distinction between ``casual observation \om systematic recording and storage of information about those activities'' is lifted.
 
 Examples include:
 \begin{itemize}
@@ -1061,8 +1126,8 @@ Subjects who are not aware of these things cannot effectively preserve control a
 
 The \textbf{Privacy of The Person} is generally concerned with one could
 best understand as \emph{Biometric Privacy}. Friedewald et al. paraphrase
-it as \emph{``[...] the right to keep body functions and body
-characteristics [...] private''}. \textbf{Accelerometer},
+it as \emph{``\om the right to keep body functions and body
+characteristics \om private''}. \textbf{Accelerometer},
 \textbf{Rotation Vector} and \textbf{Gyroscope} measure the physical
 movement of the mobile device on all three axes. If the mobile device
 is carried \emph{``normally''} its safe to say that those sensors also
