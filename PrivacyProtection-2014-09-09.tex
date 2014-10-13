@@ -6,15 +6,17 @@
 
 As privacy is a very general and hard to grasp term, we need to fix a definition of privacy that is suitable for our needs.
 As background information we include an overview about historical treatments of privacy as well as legal regulation of privacy in the European Union.
-Based on this we propose a definition of privacy as {\em control over personal data}, and introduce a taxonomy of privacy attributes that give specify the term {\em personal data} in the context of mobile sensor data collection.
+Based on this we propose a definition of privacy as {\em control over personal data}, and introduce seven privacy types that give specify the term {\em personal data} in the context of mobile sensor data collection.
 
 % \section{Histrocial Approaches to Privacy}
 
 \section{Legal Aspects of Privacy}
 
-* Present legal view on privacy from European angle: ``Data Protection Directive`` and Implementation.
+In the following sections we outline the most relevant legislature regarding privacy protection,
+from on European angle.
+Of particular importance is the EU Directive 95/46/EC that is discussed in section \ref{EUDIR}.
 
-* Some US Law
+Based on the legal background presented here, we will derive the legal privacy requirements for our systems in \ref{sec:LEGAL_REQ}.
 
 \subsection{European Convention on Human Rights}
 
@@ -68,8 +70,7 @@ In the light of this developments the OECD  \cite{OECD80} issued Guidelines on P
 Where the following definitions are understood.
 \begin{itemize}
 \item \emph{personal data} means any information relating to an identified or identifiable person (\emph{data subject}).
-  An identifiable person is is one who can be identified either directly, by reference to a name or identification number or indirectly,
-  by one or more factors which make it possible to find out who the data subject is by conducting further research.
+  An identifiable person is one who can be identified either directly, by reference to a name or identification number or indirectly, by one or more factors which make it possible to find out who the data subject is by conducting further research.
 \item a \emph{data controller} means any party who is competent to decide about the contents and use of personal data.
 \end{itemize}
 
@@ -80,7 +81,7 @@ Therefore the above principles apply.
 
 % UPDATE 2013: http://www.oecd.org/sti/ieconomy/privacy.htm
 
-\subsection{EU Data Protection Directive}
+\subsection{EU Data Protection Directive}\label{EUDIR}
 
 The \emph{Directive 95/46/EC} of 1995 \cite{DIR95} is the fundamental regulation of data protection in the European Union.
 It was designed to give further substance to the Convention 108.
@@ -233,7 +234,7 @@ The states of Germany have their own implementation of Directive 95/46 (\emph{La
 Federal public authorities are only bound to their federal law.
 Churches are not subject the BDSG.
 
-\textbf{United Kingdom.}
+\textbf{United Kingdom.} %TODO: HOW MUCH IS COPY PASTE FROM WIKIPEDIA?
 The UK implements Directive 95/46 with the \emph{Data Protection Act 1998} (DPA).
 
 The act is known for its high complexity: a manual record of phone numbers for business purposes could be hold subject to the DPA.
@@ -257,23 +258,19 @@ If the company ignores the request, a court can order the data to be corrected o
 \item Require that their data is not used for direct marketing. \cite{3}
 \end{itemize}
 
-\subsubsection*{France}
 
-France implements Directive 95/46 with Law 2004-801 modifying law 78-17 of 6.1.1978 (\emph{Loi n2004-801 du 6 ao\^{u}t 2004} modifying \emph{loi n78-17 relative à l'informatique, aux fichiers et aux libert\'{e}s}) \cite{1}\cite{10}\cite{11}.
-
-\subsubsection*{United States of America}
-
+\textbf{United States of America}
 The USA do not implement the directive, nor is there any obligation for them to do so.
-However, companies subject to US jurisdiction can be certified to comply with the seven principles enforced by Directive 95/46 (the seven OECD recommendations) \cite{5}.
-Thus, those companies will act as \emph{safe harbors}. Without certification foreign companies are not allowed to send customer data back home \cite{9}.
+However, companies subject to US jurisdiction can be certified to comply with the seven principles enforced by Directive 95/46.
+Thus, those companies will act as \emph{safe harbors}.
+Without certification foreign companies are not allowed to store and process customer data in their country.
 
-\emph{Safe harbor} in general is the legal concept to regulate that a certain conduct will be deemed \cite{4}, but in Germany the term is commonly used as synonym for the agreement between the EU and the US regarding Directive 95/46.)
 
 \subsection{EU Charter of Fundamental Rights}
-
-The Treaty of Lisbon of 2007, which layed down the fundamental functioning of the European Union
+The Treaty of Lisbon of 2007, which introduced the fundamental functioning of the European Union
 includes the \emph{Charter of Fundamental Rights of the Europen Union} \cite{EUFR2010}.
-This Charta summarizes the full range of civil, political and economic rights of EU citizens and contains the following two articles that safeguard the privacy of the citizen.
+This Charter summarizes the full range of civil, political and economic rights of EU citizens and contains the following two articles that safeguard the privacy of the citizen.
+
 \begin{quote}
   Article 7. Respect for private and family life.\\
   Everyone has the right to respect for his or her private and family life, home and communications.
@@ -294,7 +291,13 @@ Although the Charter does not extend the pre-exiting Directive 95/46/EC, it ampl
 
 \subsection{Defining Privacy}
 
-Defining privacy is a challenge which seems impossible. This is well put to words by Serge Gutwirth, who notes: \emph{``The notion of privacy remains out of the grasp of every academic chasing it. Even when it is cornered by such additional modifiers as `our' privacy, it still finds a way to remain elusive.''} \cite{2}.
+% TODO: Expand this section!!
+
+Defining privacy is a challenge which seems impossible. This is well put to words by Serge Gutwirth, who notes in \cite{Gutwirth}:
+
+\begin{quote}
+The notion of privacy remains out of the grasp of every academic chasing it. Even when it is cornered by such additional modifiers as `our' privacy, it still finds a way to remain elusive.
+\end{quote}
 
 Many privacy researchers seem to ``focus on the ways in which privacy can be infringed'' \cite{1}.
 Thus they try to create taxonomies of \emph{privacy harms} instead of taxonomies of \emph{privacy types}.
@@ -314,14 +317,14 @@ So one should rather evaluate what aspects are precious about privacy and develo
 \subsection{The Seven Types of Privacy}
 
 Seven Types of Privacy based on four types of privacy by Clarke.
-Clarke's four types are outdated by contemporary technologies and no longer adequate. 
+Clarke's four types are outdated by contemporary technologies and no longer adequate.
 In order to fix this Friedewald, Finn and Wright extend the former four to the now introduced seven types privacy as follows:
 
 \begin{enumerate}
 
 \item \textbf{Privacy of the Person.}
 
-This type is the right keep body functions and body characteristics private. It maps the one by Clarke.
+This type is the right keep body functions and body characteristics private.
 
 Examples include:
 \begin{itemize}
@@ -354,7 +357,8 @@ Examples include:
 
 \item \textbf{Privacy of Data and Image}
 
-This type is concerned with ``making sure that individual's data is not automatically available to other individuals and organizations''. This is Informational Privacy in an intuitive sense.
+This type is concerned with ``making sure that individual's data is not automatically available to other individuals and organizations''.
+This is Informational Privacy in an intuitive sense.
 
 Examples include:
 \begin{itemize}
@@ -401,216 +405,137 @@ Examples include:
 \end{itemize}
 \end{enumerate}
 
-\subsection{Implicit Privacy Type Violation}
+\subsection{Privacy Type Inferences}
 
-Cf. Figure \ref{figure:Implicit Privacy Violation Matrix}
+The above types of privacy types are not disjoint to each other.
+For example if the location of a citizen is known it is possible to infer information about political associations (e.g. his visits to a party meeting).
+In this section we explore possibilities how personal data can be inferred from each other.
+Our findings are summarized in Figure \ref{figure:Implicit Privacy Violation Matrix}.
 
-%\includegraphics{../diagrams/png/implicit-privacy-violation-matrix.png}
-\input{./figures/Implicit-Privacy-Violation-Matrix}
+\paragraph*{1. Privacy of The Person}
 
-\paragraph*{Privacy of The Person}
-
-The Privacy of The Person is concerned with one's biometric privacy. 
+The Privacy of The Person is concerned with one's biometric privacy.
 If this type is violated, following implicit violations are possible:
 
 \begin{itemize}
-
-\item
-  \textbf{Privacy of The Person:} reflexive violation
-\item
-  \textbf{Privacy of Behaviour and Action:} none
-\item
-  \textbf{Privacy of Communication:} none
-\item
-  \textbf{Privacy of Data and Image:} none
-\item
-  \textbf{Privacy of Thoughts and Feelings:} Some psychological diseases
+\item [(1-5)]
+  Privacy of Thoughts and Feelings. Some psychological diseases
   (e.g.~depression) have physiological impact. Such physiological
   patterns could be detected.
-\item
-  \textbf{Privacy of Location and Space:} none
-\item
-  \textbf{Privacy of Association:} none
 \end{itemize}
 
-\paragraph*{Privacy of Behaviour and Action}
-The Privacy of Behaviour and Action is concerned with one' and social activities (religious, po...l, sexual, \ldots). Ifhis type is violated, following implicit violations are possible:
+\paragraph*{2. Privacy of Behaviour and Action}
+
+The Privacy of Behaviour and Action is concerned with one's social, political, religious, sexual, etc. activities.
+If his type is violated, following implicit violations are possible:
+
 \begin{itemize}
-\item
-  \textbf{Privacy of The Person:} Religious practices which include body
-  modifications (e.g.~circumcision).
-\item
-  \textbf{Privacy of Behaviour and Action:} reflexive violation
-\item
-  \textbf{Privacy of Communication:} none
-\item
-  \textbf{Privacy of Data and Image:} none
-\item
-  \textbf{Privacy of Thoughts and Feelings:} Social activities in
-  general depend on a certain intellectual attitude. Such an activity is
-  the expressions of such an attitude.
-\item
-  \textbf{Privacy of Location and Space:} none
-\item
-  \textbf{Privacy of Association:} Recording religious, political or
-  sexual activities can reveal association with churches, political
-  parties or sexual partners.
+\item [(2-1)] Privacy of The Person.
+  Religious practices which include body modifications (e.g.~circumcision).
+\item [(2-5)] Privacy of Thoughts and Feelings.
+  Social activities in general depend on a certain intellectual attitude.
+  Such an activity is the expressions of such an attitude.
+\item [(2-7)] Privacy of Association.
+  Recording religious, political or sexual activities can reveal association with churches, political parties or sexual partners.
 \end{itemize}
 
-\paragraph*{Privacy of Communication}
+\paragraph*{3. Privacy of Communication}
 
-The Privacy of Communication is concerned with not havin such
-communication (correspondence or vis-a-vis) intercepted. This is very
-broad type of privacy. Depending on the contents of the intercepted
-communication every other type can be violated:
+The Privacy of Communication is concerned with not having such communication (correspondence or vis-a-vis) intercepted.
+This is very broad type of privacy.
+Depending on the contents of the intercepted communication every other type can be violated:
 
 \begin{itemize}
-
-\item
-  \textbf{Privacy of The Person:} Communication about body
-  characteristics.
-\item
-  \textbf{Privacy of Behaviour and Action:} Communication about social
-  activities.
-\item
-  \textbf{Privacy of Communication:} reflexive violation
-\item
-  \textbf{Privacy of Data and Image:} Communication containing one's
-  passwords or other sensitive data.
-\item
-  \textbf{Privacy of Thoughts and Feelings:} Communication of thoughts
-  and feelings, e.g.~wiretapping a flirt or a catholic confession
+\item [(3-1)] Privacy of The Person. Communication about body characteristics.
+\item [(3-2)] Privacy of Behaviour and Action. Communication about social activities.
+\item [(3-4)] Privacy of Data and Image.
+  Communication containing one's passwords or other sensitive data.
+\item [(3-5)] Privacy of Thoughts and Feelings.
+  Communication of thoughts and feelings, e.g.~wiretapping a flirt or a catholic confession
   ritual.
-\item
-  \textbf{Privacy of Location and Space:} Interception of face-to-face
-  communication is only possible if one's location and space is violated
-  (wiretapping).
-\item
-  \textbf{Privacy of Association:} Communication about one's
-  associations (family members, churches, etc.).
+\item [(3-6)] Privacy of Location and Space.
+  Interception of face-to-face communication is only possible if one's location and space is violated (wiretapping).
+\item [(3-7)] Privacy of Association.
+  Communication about one's associations (family members, churches, etc.).
 \end{itemize}
 
-\paragraph*{Privacy of Data and Image}
+\paragraph*{4. Privacy of Data and Image}
 
-The Privacy of Data and Image is concerned with one's data not being
-automatically available to others. This also is a very broad type of
-privacy. Depending of the data or image contents every other type can be
-violated:
+The Privacy of Data and Image is concerned with one's data not being automatically available to others.
+This also is a very broad type of privacy.
+Depending of the data or image contents every other type can be violated:
 
 \begin{itemize}
 
-\item
-  \textbf{Privacy of The Person:} Images or stored biometric information
-  reveal one's physical characteristics.
-\item
-  \textbf{Privacy of Behaviour and Action:} Images or diaries can reveal
-  one's social activities.
-\item
-  \textbf{Privacy of Communication:} Modern communication systems
-  usually contain some sort of archive function, e.g.~E-mail clients do
-  not automatically delete messages. Such messages are data and reveal
-  one's communication.
-\item
-  \textbf{Privacy of Data and Image:} reflexive violation
-\item
-  \textbf{Privacy of Thoughts and Feelings:} Images can show one's
-  emotional state.
-\item
-  \textbf{Privacy of Location and Space:} Images can reveal one's
-  location, e.g.~making a picture in front of the Eifel Tower.
-\item
-  \textbf{Privacy of Association:} E-mail data can also reveal
+\item [(4-1)] Privacy of The Person.
+  Images or stored biometric information reveal one's physical characteristics.
+\item [(4-2)]Privacy of Behaviour and Action.
+  Images or diaries can reveal one's social activities.
+\item [(4-3)]Privacy of Communication.
+  Modern communication systems usually contain some sort of archive function, e.g.~E-mail clients do not automatically delete messages.
+  Such messages are data and reveal one's communication.
+\item [(4-4)]Privacy of Thoughts and Feelings.
+  Images can show one's emotional state.
+\item [(4-5)]Privacy of Location and Space.
+  Images can reveal one's location, e.g.~making a picture in front of the Eifel Tower.
+\item [(4-6)]Privacy of Association. E-mail data can also reveal
   association.
 \end{itemize}
 
-\paragraph*{Privacy of Thoughts and Feelings}
+\paragraph*{5. Privacy of Thoughts and Feelings}
 
 The Privacy of Thoughts and Feelings is concerned with keeping such
 thoughts and feelings secret. If this type is violated, following
 implicit violations are possible:
 
 \begin{itemize}
-
-\item
-  \textbf{Privacy of The Person:} Thoughts and feelings can reveal
-  medical conditions.
-\item
-  \textbf{Privacy of Behaviour and Action:} Thoughts and feelings can
-  reveal a certain attitudes which create a foundation for certain
-  social activities.
-\item
-  \textbf{Privacy of Communication:} none
-\item
-  \textbf{Privacy of Data and Image:} none
-\item
-  \textbf{Privacy of Thoughts and Feelings:} reflexive violation
-\item
-  \textbf{Privacy of Location and Space:} none
-\item
-  \textbf{Privacy of Association:} Thoughts and feelings can reveal
-  individual association, e.g amorous feelings for a certain person.
+\item [(5-1)] Privacy of The Person.
+  Thoughts and feelings can reveal medical conditions.
+\item [(5-2)] Privacy of Behaviour and Action.
+  Thoughts and feelings can reveal a certain attitudes which create a foundation for certain   social activities.
+\item [(5-7)] Privacy of Association.
+  Thoughts and feelings can reveal individual association, e.g amorous feelings for a certain person.
 \end{itemize}
 
-\paragraph*{Privacy of Location and Space}
+\paragraph*{6. Privacy of Location and Space}
 
-The Privacy of Location and Space is concerned with one's right to move
-freely without being tracked and one's right to private places. If this
-type is violated, following implicit violations are possible:
+The Privacy of Location and Space is concerned with one's right to move freely without being tracked and one's right to private places.
+If this type is violated, following implicit violations are possible:
+
+\begin{itemize}
+\item [(6-1)] Privacy of The Person.
+  Frequently visited doctors can reveal certain medical conditions, if such doctors are known specialsts.
+  In general it could imply illness.
+\item [(6-2)] Privacy of Behaviour and Action.
+  Frequently visited places in general can reveal association and hence implies social activities.
+\item [(6-3)] Privacy of Communication.
+  If one's location is knwon, it is possible to intercept (wiretap) one's communication.
+  This also may violate the right to private spaces.
+\item [(6-4)] Privacy of Data and Image.
+  If one's location is known, it is possible shoot pictures.
+\item [(6-5)] Privacy of Thoughts and Feelings.
+  Frequently visited persons may imply certain thoughts and feelings, e.g.~having a mistress.
+\item [(6-6)] Privacy of Association.
+  Frequently visited places can reveal associations simply by searching in maps or yellow-pages.
+\end{itemize}
+
+\paragraph*{7. Privacy of Association}
+
+The Privacy of Association is concerned with one's right to associate with whomever one wants, without that association having recorded.
+If this type is violated, following implicit violations are possible:
 
 \begin{itemize}
 
-\item
-  \textbf{Privacy of The Person:} Frequently visited doctors can reveal
-  certain medical conditions, if such doctors are known specialsts. In
-  general it could imply ill-being.
-\item
-  \textbf{Privacy of Behaviour and Action:} Frequently visited places in
-  general can reveal association and hence implies social activities.
-\item
-  \textbf{Privacy of Communication:} If one's location is knwon, it is
-  possible to intercept (wiretap) one's communication. This also may
-  violate the right to private spaces.
-\item
-  \textbf{Privacy of Data and Image:} If one's location is known, it is
-  possible shoot pictures. This violates the right to one's image
-  (\emph{``Recht am eigenen Bild''}).
-\item
-  \textbf{Privacy of Thoughts and Feelings:} Frequently visited persons
-  may imply certain thoughts and feelings, e.g.~having a mistress.
-\item
-  \textbf{Privacy of Location and Space:} reflexive violation
-\item
-  \textbf{Privacy of Association:} Frequently visited places can reveal
-  associations simply by searching in maps or yellow-pages.
+\item [(7-1)] Privacy of The Person.
+  Association with tattoo artists could imply having tattoos or other body modifications.
+\item [(7-2)] Privacy of Behaviour and Action.
+  Association with churches or political organizations could imply certain activities.
+\item [(7-5)] Privacy of Thoughts and Feelings.
+  Association with churches of political organizations could imply a certain intellectual attitude.
 \end{itemize}
 
-\paragraph*{Privacy of Association}
-
-The Privacy of Association is concerned with one's right to associate
-with whomever one wants, without that association having recorded.If
-this type is violated, following implicit violations are possible:
-
-\begin{itemize}
-
-\item
-  \textbf{Privacy of The Person:} Association with tattoo artists could
-  imply having tattoos or other body modifications
-\item
-  \textbf{Privacy of Behaviour and Action:} Association with churches or
-  political organizations could imply certain activities.
-\item
-  \textbf{Privacy of Communication:} none
-\item
-  \textbf{Privacy of Data and Image:} none
-\item
-  \textbf{Privacy of Thoughts and Feelings:} Association with churches of
-  political organizations could imply a certain intellectual attitude.
-\item
-  \textbf{Privacy of Location and Space:} none
-\item
-  \textbf{Privacy of Association:} reflexive violation
-\end{itemize}
-
+%\includegraphics{../diagrams/png/implicit-privacy-violation-matrix.png}
+\input{./figures/Implicit-Privacy-Violation-Matrix}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1188,6 +1113,8 @@ Additionally, the \textbf{GSM} sensor could provide the association with
 the GSM operator (\textbf{NEEDS TO BE VERIFIED!}).
 
 \subsection{Step 3. Plan Development}
+
+\subsection{Legal Privacy Requirements} \ref{sec:LEGAL_REQ}
 
 \subsubsection{Security Measures}
 
