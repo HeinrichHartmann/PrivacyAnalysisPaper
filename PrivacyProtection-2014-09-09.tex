@@ -1,3 +1,17 @@
+% test citing
+%\cite{CFried:Privacy}
+%\cite{WarrenBrandeis:RightToPrivacy}
+%\cite{sep-privacy}
+%\cite{7ToP}
+%\cite{Grimm:ItSecRefModel}
+%\cite{ItSecGlossary}
+%\cite{SociotechnicalArchitectureForOnlinePrivacy}
+%\cite{EUDataProtectionDirective}
+%\cite{EUConventionOnHumanRights}
+%\cite{Bundesdatenschutzgesetz}
+%\cite{Gutwirth:DefiningPrivacy}
+%\cite{UKDataProtectionAct}
+
 \chapter{Legal and Ethical aspects of Privacy}
 \label{chap:privacy}
 
@@ -1008,41 +1022,38 @@ Subjects who are not aware of these things cannot effectively preserve control a
 
 \subsection{Step 2. Potential Analysis}
 
-\subsubsection{Threats}
+\subsubsection{Threat Specification}
+
+\textbf{Man In The Middle:}
+Lorem ipsum dolor suit amet, ...
+
+\textbf{Exploit:}
+Lorem ipsum dolor suit amet, ...
+
+\textbf{Corruption:}
+Lorem ipsum dolor suit amet, ...
+
+\textbf{Intrasparency:}
+Lorem ipsum dolor suit amet, ...
+
 \input{./figures/LG-Threats}
+\input{./figures/Threat-Example-1}
+\input{./figures/Threat-Example-2}
 \input{./figures/ThreatTable}
 
-%\begin{itemize}
-%
-%\item
-%  \textbf{Unauthorized access to privacy sensitive data}, caused by
-%  \begin{itemize}
-%  \item
-%    \textbf{Excessive Data Mining} Linking sensor data provided by
-%    citizens with additional sources can produce more privacy sensitive
-%    data.
-%  \item
-%    \textbf{Corrupt Local Authorities} Local Authorities have certain data
-%    access, they could hand over this access for monetary reasons.
-%  \item
-%    \textbf{Corrupt/Unhappy Staff} Staff members also have a certain data
-%    access and they also could hand over this access for monetary reasons
-%    or as a form of payback for unfair treatment.
-%  \item
-%    \textbf{Competent Attackers} Competent Attackers are always a threat
-%    for IT-systems. Normaly they have monetary reasons to exploit a
-%    system, but there is also a possibility for proof-of-concept like
-%    attacks.
-%  \end{itemize}
-%\end{itemize}
-%
-%
-\paragraph{Sensor Privacy Matrix (Figure \ref{figure:Live+Gov Sensor-Privacy Matrix})}
+\subsubsection{Threat Risk Evaluation}
+
+% Todo: use sensor privacy matrix and implicit sensor privacy matrix for threat risk evaluation
+
+\textbf{Sensor Privacy Matrix}
 
 %\includegraphics{../diagrams/png/sensor-privacy-matrix.png}
 \input{./figures/LG-Sensor-Privacy-Matrix}
 
-\subparagraph{Privacy of The Person}
+\begin{itemize}
+
+\item
+\textbf{Privacy of The Person}
 
 The \textbf{Privacy of The Person} is generally concerned with one could
 best understand as \emph{Biometric Privacy}. Friedewald et al. paraphrase
@@ -1057,7 +1068,8 @@ regarding biometric behaviour, as it is captured automatically.
 Behaviour and Action} which is used for the social aspects of behaviour
 action, e.g.~praying, sexual habits or political activities.)
 
-\subparagraph{Privacy of Data and Image}
+\item
+\textbf{Privacy of Data and Image}
 
 The \textbf{Privacy of Data and Image} demands, that
 \emph{``individual's data is not automatically available to other
@@ -1066,7 +1078,9 @@ here sensor data is individual data, a priori. So every sensor violates
 the privacy of data and image, as data is transported into a foreign
 system where operators have access to it.
 
-\subparagraph{Privacy of Location and Space}
+
+\item
+\textbf{Privacy of Location and Space}
 
 According to Friedewald et al., the \textbf{Privacy of Location and
 Space} is concerned with one's \emph{``right to move about in public or
@@ -1093,7 +1107,8 @@ carrier's privacy, because it does not allow very precise localization.
 But it can limit the possibilities for the global position of the mobile
 device. Here, it is just named for completeness sake.
 
-\subparagraph{Privacy of Associtation}
+\item
+\textbf{Privacy of Associtation}
 
 The \textbf{Privacy of Association} sates that everyone has the
 \emph{``right to associate with whomever they wish, without being
@@ -1110,6 +1125,17 @@ individuals.
 
 Additionally, the \textbf{GSM} sensor could provide the association with
 the GSM operator (\textbf{NEEDS TO BE VERIFIED!}).
+
+\end{itemize}
+
+
+
+
+
+
+
+\subsubsection{Security Requirement Specification}
+
 
 \subsection{Step 3. Plan Development}
 
