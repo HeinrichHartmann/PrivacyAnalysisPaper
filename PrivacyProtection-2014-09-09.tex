@@ -51,7 +51,9 @@ The \emph{European Court of Human Rights} (ECtHR) overseas the implementation of
 
 In particular State actions of searching a persons home, gathering and storing information in a secret police file, and stopping a prisoner's communication have been ruled to interfere with Article 8.
 
-In the context of the Live+Gov project the ECHR is of limited relevance, since the Live+Gov System is offered by private companies and not directly by the State authority.
+The Live+Gov systems can violate this fundamental human right if it is used to gather information about the private life without the knowledge and consent of the citizen.
+
+% In the context of the Live+Gov project the ECHR is of limited relevance, since the Live+Gov System is offered by private companies and not directly by the State authority.
 
 \subsection{OECD Guidelines and CoE Convention 108}
 
@@ -251,26 +253,28 @@ Churches are not subject the BDSG.
 \textbf{United Kingdom.} %TODO: HOW MUCH IS COPY PASTE FROM WIKIPEDIA?
 The UK implements Directive 95/46 with the \emph{Data Protection Act 1998} (DPA).
 
-The act is known for its high complexity: a manual record of phone numbers for business purposes could be hold subject to the DPA.
-Although the act seems to fully cover the directive.
-Even higher restriction apply for \emph{``sensitive personal data''} (race, ethnicity, politics, religion, trade union status, health, sex life or criminal record), i.e. consent must be given freely and has to be explicit.
+%TODO: Reformulate Wikipedia Text
 
-The Act's definition of personal data covers any data that can be used to identify a living individual.
-Anonymised or aggregated data is not regulated by the Act, providing the anonymisation or aggregation has not been done in a reversible way.
+%% The act is known for its high complexity: a manual record of phone numbers for business purposes could be hold subject to the DPA.
+%% Although the act seems to fully cover the directive.
+%% Even higher restriction apply for \emph{``sensitive personal data''} (race, ethnicity, politics, religion, trade union status, health, sex life or criminal record), i.e. consent must be given freely and has to be explicit.
 
-The Freedom of Information Act 2000 modified the act for public bodies and authorities, and the Durant case modified the interpretation of the act by providing case law and precedent.
+%% The Act's definition of personal data covers any data that can be used to identify a living individual.
+%% Anonymised or aggregated data is not regulated by the Act, providing the anonymisation or aggregation has not been done in a reversible way.
 
-The Data Protection Act creates rights for those who have their data stored, and responsibilities for those who store, process or transmit such data.
-The person who has their data processed has the right to:
-\begin{itemize}
-\item View the data an organization holds on them.
-A `subject access request' can be obtained for a nominal fee.
-As of January 2014, the maximum fee is \pounds2 for requests to credit reference agencies, \pounds50 for health and educational request, and \pounds10 per individual otherwise.
-\item Request that incorrect information be corrected.
-If the company ignores the request, a court can order the data to be corrected or destroyed, and in some cases compensation can be awarded.
-\item Require that data is not used in any way that may potentially cause damage or distress.
-\item Require that their data is not used for direct marketing. \cite{3}
-\end{itemize}
+%% The Freedom of Information Act 2000 modified the act for public bodies and authorities, and the Durant case modified the interpretation of the act by providing case law and precedent.
+
+%% The Data Protection Act creates rights for those who have their data stored, and responsibilities for those who store, process or transmit such data.
+%% The person who has their data processed has the right to:
+%% \begin{itemize}
+%% \item View the data an organization holds on them.
+%% A `subject access request' can be obtained for a nominal fee.
+%% As of January 2014, the maximum fee is \pounds2 for requests to credit reference agencies, \pounds50 for health and educational request, and \pounds10 per individual otherwise.
+%% \item Request that incorrect information be corrected.
+%% If the company ignores the request, a court can order the data to be corrected or destroyed, and in some cases compensation can be awarded.
+%% \item Require that data is not used in any way that may potentially cause damage or distress.
+%% \item Require that their data is not used for direct marketing. \cite{3}
+%% \end{itemize}
 
 
 \textbf{United States of America}
@@ -794,22 +798,49 @@ In this section we give an abstraction of those systems from the perspective of 
 
 \input{./figures/IT-Systems}
 
-A citizen (a) carries a mobile device running the \emph{sensor collector} (d) application.
-The sensor collector application collects sensor data (accelerometer, GPS, GSM, ...) and sends it to the \emph{data center} (c).
+A \emph{citizen} (a) carries a mobile device running the \emph{sensor collector} application (d).
+The sensor collector application is able to collect various kinds of sensor data (accelerometer, GPS, GSM, ...) and can sent the raw data back to the \emph{data center} (c).
 The sensor collector can also be able to perform certain data mining operations.
+
 Examples of such data mining operations include human activity recognition,the detection of service lines, detection of characters and faces from images.
 
-The \emph{data center} stores and processes sensor data collected with the sensor collector application.
+In the Live+Gov Project mobile devices are used in particular for the following activities:
+\begin{enumerate}
+\item collection of GPS samples,
+\item mining of Human activities (HAR) based on accelerometer samples,
+\item collection of reports consisting of an image, free text and selected categories.
+\end{enumerate}
 
-Vice versa, it sends beneficial information (traffic jam reports, bus schedule) for \textit{Citizens} to the mobile device.
-The \textit{System Provider (b)} provides and operates technical infrastructure like the \textit{Data Center} and the \textit{Report Tool (f)}.
-The \textit{Report Tool} queries the \textit{Data Center} for aggregated data to visualize in form of charts and other means suitable to help understanding of monitored \textit{Citizens}. 
-\textit{Local Authorities (c)} use the \textit{Report Tool} to get information in order to understand citizen movement and improve public services. 
+The \emph{data center} stores and processes sensor data collected with the sensor collector application. It can also take into account data obtained from third parties, like the current positions of trains.
+The data center can sent mining end products (traffic jam reports, bus schedule) back to the mobile device of the citizen.
 
-In such systems, the most valuable information is not the raw sensor data, the beneficial information for \textit{Local Authorities} is produced via \textit{Data Mining} (Human Activity Recognition: detect running, walking, standing, ...). 
-Usually, \textit{Data Mining} is heavily conducted within the \textit{Data Center}, but simpler mining processes can also be conducted on mobile devices.
+In the Live+Gov Project data centers, in particular, perform the following activities:
+\begin{enumerate}
+\item storage of login credentials, name, and email address for each citizen,
+\item storage of collected GPS samples (user id, timestamp, GPS location),
+\item storage of HAR results (user id, timestamp, HAR result),
+\item detection of service lines based received GPS samples (SLD),
+\item storage of SLD results (userid, timestamp, SLD result),
+\item sent back SLD results to mobile device,
+\item storage of received reports (user id, timestamp, report),
+\item detection of inherent patterns of the received reports.
+\end{enumerate}
 
+The \emph{System Provider} (b) provides and operates technical infrastructure like the Data Center and the \emph{Reporting Tool} (f).
+The Reporting Tool queries the Data Center for aggregated data to visualize in form of charts and other means suitable to help understanding of monitored citizens.
 
+\textit{Local Authorities} (c) use the reporting tool to get information in order to understand citizen movement and improve public services.
+In such systems, the most valuable information for local authorities is not the raw sensor data, but aggregated views on the mining end products.
+
+In the Live+Gov Project the reporting tools allows, in particular the following queries:
+\begin{enumerate}
+\item show aggregate information about which routes citizens take starting from a given location,
+\item show the average waiting time of a citizen for each bus stop,
+\item show routes where citizens where running to catch a bus,
+\item show locations of all reports in a given time window,
+\item visualize detected patterns in the report data,
+\item view individual reports.
+\end{enumerate}
 
 \subsubsection{Actors}
 \label{subsubsection:humans}
