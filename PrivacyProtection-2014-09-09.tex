@@ -845,63 +845,64 @@ In the Live+Gov Project the reporting tools allows, in particular the following 
 \subsubsection{Actors}
 \label{subsubsection:humans}
 
-This section outlines the human actors previously introduced within the IT system architecture (\ref{subsubsection:it-systems}).
-It is described which individual interests they have invested in monitoring systems comparable to the Live+Gov system. 
-Also the additional actor \textit{Criminal} is introduced as an possible obstacle.
+This section describes the human actors previously introduced within the IT system architecture (\ref{subsubsection:it-systems}).
+Also the additional actor \textit{Criminal} is introduced as an external person with harmful intentions.
 
-\textbf{Citizen:} 
-Citizens are persons who take part in the monitoring system as the monitored subjects.
-They offer their privacy sensitive data, because by participating they expect a higher level of comfort in their lives through the offered services in return.
-E.g. they will have access to real time bus schedules and traffic jam reports, localized social networking or they generally benefit from public improvement by Local Authorities.
+\textbf{Citizen.}
+Citizens are persons who use the mobile device as users of the provided software.
+Their main motivation for using the software is to gain a higher level of convenience in their daily activities. For example they may have access to real time bus schedules or reports about traffic jams, that help them to avoid long waiting times.
+Also they generally benefit from improvements of public infrastructure by local authorities, which is triggered by issue reports.
 
-However, they have a legal right to privacy and are interested in having that privacy respected by others.
-For example, all humans have a natural interest in physical wellbeing and personal health. 
-If someone monitors their immediate location (GPS) or frequently used routes (stalking), people with access to that information could attack and harm citizens.
+By using the application citizens are sharing personal information like name and address, as well as data gathered from mobile sensor with the service provider.
+This data can be exploited in ways that are harmful to the citizen.
+This need to protect this protection is manifest in several laws and constitutions as the right to privacy and data protection.
+The citizen has a vital interest in having his legal rights protected and enforced.
 
-In general, citizens are not interested in having information about them exploited by others. 
+If the right to privacy is violated, there is a magnitude of potential harms that interfere with other interests of the citizen.
 This includes just annoying spam, where their technical identity is used to send unwanted commercials.
-But it also includes more severe phishing attacks, which try to rob citizens of their TAN numbers and disrespect their financial interests.
+More severe phishing attacks can exploit personal information, and try to manipulate citizens into disclosing credentials like TAN numbers and disrespect their financial interests.
+Information about the current location (GPS) or frequently used routes (stalking) can be used to attack and directly harm the health of the citizen.
+Information about medical conditions inferred by sensor data (e.g. fintness trackers) are of interest to insurance companies, which may affect the pricing of policies and can interfere with financial interests of the citizen.
 
-Such financial interests of monitored citizens, the interest in not losing / gaining money, could be disrespected on an even larger scale.
-Collected data could be used for scoring and analysis, which may affect the pricing of policies or credits, if sold to insurances or banks.
+Also it is well established (cf. \cite{GuardienMassSurveillance}) that the very act of being monitored can have impact on mental health and performance, promotes distrust and breeds conformity.
 
-So citizens have an inherent interest in transparency and disclosure of who uses their data for which purposes, as it may affect their physical and financial wellbeing.
-
-In short, Citizens are interested in ...
+In short, citizens are interested in
 \begin{itemize}
-\item ... confidential use of privacy sensitive data
-\item ... legitimate use of privacy sensitive data
-\item ... proportional use of privacy sensitive data
-\item ... successful use of privacy sensitive data
+\item convenience
+\item legitimate use of personal data
+\item physical wellbeing and health
+\item financial profit
+\item not being monitored.
 \end{itemize}
 
-\textbf{Criminal:}
-Criminals are persons who do not have legal access to the IT systems of a proposed monitoring system.
-Usually, monetary interests lead their activities.
-For example they want to obtain access to critical systems to steal sensitive data or to get the system under their control.
-Controlled systems could be leased as part of a bot net. 
-Stolen data could simply be sold as is or used for illegitimate purposes, e.g. spam or phishing attacks - or excessive data mining.  
+\textbf{Criminal.}
+Criminals are persons who do not have privileged access to the IT systems,
+and are willing to break laws and norms in order to promote their interests.
 
-Because Local Authorities are involved in the general outline of a public monitoring system, the possibility for politically motivated attacks cannot be ignored. 
-Criminals could want to harm or destroy the systems in order to damage the reputation of Local Authorities (politicians or other officials) or to make a political statement of their own, e.g. "Stop Surveillance!".
+For example they want to obtain access to critical systems to steal sensitive data or to get the system under their control.
+Controlled systems could be leased as part of a bot net.
+Stolen data could simply be sold as is or used for illegitimate purposes, e.g. spam or phishing attacks - or excessive data mining.
+
+Because local authorities are involved in the general outline of the Live+Gov system, the possibility for politically motivated attacks is given.
+
+Criminals could want to harm or destroy the systems in order to damage the reputation of local authorities (politicians or other officials) or to make a political statement of their own.
 
 Another possible motivation for criminal activities could be social appreciation.
 A hacker could attack critical infrastructure just to prove his skills.
 
-In short, Criminals are interested in ...
+In short, Criminals are interested in
 \begin{itemize}
-\item ... financial profit
-\item ... high social standing
-\item ... political power
+\item financial profit
+\item political activism
+\item social standing.
 \end{itemize}
 
-\textbf{System Provider:}
-System Providers provide and operate the technical infrastructure (hardware and software) of the proposed monitoring system.
-They are normal companies which offer to provide a service, so different roles of employees are involved:
- an administrator, who maintains and operates the running system;
- a programmer/developer, who develops the system;
- a support manager, who handles customer relations;
- etc.
+\textbf{System Provider.}
+System Providers operate the technical infrastructure (hardware and software) of the IT System.
+They are private companies and legal persons in their own right, but also employ a number of people with diverging interests, including:
+administrators, who maintain and operate the running system;
+programmer/developer, who develop the system;
+a support manager, who handles customer relations.
 
 As companies, they are interested in gaining financial profit.
 Among other things, this depends on customer satisfaction, employee happiness and task complexity.
@@ -909,111 +910,106 @@ Unsatisfied customers may not want to pay for the service or do not continue the
 Moreover, unsatisfied customers can create a bad reputation, which affects the market for future customers.
 
 Customer satisfaction is connected with the quality of the offered product or service.
-This quality depends on the happiness of employees. 
+This quality depends on the happiness of employees.
 Employees have a claim to professional excellence.
 They want to deliver a good job within their means.
 If employees cannot satisfy their demand for professional excellence, they might get discontent and deliver poor work.
 Moreover, unhappy employees can produce higher costs through sick days.
-Ill employees stay on payroll, but stress the project schedule by splitting the workload on fewer heads.
 The worst case scenario could be, that a discontent employee gets angry and steals data or harms the running systems.
 
-At last, the financial success of System Providers depends on the task complexity.
-The complexity of a task has to be in reasonable bounds, so that System Providers can complete it within time, with a satisfying quality.
-If a task has a higher complexity than expected, financial loss is almost determined.
+At last, the financial success of system providers depends on the task complexity of the maintained infrastructure.
+The complexity of a task has to be in reasonable bounds, so that system providers can complete it within time, with a satisfying quality.
+If a task has a higher complexity than expected, financial loss is almost certain.
 Either System Providers need to hire additional competence to meet schedule and requirements.
-Or System Providers they stress the time-line, which also results in a higher man-hour salary ratio and additionally endangers customer satisfaction.
-Ultimately, high task complexities can affect employee happiness, if employees cannot complete it within their claim to professional excellence.  
+Or system providers they stress the time-line, which also results in a higher man-hour salary ratio and additionally endangers customer satisfaction.
+Ultimately, high task complexities can affect employee happiness, if employees cannot complete it within their claim to professional excellence.
 
-In short, System Providers are interested in ...
+In short, System Providers are interested in
 \begin{itemize}
-\item ... financial profit
-\item ... good working conditions
-\item ... professional excellence
-\item ... reasonable complexity
+\item financial profit
+\item good working conditions
+\item professional excellence
+\item manageable complexity.
 \end{itemize}
 
 
-\textbf{Local Authority:} 
-Local Authorities are public offices (ministry, agency, department, ...) or other external public service providers which act as direct customers of Service Providers.
-They order a proposed monitoring and mining system specialized for their needs. 
-For example a low level department, like departments for public mobility, orders a monitoring and mining system to better understand and improve urban traffic flow.
+\textbf{Local Authority.}
+Local authorities are public offices (ministry, agency, department, ...) or other external public entities which act as direct customers of service providers.
+They purchase a system specialized for their needs.
+For example a department for urban mobility, orders a system to better understand usage patterns and make improvement to the urban traffic flow.
 
-Such systems are heavy investments, so naturally Local Authorities are interested in a profitable return.
+Such systems are investments, and so naturally local authorities are interested in a profitable return, like increased ticket sales.
 However, the return of investment is not directly of financial nature.
-Like Service Providers their financial gain depends on customer satisfaction. 
-Customers for Local Authorities are either citizens, who use their services, or politicians, who order their services.
-The happiness of both sides is interdependent. 
-Citizens are happy customers if the services, e.g. public mobility, work well. 
-If citizens are happy, it is more likely that politicians gain reputation, as they organize the public services through Local Authorities.
+Like service providers their financial gain depends on customer satisfaction.
+Customers for local authorities are either citizens, who use their services, or politicians, who order their services.
+The satisfaction of both sides is interdependent.
 
-One way of achieving these business objectives is by utilizing business intelligence. 
-A proposed monitoring and mining system can provide such intelligence.
-For public mobility services it can provide traffic jam detection to maximize traffic flow.
-Or it can provide user profiling to maximize (targeted) publicity.
+Citizens are satisfied customers if the services, e.g. public mobility, work well.
+If citizens are happy, it is more likely that politicians gain reputation, as they organize the public services through local authorities.
 
-Additionally, since Local Authorities act like corporations comparable to Service Providers, they are also interested in good working conditions.
-As discontent employees may harm the system by disclosure of business intelligence.
+The first important step of improving the public services is by obtaining business intelligence.
+For the urban mobility scenario the Live+Gov systems provide insight in form of traffic jam detection and usage pattern mining, which allow local authorities to focus their efforts to the most important sites.
 
-In short, Local Authorities are interested in ...
+Additionally, since local authorities act like corporations comparable to service providers, they are also interested in good working conditions.
+Discontent employees may harm the system by e.g. disclosure of privacy sensitive data.
+
+In short, local authorities are interested in
 \begin{itemize}
-\item ... business intelligence
-\item ... political reputation
-\item ... good working conditions
+\item financial profit
+\item political reputation
+\item business intelligence
+\item good working conditions.
 \end{itemize}
 
 
 \subsubsection{Conflicts of Interests}
 \label{subsubsection:Conflicts of Interests}
-This section outlines the Conflicts of Interests (Figure \ref{figure:Live+Gov Conflicts of Interests}) between the actors of the proposed IT system architecture. 
+This section outlines the Conflicts of Interests (Figure \ref{figure:Live+Gov Conflicts of Interests}) between the actors of the proposed IT system architecture.
+
 The individual interests of all actors is already described in the previous section and are not elaborated any further.
 The emphasis here is put on prominent existing conflicts, because they provide a foundation for vulnerabilities and subsequent threats.
 
 \input{./figures/LG-Conflicts-Of-Interests}
 
+\textbf{System Complexity vs Privacy of the Citizen.}
+System Providers offer a service to local authorities, which is to provide and maintain the IT system.
+This system shall produce business intelligence, so that local authorities can improve their public services.
+This task in it self has a high technical complexity and is the sole asset with financial return for system provider.
 
-\textbf{System Complexity vs Privacy:}
-System Providers offer a service to Local Authorities, which is to provide and maintain a monitoring and mining system, e.g. for public mobility.
-This system shall produce business intelligence, so that Local Authorities can improve their public services.
-This task in it self has a high technical complexity and is the sole asset with financial return for System Providers.
-However, this task operates on privacy sensitive data provided by monitored Citizens.
-In order to ensure their privacy, System Provider would have to implement additional mechanisms, which allow Citizens to exercise control of their data.
-But this will eventually raise the complexity of the monitoring and mining system.
+However, this task operates on privacy sensitive data provided by monitored citizens.
+In order to ensure their privacy, system provider would have to implement additional mechanisms, which allow citizens to exercise control of their data.
+This rises the complexity of the IT system considerably and thereby also raises the costs for its production and maintenance.
 
+\textbf{Business Intelligence vs Privacy.}
+Local authorities order a monitoring and mining system from system providers, which allows them to produce business intelligence for public services.
+The system is an investment for local authorities, so they are interested in as much intelligence as possible to achieve a profitable return.
 
-\textbf{Business Intelligence vs Privacy:}
-Local Authorities order a monitoring and mining system from System Providers, which allows them to produce business intelligence for public services.
-The system is a heavy investment for Local Authorities, so they are interested in as much intelligence as possible to achieve a profitable return.
-But the intelligence is the result of data mining conducted on privacy sensitive data of monitored Citizens.
+The gained intelligence is the result of data mining conducted on privacy sensitive data of participating citizens.
 They are interested in the successful usage of their data, in a sense that they are also benefactors, e.g. improvement of public mobility.
-However, the main interest of Citizens lies in maintaining control over their data.
-In order do that, they need disclosure of the exact purposes their data is used for, so they can select which data to share.
-These purposes cannot be (secretly) exceeded.
+The main interest of citizens lies in maintaining control over their data and protecting their rights to privacy.
+In order do that, they need full disclosure of the processing steps and the purposes their data is used for, and to be given a choice whether such processing should be allowed for their own data.
 
-
-\textbf{Money vs Privacy:}
+\textbf{Financial Profit of Criminal vs Privacy.}
 Criminals can gain financial profit from stealing privacy sensitive data.
-For example by selling raw contact information to advertisers or by selling mined data to scoring services.
-In such cases, Citizens lose complete control over their data.
+For example by selling raw contact information to advertisers or by selling mined data to insurance companies, or intermediaries like scoring companies.
+In such cases, citizens lose complete control over their data.
 
-
-\textbf{Money vs Professional Reputation:}
+\textbf{Financial Profit of Criminal vs Reputation of System Providers.}
 Criminals have various business models as optional foundation for attacks on System Providers.
 For instance, they can try to invade the infrastructure for e-espionage reasons, to get control over servers to create a bot-net or to steal user data.
 All these approaches are motivated by financial interests.
 Gathered information can be sold, zombie servers can be leased.
-A successful attack proves the technical competence of System Providers wrong and subsequently harms their professional reputation.
+
+A successful attack proves the technical competence of system providers wrong and subsequently harms their professional reputation.
 This can lead to a loss of future customers or a decrease of stock price for registered companies.
-Eventually the financial interests of System Providers are endangered.
+Eventually also the financial interests of system providers are endangered.
 
 
-\textbf{Political Power vs Political Reputation:}
+\textbf{Political Activism vs Reputation of Local Authority.}
 Besides monetary reasons, Criminals can be motivated by political reasons to attack the monitoring and mining system.
-Criminals can break the system to make a political statement of their own, e.g. "Stop Surveillance!".
-Or they can steal user data to prove the system insecure.
-Both would harm the political reputation of Local Authorities, who endangered the privacy of monitored Citizens.
-Criminals would gain political power, because their point of view would seem to be valid.
-
-
+Criminals can break the system to make a political statement of their own,
+or they can steal user data to prove the system insecure.
+Both would harm the reputation of local authorities, who endangered the privacy of the citizens.
 
 
 \subsubsection{Vulnerabilities}
