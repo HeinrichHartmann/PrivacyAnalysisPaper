@@ -250,7 +250,7 @@ The states of Germany have their own implementation of Directive 95/46 (\emph{La
 Federal public authorities are only bound to their federal law.
 Churches are not subject the BDSG.
 
-\textbf{United Kingdom.} %TODO: HOW MUCH IS COPY PASTE FROM WIKIPEDIA?
+\textbf{United Kingdom.}
 The UK implements Directive 95/46 with the \emph{Data Protection Act 1998} (DPA).
 
 %TODO: Reformulate Wikipedia Text
@@ -353,15 +353,10 @@ Using his anatomy of privacy as foundation of our analysis is suitable because o
 At first, Fried's study on the understanding of privacy provided a great contribution to the research on the same term in philosophy \cite{sep-privacy} and computer science \cite{SociotechnicalArchitectureForOnlinePrivacy}.
 Secondly, despite the fact his text was published in 1970, he already included technologies to its viewpoint that did not only monitor location, but also record biometric data.
 
-%% TODO %%
-
-%* We follow Fried in defining privacy as the ability to control data about personal information.
-%
-%* What is the relation to legal aspects?
-%
-%* What should be personal information?
-%
-%* Use Seven Privacy Types be Friedewald, Finn and Wrigtht.
+%TODO: Iterate Section. Exmplain Triangular Relationship:
+- Subject
+- Trusted Person
+- Third Party which shall NOT obtain sensitive information.
 
 \subsection{The Seven Types of Privacy}
 
@@ -380,8 +375,7 @@ In order to fix this they extend the former four to the now introduced seven typ
 
 \begin{enumerate}
 
-\item 
-\textbf{Privacy of the Person}
+\item \textbf{Privacy of the Person}
 
 This privacy type is generally concerned with one could best understand as biometric privacy. 
 Friedewald et al. paraphrase it as \emph{``\om the right to keep body functions and body characteristics \om private''}. 
@@ -390,31 +384,27 @@ biometric identifiers like fingerprints and DNA sequences;
 or medical conditions such as limping or having a cold. \cite{7ToP}
 
 
-\item 
-\textbf{Privacy of Behaviour and Action}
+\item \textbf{Privacy of Behaviour and Action}
 
 This privacy type is concerned with one's activities in public as well as in private spaces. 
 It includes but is not limited to religious practices, political activities and sexual preferences or habits. \cite{7ToP}
 
 
-\item 
-\textbf{Privacy of Communication}
+\item \textbf{Privacy of Communication}
 
 This privacy type is concerned with one's communication in a broad sense.
 It includes written correspondence, but also conversations conducted either vis-a-vis or via electronic devices.
 Friedewald et al. put it as the right to free discussion without unknown interception by third parties. \cite{7ToP}
 
 
-\item 
-\textbf{Privacy of Data and Image}
+\item \textbf{Privacy of Data and Image}
 
 This privacy type is concerned with the secrecy of one's personal data, especially its automatic disclosure to other individuals and organizations.
 It includes data such as paychecks, insurance information or records of public administration.
 However, it also refers to pictures taken without consent and digital identifiers like IP addresses or social security numbers. \cite{7ToP}
 
 
-\item 
-\textbf{Privacy of Thoughts and Feelings}
+\item \textbf{Privacy of Thoughts and Feelings}
 
 This privacy type is the counterpart to Privacy of the Person like body and mind are counterparts of one another.
 Comparable to the Privacy of Data and Image, Friedewald et al. state that one's thoughts and feelings must not be automatically revealed to others.
@@ -422,8 +412,7 @@ This could simply happen by the disclosure of one's diary or by technologies whi
 One's body temperature or iris reflexes might infer stress or excitation. \cite{7ToP}
 
 
-\item 
-\textbf{Privacy of Location and Space}
+\item \textbf{Privacy of Location and Space}
 
 This privacy type is concerned with one's movements in public spaces and the inviolateness of one's private spaces.
 Friedewald et al. qualify the first dimension as one's right to move without being identified, tracked or monitored.
@@ -431,8 +420,7 @@ The second dimension is qualified as one's general right to solitude, especially
 
 
 
-\item 
-\textbf{Privacy of Association}
+\item \textbf{Privacy of Association}
 
 This privacy type is also put as group privacy.
 Friedewald et al. state that one must have the possibility with whomever without being recorded.
@@ -587,12 +575,12 @@ The goal of this chapter to analyze and identify the threads to personal privacy
 We derive concrete privacy protection measures that address the main risks involved with handling such data.
 
 The complexity of our systems and the variety of threads make a great number of counter measures plausible.
-We approach this complexity with the aid of a general security analysis model developed in \cite{Grimm}.
+We approach this complexity with the aid of a general security analysis model developed in \cite{Grimm:ItSecRefModel}.
 We give a brief introduction to this model and perform a IT Security Analysis with respect to the privacy asset for our system.
 
 \section{IT Security Analysis according to Grimm et. al}
 
-We follow the Reference Model for IT Security Analyis as described in \cite{Grimm}.
+We follow the Reference Model for IT Security Analyis as described in \cite{Grimm:ItSecRefModel}.
 It supersedes earlier efforts by \cite{Avizienis}.
 
 The reference model consists of a \emph{model} and a \emph{procedure}.
@@ -615,7 +603,7 @@ It consists of the following components:
 \begin{itemize}
 \item \textbf{Actors.}
 All identifiable stakeholders of the system under study.
-Typical actors include, users, developers, clients and criminals.
+Typical actors include, users, developers, clients and externals.
 
 \item
 \textbf{Assets.} Things of value to one or more stakeholders.
@@ -638,7 +626,7 @@ The possibility of selling private data (user profiles) to advertisers, renders 
 \item \textbf{Vulnerabilities.}
 All identifiable weaknesses in the IT-System.
 
-In the example of the criminal-user-conflict, the criminal has to exploit a vulnerability, e.g. a weak password, to gain access to the private data abou the user.
+In the example of the criminal-user-conflict, the criminal has to exploit a vulnerability, e.g. a weak password, to gain access to the private data about the user.
 
 \item \textbf{Interactions.}
 This point captures all possible interactions between assets, IT-Systems, humans and vulnerabilites.
@@ -677,14 +665,14 @@ In practice such a quantitative risk evaluation is often not possible, and a qua
 A set of interactions (e.g. threats) that shall not occur within the system in order to achieve its business objectives.
 Security requirements are targeted to protect one or more assets.
 
-An example of a security requirement is that a given communication channel shall not be infringed by criminals.
+An example of a security requirement is that a given communication channel shall not be infringed by externals.
 \end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%
 
 
-The \emph{concept view} is a realization of the the potential view of the system.
+The \emph{concept view} is a realization of the potential view of the system.
 It specifies important interactions that require further planning.
 It contains the following components:
 \begin{itemize}
@@ -700,7 +688,7 @@ A specific technique or technology to attack IT-Systems (Man in the Middle, Phis
 In particular the attacking actor, the conflict of interest and the exploited vulnerability need to be described.
 
 \item \textbf{Security Measures.}
-It describes a plan of sufficient measures to secure the intended interactions and to aviod the unintended interactions.
+It describes a plan of sufficient measures to secure the intended interactions and to avoid the unintended interactions.
 Each security measure targets a vulnerability of the system in order to reduce a risk for a certain thread.
 \end{itemize}
 
@@ -865,7 +853,7 @@ In the Live+Gov Project the reporting tools allows, in particular the following 
 \label{subsubsection:humans}
 
 This section describes the human actors previously introduced within the IT system architecture (\ref{subsubsection:it-systems}).
-Also the additional actor \textit{Criminal} is introduced as an external person with harmful intentions.
+Also the additional actor \textit{External} is introduced as a person with no special access rights.
 
 \textbf{Citizen.}
 Citizens are persons who use the mobile device as users of the provided software.
@@ -894,23 +882,28 @@ In short, citizens are interested in
 \item not being monitored.
 \end{itemize}
 
-\textbf{Criminal.}
-Criminals are persons who do not have privileged access to the IT systems,
-and are willing to break laws and norms in order to promote their interests.
+%TODO:
+- Nondisclosure of sensitive information to peers of the citizen.
 
-For example they want to obtain access to critical systems to steal sensitive data or to get the system under their control.
+\textbf{External.}
+Externals are persons who do not have privileged access to the IT systems, and are willing to break laws, security constrains and norms in order to promote their interests.
+
+If the external is in some kind of relationship to the citizen, like a friendship or business partnership, the external can have a direct interest in gaining information about the citizen in order to increase their power.
+
+Another common interest of an external is financial profit. For example they want to obtain access to critical systems to steal sensitive data or to get the system under their control.
 Controlled systems could be leased as part of a bot net.
 Stolen data could simply be sold as is or used for illegitimate purposes, e.g. spam or phishing attacks - or excessive data mining.
 
 Because local authorities are involved in the general outline of the Live+Gov system, the possibility for politically motivated attacks is given.
 
-Criminals could want to harm or destroy the systems in order to damage the reputation of local authorities (politicians or other officials) or to make a political statement of their own.
+Externals could want to harm or destroy the systems in order to damage the reputation of local authorities (politicians or other officials) or to make a political statement of their own.
 
-Another possible motivation for criminal activities could be social appreciation.
+Another possible motivation for external  activities could be social appreciation.
 A hacker could attack critical infrastructure just to prove his skills.
 
-In short, Criminals are interested in
+In short, externals are interested in
 \begin{itemize}
+\item increase power over citizen
 \item financial profit
 \item political activism
 \item social standing.
@@ -989,14 +982,10 @@ The individual interests of all actors is already described in the previous sect
 The emphasis here is put on prominent existing conflicts, because they provide a foundation for vulnerabilities and subsequent threats.
 
 \input{./figures/LG-Conflicts-Of-Interests}
-
-\textbf{System Complexity vs Privacy of the Citizen.}
-System Providers offer a service to local authorities, which is to provide and maintain the IT system.
-This system shall produce business intelligence, so that local authorities can improve their public services.
-This task in it self has a high technical complexity and is the sole asset with financial return for system provider.
+%TODO: Adapt Figure
 
 
-\textbf{System Complexity vs Privacy:}
+\textbf{System Complexity vs Privacy.}
 System Providers offer a service to Local Authorities, which is to provide and maintain a monitoring and mining system, e.g. for public mobility.
 This system shall produce business intelligence, so that Local Authorities can improve their public services.
 This task in it self has a high technical complexity and is the sole asset with financial return for System Providers.
@@ -1004,7 +993,6 @@ However, this task operates on privacy sensitive data provided by monitored Citi
 In order to ensure their privacy, System Provider would have to implement additional mechanisms, which allow Citizens to exercise control of their data.
 This will not only raise the complexity of the monitoring and mining system, System Providers also have to layout the complexity in a comprehensible manner.
 To effectively enable Citizens to preserve their privacy, they need to know what happens with their data.
-
 
 \textbf{Business Intelligence vs Privacy.}
 Local authorities order a monitoring and mining system from system providers, which allows them to produce business intelligence for public services.
@@ -1015,13 +1003,19 @@ They are interested in the successful usage of their data, in a sense that they 
 The main interest of citizens lies in maintaining control over their data and protecting their rights to privacy.
 In order do that, they need full disclosure of the processing steps and the purposes their data is used for, and to be given a choice whether such processing should be allowed for their own data.
 
-\textbf{Financial Profit of Criminal vs Privacy.}
-Criminals can gain financial profit from stealing privacy sensitive data.
+\textbf{Power of External vs. Privacy.}
+Externals which are in a social relation to the citizen can have an interest in obtaining further information in order to gain power.
+In the most simplistic example this could be a man wanting monitor the activities of his spouse.
+Another example is a Government spying on it's citizens in order to suppress opposition.
+An additional twist in the last example is, that there can be legal regulations that require the service provider to support the Governments invasion of the citizens privacy.
+
+\textbf{Financial Profit of External vs Privacy.}
+Externals can gain financial profit from stealing privacy sensitive data.
 For example by selling raw contact information to advertisers or by selling mined data to insurance companies, or intermediaries like scoring companies.
 In such cases, citizens lose complete control over their data.
 
-\textbf{Financial Profit of Criminal vs Reputation of System Providers.}
-Criminals have various business models as optional foundation for attacks on System Providers.
+\textbf{Financial Profit of External vs Reputation of System Providers.}
+Externals have various business models as optional foundation for attacks on System Providers.
 For instance, they can try to invade the infrastructure for e-espionage reasons, to get control over servers to create a bot-net or to steal user data.
 All these approaches are motivated by financial interests.
 Gathered information can be sold, zombie servers can be leased.
@@ -1030,10 +1024,9 @@ A successful attack proves the technical competence of system providers wrong an
 This can lead to a loss of future customers or a decrease of stock price for registered companies.
 Eventually also the financial interests of system providers are endangered.
 
-
 \textbf{Political Activism vs Reputation of Local Authority.}
-Besides monetary reasons, Criminals can be motivated by political reasons to attack the monitoring and mining system.
-Criminals can break the system to make a political statement of their own,
+Besides monetary reasons, externals can be motivated by political reasons to attack the monitoring and mining system.
+Externals can break the system to make a political statement of their own,
 or they can steal user data to prove the system insecure.
 Both would harm the reputation of local authorities, who endangered the privacy of the citizens.
 
@@ -1046,34 +1039,40 @@ The weaknesses of IT systems are often created due to misuse or misconfiguration
 
 \input{./figures/LG-Vulnerabilities}
 
-\textbf{Unencrypted Data Transmission:}
-The proposed monitoring and mining system uses HTTP to exchange data between the Sensor Collector, the Data Center and the Report Tool.
-Per default, HTTP is a clear text protocol.
-This means, one can intercept the connection and read all sensitive information, which is send between the components.
-That is: passwords, raw sensor data and data mining results
-
-\textbf{Inadequate Access Rules:}
-The proposed IT system infrastructure has various accesses to privacy sensitive data.
-System Provider staff has access to Data Center hardware and software like databases, web-servers and other inspection tools.
-Local Authority staff has access to the Report Tool.
-This all enables staff members to have potential access to privacy sensitive information.
-Those accesses have to be secured against unauthorized third parties, e.g. Criminals.
-Moreover, we need to ensure that no single person has to many access rights.
-For example, a system administrator should not be able to secretly download the whole database on a flash-drive.
-
-\textbf{Insufficiently Secured Infrastructure:}
+\textbf{Insecure Infrastructure.}
 The proposed monitoring system consists of many hardware and software components, each with its own concrete weaknesses.
 For instance, operating systems can be outdated or not subject to frequent updates or virus scans.
 Web-applications can be carelessly implemented and not protected against SQL-Injections or Cross-Site-Scripting attacks.
 Databases can be ill-configured, so that access from outside the system is possible.
 All those weak points can be subject to various known exploit techniques.
 
-\textbf{Unaware Monitoring Subjects:}
+
+\textbf{Insecure Data Transmission.}
+The proposed monitoring and mining system uses HTTP to exchange data between the Sensor Collector, the Data Center and the Report Tool.
+Per default, HTTP is a clear text protocol.
+This means, one can intercept the connection and read all sensitive information, which is send between the components.
+That is: passwords, raw sensor data and data mining results
+
+\textbf{Unhappy Employees.} Susceptible for social engineering.
+%TODO: Add description
+
+\textbf{Inadequate Access Rules.}
+The proposed IT system infrastructure has various accesses to privacy sensitive data.
+System Provider staff has access to Data Center hardware and software like databases, web-servers and other inspection tools.
+Local Authority staff has access to the Report Tool.
+This all enables staff members to have potential access to privacy sensitive information.
+Those accesses have to be secured against unauthorized third parties.
+Moreover, we need to ensure that no single person has to many access rights.
+For example, a system administrator should not be able to secretly download the whole database on a flash-drive.
+
+\textbf{Unaware Monitoring Subjects.}
 We define privacy as one's ability to control information about oneself. 
 In order to do that, monitored subjects need to know, that they are monitored, who monitors them, what information is recorded and for what purposes.
 Subjects who are not aware of these things cannot effectively preserve control and thus lose their privacy.
 
-
+%TODO
+- No Privacy Policy
+- No Information about Processing, Access rules, 3rd party disclosure
 
 
 \subsection{Step 2. Potential Analysis}
@@ -1112,7 +1111,7 @@ Lorem ipsum dolor suit amet, ...
 
 %\includegraphics{../diagrams/png/sensor-privacy-matrix.png}
 \input{./figures/LG-Sensor-Privacy-Matrix}
-\input{./figures/LG-Implicit-Sensor-Privacy-Matrix}
+%\input{./figures/LG-Implicit-Sensor-Privacy-Matrix}
 
 \begin{itemize}
 
