@@ -358,74 +358,71 @@ Secondly, despite the fact his text was published in 1970, he already included t
 - Trusted Person
 - Third Party which shall NOT obtain sensitive information.
 
+%TODO: Explain relation to DP Directive
+- Control over information in law
+
 \subsection{The Seven Types of Privacy}
 
-Although we use Fried's definition of privacy as one's control over information about oneself, we do not feel safe conducting a privacy protection analysis relying only him.
-We need additional means to analyze in more detail which aspects of our lives need protection.
-Friedewald, Finn and Wright \cite{7ToP} introduced a privacy taxonomy called \textit{Seven Types of Privacy} that can be of help.
-The seven types of privacy are an extension to the four types of privacy by Roger Clarke \cite{RClarke:4ToP}:
+In Fried's definition of privacy as control over "information about onself'', the specification of what constitues such information remains open.
+There is a vast amount of information that relates to a person and we need to get a better understanding in order to perform a thorough analysis.
+To this end we use the the categorization by Friedewald, Finn and Wright \cite{7ToP} called the \textit{Seven Types of Privacy}.
+The seven types of privacy are an extension to the four types of privacy by Roger Clarke \cite{RClarke:4ToP}, which are:
 \begin{itemize}
 \item Privacy of the Person
 \item Privacy of Personal Behaviour
 \item Privacy of Personal Communication
 \item Privacy of Personal Data
 \end{itemize}
-However, Friedewald et al. felt that Clarke's taxonomy is technologically outdated and no longer adequate.
-In order to fix this they extend the former four to the now introduced seven types privacy as follows:
+It is important to note, that this categories do not form no taxonomy, since the categories are not mutually exclusive.
+For instance a written email is considered personal communication as well as personal data stored on a computer.
+
+Moreover, Friedewald et al. argue that Clarke's taxonomy is outdated and no longer adequate in order to describe the privacy aspect of our modern, technology driven, world.
+In order to address this shortcoming they extend the former four to the now introduced seven types privacy as follows:
 
 \begin{enumerate}
 
 \item \textbf{Privacy of the Person}
-
-This privacy type is generally concerned with one could best understand as biometric privacy. 
-Friedewald et al. paraphrase it as \emph{``\om the right to keep body functions and body characteristics \om private''}. 
+This privacy type is generally concerned with one could best understand as biometric privacy.
+Friedewald et al. paraphrase it as \emph{``\om the right to keep body functions and body characteristics \om private''}.
 This includes but is not limited to measures like weight, height or shoulder width;
 biometric identifiers like fingerprints and DNA sequences;
-or medical conditions such as limping or having a cold. \cite{7ToP}
+or medical conditions such as limping or having a cold.
 
 
 \item \textbf{Privacy of Behaviour and Action}
-
-This privacy type is concerned with one's activities in public as well as in private spaces. 
-It includes but is not limited to religious practices, political activities and sexual preferences or habits. \cite{7ToP}
+This privacy type is concerned with one's activities in public as well as in private spaces.
+It includes but is not limited to religious practices, political activities and sexual preferences or habits.
 
 
 \item \textbf{Privacy of Communication}
-
 This privacy type is concerned with one's communication in a broad sense.
 It includes written correspondence, but also conversations conducted either vis-a-vis or via electronic devices.
-Friedewald et al. put it as the right to free discussion without unknown interception by third parties. \cite{7ToP}
+Friedewald et al. put it as the right to free discussion without unknown interception by third parties.
 
 
 \item \textbf{Privacy of Data and Image}
-
-This privacy type is concerned with the secrecy of one's personal data, especially its automatic disclosure to other individuals and organizations.
+This privacy type is concerned with the secrecy of personal data, especially its automatic disclosure to other individuals and organizations.
 It includes data such as paychecks, insurance information or records of public administration.
-However, it also refers to pictures taken without consent and digital identifiers like IP addresses or social security numbers. \cite{7ToP}
+However, it also refers to pictures taken without consent and digital identifiers like IP addresses or social security numbers.
 
 
 \item \textbf{Privacy of Thoughts and Feelings}
-
 This privacy type is the counterpart to Privacy of the Person like body and mind are counterparts of one another.
 Comparable to the Privacy of Data and Image, Friedewald et al. state that one's thoughts and feelings must not be automatically revealed to others.
 This could simply happen by the disclosure of one's diary or by technologies which allow emotion detection through biometric means.
-One's body temperature or iris reflexes might infer stress or excitation. \cite{7ToP}
+One's body temperature or iris reflexes might infer stress or excitation.
 
 
 \item \textbf{Privacy of Location and Space}
-
-This privacy type is concerned with one's movements in public spaces and the inviolateness of one's private spaces.
+This privacy type is concerned with one's movements in public spaces and the protection of private spaces.
 Friedewald et al. qualify the first dimension as one's right to move without being identified, tracked or monitored.
-The second dimension is qualified as one's general right to solitude, especially the right to the inviolability of the home. \cite{7ToP}
-
+The second dimension is qualified as one's general right to solitude, especially the right to the inviolability of the home.
 
 
 \item \textbf{Privacy of Association}
-
 This privacy type is also put as group privacy.
 Friedewald et al. state that one must have the possibility with whomever without being recorded.
-Associations like friends or organizations such as political parties must not automatically  be recorded because one associates with them, and vice versa.
-
+Associations like friends or organizations such as political parties must not automatically be recorded because one associates with them, and vice-versa.
 \end{enumerate}
 
 \subsection{Privacy Type Inferences}
@@ -1080,6 +1077,54 @@ Subjects who are not aware of these things cannot effectively preserve control a
 \subsubsection{Threats}
 This section outlines the potential threats (Figure \ref{figure:Live+Gov Threats}) for Citizen privacy in the proposed monitoring and mining System.
 We derive threats from known conflicts of interests \ref{subsubsection:Conflicts of Interests} and vulnerabilities \ref{subsubsection:Vulnerabilities}
+
+%TODO: Update Threat Table
+
+0. Bad Architecture
+-------------------
+Description: The Service Provider does not offer tools for the citizen to control his data.
+COI:            Privacy vs. System Complexity
+Vulneratbility: Bad system design
+Asset:          Control over Data
+
+1. Surveillance
+---------------
+Description:   External infiltrates infrastructure in order to spy on citizen
+COI:           Privacy vs. External Power
+Vulnerability: Insecure Infrastructure, Insecure Communication
+Asset:         Data transferred and stored in data center.
+
+2. Data Theft
+-------------
+Description: External infiltrates infrastructure in order to steal personal data and sell it on the black market. Also the external might be motivated politically and wants to harm the reputation of the Service Provider or the Local Authority.
+
+COI:         Privacy vs. Financial Profit
+             Reputation of Service Provider vs. Political Activism
+             Reputation of Local Authority vs. Political Activism
+Vuln.:       Insecure Infrastructure, Insecure Communication
+Asset:       Data transmitted or stored in data center.
+
+3. Information Leak
+-------------------
+Description: Like an external person in Scenario (2) an employee of the service provider has selfish interests to gain money, make political statements or harm his employer.
+In order to pursue this interest he can steal personal data and sell it or release it to the public.
+
+COI:         Privacy vs. Financial Profit
+             Reputation of Service Provider vs. Political Activism
+             Reputation of Local Authority vs. Political Activism
+Vuln.:       Unhappy Employee, Lax Access Rules.
+Asset:       Data stored in data center.
+
+4. Social Engineering
+---------------------
+Description: An External can manipulate Local Authorities or Service Providers to give them personal information that he can then sell or disclose.
+
+COI:         Privacy vs. Financial Profit
+             Reputation of Service Provider vs. Political Activism
+             Reputation of Local Authority vs. Political Activism
+Vuln.:       Unhappy Employee, Lax Access Rules.
+Asset:       Data stored in data center.
+
 
 \subsection{Step 2. Potential Analysis}
 
