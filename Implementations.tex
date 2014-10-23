@@ -1,0 +1,106 @@
+\chapter{Implementation of Privacy Protection Measures}
+\subsection{Privacy Policy}
+
+In complience legal requirements of the Data Protection Directive (cf. Section \ref{EUDIR}) we include the following
+Privacy Policy on our Mobile Application and Website.
+
+\begin{quote}
+\tt \small
+\textbf{Privacy Policy}\\
+        ==============
+
+\textbf{What Personal Information do we Collect?}\\
+The Live+Gov Service Center stores the following personal information:\\
+- Name\\
+- Email Address\\
+
+The Mobile Sensor Collection Application collects the following data from your mobile phone:\\
+- Sensor Data from Accelerometer (50Hz)\\
+- Sensor Data from GPS sensors (~every 30 sec)\\
+- Daily Human Activities (walking, standing, sitting, etc.) (every 30sec)\\
+- Used Service Lines (bus, train, tram) (every 2 minutes)\\
+
+All collected data is transferred to our data center.
+
+\textbf{Which processing is applied to the data?}\\
+We process Accelerometer samples on the Mobile device in order to extract human activities.
+We process GPS coordinates on the Live+Gov server to extract the currently used service lines.
+
+The stored information is used to produce aggregate reports.
+These reports are based on anonymized data that do not allow the reconstruction of the routes of individual persons at a given point in time.
+
+\textbf{When is the data deleted?}\\
+The full data-set will be stored until January 2015.
+
+Afterwards we will delete Names and Email addresses and anonymize
+the sensor data and processing results.  The anonymized data will
+be used by the the Consortium Partners for research purposes.
+
+\textbf{For which purposes is the data collected?}\\
+The collected data will be used for personalization of user experience of the mobile application.
+Moreover, we will analyize travel patterns in the Helsinki Urban region for general research and for improvement and optimization of the
+infrastructure provided by HSL.
+
+\textbf{Identity of Data Controller}\\
+The data is controlled by Heinrich Hartmann <hartmann@uni-koblenz.de>
+
+The following organizations have access to the collected data:
+\begin{enumerate}
+\item University of Koblenz-Landau
+\url{http://www.uni-koblenz-landau.de/}\\
+Universitätsstraße 1\\
+56070 Koblenz
+
+\item Mattersoft
+\url{http://www.mattersoft.fi/}
+Hämeenkatu 13, 33100 Tampere, Finland\\
++358 10 3225000
+
+\item Centre for Research and Technology Hellas (CERTH)
+\url{http://mklab.iti.gr/contact}\\
+6th km Charilaou-Thermi Road\\
+P.O. Box 60361,\\
+57001 Thermi-Thessaloniki, Greece
+\end{enumerate}
+
+\textbf{Access to Stored Data}\\
+All personal data can be accessed at our Privacy Dashboard at
+\url{http://liveandgov.uni-koblenz.de/trial/dashboard}
+
+There you have the possibility to:\\
+- View all recordings made\\
+- View the raw data collected for each recording\\
+- Download the data for each recording\\
+- Delete records
+
+\textbf{Collaboration with Third Parties}\\
+The raw data is not shared with any parties external to the Live+Gov Consortium.
+
+Aggregated report based on anonymized data are disclosed to officials at HSL \url{http://www.hsl.fi/} and might be made
+public in the form of a blog post or research article.  These aggregated reports show distributions of all routes that
+have been collected in the system and do not allow to infere the location of a single user at a given point in time.
+
+\textbf{Consent}\\
+I have read and understood the above privacy policy and agree that my data is collected and processed accordingly.
+
+\end{verbatim}
+\end{quote}
+
+\subsection{Processing Journal}
+* name of the controller
+* purpose of processing
+* description of the data categories
+* recipients of the data if disclosed
+* transfer to third countries
+* description of security of processing
+
+The journal is available for anybody to access via Email.
+
+\subsection{Privacy Dashboard}
+\subsection{Transfer Encryption (HTTPS/SSL)}
+\subsection{Database Access Policies}
+
+\subsection{Anonymization of recorded trips}
+- remove precise date information, only day of week.
+
+\subsection{Randomization of GPS data}
