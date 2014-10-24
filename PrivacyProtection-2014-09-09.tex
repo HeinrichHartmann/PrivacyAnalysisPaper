@@ -1040,7 +1040,6 @@ Web-applications can be carelessly implemented and not protected against SQL-Inj
 Databases can be ill-configured, so that access from outside the system is possible.
 All those weak points can be subject to various known exploit techniques.
 
-
 \textbf{Insecure Data Transmission.}
 The proposed monitoring and mining system uses HTTP to exchange data between the Sensor Collector, the Data Center and the Report Tool.
 Per default, HTTP is a clear text protocol.
@@ -1070,29 +1069,23 @@ Subjects who are not aware of these things cannot effectively preserve control a
 
 \subsection{Step 2. Potential Analysis}
 
-
 \subsubsection{Threat Specification}
 
-This section outlines the potential threats (Figure \ref{figure:Live+Gov Threats}) for Citizen privacy in the proposed monitoring and mining System.
+\input{./figures/Threat-Example}
 
-
-
-Recall from the security model description in section \ref{sec:GrimmModel}, that a threat is
-a potential interaction of the components that harms an asset.
-
+Recall from the security model description in Section \ref{sec:GrimmModel}, that a threat is a potential interaction of the components that harms an asset.
 We restrict ourselves to the case of attacks, and the asset of privacy.
 An attack is an interaction that is executed by an actor in response to a conflict of interest by exploiting a vulnerability of the system.
 The alternative interaction of accidents are less relevant for us, since the violation of privacy always requires an actor that takes advantage of the personal data.
 
-\input{./figures/Threat-Example}
-
-In Figure \ref{figure:ThreatExample} we illustrate the structure of threats at the example of ``Data Theft".
+In Figure \ref{figure:Threat-Example} we illustrate the structure of threats at the example of ``Data Theft".
 Here the attack is executed by an external person, that harms the privacy of the citizen.
 He is motivated to do so by financial profit gained by selling personal information, which
 is in conflict with the citizens interest in his privacy.
 To get hold of the data the external exploits an insecured HTTP transfer of recorded data.
 
-In this section we describe the most important threats for the citizen privacy in the Live+Gov system.
+In this section we describe, in a similar fashin, threats for the citizen privacy in the Live+Gov system.
+This list can necessarily not be complete, but we make a best effort to cover the most relevant cases.
 
 %TODO: Update Threat Table
 \input{./figures/ThreatTable}
