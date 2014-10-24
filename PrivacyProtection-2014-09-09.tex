@@ -570,7 +570,8 @@ This analyisis builds upon the preceeding analyis, but is more focused on the co
 For example, the disclosure of Service Line Detection results, does violate the Privacy of Location and Space but not the Privacy of Association that is violated by general GPS tracking.
 
 \textbf{GPS Data}.
-The collection of GPS data does directly infringe the citizens privacy of Location and Space, and the privacy of Data an Image.
+The GPS sensor gives the current longitude and latitude, the current global position of the mobile device and its carrier, although there is some artificial inaccuracy within civil use. Threefore, the collection of GPS data violates directly the citizens privacy of Location and Space, and the privacy of Data an Image.
+
 By inference we also get implicit violations of the Privacy of the Person, Privacy of Behavior and Action and Privacy of Association.
 
 \textbf{Motion Sensors.}
@@ -581,33 +582,25 @@ Privacy of Data and Image is trivially threatened because here sensor data is in
 
 By inference we also get implicit violations of the Privacy of Behavior and Action.
 
-\textbf{Network Sensors}.
+\textbf{Network Sensors.}
 The GSM and WLAN sensors reveal the position of the mobile device and its carrier, when used in connection with external databases.
 The GSM sensor gives the exact cell, the mobile device has registered with at the current moment.
-The GPS sensor gives the current longitude and latitude, the current global position of the mobile device and its carrier, although there is some artificial inaccuracy within civil use.
 
-The WLAN and Bluetooth sensors record lists of the currently available local wireless networks and bluetooth clients.
-If such are known stationary entities, those sensors are considered as dangerous as the GSM sensor for the carriers locational privacy.
+The Bluetooth sensors record lists of the bluetooth clients in the direct neighbourhood.
+Since those clients are usually moving, inference of the position is usually not possible.
+Instead, bluetooth clients carried by a third person may infringe the Privacy of Association.
 
+A similar argumentat applies to WLAN snsors. If one frequently connects with an organizational wireless network, e.g.~an university network, an association can be deduced (student or staff).
 
-The \textbf{Privacy of The Person} is generally concerned with one could best understand as \emph{Biometric Privacy}.
-Friedewald et al. paraphrase it as \emph{``\om the right to keep body functions and body characteristics \om private''}.
+\textbf{Human Activity Recognition.}
+The detection and collection of human activities like walking, standing and running, can interfer with the Privacy of the Person, e.g.~since these movement patterns can be indicators for a person's health. Also, trivially, Privacy of Data and Image is violated.
 
-\textbf{Privacy of Data and Image} demands, that \emph{``individual's data is not automatically available to other individuals''}.
-So every sensor violates the privacy of data and image, as data is transported into a foreign system where operators have access to it.
+\textbf{Service Line Detection.}
+The detection and collection of the service line the user currently uses in the public transportation system allows inference of the location of the user, at least when entering and leaving those service lines at e.g.~bus stops.
+Implicit privacy violations apply accordingly.
 
-According to Friedewald et al., the \textbf{Privacy of Location and Space} is concerned with one's \emph{``right to move about in public or semi-public space without being identified, tracked or monitored.''}.
-This is the location aspect of this type. The space aspect is concerned with one's \emph{``right to solitude''}, which generally includes one's right to an inviolate home and other private spaces.
-
-The \textbf{Privacy of Association} sates that everyone has the \emph{``right to associate with whomever they wish, without being monitored [automatically without reasonable suspicion]''}.
-This includes individuals and organizations.
-WLAN and Bluetooth sensors provide the ability to monitor such associations if their lists contain known entities.
-If one frequently connects with an organizational wireless network, e.g.~an university network, an association can be deduced (student or staff). The same goes for the Bluetooth sensor, if it is stationary.
-Additionally, if the recorded bluetooth clients are mobile, it is more or less possible to deduce association with the technical identity of (yet) anonymous individuals.
-
-Additionally, the GSM sensor could provide the association with the GSM operator.
-%TODO: NEEDS TO BE VERIFIED!
-
+%TODO: Update Graphic: Violation of Privacy of Association is implicit for GSM and WLAN.
+%TODO: Add HAR and SLD to Table
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1311,13 +1304,15 @@ Note, that loss and likeliness scales have a logarithmic character, so that that
 %TODO:
 Insert Table with Likeliness / Loss / Risk Assesment.
 
-%\subsubsection{Security Requirement Specification}
+\subsubsection{Security Requirement Specification}
 %TODO SKIP?
+TODO: Formulate requirements that address the high risk scenarios.
 
-\subsection{Step 3. Plan Development}
+
+%\subsection{Step 3. Plan Development}
 
 % \subsection{Legal Privacy Requirements} \ref{sec:LEGAL_REQ}
 
-\subsubsection{Security Measures}
+%\subsubsection{Security Measures}
 
 % Seven Cs are now in separate Document
