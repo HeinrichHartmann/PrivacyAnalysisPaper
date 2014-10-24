@@ -557,6 +557,51 @@ If this type is violated, following implicit violations are possible:
   Association with churches of political organizations could imply a certain intellectual attitude.
 \end{itemize}
 
+\subsection{Sensor Data Privacy Impact}\label{sec:SensorPrivacyImpact}
+\input{./figures/LG-Implicit-Sensor-Privacy-Matrix}
+
+In this section we analyze the impact of the disclosure sensor data and certain processing results to the citizens privacy.
+This analyisis builds upon the preceeding analyis, but is more focused on the concrete type of data vailable.
+For example, the disclosure of Service Line Detection results, does violate the Privacy of Location and Space but not the Privacy of Association that is violated by general GPS tracking.
+
+%TODO: Reformulate the section.
+% - Too much overlap with preceeding sections.
+% - Structure should be per Sensor Type
+% - Add HAR and SLD!
+
+The \textbf{Privacy of The Person} is generally concerned with one could best understand as \emph{Biometric Privacy}.
+Friedewald et al. paraphrase it as \emph{``\om the right to keep body functions and body characteristics \om private''}.
+Accelerometer, Rotation Vector and Gyroscope measure the physical movement of the mobile device on all three axes.
+If the mobile device is carried ``normally'' its safe to say that those sensors also measure the moments of its carrier.
+So his privacy is infringed regarding biometric behaviour, as it is captured automatically.
+
+\textbf{Privacy of Data and Image} demands, that \emph{``individual's data is not automatically available to other individuals''}.
+This type of privacy is trivially threatened because here sensor data is individual data, a priori.
+So every sensor violates the privacy of data and image, as data is transported into a foreign system where operators have access to it.
+
+According to Friedewald et al., the \textbf{Privacy of Location and Space} is concerned with one's \emph{``right to move about in public or semi-public space without being identified, tracked or monitored.''}.
+This is the location aspect of this type. The space aspect is concerned with one's \emph{``right to solitude''}, which generally includes one's right to an inviolate home and other private spaces.
+Obviously the GPS and GSM sensors violate such right about not being tracked, because they reveal the position of the mobile device and its carrier.
+The GSM sensor gives the exact cell, the mobile device has registered with at the current moment.
+The GPS sensor gives the current longitude and latitude, the current global position of the mobile device and its carrier, although there is some artificial inaccuracy within civil use.
+
+The WLAN and Bluetooth sensors record lists of the currently available local wireless networks and bluetooth clients.
+If such are known stationary entities, those sensors are considered as dangerous as the GSM sensor for the carriers locational privacy.
+
+The Magnetic field sensor is not regarded very dangerous to the carrier's privacy, because it does not allow very precise localization.
+But it can limit the possibilities for the global position of the mobile device.
+Here, it is just named for completeness sake.
+
+The \textbf{Privacy of Association} sates that everyone has the \emph{``right to associate with whomever they wish, without being monitored [automatically without reasonable suspicion]''}.
+This includes individuals and organizations.
+WLAN and Bluetooth sensors provide the ability to monitor such associations if their lists contain known entities.
+If one frequently connects with an organizational wireless network, e.g.~an university network, an association can be deduced (student or staff). The same goes for the Bluetooth sensor, if it is stationary.
+Additionally, if the recorded bluetooth clients are mobile, it is more or less possible to deduce association with the technical identity of (yet) anonymous individuals.
+
+Additionally, the GSM sensor could provide the association with the GSM operator.
+%TODO: NEEDS TO BE VERIFIED!
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -978,7 +1023,6 @@ The emphasis here is put on prominent existing conflicts, because they provide a
 \input{./figures/LG-Conflicts-Of-Interests}
 %TODO: Adapt Figure
 
-
 \textbf{System Complexity vs Privacy.}
 System Providers offer a service to Local Authorities, which is to provide and maintain a monitoring and mining system, e.g. for public mobility.
 This system shall produce business intelligence, so that Local Authorities can improve their public services.
@@ -1082,8 +1126,7 @@ The alternative interaction of accidents are less relevant for us, since the vio
 
 In Figure \ref{figure:Threat-Example} we illustrate the structure of threats at the example of ``Data Theft".
 Here the attack is executed by an external person, that harms the privacy of the citizen.
-He is motivated to do so by financial profit gained by selling personal information, which
-is in conflict with the citizens interest in his privacy.
+He is motivated to do so by financial profit gained by selling personal information, which is in conflict with the citizens interest in his privacy.
 To get hold of the data the external exploits an insecured HTTP transfer of recorded data.
 
 In this section we describe, in a similar fashion, threats for the citizen privacy in the Live+Gov system.
@@ -1214,63 +1257,45 @@ Lorem Ipsum
 
 \subsubsection{Threat Risk Evaluation}
 
-Loss Calibration:
-* High:   Leak of information to Peers, e.g. spouse gets GPS data and finds out cheating.
-          Subjects is added to No-Fly list due to Government spying.
-          Public leak of private information;
-* Medium: Undisclosed processing of personal data;
-          Potentially disclosure to third parties that are unrelated to subjct.
-* Low:    Loss of control over data.
-* None: -
+In this section we will associate to every identified threat a corresponding risk.
+Recall from \ref{sec:GrimmModel} that a risk is the expected loss that is associated to the threat.
+Therefore, we have to quantify the likeliness of the threat to occure and the harm or loss done in this case.
+The quantification of likeliness will be solely based on rough judgment of the authors.
+The quantification of loss, will be made in a two step process.
+For each threat listed in table \ref{firgure:Threats}, we have analyzed the affected personal data of the citizen.
+For each possible data type (e.g. GPS) we analyze the impact on the seven different types of privacy in Section \ref{sec:SensorPrivacyImpact}.
+In combination we can quantify roughly the impact of each threat on the citizens privacy.
 
+Both evaluations are necessarily fraught with a high level of uncertainty.
 
-\textbf{Sensor Privacy Matrix}
-\input{./figures/LG-Implicit-Sensor-Privacy-Matrix}
-
+Loss Calibration
 \begin{itemize}
-\item \textbf{Privacy of The Person}
-
-The \textbf{Privacy of The Person} is generally concerned with one could best understand as \emph{Biometric Privacy}.
-Friedewald et al. paraphrase it as \emph{``\om the right to keep body functions and body characteristics \om private''}.
-\textbf{Accelerometer}, \textbf{Rotation Vector} and \textbf{Gyroscope} measure the physical movement of the mobile device on all three axes.
-If the mobile device is carried \emph{``normally''} its safe to say that those sensors also measure the moments of its carrier.
-So his privacy is infringed regarding biometric behaviour, as it is captured automatically.
-(\textbf{Note:} This is not to be confused with the \textbf{Privacy of Behaviour and Action} which is used for the social aspects of behaviour action, e.g.~praying, sexual habits or political activities.)
-
-\item \textbf{Privacy of Data and Image}
-The Privacy of Data and Image demands, that \emph{``individual's data is not automatically available to other individuals''}.
-This type of privacy is trivially threatened because here sensor data is individual data, a priori.
-So every sensor violates the privacy of data and image, as data is transported into a foreign system where operators have access to it.
-
-\item \textbf{Privacy of Location and Space}
-According to Friedewald et al., the Privacy of Location and Space is concerned with one's \emph{``right to move about in public or semi-public space without being identified, tracked or monitored.''}.
-This is the location aspect of this type. The space aspect is concerned with one's \emph{``right to solitude''}, which generally includes one's right to an inviolate home and other private spaces.
-Obviously the \textbf{GPS} and \textbf{GSM} sensors violate such right about not being tracked, because they reveal the position of the mobile device and its carrier.
-The \textbf{GSM} sensor gives the exact cell, the mobile device has registered with at the current moment.
-The \textbf{GPS} sensor gives the current longitude and latitude, the current global position of the mobile device and its carrier, although there is some artificial inaccuracy within civil use.
-
-The \textbf{WLAN} and \textbf{Bluetooth} sensors record lists of the currently available local wireless networks and bluetooth clients.
-If such are known stationary entities, those sensors are considered as dangerous as the \textbf{GSM} sensor for the carriers locational privacy.
-
-The \textbf{Magnetic field} sensor is not regarded very dangerous to the carrier's privacy, because it does not allow very precise localization.
-But it can limit the possibilities for the global position of the mobile device.
-Here, it is just named for completeness sake.
-
-\item \textbf{Privacy of Associtation}
-
-The \textbf{Privacy of Association} sates that everyone has the \emph{``right to associate with whomever they wish, without being monitored [automatically without reasonable suspicion]''}.
-This includes individuals and organizations.
-\textbf{WLAN} and \textbf{Bluetooth} sensors provide the ability to monitor such associations if their lists contain known entities.
-If one frequently connects with an organizational wireless network, e.g.~an university network, an association can be deduced (student or staff). The same goes for the \textbf{Bluetooth} sensor, if it is stationary.
-Additionally, if the recorded bluetooth clients are mobile, it is more or less possible to deduce association with the technical identity of (yet) anonymous individuals.
-
-Additionally, the \textbf{GSM} sensor could provide the association with the GSM operator (\textbf{NEEDS TO BE VERIFIED!}).
-
+\item 3: High. Leak of information to Peers which impacts citizen.
+  E.g. spouse gets GPS data and finds out cheating.
+  Subjects is added to No-Fly list due to Government spying.
+  Public leak of private information.
+\item 2: Medium. Undisclosed processing of personal data or disclosure to third parties that are unrelated to subject.
+\item 1: Low. Loss of control over data.
+\item 0: None
 \end{itemize}
 
+Likeliness is measured on a the following scale
+\begin{itemize}
+\item 0 (impossible)
+\item 1: maybe occure once in 1 million cases.
+\item 2: maybe occure once in 100
+\item 3: maybe occure once in 10
+\item 4: always the case.
+\end{itemize}
+The risk scale is defined as addition of the loss and likeliness scales.\footnote{
+Note, that loss and likeliness scales have a logarithmic character, so that that addition of those scales corresponds to multiplication of the usual scales.
+}
 
+%TODO:
+Insert Table with Likeliness / Loss / Risk Assesment.
 
 \subsubsection{Security Requirement Specification}
+%TODO SKIP?
 
 \subsection{Step 3. Plan Development}
 
