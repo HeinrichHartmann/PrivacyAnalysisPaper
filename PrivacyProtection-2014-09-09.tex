@@ -348,7 +348,7 @@ If we would constantly monitor our partners, they cannot fail unnoticed nor can 
 Thus they could not trust us anymore. \cite{CFried:Privacy}
 
 So privacy or the its possibility, according to Fried, is the foundation of our core relations: friendship, love and trust.
-And thus it is valuable, because those relations are essential to human society \cite{CFried:Privacy}. 
+And thus it is valuable, because those relations are essential to human society \cite{CFried:Privacy}.
 Using his anatomy of privacy as foundation of our analysis is suitable because of two points.
 At first, Fried's study on the understanding of privacy provided a great contribution to the research on the same term in philosophy \cite{sep-privacy} and computer science \cite{SociotechnicalArchitectureForOnlinePrivacy}.
 Secondly, despite the fact his text was published in 1970, he already included technologies to its viewpoint that did not only monitor location, but also record biometric data.
@@ -556,9 +556,6 @@ If this type is violated, following implicit violations are possible:
 \item [(7-5)] Privacy of Thoughts and Feelings.
   Association with churches of political organizations could imply a certain intellectual attitude.
 \end{itemize}
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1063,7 +1060,7 @@ Moreover, we need to ensure that no single person has to many access rights.
 For example, a system administrator should not be able to secretly download the whole database on a flash-drive.
 
 \textbf{Unaware Monitoring Subjects.}
-We define privacy as one's ability to control information about oneself. 
+We define privacy as one's ability to control information about oneself.
 In order to do that, monitored subjects need to know, that they are monitored, who monitors them, what information is recorded and for what purposes.
 Subjects who are not aware of these things cannot effectively preserve control and thus lose their privacy.
 
@@ -1076,23 +1073,46 @@ Subjects who are not aware of these things cannot effectively preserve control a
 
 \subsubsection{Threats}
 This section outlines the potential threats (Figure \ref{figure:Live+Gov Threats}) for Citizen privacy in the proposed monitoring and mining System.
+
 We derive threats from known conflicts of interests \ref{subsubsection:Conflicts of Interests} and vulnerabilities \ref{subsubsection:Vulnerabilities}
+
+Abstract Description of Threats.
 
 %TODO: Update Threat Table
 
+Loss Calibration:
+* High:   Leak of information to Peers, e.g. spouse gets GPS data and finds out cheating.
+          Subjects is added to No-Fly list due to Government spying.
+          Public leak of private information;
+* Medium: Undisclosed processing of personal data;
+          Potentially disclosure to third parties that are unrelated to subjct.
+* Low:    Loss of control over data.
+* None: -
+
 0. Bad Architecture
 -------------------
-Description: The Service Provider does not offer tools for the citizen to control his data.
+Description:    The Service Provider does not offer tools for the citizen to control his data.
 COI:            Privacy vs. System Complexity
 Vulneratbility: Bad system design
-Asset:          Control over Data
+Asset:          All collected data
 
-1. Surveillance
----------------
-Description:   External infiltrates infrastructure in order to spy on citizen
-COI:           Privacy vs. External Power
-Vulnerability: Insecure Infrastructure, Insecure Communication
-Asset:         Data transferred and stored in data center.
+Likeliness: Always
+Loss: Low (Control is lost, no direct harm done)
+Risk:      5
+
+1. Excessive Data Mining
+------------------------
+Description: The Service Provider and/or the Local Authority extract more private information from the collected data, than the citizen agreed to.
+E.g. the Service Provider wants to test a new product, and uses old data collected for a different purpose.
+E.g. the Local Authority wants to analyze collected data from fare evasions.
+
+COI: Privacy vs. Buisness Intelligence of Local Authority, Privacy vs. Financial Profit of Serivce Provider.
+Vuln.: Lax data handling policies; Unaware citizen; Weak law enforcement
+Affected Data: Potential Information extracted from raw data.
+
+Likeliness: High
+Loss:      Medium (Control is lost, no direct harm done)
+Risk:      5
 
 2. Data Theft
 -------------
@@ -1102,9 +1122,27 @@ COI:         Privacy vs. Financial Profit
              Reputation of Service Provider vs. Political Activism
              Reputation of Local Authority vs. Political Activism
 Vuln.:       Insecure Infrastructure, Insecure Communication
-Asset:       Data transmitted or stored in data center.
+Affected Data:  Data transmitted or stored in data center: GPS trips, HAR-records.
 
-3. Information Leak
+Likeliness: Low-Medium
+Loss: High
+Risk: 4-5
+
+3. Surveillance
+---------------
+Description:   External infiltrates infrastructure in order to spy on citizen
+COI:           Privacy vs. External Power
+Vulnerability: Insecure Infrastructure, Insecure Communication
+Affected Data:         Data transferred and stored in data center.
+
+Likeliness: Medium (Government*), Low (Third parties)
+Loss: High (Control is lost, potential harm by due to Government action)
+Risk:      6/4
+
+* Government, has also other tools at it's disposal
+
+
+4. Information Leak
 -------------------
 Description: Like an external person in Scenario (2) an employee of the service provider has selfish interests to gain money, make political statements or harm his employer.
 In order to pursue this interest he can steal personal data and sell it or release it to the public.
@@ -1113,9 +1151,13 @@ COI:         Privacy vs. Financial Profit
              Reputation of Service Provider vs. Political Activism
              Reputation of Local Authority vs. Political Activism
 Vuln.:       Unhappy Employee, Lax Access Rules.
-Asset:       Data stored in data center.
+Affected Data:       Data stored in data center.
 
-4. Social Engineering
+Likeliness: Low
+Loss: High (public leak)
+Risk: 4
+
+5. Social Engineering
 ---------------------
 Description: An External can manipulate Local Authorities or Service Providers to give them personal information that he can then sell or disclose.
 
@@ -1123,8 +1165,11 @@ COI:         Privacy vs. Financial Profit
              Reputation of Service Provider vs. Political Activism
              Reputation of Local Authority vs. Political Activism
 Vuln.:       Unhappy Employee, Lax Access Rules.
-Asset:       Data stored in data center.
+Affected Data:       Data stored in data center.
 
+Likeliness: Low
+Loss: High
+Risk: 4
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1159,52 +1204,48 @@ Lorem ipsum dolor suit amet, ...
 \textbf{Sensor Privacy Matrix}
 
 %\includegraphics{../diagrams/png/sensor-privacy-matrix.png}
-\input{./figures/LG-Sensor-Privacy-Matrix}
-%\input{./figures/LG-Implicit-Sensor-Privacy-Matrix}
+%\input{./figures/LG-Sensor-Privacy-Matrix}
+\input{./figures/LG-Implicit-Sensor-Privacy-Matrix}
 
 \begin{itemize}
 
 \item
 \textbf{Privacy of The Person}
 
-The \textbf{Privacy of The Person} is generally concerned with one could best understand as \emph{Biometric Privacy}. 
-Friedewald et al. paraphrase it as \emph{``\om the right to keep body functions and body characteristics \om private''}. 
-\textbf{Accelerometer}, \textbf{Rotation Vector} and \textbf{Gyroscope} measure the physical movement of the mobile device on all three axes. 
-If the mobile device is carried \emph{``normally''} its safe to say that those sensors also measure the moments of its carrier. 
+The \textbf{Privacy of The Person} is generally concerned with one could best understand as \emph{Biometric Privacy}.
+Friedewald et al. paraphrase it as \emph{``\om the right to keep body functions and body characteristics \om private''}.
+\textbf{Accelerometer}, \textbf{Rotation Vector} and \textbf{Gyroscope} measure the physical movement of the mobile device on all three axes.
+If the mobile device is carried \emph{``normally''} its safe to say that those sensors also measure the moments of its carrier.
 So his privacy is infringed regarding biometric behaviour, as it is captured automatically.
 (\textbf{Note:} This is not to be confused with the \textbf{Privacy of Behaviour and Action} which is used for the social aspects of behaviour action, e.g.~praying, sexual habits or political activities.)
 
-\item
-\textbf{Privacy of Data and Image}
+\item \textbf{Privacy of Data and Image}
 
-The \textbf{Privacy of Data and Image} demands, that \emph{``individual's data is not automatically available to other individuals''}. 
-This type of privacy is trivially threatened because here sensor data is individual data, a priori. 
+The \textbf{Privacy of Data and Image} demands, that \emph{``individual's data is not automatically available to other individuals''}.
+This type of privacy is trivially threatened because here sensor data is individual data, a priori.
 So every sensor violates the privacy of data and image, as data is transported into a foreign system where operators have access to it.
 
-
-\item
-\textbf{Privacy of Location and Space}
+\item \textbf{Privacy of Location and Space}
 
 According to Friedewald et al., the \textbf{Privacy of Location and Space} is concerned with one's \emph{``right to move about in public or semi-public space without being identified, tracked or monitored.''}.
-This is the location aspect of this type. The space aspect is concerned with one's \emph{``right to solitude''}, which generally includes one's right to an inviolate home and other private spaces. 
-Obviously the \textbf{GPS} and \textbf{GSM} sensors violate such right about not being tracked, because they reveal the position of the mobile device and its carrier. 
-The \textbf{GSM} sensor gives the exact cell, the mobile device has registered with at the current moment. 
+This is the location aspect of this type. The space aspect is concerned with one's \emph{``right to solitude''}, which generally includes one's right to an inviolate home and other private spaces.
+Obviously the \textbf{GPS} and \textbf{GSM} sensors violate such right about not being tracked, because they reveal the position of the mobile device and its carrier.
+The \textbf{GSM} sensor gives the exact cell, the mobile device has registered with at the current moment.
 The \textbf{GPS} sensor gives the current longitude and latitude, the current global position of the mobile device and its carrier, although there is some artificial inaccuracy within civil use.
 
-The \textbf{WLAN} and \textbf{Bluetooth} sensors record lists of the currently available local wireless networks and bluetooth clients. 
+The \textbf{WLAN} and \textbf{Bluetooth} sensors record lists of the currently available local wireless networks and bluetooth clients.
 If such are known stationary entities, those sensors are considered as dangerous as the \textbf{GSM} sensor for the carriers locational privacy.
 
 The \textbf{Magnetic field} sensor is not regarded very dangerous to the carrier's privacy, because it does not allow very precise localization.
-But it can limit the possibilities for the global position of the mobile device. 
+But it can limit the possibilities for the global position of the mobile device.
 Here, it is just named for completeness sake.
 
-\item
-\textbf{Privacy of Associtation}
+\item \textbf{Privacy of Associtation}
 
-The \textbf{Privacy of Association} sates that everyone has the \emph{``right to associate with whomever they wish, without being monitored [automatically without reasonable suspicion]''}. 
-This includes individuals and organizations. 
-\textbf{WLAN} and \textbf{Bluetooth} sensors provide the ability to monitor such associations if their lists contain known entities. 
-If one frequently connects with an organizational wireless network, e.g.~an university network, an association can be deduced (student or staff). The same goes for the \textbf{Bluetooth} sensor, if it is stationary. 
+The \textbf{Privacy of Association} sates that everyone has the \emph{``right to associate with whomever they wish, without being monitored [automatically without reasonable suspicion]''}.
+This includes individuals and organizations.
+\textbf{WLAN} and \textbf{Bluetooth} sensors provide the ability to monitor such associations if their lists contain known entities.
+If one frequently connects with an organizational wireless network, e.g.~an university network, an association can be deduced (student or staff). The same goes for the \textbf{Bluetooth} sensor, if it is stationary.
 Additionally, if the recorded bluetooth clients are mobile, it is more or less possible to deduce association with the technical identity of (yet) anonymous individuals.
 
 Additionally, the \textbf{GSM} sensor could provide the association with the GSM operator (\textbf{NEEDS TO BE VERIFIED!}).
@@ -1408,7 +1449,3 @@ all, the 7 C's have 3 special choice categories:
 
 
 \end{enumerate}
-
-
-
-
