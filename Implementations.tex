@@ -7,7 +7,7 @@ Privacy Policy on our Mobile Application and Website.
 \begin{quote}
 \tt \small
 \textbf{Privacy Policy}\\
-        ==============
+==============
 
 \textbf{What Personal Information do we Collect?}\\
 The Live+Gov Service Center stores the following personal information:\\
@@ -94,8 +94,10 @@ I have read and understood the above privacy policy and agree that my data is co
 
 The journal is available for anybody to access via Email.
 
-\subsection{Privacy Dashboard}
+Reporting to Data Protection Authority (Bundesamt für Datenschutz)?
 
+\subsection{Privacy Dashboard}
+TODO: Add description of dashboard. With relation to 7C's of Privacy.
 
 \begin{figure}
 \includegraphics[width=\textwidth]{screenshots/login.png}
@@ -124,8 +126,20 @@ The journal is available for anybody to access via Email.
 \end{figure}
 
 \subsection{Database Access Policies}
+Access rules for data controller and processor.
+Data Processing Journal.
+Python script for deletion of data when it is older than a given date.
 
-\subsection{Anonymization of recorded trips}
-- remove precise date information, only day of week.
+\subsection{Anonymization of trips}
+Privacy by Design: We do never collect name and email address in our DB.
+Python script that deletes user information from trip.
+% Python script that reomves precise date information, only day of week.
+
+\subsection{K-Anonymity of GPS routes}
+Python script that deletes all parts of journeys that have are not near to at least k other journeys.
+
+TODO: Insert Literature Reference.
+TODO: Add screenshots.
 
 \subsection{Randomization of GPS data}
+Python Script that adds random noise to GPS data.
