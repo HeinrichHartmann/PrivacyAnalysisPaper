@@ -572,7 +572,7 @@ The complexity of our systems and the variety of threads make a great number of 
 We approach this complexity with the aid of a general security analysis model developed in \cite{Grimm:ItSecRefModel}.
 We give a brief introduction to this model and perform a IT Security Analysis with respect to the privacy asset for our system.
 
-\section{IT Security Analysis according to Grimm et. al}
+\section{IT Security Analysis according to Grimm et. al}\label{sec:GrimmModel}
 
 We follow the Reference Model for IT Security Analyis as described in \cite{Grimm:ItSecRefModel}.
 It supersedes earlier efforts by \cite{Avizienis}.
@@ -1068,15 +1068,23 @@ Subjects who are not aware of these things cannot effectively preserve control a
 - No Privacy Policy
 - No Information about Processing, Access rules, 3rd party disclosure
 
-
 \subsection{Step 2. Potential Analysis}
 
 \subsubsection{Threats}
-This section outlines the potential threats (Figure \ref{figure:Live+Gov Threats}) for Citizen privacy in the proposed monitoring and mining System.
 
-We derive threats from known conflicts of interests \ref{subsubsection:Conflicts of Interests} and vulnerabilities \ref{subsubsection:Vulnerabilities}
+This section outlines the potential threats for the citizen privacy in the Live+Gov system.
+Recall from the security model description in section \ref{sec:GrimmModel}, that a threat is
+a potential interaction of the components that harms an asset.
 
-Abstract Description of Threats.
+We restrict ourselves to the case of attacks, and the asset of privacy.
+An attack is an interaction that is executed by an actor in response to a conflict of interest by exploiting a vulnerability of the system.
+The alternative interaction of accidents are less relevant for us, since the violation of privacy always requires an actor that takes advantage of the personal data.
+
+In Figure \ref{fig:ThreatExamples} we illustrate the structure of threats at the example of ``Data Theft".
+Here the attack is executed by an external person, that harms the privacy of the citizen.
+He is motivated to do so by financial profit gained by selling personal information, which
+is in conflict with the citizens interest in his privacy.
+To get hold of the data the external exploits an insecured HTTP transfer of recorded data.
 
 %TODO: Update Threat Table
 
