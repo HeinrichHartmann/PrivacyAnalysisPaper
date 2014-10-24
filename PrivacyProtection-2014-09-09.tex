@@ -1102,6 +1102,8 @@ Those accesses have to be secured against unauthorized third parties.
 Moreover, we need to ensure that no single person has to many access rights.
 For example, a system administrator should not be able to secretly download the whole database on a flash-drive.
 
+
+% Extend to general missing privacy wareness of citizen, system provider and local authority
 \textbf{Unaware Monitoring Subjects.}
 We define privacy as one's ability to control information about oneself.
 In order to do that, monitored subjects need to know, that they are monitored, who monitors them, what information is recorded and for what purposes.
@@ -1117,103 +1119,140 @@ Subjects who are not aware of these things cannot effectively preserve control a
 
 \input{./figures/Threat-Example}
 
-Recall from the security model description in Section \ref{sec:GrimmModel}, that a threat is a potential interaction of the components that harms an asset.
+Recall from the security model description in Section \ref{sec:GrimmModel}, that a threat is a potential interaction of the components that targets an asset.
 We restrict ourselves to the case of attacks, and the asset of privacy.
 An attack is an interaction that is executed by an actor in response to a conflict of interest by exploiting a vulnerability of the system.
-The alternative interaction of accidents are less relevant for us, since the violation of privacy always requires an actor that takes advantage of the personal data.
+The alternative interaction of accidents are less relevant for us, since the violation of privacy always requires an actor that takes advantage of personal data.
 
 In Figure \ref{figure:Threat-Example} we illustrate the structure of threats at the example of ``Data Theft".
 Here the attack is executed by an external person, that harms the privacy of the citizen.
 He is motivated to do so by financial profit gained by selling personal information, which is in conflict with the citizens interest in his privacy.
 To get hold of the data the external exploits an insecured HTTP transfer of recorded data.
 
-In this section we describe, in a similar fashin, threats for the citizen privacy in the Live+Gov system.
+In this section we describe, in a similar fashion, threats for the citizen privacy in the Live+Gov system.
 This list can necessarily not be complete, but we make a best effort to cover the most relevant cases.
 
 %TODO: Update Threat Table
 \input{./figures/Threats}
 
-0. Bad Architecture
--------------------
-Description:    The Service Provider does not offer tools for the citizen to control his data.
-COI:            Privacy vs. System Complexity
-Vulneratbility: Bad system design
-Asset:          All collected data
-
-Likeliness: Always
-Loss: Low (Control is lost, no direct harm done)
-Risk:      5
-
-1. Excessive Data Mining
-------------------------
-Description: The Service Provider and/or the Local Authority extract more private information from the collected data, than the citizen agreed to.
-E.g. the Service Provider wants to test a new product, and uses old data collected for a different purpose.
-E.g. the Local Authority wants to analyze collected data from fare evasions.
-
-COI: Privacy vs. Buisness Intelligence of Local Authority, Privacy vs. Financial Profit of Serivce Provider.
-Vuln.: Lax data handling policies; Unaware citizen; Weak law enforcement
-Affected Data: Potential Information extracted from raw data.
-
-Likeliness: High
-Loss:      Medium (Control is lost, no direct harm done)
-Risk:      5
-
-2. Data Theft
--------------
-Description: External infiltrates infrastructure in order to steal personal data and sell it on the black market. Also the external might be motivated politically and wants to harm the reputation of the Service Provider or the Local Authority.
-
-COI:         Privacy vs. Financial Profit
-             Reputation of Service Provider vs. Political Activism
-             Reputation of Local Authority vs. Political Activism
-Vuln.:       Insecure Infrastructure, Insecure Communication
-Affected Data:  Data transmitted or stored in data center: GPS trips, HAR-records.
-
-Likeliness: Low-Medium
-Loss: High
-Risk: 4-5
-
-3. Surveillance
----------------
-Description:   External infiltrates infrastructure in order to spy on citizen
-COI:           Privacy vs. External Power
-Vulnerability: Insecure Infrastructure, Insecure Communication
-Affected Data:         Data transferred and stored in data center.
-
-Likeliness: Medium (Government*), Low (Third parties)
-Loss: High (Control is lost, potential harm by due to Government action)
-Risk:      6/4
-
-* Government, has also other tools at it's disposal
+%0. Insufficient Control Features
+%-------------------
+%Description:    The Service Provider does not offer tools for the citizen to control his data.
+%COI:            Privacy vs. System Complexity
+%Vulneratbility: missing privacy wareness
+%Asset:          All collected data
+%
+%Likeliness: Always
+%Loss: Low (Control is lost, no direct harm done)
+%Risk:      5
+%
+\textbf{Insufficient Control Features.}
+The System Provider does not offer tools for the Citizen to control his data.
+However, besides the missing features he provides a safe and secure system.
+This threat contradicts the definition of privacy as control over one's information about oneself.
+As soon as collected data of Citizens is stored on System Provider servers, all control over that data is lost.
+This is not necessarily due to bad intention, System Providers may simply have forgotten to include such features during the development process.
+Although, control capabilities for Citizens add to the system complexity, which could motivate to omit those. 
+Therefore interests of Citizens and System Providers are in conflict, namely it is the Citizen's \textit{Privacy vs. System Complexity} for System Providers.
+This is an abstract threat provoked by a general \textit{Missing Privacy Awareness} in the minds of all actors in the Live+Gov context.
 
 
-4. Information Leak
--------------------
-Description: Like an external person in Scenario (2) an employee of the service provider has selfish interests to gain money, make political statements or harm his employer.
-In order to pursue this interest he can steal personal data and sell it or release it to the public.
+%1. Excessive Data Mining
+%------------------------
+%Description: The Service Provider and/or the Local Authority extract more private information from the collected data, than the citizen agreed to.
+%E.g. the Service Provider wants to test a new product, and uses old data collected for a different purpose.
+%E.g. the Local Authority wants to analyze collected data from fare evasions.
+%
+%COI: Privacy vs. Buisness Intelligence of Local Authority, Privacy vs. Financial Profit of Serivce Provider.
+%Vuln.: Lax data handling policies; Unaware citizen; Weak law enforcement
+%Affected Data: Potential Information extracted from raw data.
+%
+%Likeliness: High
+%Loss:      Medium (Control is lost, no direct harm done)
+%Risk:      5
+%
+\textbf{Excessive Data Mining}
+Lorem Ipsum
 
-COI:         Privacy vs. Financial Profit
-             Reputation of Service Provider vs. Political Activism
-             Reputation of Local Authority vs. Political Activism
-Vuln.:       Unhappy Employee, Lax Access Rules.
-Affected Data:       Data stored in data center.
 
-Likeliness: Low
-Loss: High (public leak)
-Risk: 4
 
-5. Social Engineering
----------------------
-Description: An External can manipulate Local Authorities or Service Providers to give them personal information that he can then sell or disclose.
+%2. Data Theft
+%-------------
+%Description: External infiltrates infrastructure in order to steal personal data and sell it on the black market. Also the external might be motivated politically and wants to harm the reputation of the Service Provider or the Local Authority.
+%
+%COI:         Privacy vs. Financial Profit
+%             Reputation of Service Provider vs. Political Activism
+%             Reputation of Local Authority vs. Political Activism
+%Vuln.:       Insecure Infrastructure, Insecure Communication
+%Affected Data:  Data transmitted or stored in data center: GPS trips, HAR-records.
+%
+%Likeliness: Low-Medium
+%Loss: High
+%Risk: 4-5
+%
+\textbf{Data Theft}
+Lorem Ipsum
 
-COI:         Privacy vs. Financial Profit
-             Reputation of Service Provider vs. Political Activism
-             Reputation of Local Authority vs. Political Activism
-Vuln.:       Unhappy Employee, Lax Access Rules.
-Affected Data:       Data stored in data center.
 
-Likeliness: Low
-Loss: High
-Risk: 4
+
+%3. Surveillance
+%---------------
+%Description:   External infiltrates infrastructure in order to spy on citizen
+%COI:           Privacy vs. External Power
+%Vulnerability: Insecure Infrastructure, Insecure Communication
+%Affected Data:         Data transferred and stored in data center.
+%
+%Likeliness: Medium (Government*), Low (Third parties)
+%Loss: High (Control is lost, potential harm by due to Government action)
+%Risk:      6/4
+%
+%* Government, has also other tools at it's disposal
+%
+%
+\textbf{Surveillance}
+Lorem Ipsum
+
+
+
+%4. Information Leak
+%-------------------
+%Description: Like an external person in Scenario (2) an employee of the service provider has selfish interests to gain money, make political statements or harm his employer.
+%In order to pursue this interest he can steal personal data and sell it or release it to the public.
+%
+%COI:         Privacy vs. Financial Profit
+%             Reputation of Service Provider vs. Political Activism
+%             Reputation of Local Authority vs. Political Activism
+%Vuln.:       Unhappy Employee, Lax Access Rules.
+%Affected Data:       Data stored in data center.
+%
+%Likeliness: Low
+%Loss: High (public leak)
+%Risk: 4
+%
+\textbf{Information Leak}
+Lorem Ipsum
+
+
+
+%5. Social Engineering
+%---------------------
+%Description: An External can manipulate Local Authorities or Service Providers to give them personal information that he can then sell or disclose.
+%
+%COI:         Privacy vs. Financial Profit
+%             Reputation of Service Provider vs. Political Activism
+%             Reputation of Local Authority vs. Political Activism
+%Vuln.:       Unhappy Employee, Lax Access Rules.
+%Affected Data:       Data stored in data center.
+%
+%Likeliness: Low
+%Loss: High
+%Risk: 4
+%
+\textbf{Social Engineering}
+Lorem Ipsum
+
+
+
 
 
 \subsubsection{Threat Risk Evaluation}
