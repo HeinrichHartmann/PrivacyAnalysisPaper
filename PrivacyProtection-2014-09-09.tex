@@ -1040,7 +1040,6 @@ Web-applications can be carelessly implemented and not protected against SQL-Inj
 Databases can be ill-configured, so that access from outside the system is possible.
 All those weak points can be subject to various known exploit techniques.
 
-
 \textbf{Insecure Data Transmission.}
 The proposed monitoring and mining system uses HTTP to exchange data between the Sensor Collector, the Data Center and the Report Tool.
 Per default, HTTP is a clear text protocol.
@@ -1070,37 +1069,26 @@ Subjects who are not aware of these things cannot effectively preserve control a
 
 \subsection{Step 2. Potential Analysis}
 
-
 \subsubsection{Threat Specification}
 
-This section outlines the potential threats (Figure \ref{figure:Live+Gov Threats}) for Citizen privacy in the proposed monitoring and mining System.
+\input{./figures/Threat-Example}
 
-
-
-This section outlines the potential threats for the citizen privacy in the Live+Gov system.
-Recall from the security model description in section \ref{sec:GrimmModel}, that a threat is
-a potential interaction of the components that harms an asset.
-
+Recall from the security model description in Section \ref{sec:GrimmModel}, that a threat is a potential interaction of the components that harms an asset.
 We restrict ourselves to the case of attacks, and the asset of privacy.
 An attack is an interaction that is executed by an actor in response to a conflict of interest by exploiting a vulnerability of the system.
 The alternative interaction of accidents are less relevant for us, since the violation of privacy always requires an actor that takes advantage of the personal data.
 
-In Figure \ref{fig:ThreatExamples} we illustrate the structure of threats at the example of ``Data Theft".
+In Figure \ref{figure:Threat-Example} we illustrate the structure of threats at the example of ``Data Theft".
 Here the attack is executed by an external person, that harms the privacy of the citizen.
 He is motivated to do so by financial profit gained by selling personal information, which
 is in conflict with the citizens interest in his privacy.
 To get hold of the data the external exploits an insecured HTTP transfer of recorded data.
 
-%TODO: Update Threat Table
+In this section we describe, in a similar fashin, threats for the citizen privacy in the Live+Gov system.
+This list can necessarily not be complete, but we make a best effort to cover the most relevant cases.
 
-Loss Calibration:
-* High:   Leak of information to Peers, e.g. spouse gets GPS data and finds out cheating.
-          Subjects is added to No-Fly list due to Government spying.
-          Public leak of private information;
-* Medium: Undisclosed processing of personal data;
-          Potentially disclosure to third parties that are unrelated to subjct.
-* Low:    Loss of control over data.
-* None: -
+%TODO: Update Threat Table
+\input{./figures/Threats}
 
 0. Bad Architecture
 -------------------
@@ -1184,43 +1172,24 @@ Likeliness: Low
 Loss: High
 Risk: 4
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-\textbf{Man In The Middle:}
-Lorem ipsum dolor suit amet, ...
-
-\textbf{Exploit:}
-Lorem ipsum dolor suit amet, ...
-
-\textbf{Corruption:}
-Lorem ipsum dolor suit amet, ...
-
-\textbf{Intrasparency:}
-Lorem ipsum dolor suit amet, ...
-
-
-\input{./figures/LG-Threats}
-\input{./figures/Threat-Example}
-\input{./figures/Threats}
 
 \subsubsection{Threat Risk Evaluation}
 
-% Todo: use sensor privacy matrix and implicit sensor privacy matrix for threat risk evaluation
+Loss Calibration:
+* High:   Leak of information to Peers, e.g. spouse gets GPS data and finds out cheating.
+          Subjects is added to No-Fly list due to Government spying.
+          Public leak of private information;
+* Medium: Undisclosed processing of personal data;
+          Potentially disclosure to third parties that are unrelated to subjct.
+* Low:    Loss of control over data.
+* None: -
+
 
 \textbf{Sensor Privacy Matrix}
-
-%\includegraphics{../diagrams/png/sensor-privacy-matrix.png}
-%\input{./figures/LG-Sensor-Privacy-Matrix}
 \input{./figures/LG-Implicit-Sensor-Privacy-Matrix}
 
 \begin{itemize}
-
-\item
-\textbf{Privacy of The Person}
+\item \textbf{Privacy of The Person}
 
 The \textbf{Privacy of The Person} is generally concerned with one could best understand as \emph{Biometric Privacy}.
 Friedewald et al. paraphrase it as \emph{``\om the right to keep body functions and body characteristics \om private''}.
@@ -1230,14 +1199,12 @@ So his privacy is infringed regarding biometric behaviour, as it is captured aut
 (\textbf{Note:} This is not to be confused with the \textbf{Privacy of Behaviour and Action} which is used for the social aspects of behaviour action, e.g.~praying, sexual habits or political activities.)
 
 \item \textbf{Privacy of Data and Image}
-
-The \textbf{Privacy of Data and Image} demands, that \emph{``individual's data is not automatically available to other individuals''}.
+The Privacy of Data and Image demands, that \emph{``individual's data is not automatically available to other individuals''}.
 This type of privacy is trivially threatened because here sensor data is individual data, a priori.
 So every sensor violates the privacy of data and image, as data is transported into a foreign system where operators have access to it.
 
 \item \textbf{Privacy of Location and Space}
-
-According to Friedewald et al., the \textbf{Privacy of Location and Space} is concerned with one's \emph{``right to move about in public or semi-public space without being identified, tracked or monitored.''}.
+According to Friedewald et al., the Privacy of Location and Space is concerned with one's \emph{``right to move about in public or semi-public space without being identified, tracked or monitored.''}.
 This is the location aspect of this type. The space aspect is concerned with one's \emph{``right to solitude''}, which generally includes one's right to an inviolate home and other private spaces.
 Obviously the \textbf{GPS} and \textbf{GSM} sensors violate such right about not being tracked, because they reveal the position of the mobile device and its carrier.
 The \textbf{GSM} sensor gives the exact cell, the mobile device has registered with at the current moment.
