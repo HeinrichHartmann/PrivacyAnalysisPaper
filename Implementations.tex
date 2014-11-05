@@ -11,14 +11,13 @@ Privacy Policy on our Mobile Application and Website.
 
 \textbf{What Personal Information do we Collect?}\\
 The Mobile Sensor Collection Application collects the following data from your mobile phone:\\
-- Sensor Data from Accelerometer (50Hz)\\
-- Sensor Data from GPS sensors (~every 30 sec)\\
-- Daily Human Activities (walking, standing, sitting, etc.) (every 30sec)\\
-- Used Service Lines (bus, train, tram) (every 2 minutes)\\
+- Sensor Data from Accelerometer\\
+- Sensor Data from GPS sensors\\
+- Daily Human Activities (walking, standing, sitting, etc.)\\
+- Used Service Lines (bus, train, tram)
 
-All collected data is transferred to our data center.
-
-The Live+Gov Services does NOT store or collect names and email addresses.
+All collected data is transferred to our data center. The Live+Gov
+Services does NOT store or collect names and email addresses.
 
 \textbf{Which processing is applied to the data?}\\
 We process Accelerometer samples on the Mobile device in order to extract human activities.
@@ -27,56 +26,63 @@ We process GPS coordinates on the Live+Gov server to extract the currently used 
 The stored information is used to produce aggregate reports.
 These reports are based on anonymized data that do not allow the reconstruction of the routes of individual persons at a given point in time.
 
-\textbf{When is the data deleted?}\\
-The full data-set will be stored until January 2015.
-
-Afterwards we will delete Names and Email addresses and anonymize
-the sensor data and processing results.  The anonymized data will
-be used by the the Consortium Partners for research purposes.
-
-\textbf{For which purposes is the data collected?}\\
-The collected data will be used for personalization of user experience of the mobile application.
-Moreover, we will analyize travel patterns in the Helsinki Urban region for general research and for improvement and optimization of the
-infrastructure provided by HSL.
-
-\textbf{Identity of Data Controller}\\
-The data is controlled by Heinrich Hartmann <hartmann@uni-koblenz.de>
-
-The following organizations have access to the collected data:
-\begin{enumerate}
-\item University of Koblenz-Landau
-\url{http://www.uni-koblenz-landau.de/}\\
-Universitätsstraße 1\\
-56070 Koblenz
-
-\item Mattersoft
-\url{http://www.mattersoft.fi/}
-Hämeenkatu 13, 33100 Tampere, Finland\\
-+358 10 3225000
-
-\item Centre for Research and Technology Hellas (CERTH)
-\url{http://mklab.iti.gr/contact}\\
-6th km Charilaou-Thermi Road\\
-P.O. Box 60361,\\
-57001 Thermi-Thessaloniki, Greece
-\end{enumerate}
-
 \textbf{Access to Stored Data}\\
 All personal data can be accessed at our Privacy Dashboard at
 \url{http://liveandgov.uni-koblenz.de/trial/dashboard}
 
 There you have the possibility to:\\
 - View all recordings made\\
+- Delete individual recordings\\
 - View the raw data collected for each recording\\
 - Download the data for each recording\\
-- Delete records
+- View the results of the applied data processing
+
+\textbf{When is the data deleted?}\\
+The full data-set will be stored until January 2016.
+
+Anonymized artifacts of this data are stored longer than that and will
+be used by the Consortium Partners for research purposes.
+
+\textbf{For which purposes is the data collected?}\\
+The collected data will be used for personalization of user experience
+of the mobile application.  Moreover, we will analyze travel patterns
+in the Helsinki Urban region for general research and for improvement
+and optimization of the infrastructure provided by HSL.
 
 \textbf{Collaboration with Third Parties}\\
-The raw data is not shared with any parties external to the Live+Gov Consortium.
+The raw data is not shared with any parties external to the Live+Gov
+Consortium.
 
-Aggregated report based on anonymized data are disclosed to officials at HSL \url{http://www.hsl.fi/} and might be made
-public in the form of a blog post or research article.  These aggregated reports show distributions of all routes that
-have been collected in the system and do not allow to infere the location of a single user at a given point in time.
+\textbf{Who has access to the data?}
+The following organizations inside the Live+Gov Consortium have access
+to the collected data:
+\begin{enumerate}
+\item University of Koblenz-Landau
+\url{http://www.uni-koblenz-landau.de/}\\
+Universitätsstraße 1\\
+56070 Koblenz
+
+\item Mattersoft \\
+\url{http://www.mattersoft.fi/} \\
+Hämeenkatu 13, 33100 Tampere, Finland\\
++358 10 3225000
+
+\item Centre for Research and Technology Hellas (CERTH)\\
+\url{http://mklab.iti.gr/contact}\\
+6th km Charilaou-Thermi Road\\
+P.O. Box 60361,\\
+57001 Thermi-Thessaloniki, Greece
+\end{enumerate}
+
+Aggregated report based on anonymized data are disclosed to officials
+at HSL \url{http://www.hsl.fi/} and might be made public in the form
+of a blog post or research article.  These aggregated reports show
+distributions of all routes that have been collected in the system and
+do not allow to infere the location of a single user at a given point
+in time.
+
+\textbf{Identity of Data Controller}\\
+The data is controlled by Dr. H.  Hartmann <hartmann@uni-koblenz.de>.
 
 \textbf{Consent}\\
 I have read and understood the above privacy policy and agree that my data is collected and processed accordingly.
@@ -227,9 +233,11 @@ in that it does not store personal information like names and email
 address at all.
 
 In the case that such information should be linked to the user-id
-stored in the trip table we provide a python script that randomizes
-the user-ids and thereby removes all links that might have existed
-before.
+stored in the trip table we provide a python script (cf. Figure
+\ref{fig:privacypy}) that randomizes the user-ids and thereby removes
+all links that might have existed before. The scripts allows as a
+parameter a general SQL query that selects a sub-set of the trips that
+shall be anonymized.
 
 \begin{figure}[fontsize=\tiny]
 \centering
@@ -277,8 +285,10 @@ stored GPS points. The \texttt{privacy.py} script (cf. Figure
 specification of the displacement variance.  Figure \ref{fig:noise}
 shows an example of a GPS track with and without added noise.
 
-The Gaussian Noise anonymization is a basic method is usually mixed
-well with other methods.
+The Gaussian Noise anonymization, even with a low noise radius of 5m,
+disables the possibility to correlate GPS data with data from cameras
+to identify a single person. It is typically used in conjunction with
+other method to provide a maximum of anonymity.
 
 \begin{figure}
   \centering
@@ -357,7 +367,4 @@ a two-trips before and after the haircut.
   \caption{GPS Anonymization with Haircut Method}
   \label{fig:haircut}
 \end{figure}
-
-
-
 

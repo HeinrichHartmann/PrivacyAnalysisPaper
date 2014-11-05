@@ -304,7 +304,7 @@ This Charter summarizes the full range of civil, political and economic rights o
 
 Although the Charter does not extend the pre-exiting Directive 95/46/EC, it amplifies the importance of this privacy protection as a fundamental right.
 
-\section{Privacy Definition and Taxonomy}
+\section{Definition and Types of Privacy}
 \label{sec:taxonomy}
 
 \subsection{Defining Privacy}
@@ -831,7 +831,7 @@ Our definition of privacy is described in detail in Chapter \ref{chap:privacy}. 
 \item Privacy os Association
 \end{enumerate}
 
-Please refer to Section \ref{sec:taxonomy} for more details.
+We refer to Section \ref{sec:taxonomy} for more details.
 
 \subsubsection{IT-Systems \& Interactions}
 \label{subsubsection:it-systems}
@@ -1090,8 +1090,12 @@ Per default, HTTP is a clear text protocol.
 This means, one can intercept the connection and read all sensitive information, which is send between the components.
 That is: passwords, raw sensor data and data mining results
 
-\textbf{Unhappy Employees.} Susceptible for social engineering.
-%TODO: Add description
+\textbf{Unhappy Employees.}
+
+An Employee that is frustrated with his situation for a long time
+period constitutes a security vulnerability. On the one hand he might
+want to harm his employer directly, on the other he is increasingly
+susceptible for social engineering.
 
 \textbf{Inadequate Access Rules.}
 The proposed IT system infrastructure has various accesses to privacy sensitive data.
@@ -1103,15 +1107,16 @@ Moreover, we need to ensure that no single person has to many access rights.
 For example, a system administrator should not be able to secretly download the whole database on a flash-drive.
 
 
-% Extend to general missing privacy wareness of citizen, system provider and local authority
+%TODO: Extend to general missing privacy wareness of citizen, system provider and local authority
 \textbf{Unaware Monitoring Subjects.}
-We define privacy as one's ability to control information about oneself.
-In order to do that, monitored subjects need to know, that they are monitored, who monitors them, what information is recorded and for what purposes.
-Subjects who are not aware of these things cannot effectively preserve control and thus lose their privacy.
-
-%TODO
-- No Privacy Policy
-- No Information about Processing, Access rules, 3rd party disclosure
+We define privacy as one's ability to control information about
+oneself.  In order to do that, monitored subjects need to know, that
+they are monitored, who monitors them, what information is recorded
+and for what purposes.  Subjects who are not aware of these things
+cannot effectively preserve control and thus lose their privacy.  This
+vulnerability expresses itself as the lack of information material
+like a Privacy Policy including concise information about applied
+processing steps, access rules and disclosure to 3rd parties.
 
 \subsection{Step 2. Potential Analysis}
 
@@ -1198,7 +1203,7 @@ But the main issue, which can lead to such threats, is again a general \textit{M
 %Risk: 4-5
 %
 \textbf{Data Theft}
-An External infiltrates infrastructure in order to steal personal data and sell it on the black market. 
+An External infiltrates infrastructure in order to steal personal data and sell it on the black market.
 Also the External might be motivated politically and wants to harm the reputation of the System Provider or the Local Authority.
 Anyways, this threat would be manifested through a technical attack on either hardware (Packet Capture) or software (buffer overflow, SQL injection).
 Such a successful attack could harm the reputation of both System Provider and Local Authority.
@@ -1207,10 +1212,8 @@ Local Authorities would lose their political reputation, as it would seem like t
 Thus this threat is defined by three conflicts: \textit{Privacy vs. Financial Profit}, \textit{ Reputation of Service Provider vs. Political Activism} and \textit{Reputation of Local Authority vs. Political Activism}.
 Also this threat describes the classical scenario, where attacks are provoked by \textit{Insecure Infrastructure} (SQL injection) and \textit{Insecure Communication} (Packet Capture).
 
-
 %3. Surveillance
 %---------------
-%Description:   External infiltrates infrastructure in order to spy on citizen
 %COI:           Privacy vs. External Power
 %Vulnerability: Insecure Infrastructure, Insecure Communication
 %Affected Data:         Data transferred and stored in data center.
@@ -1222,16 +1225,22 @@ Also this threat describes the classical scenario, where attacks are provoked by
 %* Government, has also other tools at it's disposal
 %
 %
-\textbf{Surveillance}
-Lorem Ipsum
+\textbf{Surveillance} External infiltrates infrastructure in order to
+obtain direct about the citizen. In this scenario the external is
+supposed to have some direct relationship to the citizen which
+motivates his interest to obtain personal information. Examples could
+be a public institution that wants to gain information about planned
+activities of the citizens (e.g. Nixon's Watergate scandal or the
+recent prosecution of Guardian journalists by GHCQ). Another example
+is an insurance company that seeks to get information about the
+citizens life-style in relation to the insured risk, like car
+accidents or health hazards.
 
-
+In this threat the privacy interest of the citizen is in conflict with
+the aspirations for power over the citizen by the externals.
 
 %4. Information Leak
 %-------------------
-%Description: Like an external person in Scenario (2) an employee of the service provider has selfish interests to gain money, make political statements or harm his employer.
-%In order to pursue this interest he can steal personal data and sell it or release it to the public.
-%
 %COI:         Privacy vs. Financial Profit
 %             Reputation of Service Provider vs. Political Activism
 %             Reputation of Local Authority vs. Political Activism
@@ -1242,15 +1251,15 @@ Lorem Ipsum
 %Loss: High (public leak)
 %Risk: 4
 %
-\textbf{Information Leak}
-Lorem Ipsum
 
+\textbf{Information Leak}
+Like an external person in Scenario (2) an employee of the service provider has selfish interests to gain money, make political statements or harm his employer.
+In order to pursue this interest he can steal personal data and sell it or release it to the public.
 
 
 %5. Social Engineering
 %---------------------
-%Description: An External can manipulate Local Authorities or Service Providers to give them personal information that he can then sell or disclose.
-%
+%Description: 
 %COI:         Privacy vs. Financial Profit
 %             Reputation of Service Provider vs. Political Activism
 %             Reputation of Local Authority vs. Political Activism
@@ -1262,7 +1271,8 @@ Lorem Ipsum
 %Risk: 4
 %
 \textbf{Social Engineering}
-Lorem Ipsum
+An External can manipulate Local Authorities or Service Providers to
+give them personal information that he can then sell or disclose.
 
 
 \subsubsection{Threat Risk Evaluation}
@@ -1274,11 +1284,9 @@ The quantification of likeliness will be solely based on rough judgment of the a
 The quantification of loss, will be made in a two step process.
 For each threat listed in table \ref{firgure:Threats}, we have analyzed the affected personal data of the citizen.
 For each possible data type (e.g. GPS) we analyze the impact on the seven different types of privacy in Section \ref{sec:SensorPrivacyImpact}.
-In combination we can quantify roughly the impact of each threat on the citizens privacy.
+In combination we can quantify roughly the impact of each threat on the citizens privacy. Both evaluations are necessarily fraught with a high level of uncertainty.
 
-Both evaluations are necessarily fraught with a high level of uncertainty.
-
-Loss Calibration
+For the quantification of the loss in case of a threat scenario we use the following rough calibration:
 \begin{itemize}
 \item 3: High. Leak of information to Peers which impacts citizen.
   E.g. spouse gets GPS data and finds out cheating.
@@ -1289,27 +1297,29 @@ Loss Calibration
 \item 0: None
 \end{itemize}
 
-Likeliness is measured on a the following scale
+For the quantification of likeliness the following scale is used:
 \begin{itemize}
-\item 0 (impossible)
-\item 1: maybe occure once in 1 million cases.
-\item 2: maybe occure once in 100
-\item 3: maybe occure once in 10
 \item 4: always the case.
+\item 3: maybe occure once in 10
+\item 2: maybe occure once in 100
+\item 1: maybe occure once in 1 million cases.
+\item 0 (impossible)
 \end{itemize}
-The risk scale is defined as addition of the loss and likeliness scales.\footnote{
-Note, that loss and likeliness scales have a logarithmic character, so that that addition of those scales corresponds to multiplication of the usual scales.
-}
+
+The quantification of the risk, we add the values for loss and
+likeliness of the corresponding threats. Note, that loss and
+likeliness scales have a logarithmic character, so that that addition
+of those scales corresponds to multiplication of the usual scales.
 
 %TODO:
 Insert Table with Likeliness / Loss / Risk Assesment.
 
-\subsubsection{Security Requirement Specification}
-%TODO SKIP?
+\subsubsection{Security Recommendations and Requirements}
+\textbf{Legal Requirements}
 
-TODO: Formulate requirements that address the high risk scenarios.
+Privacy Policy
 
-\section{Processing Journal}
+Processing Journal
 \begin{itemize}
 \item name of the controller
 \item purpose of processing
