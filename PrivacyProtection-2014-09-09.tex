@@ -284,7 +284,7 @@ Thus, those companies will act as \emph{safe harbors}.
 Without certification foreign companies are not allowed to store and process customer data in their country.
 
 
-\subsection{EU Charter of Fundamental Rights}
+\subsection{EU Charter of Fundamental Rights}\label{sec:FR}
 The Treaty of Lisbon of 2007, which introduced the fundamental functioning of the European Union
 includes the \emph{Charter of Fundamental Rights of the Europen Union} \cite{EUFR2010}.
 This Charter summarizes the full range of civil, political and economic rights of EU citizens and contains the following two articles that safeguard the privacy of the citizen.
@@ -609,6 +609,7 @@ Implicit privacy violations apply accordingly.
 \pagebreak
 
 \chapter{Privacy Analysis of Live+Gov Systems}
+\label{chap:analysis}
 
 The goal of this chapter to analyze and identify the threads to personal privacy that are posed by collecting, storing and processing sensor data from mobile phones.
 We derive concrete privacy protection measures that address the main risks involved with handling such data.
@@ -1137,21 +1138,10 @@ To get hold of the data the external exploits an insecured HTTP transfer of reco
 In this section we describe, in a similar fashion, threats for the citizen privacy in the Live+Gov system.
 This list can necessarily not be complete, but we make a best effort to cover the most relevant cases.
 
-%TODO: Update Threat Table
+% \label{figure:Threats}
 \input{./figures/Threats}
 
-%0. Insufficient Control Features
-%-------------------
-%Description:    The Service Provider does not offer tools for the citizen to control his data.
-%COI:            Privacy vs. System Complexity
-%Vulneratbility: missing privacy wareness
-%Asset:          All collected data
-%
-%Likeliness: Always
-%Loss: Low (Control is lost, no direct harm done)
-%Risk:      5
-%
-\textbf{Insufficient Control Features.}
+\textbf{T1. Insufficient Control Features.}
 The System Provider does not offer tools for the Citizen to control his data.
 However, besides the missing features he provides a safe and secure system.
 This threat contradicts the definition of privacy as control over one's information about oneself.
@@ -1161,22 +1151,7 @@ Although, control capabilities for Citizens add to the system complexity, which 
 Therefore interests of Citizens and System Providers are in conflict, namely it is the Citizen's \textit{Privacy vs. System Complexity} for System Providers.
 This is an abstract threat provoked by a general \textit{Missing Privacy Awareness} in the minds of all actors in the Live+Gov context.
 
-
-%1. Excessive Data Mining
-%------------------------
-%Description: The Service Provider and/or the Local Authority extract more private information from the collected data, than the citizen agreed to.
-%E.g. the Service Provider wants to test a new product, and uses old data collected for a different purpose.
-%E.g. the Local Authority wants to analyze collected data from fare evasions.
-%
-%COI: Privacy vs. Buisness Intelligence of Local Authority, Privacy vs. Financial Profit of Serivce Provider.
-%Vuln.: Lax data handling policies; Unaware citizen; Weak law enforcement
-%Affected Data: Potential Information extracted from raw data.
-%
-%Likeliness: High
-%Loss:      Medium (Control is lost, no direct harm done)
-%Risk:      5
-%
-\textbf{Excessive Data Mining.}
+\textbf{T2. Excessive Data Mining.}
 The System Provider and/or the Local Authority secretly extract more private information from the collected data, than the Citizen agreed to.
 But results of the mining process create no disadvantages for Citizens, because there is no disclosure to third parties.
 This could be the case for a System Provider, who wants to test a new product and uses the pre-existing data collection.
@@ -1187,92 +1162,59 @@ Thus there are two possible conflicts: \textit{Privacy vs. Financial Profit of S
 The threat can be provoked by either lax data handling policies of both System Providers and Local Authorities, or a weak law enforcement of existing supervision.
 But the main issue, which can lead to such threats, is again a general \textit{Missing Privacy Awareness}.
 
-
-%2. Data Theft
-%-------------
-%Description: External infiltrates infrastructure in order to steal personal data and sell it on the black market. Also the external might be motivated politically and wants to harm the reputation of the Service Provider or the Local Authority.
-%
-%COI:         Privacy vs. Financial Profit
-%             Reputation of Service Provider vs. Political Activism
-%             Reputation of Local Authority vs. Political Activism
-%Vuln.:       Insecure Infrastructure, Insecure Communication
-%Affected Data:  Data transmitted or stored in data center: GPS trips, HAR-records.
-%
-%Likeliness: Low-Medium
-%Loss: High
-%Risk: 4-5
-%
-\textbf{Data Theft}
+\textbf{T3. Data Theft}
 An External infiltrates infrastructure in order to steal personal data and sell it on the black market.
 Also the External might be motivated politically and wants to harm the reputation of the System Provider or the Local Authority.
 Anyways, this threat would be manifested through a technical attack on either hardware (Packet Capture) or software (buffer overflow, SQL injection).
 Such a successful attack could harm the reputation of both System Provider and Local Authority.
 The technical competence of System Providers would be proven wrong, therefore they would lose professional reputation.
 Local Authorities would lose their political reputation, as it would seem like they had endangered data of Citizens, which lose complete control.
-Thus this threat is defined by three conflicts: \textit{Privacy vs. Financial Profit}, \textit{ Reputation of Service Provider vs. Political Activism} and \textit{Reputation of Local Authority vs. Political Activism}.
+Thus this threat is defined by three conflicts: \textit{Privacy vs. Financial Profit}, \textit{Reputation of Service Provider vs. Political Activism} and \textit{Reputation of Local Authority vs. Political Activism}.
 Also this threat describes the classical scenario, where attacks are provoked by \textit{Insecure Infrastructure} (SQL injection) and \textit{Insecure Communication} (Packet Capture).
 
-%3. Surveillance
-%---------------
-%COI:           Privacy vs. External Power
-%Vulnerability: Insecure Infrastructure, Insecure Communication
-%Affected Data:         Data transferred and stored in data center.
-%
-%Likeliness: Medium (Government*), Low (Third parties)
-%Loss: High (Control is lost, potential harm by due to Government action)
-%Risk:      6/4
-%
-%* Government, has also other tools at it's disposal
-%
-%
-\textbf{Surveillance} External infiltrates infrastructure in order to
-obtain direct about the citizen. In this scenario the external is
-supposed to have some direct relationship to the citizen which
-motivates his interest to obtain personal information. Examples could
-be a public institution that wants to gain information about planned
-activities of the citizens (e.g. Nixon's Watergate scandal or the
-recent prosecution of Guardian journalists by GHCQ). Another example
-is an insurance company that seeks to get information about the
-citizens life-style in relation to the insured risk, like car
+\textbf{T4. Surveillance}
+
+An External infiltrates infrastructure in order to obtain information
+about the citizen and exploit it directly.  In this scenario the
+external is supposed to have some direct relationship to the citizen
+which motivates his interest to obtain personal information.  Examples
+could be a public institution that wants to gain information about
+planned activities of the citizens (e.g. Nixon's Watergate scandal or
+the recent prosecution of Guardian journalists by GHCQ).  Another
+example is an insurance company that seeks to get information about
+the citizens life-style in relation to the insured risk, like car
 accidents or health hazards.
 
 In this threat the privacy interest of the citizen is in conflict with
 the aspirations for power over the citizen by the externals.
 
-%4. Information Leak
-%-------------------
-%COI:         Privacy vs. Financial Profit
-%             Reputation of Service Provider vs. Political Activism
-%             Reputation of Local Authority vs. Political Activism
-%Vuln.:       Unhappy Employee, Lax Access Rules.
-%Affected Data:       Data stored in data center.
-%
-%Likeliness: Low
-%Loss: High (public leak)
-%Risk: 4
-%
+\textbf{T5. Information Leak}
 
-\textbf{Information Leak}
-Like an external person in Scenario (2) an employee of the service provider has selfish interests to gain money, make political statements or harm his employer.
-In order to pursue this interest he can steal personal data and sell it or release it to the public.
+Like an external person the Data Theft Scenario an employee of the
+service provider or the Local Authority has selfish interests to gain
+money, make political statements or harm his employer.  In order to
+pursue this interest he can steal personal data and sell it or release
+it to the public.  The corresponding conflicts of interests are:
+\textit{Privacy vs. Financial Profit} of the Employee, \textit{Reputation of Service
+  Provider vs. Political Activism} of the Employee and \textit{Reputation of Local
+  Authority vs. Political Activism} of the Employee.  The vulnerability constitutes of
+the existence of \textit{Unhappy employees} itself and possibly \textit{lax access
+rules} that enable the employee to obtain large amounts of data
+unnoticed.
 
+\textbf{T6. Social Engineering}
 
-%5. Social Engineering
-%---------------------
-%Description: 
-%COI:         Privacy vs. Financial Profit
-%             Reputation of Service Provider vs. Political Activism
-%             Reputation of Local Authority vs. Political Activism
-%Vuln.:       Unhappy Employee, Lax Access Rules.
-%Affected Data:       Data stored in data center.
-%
-%Likeliness: Low
-%Loss: High
-%Risk: 4
-%
-\textbf{Social Engineering}
-An External can manipulate Local Authorities or Service Providers to
-give them personal information that he can then sell or disclose.
+This scenario an external manipulates an employee of a Service
+Provider or the Local Authority to leak information to the external
+person.  It is thus combination of the Data Theft and Information Leak
+scenario.
+The conflicts of interest are \textit{Privacy vs. Financial Profit} of
+the External, \textit{Reputation of Service Provider vs. Political
+  Activism} of the external and \textit{Reputation of Local Authority
+  vs. Political Activism} of the external.  The exploited
+vulnerabilities are, again, the existence of \textit{Unhappy
+  employees} and possibly \textit{lax access rules} that enable the
+employee to obtain large amounts of data unnoticed.
 
 
 \subsubsection{Threat Risk Evaluation}
@@ -1288,10 +1230,7 @@ In combination we can quantify roughly the impact of each threat on the citizens
 
 For the quantification of the loss in case of a threat scenario we use the following rough calibration:
 \begin{itemize}
-\item 3: High. Leak of information to Peers which impacts citizen.
-  E.g. spouse gets GPS data and finds out cheating.
-  Subjects is added to No-Fly list due to Government spying.
-  Public leak of private information.
+\item 3: High. Leak of information to peers (e.g. public) which impacts citizen.
 \item 2: Medium. Undisclosed processing of personal data or disclosure to third parties that are unrelated to subject.
 \item 1: Low. Loss of control over data.
 \item 0: None
@@ -1299,11 +1238,11 @@ For the quantification of the loss in case of a threat scenario we use the follo
 
 For the quantification of likeliness the following scale is used:
 \begin{itemize}
-\item 4: always the case.
-\item 3: maybe occure once in 10
-\item 2: maybe occure once in 100
-\item 1: maybe occure once in 1 million cases.
-\item 0 (impossible)
+\item 4: Always.
+\item 3: High. Occurs once in 10 cases
+\item 2: Medium. Occurs once in 100 cases
+\item 1: Low. Occurs once in 1 million cases
+\item 0: Impossible
 \end{itemize}
 
 The quantification of the risk, we add the values for loss and
@@ -1311,55 +1250,191 @@ likeliness of the corresponding threats. Note, that loss and
 likeliness scales have a logarithmic character, so that that addition
 of those scales corresponds to multiplication of the usual scales.
 
-%TODO:
-Insert Table with Likeliness / Loss / Risk Assesment.
 
-\subsubsection{Security Recommendations and Requirements}
-\textbf{Legal Requirements}
+The likeliness, loss and the resulting risks assigned to the threats
+are discussed in the following paragraphs and summarized in Figure
+\ref{fig:risks}.
+
+
+\textbf{T1. Insufficient Control Features.}  The occurrence of this
+threat is dependent on the design on the system and given in our case,
+since we do not give the citizen control over his data once it is
+recorded. Therefore the Likeliness is evaluated as $4$ (Always).  The
+associated, risk is $1$ Low on our scale, since no direct harm is done to
+the citizen by exploiting the data.
+
+Hence the resulting risk is calculated as $4+1 = 5$.
+
+\textbf{T2. Excessive Data Mining.}
+We assess the likeliness of excessive data mining to be $3$ High, since
+these kind of analysis can be performed within the walls of the service
+provider, without somebody else noticing, and the service provider himself
+has an interest in this activity.
+
+The associated loss, on the other hand can be substantial (Medium
+$2$).  For example when GPS data is linked to data from telephone
+books the identity of the citizen can be revealed and personal details
+like visits to doctors. In the threat scenario, this information is
+not leaked to third parties, (which would justify an even higher loss
+assessment), but the very existence of this information violates the
+citizens privacy.
+
+Hence the resulting risk is calculated as $3+2 = 5$.
+
+\textbf{T3. Data Theft.}
+The likeliness of a targeted attack by a third party is dependent on
+the popularity of the offered service and financial value of the
+captured information. Moreover, the amount of manual work required to
+infiltrate a custom build system is significantly higher that that of
+compromising a standard software solution. In the scenario we assume a
+moderate popularity in a single metropolitan area, with around 10.000
+users and storage of data of only limited financial value (no
+addresses, no payment information). Therefore the likeliness
+assessment is $1-2$ (Low-Medium).
+
+The harm of leaked information to a criminal party is $3$ High.
+Hence the resulting risk is calculated as $4-5$.
+
+\textbf{T4. Surveillance.}  In the surveillance scenario an party
+related to the citizen, like a company where he is customer of, or a
+government agency, seeks to obtain sensitive information from our
+service.
+
+The likeliness of such an intrusion is hard to asses, and depends
+again on the popularity of the service. If a high popularity is
+reached we have recently learned that spying by government agencies is
+very likely to occur. The barrier for companies that do not operate
+the infrastructure used to transmit the data a surveillance attack is
+however very hard to perform. Therefore we assess the likeliness of
+the threat with $1-2$ (Low-Medium).
+
+The harm of leaked information to a related party is $3$ High.
+Hence the resulting risk is calculated as $4-5$.
+
+\textbf{T5/6. Information Leak and Social Engineering.}
+
+In our scenario we assume that the culture and ethics inside the
+service provider company and local authority are very high, so that
+the information leak scenario has a likeliness of $1$ (Low).
+
+The harm of such an information leaked is $3$ High, so that the
+resulting risk is calculated as $4$.
+
 
 \begin{figure}
 \centering
-
-\begin{tabular}{|l|c|c|c|}
+\begin{tabular}{|l|l|l|l|l|}
 \hline
-\textbf{Threat} & \textbf{Likeliness} & \textbf{Loss} & \textbf{Risk} (Likeliness + Loss)
+\textbf{Threat}                   & \textbf{Likeliness} & \textbf{Loss} & \textbf{Risk} & \textbf{Recommendation}
 \\\hline
-Insufficient Control Features & 4 (Always) & 1 (Low) & 5
+T1. Insufficient Control Features & 4                   & 1             & 5             & R1, R2
 \\\hline
-Excessive Data Mining & 3 (High) & 2 (Medium) & 5
+T2. Excessive Data Mining         & 3                   & 2             & 5             & R3, R4, R5
 \\\hline
-Data Theft & 1 (Low) / 2 (Medium) & 3 (High) & 4 / 5
+T3. Data Theft                    & 1 - 2               & 3             & 4 - 5         & R6
 \\\hline
-Surveillance & 1 (Low) / 2 (Medium) & 3 (High) & 4 / 5
+T4. Surveillance                  & 1 - 2               & 3             & 4 - 5         & R7
 \\\hline
-Information Leak & 1 (Low) & 3 (High) & 4
+T5. Information Leak              & 1                   & 3             & 4             & R8
 \\\hline
-Social Engineering & 1 (Low) & 3 (High) & 4
+T6. Social Engineering            & 1                   & 3             & 4             & R8
 \\\hline
-
 \end{tabular}
-
-\caption{Live+Gov Threat Evaluation}
-\label{figure:Live+Gov Threat Evaluation}
+\caption{Live+Gov Risk Evaluation and Recommendations}
+\label{fig:risks}
 \end{figure}
 
+\subsubsection{Privacy Recommendations}
+\label{sec:prec}
 
+In the preceding section we have identified the main risks for the
+users privacy.  In this section we derive recommendations or
+requirements for a system that addresses these risks.  Some of these
+requirements are implemented as security measures in our systems and
+discussed in the following chapter \ref{chap:impl}.
 
+In order to address the threat with the highers risk, Insufficient
+Control (T1) of the citizen, we need to give the citizen back the
+control over its data inside the system. The most direct way to do
+this is to provide a web-based \emph{Privacy Dashboard (R1)} which allows
+the citizen to view, edit and delete all information about his person
+that is stored inside the system. Also control applied processing and
+disclosure of the data to third parties should be given to the user,
+at least in the form of an opt-out or veto option.
 
-\subsubsection{Security Requirement Specification}
-%TODO SKIP?
+A necessary pre-requirement for effective control of the citizen over
+his data is information and comprehension of the intended data
+capturing and processing steps. Therefore a \emph{Privacy Policy (R2)} that
+is easily readable and contains all important information is
+essential.  Moreover, the existence of a Privacy Policy is a legal
+requirement (cf. Section \ref{EUDIR}).
 
+The threat with the second largest risk is (T2) Excessive Data Mining.
+Contrary to common belief, it is neither legal nor ethical to process
+personal data for by new methods or for new purposes that were not
+stated and explained to the citizen at the time of data
+collection. Also the common practice of obtaining far-reaching
+permissions from the citizens inside the privacy policy is neither an
+ethical or legal solution to the problem (cf. Art. 6 in Section
+\ref{EUDIR}).
 
-Privacy Policy
+To address this threat awareness about the limitations of data
+processors inside the company is a key element. As one mean to
+establish such a culture of privacy respect, we recommend to prepare
+an document called \emph{Data Handling Guidelines (R3)} intended for
+internal use that explains the concrete processing steps and purposes
+that are permitted by the citizens. This guideline should also be
+structured in a way that it covers the legal notification requirement
+from the EU Data Protection Directive (cf. Section \ref{EUDIR}). In
+particular the following information should be provided for each
+processing task: The name of the controller, purpose of processing,
+description of the data categories, recipients of the data if
+disclosed, transfer to third countries and a description of security
+of processing.
 
-Processing Journal
-\begin{itemize}
-\item name of the controller
-\item purpose of processing
-\item description of the data categories
-\item recipients of the data if disclosed
-\item transfer to third countries
-\item description of security of processing
-\end{itemize}
-The journal is available for anybody to access via Email.
-Reporting to Data Protection Authority (Bundesamt für Datenschutz).
+If further processing should be performed, it is necessary to seek
+additional permissions from the citizen. A simple email explaining the
+planned processing steps, and \emph{asking for permission (R4)} would be
+enough for this purpose. The permission can be given via an embedded
+link that shall be followed in order to signal agreement.
+
+An alternative measure to address the risk of excessive data mining is
+the \emph{anonymization (R5)} of data. When all direct- or indirect
+links to the identity of the person are removed, no violation of the
+citizens privacy caused by arbitrary processing. However removing all
+such links is a challenging tasks, and full anonymity is often not
+achieved, cf. \cite{krumm2009}.
+
+The protection from threat scenario (T3) Data Theft is a case of
+classical \emph{IT infrastructure security (R6)}. The storage and processing infrastructure has
+to be secured using firewalls, up-to data software versions and proper
+authentication mechanisms.
+
+The protection from threat scenario (T4) Surveillance focuses on the
+communication channels. They are target of wiretapping attacks by
+intermediaries or externals with access to the communication
+infrastructure. Strong \emph{encryption (R7)} should be used to make
+it harder for externals to read the content of the transmitted data.
+
+Threat scenarios (T5) Information Leak and (T6) Social Engineering
+target the vulnerability of unhappy employees. Therefore a trustful,
+\emph{healthy company culture (R8)} should be maintained.
+
+In summary we recommend the following measures to secure the citizens
+privacy:
+\begin{enumerate}
+\item[R1] Privacy Dashboard. A tool which allows the citizen to view, edit
+  and delete all data personal data that is stored in the system.
+\item[R2] Privacy Policy. A document, that informs the citizen about the
+  collection and processing of personal information. It should at
+  least contain the legally required information.
+\item[R3] Issue Data Handling Guidelines that explain the permitted
+  processing methods and purposes.
+\item[R4] Ask the citizens for permissions before applying further
+  processing via Email.
+\item[R5] Anonymize personal data before processing.
+\item[R6] Securing of Storage and Processing infrastructure using e.g. firewalls.
+\item[R7] Securing communication channels using encryption.
+\item[R8] Maintain a healthy, trustful relationship with your employees.
+\end{enumerate}
+The mapping of these recommendations to the threats is summarized in Figure \ref{fig:risks}.
