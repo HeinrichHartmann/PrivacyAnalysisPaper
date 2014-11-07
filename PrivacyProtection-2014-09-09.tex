@@ -30,8 +30,6 @@ In the following sections we outline the most relevant legislature regarding pri
 from on European angle.
 Of particular importance is the EU Directive 95/46/EC that is discussed in section \ref{EUDIR}.
 
-Based on the legal background presented here, we will derive the legal privacy requirements for our systems in \ref{sec:LEGAL_REQ}.
-
 \subsection{European Convention on Human Rights}
 
 The \emph{Europen Convetion on Human Rights} \cite{ECHR} was created by the members of the \emph{Council of Europe} (CoE) in 1953 as part of the aftermath of the second world war.
@@ -306,6 +304,10 @@ Although the Charter does not extend the pre-exiting Directive 95/46/EC, it ampl
 
 \section{Definition and Types of Privacy}
 \label{sec:taxonomy}
+
+In this section we introduce our definition of privacy which as \emph{control over personal information} following C. Fried.
+As this description is still on a very high level we go on to specify seven different privacy types in the next section.
+These privacy types are then analyzed for their implications in the presence of different kinds of sensor data.
 
 \subsection{Defining Privacy}\label{sec:ethics}
 
@@ -621,8 +623,7 @@ We give a brief introduction to this model and perform a IT Security Analysis wi
 \section{IT Security Analysis according to Grimm et. al}\label{sec:GrimmModel}
 
 We follow the Reference Model for IT Security Analysis as described in \cite{Grimm:ItSecRefModel}.
-It supersedes earlier efforts by \cite{Avizienis}.
-
+It supersedes earlier efforts by e.g. \cite{Avizienis}.
 The reference model consists of a \emph{model} and a \emph{procedure}.
 The model aims to organize common security terminology in a reasonable and practical way.
 The procedure describes a method to analysis the IT system based on that model.
@@ -915,15 +916,13 @@ Also it is well established (cf. \cite{GuardienMassSurveillance}) that the very 
 
 In short, citizens are interested in
 \begin{itemize}
-\item convenience
-\item legitimate use of personal data
 \item physical wellbeing and health
 \item financial profit
+\item convenience
+\item legitimate use of personal data
+\item non-disclosure of personal data to peers of the citizen
 \item not being monitored.
 \end{itemize}
-
-%TODO:
-- Nondisclosure of sensitive information to peers of the citizen.
 
 \textbf{External.}
 Externals are persons who do not have privileged access to the IT systems, and are willing to break laws, security constrains and norms in order to promote their interests.

@@ -31,7 +31,7 @@
 %\LGapproved % activate only if approved
 \LGfinal
 
-\LGversion{12}
+\LGversion{9}
 %\LGstaffmonths{Resources spent on the deliverable}
 
 %\LGdistribution{WP leaders, PMB members, European Commission}
@@ -43,13 +43,18 @@
 %{\tt\char92 par}.)}
 \LGabstract{
 
-% \TODO{Add abstract}
+This deliverable presents the privacy aware, server based reality
+sensing infrastructure for Live+Gov applications.
 
-%  This deliverable describes the mobile sensor mining component.
-%  Along with this document we supply the source code of the
-%  components, documentation (javadoc), and pre-compiled packages for
-%  direct installation and testing on mobile devices.  
+We review the legal and ethical aspects of privacy and perform a
+thorough security analysis of the Live+Gov applications. We identify
+six main threats to privacy and make eight recommendations for
+addressing these threats. These recommendations form the guidelines
+for several privacy enhancements to our infrastructure which we
+describe in this document.
 
+Along with this document we supply the source code of the components,
+documentation, and pre-compiled packages for direct installation.
 }
 
 %\LGhistory{01}{2011-10-01}{First draft}{Yiannis Kompatsiaris}
@@ -95,8 +100,18 @@
 % add a \LGaddhistory{version}{date}{reason}{revised by} for each new
 % version
 \begin{LGhistory}
-\LGaddhistory{01}{2014-07-17}{Outline}{Heinrich Hartmann}
-
+\LGaddhistory{01}{2014-07-17}{Added Outline of Deliverable}{Heinrich Hartmann}
+\LGaddhistory{02}{2014-09-10}{Started IT Security Analysis}{Heinrich Hartmann}
+\LGaddhistory{03}{2014-09-13}{Added Threat Table with Conflicts and Vulnearbilities}{Maximilian Meffert}
+\LGaddhistory{03}{2014-09-15}{Description of IT Security Analysis}{Heinrich Hartmann}
+\LGaddhistory{04}{2014-09-17}{Finished Description of Actors and Interests}{Maximilian Meffert}
+\LGaddhistory{05}{2014-10-08}{Added chapter on Legal Aspects of Privacy}{Heinrich Hartmann}
+\LGaddhistory{06}{2014-10-13}{Updated 7 Types of Privacy}{Heinrich Hartmann}
+\LGaddhistory{07}{2014-10-15}{Updated IT Systems Description}{Heinrich Hartmann}
+\LGaddhistory{08}{2014-10-21}{Added Implicit Privacy Type Violations}{Maximilian Meffert}
+\LGaddhistory{09}{2014-10-25}{Added Description of Implementations}{Heinrich Hartmann}
+\LGaddhistory{09}{2014-11-05}{Extended Threat Scenarios}{Heinrich Hartmann}
+\LGaddhistory{09}{2014-11-07}{Added Introduction and Summary}{Heinrich Hartmann}
 \end{LGhistory}
 
 
@@ -111,14 +126,14 @@
 \LGaddauthor{UKob}{Heinrich Hartmann}{+49 261 287 2759}%
 {+49 261 287 100 2759}{\small hartmann@uni-koblenz.de}
 
-\LGaddauthor{UKob}{Christoph Schaefer}{+49 261 287 2786 }%
-{+49 261 287 100 2786}{\small chrisschaefer@uni-koblenz.de}
+%\LGaddauthor{UKob}{Christoph Schaefer}{+49 261 287 2786 }%
+%{+49 261 287 100 2786}{\small chrisschaefer@uni-koblenz.de}
 
 \LGaddauthorNoPhone{UKob}{Maximilan Meffert}%
 {\small maxmeffert@uni-koblenz.de}
 
-\LGaddauthorNoPhone{BIZ}{Maite de Arana Agiretxe}%
-{\small komunikazioa.tekniko1@biscaytik.eu}
+%\LGaddauthorNoPhone{BIZ}{Maite de Arana Agiretxe}%
+%{\small komunikazioa.tekniko1@biscaytik.eu}
 
 %% \LGaddauthor{UKob}{Christoph Kling}{+49 261 287 2702 }%
 %% {+49 261 287 100 2702}{\small ckling@uni-koblenz.de}
@@ -127,7 +142,6 @@
 %% {\small Laura.Niittyla@mattersoft.fi}
 
 \end{LGauthors}
-
 
 \begin{LGExecutiveSummary}
 \vspace{10pt}
@@ -216,20 +230,17 @@ of the executable parts.
 \LGaddabbreviation{\textbf{AJAX}}
 {Asynchronous JavaScript and XML}
 
-\LGaddabbreviation{\textbf{ALC}}
-{Attribute Language with Complement}
-
 \LGaddabbreviation{\textbf{API}}
 {Application Programming Interface}
-
-\LGaddabbreviation{\textbf{GeSA}}
-{Geographical Semantic Analysis}
 
 \LGaddabbreviation{\textbf{GPS}}
 {Global Positioning System}
 
 \LGaddabbreviation{\textbf{GSM}}
 {Global System for Mobile Communications}
+
+\LGaddabbreviation{\textbf{HAR}}
+{Human Activity Recognition}
 
 \LGaddabbreviation{\textbf{HTML}}
 {HyperText Markup Language}
@@ -240,9 +251,6 @@ of the executable parts.
 \LGaddabbreviation{\textbf{ID}}
 {Identifier}
 
-\LGaddabbreviation{\textbf{IEEE 802.11}}
-{see WIFI, WLAN}
-
 \LGaddabbreviation{\textbf{JSON}}
 {JavaScript Object Notation}
 
@@ -252,20 +260,11 @@ of the executable parts.
 \LGaddabbreviation{\textbf{REST}}
 {Representational State Transfer}
 
-\LGaddabbreviation{\textbf{RF-ID}}
-{Radio-Frequency Identification}
-
-\LGaddabbreviation{\textbf{SDCF}}
-{Sensor Data Collection Framework}
+\LGaddabbreviation{\textbf{SLD}}
+{Service Line Detection}
 
 \LGaddabbreviation{\textbf{SQL}}
 {Structured Query Language}
-
-\LGaddabbreviation{\textbf{SVM}}
-{Support Vector Machine}
-
-\LGaddabbreviation{\textbf{TBox}}
-{Terminological Box}
 
 \LGaddabbreviation{\textbf{UI}}
 {User Interface}

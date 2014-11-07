@@ -360,8 +360,8 @@ Commission Services).)
 
 \newcommand{\LGaddabbreviation}[2]{#1 & #2 \\}
 
-%\newcommand{\LGTOC}{\clearpage\tableofcontents\clearpage\listoffigures}
-\newcommand{\LGTOC}{\clearpage\tableofcontents\clearpage\listoffigures\listoftables}
+\newcommand{\LGTOC}{\clearpage\tableofcontents\clearpage\listoffigures}
+%\newcommand{\LGTOC}{\clearpage\tableofcontents\clearpage\listoffigures\listoftables}
 
 
 %\newenvironment{LGGlossary}{%
