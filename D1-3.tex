@@ -130,11 +130,78 @@
 
 
 \begin{LGExecutiveSummary}
-  \vspace{10pt}
+\vspace{10pt}
 
-  The deliverable is accompanied with source code of the components in
-  Java, API documentation (javadoc), and pre-compiled packages for
-  direct installation and testing on mobile devices.
+This deliverable presents the privacy aware, server based reality
+sensing infrastructure for Live+Gov applications.  Privacy protection
+is a crucial point for public acceptance of advanced data mining
+techniques in eParticipation scenarios.  In order to provide such
+protection we perform an extensive analysis of all threats to privacy
+and implement a number of measures that address these threats in an
+adequate way.
+
+The term "privacy'' itself is highly ambiguous and there is no common
+understanding what privacy really is in the literature.  In
+Chapter \ref{chap:privacy} we discuss different legal and
+philosophical texts and about the subject.  The main relevant
+legislation is the EU Data Protection Directive (cf. Section
+\ref{EUDIR}). The main ethical treatment is provided by Charles Fried
+(cf. Section \ref{sec:ethics}), who defines privacy as the
+\emph{control over personal information}. Furthermore, seven concrete
+privacy types are introduced (cf. Section \ref{sec:privacytypes}) and
+the relation to collected sensor data from mobile phones is made.
+
+On the basis of these foundations perform a thorough analysis of all
+risks for the privacy of a citizen. The main difficulty we are
+presented with is the selection of sensible measures. There are a lot
+of anonymization techniques in the literature and it is easy to jump
+ahead and implement a few of them while leaving out massive privacy
+gaps at other ends. Therefore a structured approach to this problem
+was taken.
+
+We have chosen to use the IT Security Reference Model
+\cite{Grimm:ItSecRefModel} (cf. Section \ref{sec:GrimmModel}), that
+was developed by our colleague from Prof. Grimm from University of
+Koblenz, as a framework to conduct a systematic analysis of all risks
+that are posed to the privacy of the citizens. The analysis is carried
+out in Section \ref{sec:PPA}. Prof. Grimm also contributed with his
+expertise and guidance to the execution of this analysis.
+
+The analysis starts by describing an abstract version of the IT
+Systems and the involved actors with their interests. We then describe
+vulnerabilities of the IT Systems and conflicts between the interests
+of the stakeholders. All threats that are posed to the privacy of the
+citizen are caused by a conflict of interest between two actors and
+exploit a vulnerability of the system.
+
+We identity six main threats that include ``T1. Insufficent Control
+Features'', ``T2. Excessive Data Minig'' and ``T4. Surveillance'' and
+asses their risk of occurrence. The biggest threat to the citizens
+privacy is posed by Insufficient Control Features of the system. As
+soon as collected data of Citizens is stored on the servers, all
+control over that data is lost if the service provider does not offer
+tools for the citizen to control his data.
+
+These risks are addressed by eight recommendations, that when
+implemented provide an adequate protection of the citizens privacy.
+One surprising outcome, is that the main privacy threats can be
+eliminated by enhancing communication with the citizen and
+establishing policies and awareness for privacy aspects inside the
+company. Thus, a central point in the protection of the citizens privacy is
+a ``Privacy Dashboard'' that gives the citizen a maximum of control
+over his data. Using this dashboard he is able to view and export all
+data from the citizen that is currently stored in the Live+Gov system,
+selectively delete parts of the stored data and get information about
+processing applied and view the processing results themselves.
+
+In addition, we have implemented four different anonymization methods
+for GPS samples, several security mechanisms for infrastructure and
+communication channels, moreover we wrote a concise and comprehensive
+privacy policy that informs the citizen about all processing steps.
+
+The deliverable is accompanied with source code of the components in
+Java, Python and JavaScript, documentation, and pre-compiled packages
+of the executable parts.
 
 \end{LGExecutiveSummary}
 
@@ -271,101 +338,43 @@ The great importance of protecting the citizens privacy should be
 apparent from these examples. The European Union, as well as many
 other countries in the past, has set out a number of directives that
 regulate the collection, processing and use of privacy sensitive
-data. The most important legislation on the European Level is the Data
-Protection Directive 95/46/EC (cf. Section \ref{sec:EUDIR}), which is
-also summarized in the European Charta of Fundamental Rights
-(cf. Section \ref{sec:FR}) of EU citizens:
-
-\begin{quote}
-Article 7. Respect for private and family life.
-
-Everyone has the right to respect for his or her private and family
-life, home and communications.
-
-Article 8. Protection of personal data.
-
-(1) Everyone has the right to the protection of personal data
-concerning him or her.
-
-(2) Such data must be processed fairly for specified purposes and on
-the basis of the consent of the person concerned or some other
-legitimate basis laid down by law.  Everyone has the right of access
-to data which has been collected concerning him or her, and the right
-to have it rectified.
-
-(3) Compliance with these rules shall be subject to control by an
-independent authority.  The Live+Gov fully consortium complies with
-this legislation and is moreover committed to convey and enact the
-ethical values inherent in these texts.
-\end{quote}
-
-Privacy as Control over Private Data
+data. We explain the most relevant legislation in Section
+\ref{sec:legal}.
 
 The ethical aspects of privacy have been the subject of study of many
-social scientists and philosophers [3]. Many researchers do focus on
-the ways in which privacy can be infringed. Thus they invest a great
-amount of work in exploring threats, instead of describing why privacy
-is so valuable to us. One scholar which follows an alternative aproach
-in the context of digital monitoring is Charles Fried [4]. He
-investiages, why we are intuitively so sensitive to violations of our
-privacy. For him privacy is not asserted as an intrinsic value by
-itself, he rather sated:
+social scientists and philosophers. One scholar which is particularly
+relevant in our context is Charles Fried. He investiages, why we are
+intuitively so sensitive to violations of our privacy. For him privacy
+is not asserted as an intrinsic value by itself, he rather sated:
 
 \begin{quote}
 Privacy is not simply an absence of information about us in the minds of others;
 rather it is the control we have over information about ourselves.
 \end{quote}
 
-Depending on the conversation partner, we change the degree of
-information we share if it is a total stranger, a colleague, close
-friend or a doctor. With doctors we share information of great
-intimacy we do not share with anyone else.
-
-Moreover, we trust those friends to not reveal information about us to
-others by respecting their privacy. Trust needs the possibility of
-unknown failure. If we would constantly monitor our partners, they
-cannot fail unnoticed nor can they willingly share that information
-with us.  So privacy, according to Fried, is the foundation of our
-core relations. And thus it is valuable, because those relations are
-essential to human society.
-
-Fried’s study on the understanding of privacy provided a great
+Fried`s study on the understanding of privacy provided a great
 contribution to the research on the same term in philosophy and
-computer science [5] and despite the fact his text was published in
-1970, he already included technologies to its viewpoint (like location
-monitoring) that are particularly relevant to our Context.
+computer science and despite the fact his text was published in 1970,
+he already included technologies to its viewpoint (like location
+monitoring) that are particularly relevant to our Context.  We explain
+his theory in \ref{sec:ethics} and follow his definition of privacy in
+this document.
 
+In this document we perform a thorough analysis of how to protect the
+privacy of a citizen and present several implementations that form the
+core of our privacy aware Sensor Data Storage and Mining Infrastructure.
+
+We identify six main threats for the citizens privacy, and derive
+eight recommendations that should be followed in order to reduce the
+associated risks for hazards.  This analysis form the guideline for
+the selection of 9 measures that were implemented in our system and
+documented in Chapter \ref{chap:impl}.
 
 \input{PrivacyProtection-2014-09-09}
 
 \clearpage
 
 \input{Implementations}
-
-\chapter{Summary}\label{chap:Summary}
-
-* Discussed Legal and ethical aspects of privacy
-* Made Privacy Security Analysis of Live+Gov System
-* Presented several Privacy Protection Measures that have been implemented.
-* Most importantly the Privacy Dashboard, which gives the citizen control over their data.
-
-In order to meet the the legal requirements and offer the citiens to
-keep a maximum of contol about their personal data, Live+Gov systems
-implements a number of privacy protection measure. One of the measures
-that is under current development is a Privacy Dashboard (Figure
-1). Using this dashboard the citizen will be able to take the
-following actions: View and export all data from the citizen that is
-currently stored in the Live+Gov system Selectively delete parts of
-the stored data Get information about processing applied to this data
-Consent or decline selectively to processing steps
-
-View the end poducts of data mining applied to his data in a
-comprehensive, graphical way These measures provide the citizen with a
-maximal respect for their privacy while at the same time allowing
-advanced data processing. Although, abusive exploitation of the data
-is still possible, the level of transparency offered by the dashboard
-builds trust between the citizen and the service provider.
-
 
 \bibliography{D1-3}
 \end{document}
