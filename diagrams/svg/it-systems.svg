@@ -1329,10 +1329,10 @@
           </g>
           <g class="com.sun.star.drawing.CustomShape">
            <g id="id31">
-            <path fill="rgb(221,221,221)" stroke="none" d="M 51304,10804 L 48128,12075 51304,12075 51304,10804 51304,10804 Z M 51304,10804 L 51304,10804 Z M 48128,12075 L 48128,12075 Z"/>
-            <path fill="none" stroke="rgb(0,0,0)" d="M 51304,10804 L 48128,12075 51304,12075 51304,10804 51304,10804 Z"/>
-            <path fill="none" stroke="rgb(0,0,0)" d="M 51304,10804 L 51304,10804 Z"/>
-            <path fill="none" stroke="rgb(0,0,0)" d="M 48128,12075 L 48128,12075 Z"/>
+            <path fill="rgb(221,221,221)" stroke="none" d="M 51302,10804 L 48126,12075 51302,12075 51302,10804 51302,10804 Z M 51302,10804 L 51302,10804 Z M 48126,12075 L 48126,12075 Z"/>
+            <path fill="none" stroke="rgb(0,0,0)" d="M 51302,10804 L 48126,12075 51302,12075 51302,10804 51302,10804 Z"/>
+            <path fill="none" stroke="rgb(0,0,0)" d="M 51302,10804 L 51302,10804 Z"/>
+            <path fill="none" stroke="rgb(0,0,0)" d="M 48126,12075 L 48126,12075 Z"/>
            </g>
           </g>
          </g>
@@ -1345,7 +1345,7 @@
         </g>
         <g class="com.sun.star.drawing.TextShape">
          <g id="id33">
-          <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="776px" font-weight="700"><tspan class="TextPosition" x="49677" y="14199"><tspan fill="rgb(0,0,0)" stroke="none">Report Tool</tspan></tspan></tspan></text>
+          <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="776px" font-weight="700"><tspan class="TextPosition" x="49095" y="14199"><tspan fill="rgb(0,0,0)" stroke="none">Reporting Tool</tspan></tspan></tspan></text>
          </g>
         </g>
        </g>
@@ -1865,7 +1865,7 @@
         </g>
         <g class="com.sun.star.drawing.TextShape">
          <g id="id50">
-          <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="776px" font-weight="700"><tspan class="TextPosition" x="28690" y="35294"><tspan fill="rgb(0,0,0)" stroke="none">System </tspan></tspan><tspan class="TextPosition" x="28497" y="36162"><tspan fill="rgb(0,0,0)" stroke="none">Provider</tspan></tspan></tspan></text>
+          <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="776px" font-weight="700"><tspan class="TextPosition" x="28690" y="35294"><tspan fill="rgb(0,0,0)" stroke="none">Service </tspan></tspan><tspan class="TextPosition" x="28497" y="36162"><tspan fill="rgb(0,0,0)" stroke="none">Provider</tspan></tspan></tspan></text>
          </g>
         </g>
        </g>
