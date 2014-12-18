@@ -1,0 +1,379 @@
+\documentclass[external]{20120615_deliverable_template_ukob}
+\usepackage{xspace}
+\usepackage{amsmath,amsthm,amssymb,url,color}
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\usepackage{xcolor}
+\usepackage{color, colortbl}
+\usepackage{listings}
+\usepackage{subfigure}
+%\usepackage{showkeys}
+
+\LGtitle{\LiveGovThirtyTitleFonts \textbf{D1.3 - Privacy Aware Sensor Data Storage and Miner} }
+%\LGnumber{WP.NR} % e.g 6.7 no letters D or ID
+
+\LGnumber{1.3}
+
+\LGwp{WP1 - Reality Sensing and Mining}
+
+\LGdissemination{PU - Public}
+
+\LGcontractdate{Month 30, October 2014}
+
+\LGactualdate{Month 31, November 2014}
+
+\LGtask{T1.3, T1.4}
+
+\LGtype{Prototype}
+
+%\LGnature{$<$ Report $|$ Prototype $|$ Demonstrator $|$ Other $>$}
+
+%\LGapproved % activate only if approved
+\LGfinal
+
+\LGversion{11}
+%\LGstaffmonths{Resources spent on the deliverable}
+
+%\LGdistribution{WP leaders, PMB members, European Commission}
+
+%\LGkeywords{}
+
+
+%\LGabstract{Put abstract here (separate paragraphs using
+%{\tt\char92 par}.)}
+\LGabstract{
+
+This deliverable presents the privacy aware, server based reality
+sensing infrastructure for Live+Gov applications.
+
+We review the legal and ethical aspects of privacy and perform a
+thorough security analysis of the Live+Gov applications. We identify
+six main threats to privacy and make eight recommendations for
+addressing these threats. These recommendations form the guidelines
+for several privacy enhancements to our infrastructure which we
+describe in this document.
+
+Along with this document we supply the source code of the components,
+documentation, and pre-compiled packages for direct installation.
+}
+
+%\LGhistory{01}{2011-10-01}{First draft}{Yiannis Kompatsiaris}
+%\LGhistory{02}{2011-10-02}{Modifications}{Sotiris Diplaris}
+%\LGhistory{03}{2011-10-03}{Further Modifications \& Corrections}{Sotiris Diplaris}
+%\LGhistory{04}{2011-10-05}{Further Modifications \& Corrections}{Sotiris Diplaris}
+
+
+%------------------------ macro for change portrait to landscape
+\usepackage{calc,graphicx,pdflscape,eso-pic} % needed for printing
+                                             % headers and footers
+\newlength\landscapewidth
+\newlength\landscapeheight
+\newcommand\landscapepagestyle{ % command which prepare page
+                                % for landscape printing,
+                                % change to landscape is
+                                % achieved by pdflscape
+\clearpage \thispagestyle{empty}
+\setlength\landscapewidth{247mm}
+\setlength\landscapeheight{161mm}
+\AddToShipoutPicture*{\AtPageCenter{ % this make "layer" for
+                                     % printing the header and footer
+\rotatebox[origin=c]{90}{
+\hspace*{-2em} % for adjusting position of
+               % header and footer
+\parbox{\landscapewidth}{\vskip-.57\landscapeheight
+%\centerline{\WEKNOWIT \hfill \textbf{\Large \bf{IDx.x - V0} \normalsize }} %header text for Internal Deliverables
+                                                                         % notation: IDx.x V{LGversion}
+\centerline{\LiveGovLogo \hfill \textbf{\Large \bf{Dx.x - V0} \normalsize }} %header text for External Deliverables
+                                                                        % notation: Dx.x V{LGversion}
+\vspace{-5pt} \rule{\landscapewidth}{0.4pt} \\
+\rule{0pt}{\landscapeheight} \\
+%\rule{\landscapewidth}{0.4pt} \\
+\centerline{Page \thepage\ }  % footer text
+} } } } }
+
+%--------------------------------------------------------------------------------------------------------------%
+\usepackage{appendix}
+\pretolerance=10000 % prevent overflow lines for $math$ elements
+
+\begin{document}
+
+% add a \LGaddhistory{version}{date}{reason}{revised by} for each new
+% version
+\begin{LGhistory}
+\LGaddhistory{01}{2014-07-17}{Added Outline of Deliverable}{Heinrich Hartmann}
+\LGaddhistory{02}{2014-09-10}{Started IT Security Analysis}{Heinrich Hartmann}
+\LGaddhistory{03}{2014-09-13}{Added Threat Table with Conflicts and Vulnearbilities}{Maximilian Meffert}
+\LGaddhistory{03}{2014-09-15}{Description of IT Security Analysis}{Heinrich Hartmann}
+\LGaddhistory{04}{2014-09-17}{Finished Description of Actors and Interests}{Maximilian Meffert}
+\LGaddhistory{05}{2014-10-08}{Added chapter on Legal Aspects of Privacy}{Heinrich Hartmann}
+\LGaddhistory{06}{2014-10-13}{Updated 7 Types of Privacy}{Heinrich Hartmann}
+\LGaddhistory{07}{2014-10-15}{Updated IT Systems Description}{Heinrich Hartmann}
+\LGaddhistory{08}{2014-10-21}{Added Implicit Privacy Type Violations}{Maximilian Meffert}
+\LGaddhistory{09}{2014-10-25}{Added Description of Implementations}{Heinrich Hartmann}
+\LGaddhistory{10}{2014-11-05}{Extended Threat Scenarios}{Heinrich Hartmann}
+\LGaddhistory{11}{2014-11-07}{Added Introduction and Summary}{Heinrich Hartmann}
+\end{LGhistory}
+
+
+\newcommand{\LGaddauthorNoPhone}[3]{\hline  #1 &  #2 & %
+   \parbox{3em}{E-mail:} \small #3 \\
+}
+
+% add a
+% \LGaddauthor{Partner}{Name}{Telephone}{Fax}{Email} for each author
+\begin{LGauthors}
+
+\LGaddauthor{UKob}{Heinrich Hartmann}{+49 261 287 2759}%
+{+49 261 287 100 2759}{\small hartmann@uni-koblenz.de}
+
+%\LGaddauthor{UKob}{Christoph Schaefer}{+49 261 287 2786 }%
+%{+49 261 287 100 2786}{\small chrisschaefer@uni-koblenz.de}
+
+\LGaddauthorNoPhone{UKob}{Maximilan Meffert}%
+{\small maxmeffert@uni-koblenz.de}
+
+%\LGaddauthorNoPhone{BIZ}{Maite de Arana Agiretxe}%
+%{\small komunikazioa.tekniko1@biscaytik.eu}
+
+%% \LGaddauthor{UKob}{Christoph Kling}{+49 261 287 2702 }%
+%% {+49 261 287 100 2702}{\small ckling@uni-koblenz.de}
+
+%% \LGaddauthorNoPhone{MTS}{Laura Niittyl\"a}%
+%% {\small Laura.Niittyla@mattersoft.fi}
+
+\end{LGauthors}
+
+\begin{LGExecutiveSummary}
+\vspace{10pt}
+
+This deliverable presents the privacy aware, server based reality
+sensing infrastructure for Live+Gov applications.  Privacy protection
+is a crucial point for public acceptance of advanced data mining
+techniques in eParticipation scenarios.  In order to provide such
+protection we perform an extensive analysis of all threats to privacy
+and implement a number of measures that address these threats in an
+adequate way.
+
+The term "privacy'' itself is highly ambiguous and there is no common
+understanding what privacy really is in the literature.  In
+Chapter \ref{chap:privacy} we discuss different legal and
+philosophical texts and about the subject.  The main relevant
+legislation is the EU Data Protection Directive (cf. Section
+\ref{EUDIR}). The main ethical treatment is provided by Charles Fried
+(cf. Section \ref{sec:ethics}), who defines privacy as the
+\emph{control over personal information}. Furthermore, seven concrete
+privacy types are introduced (cf. Section \ref{sec:privacytypes}) and
+the relation to collected sensor data from mobile phones is made.
+
+On the basis of these foundations perform a thorough analysis of all
+risks for the privacy of a citizen. The main difficulty we are
+presented with is the selection of sensible measures. There are a lot
+of anonymization techniques in the literature and it is easy to jump
+ahead and implement a few of them while leaving out massive privacy
+gaps at other ends. Therefore a structured approach to this problem
+was taken.
+
+We have chosen to use the IT Security Reference Model
+\cite{Grimm:ItSecRefModel} (cf. Section \ref{sec:GrimmModel}), that
+was developed by our colleague from Prof. Grimm from University of
+Koblenz, as a framework to conduct a systematic analysis of all risks
+that are posed to the privacy of the citizens. The analysis is carried
+out in Section \ref{sec:PPA}. Prof. Grimm also contributed with his
+expertise and guidance to the execution of this analysis.
+
+The analysis starts by describing an abstract version of the IT
+Systems and the involved actors with their interests. We then describe
+vulnerabilities of the IT Systems and conflicts between the interests
+of the stakeholders. All threats that are posed to the privacy of the
+citizen are caused by a conflict of interest between two actors and
+exploit a vulnerability of the system.
+
+We identity six main threats that include ``T1. Insufficent Control
+Features'', ``T2. Excessive Data Minig'' and ``T4. Surveillance'' and
+asses their risk of occurrence. The biggest threat to the citizens
+privacy is posed by Insufficient Control Features of the system. As
+soon as collected data of Citizens is stored on the servers, all
+control over that data is lost if the service provider does not offer
+tools for the citizen to control his data.
+
+These risks are addressed by eight recommendations, that when
+implemented provide an adequate protection of the citizens privacy.
+One surprising outcome, is that the main privacy threats can be
+eliminated by enhancing communication with the citizen and
+establishing policies and awareness for privacy aspects inside the
+company. Thus, a central point in the protection of the citizens privacy is
+a ``Privacy Dashboard'' that gives the citizen a maximum of control
+over his data. Using this dashboard he is able to view and export all
+data from the citizen that is currently stored in the Live+Gov system,
+selectively delete parts of the stored data and get information about
+processing applied and view the processing results themselves.
+
+In addition, we have implemented four different anonymization methods
+for GPS samples, several security mechanisms for infrastructure and
+communication channels, moreover we wrote a concise and comprehensive
+privacy policy that informs the citizen about all processing steps.
+
+The deliverable is accompanied with source code of the components in
+Java, Python and JavaScript, documentation, and pre-compiled packages
+of the executable parts.
+
+\end{LGExecutiveSummary}
+
+% add a \LGaddabbreviation{ABBR}{Explanation} for each abbreviation
+\begin{LGAbbreviations}
+%\LGaddabbreviation{LG}{Live+Gov}
+
+
+\LGaddabbreviation{\textbf{AIDL}}
+{Android Interface Description Language}
+
+\LGaddabbreviation{\textbf{AJAX}}
+{Asynchronous JavaScript and XML}
+
+\LGaddabbreviation{\textbf{API}}
+{Application Programming Interface}
+
+\LGaddabbreviation{\textbf{GPS}}
+{Global Positioning System}
+
+\LGaddabbreviation{\textbf{GSM}}
+{Global System for Mobile Communications}
+
+\LGaddabbreviation{\textbf{HAR}}
+{Human Activity Recognition}
+
+\LGaddabbreviation{\textbf{HTML}}
+{HyperText Markup Language}
+
+\LGaddabbreviation{\textbf{HTTP}}
+{Hypertext Transfer Protocol}
+
+\LGaddabbreviation{\textbf{ID}}
+{Identifier}
+
+\LGaddabbreviation{\textbf{JSON}}
+{JavaScript Object Notation}
+
+\LGaddabbreviation{\textbf{LAN}}
+{Local Area Network}
+
+\LGaddabbreviation{\textbf{REST}}
+{Representational State Transfer}
+
+\LGaddabbreviation{\textbf{SLD}}
+{Service Line Detection}
+
+\LGaddabbreviation{\textbf{SQL}}
+{Structured Query Language}
+
+\LGaddabbreviation{\textbf{UI}}
+{User Interface}
+
+\LGaddabbreviation{\textbf{URL}}
+{Uniform Resource Locator}
+
+\LGaddabbreviation{\textbf{UUID}}
+{Universal Unique Device Identifier}
+
+\LGaddabbreviation{\textbf{WP}}
+{Work Package}
+
+\LGaddabbreviation{\textbf{WIFI}}
+{Wireless Fidelity (IEEE 802.11), WLAN}
+
+\LGaddabbreviation{\textbf{WLAN}}
+{Wireless Local Area Network}
+
+\LGaddabbreviation{\textbf{XML}}
+{Extensible Markup Language}
+
+\LGaddabbreviation{~\\}
+{~~~}
+
+\end{LGAbbreviations}
+
+% add a \LGaddterm{Term}{Explanation} for each entry of the glossary
+%\begin{LGGlossary}
+%\LGaddterm{Term}{Definition text here}
+%\LGaddterm{Term2}{Definition text here}
+%\end{LGGlossary}
+
+\setcounter{tocdepth}{2}
+
+% add this for a table of contents
+\LGTOC
+
+\newpage
+\newcommand{\todo}[2]{\textcolor{magenta}{#1: #2}}
+%\newcommand{\todo}[2]{}
+
+\chapter{Introduction}\label{chap:Introduction}
+In recent days the importance of privacy protection has been amplified
+by the reports about the mass surveillance of ordinary citizens on a
+global scale by the NSA and other intelligence agencies around the
+world.
+
+While aiming at the noble cause of enhancing eParticipation using
+mobile technologies, Live+Gov systems do process a large variety data
+that is potentially infringing the citizens privacy. The captured data
+includes personal information like name, phone numbers and email
+addresses and sensor data from GPS and accelerometer sensors. Also
+with some applications it is possible to gather images and textual
+input from the citizen.
+
+While the collection of this data is necessary for providing the
+advanced services that Live+Gov aims to deliver, at he same time, the
+available raw data can be used to draw a very detailed picture of the
+private life of the citizen. For instance can GPS location tracking be
+used to reveal shopping habits (e.g. when a car seller is visited) and
+associations to political groups (when a meeting is
+attended). Accelerometer data can be used to infer medical conditions
+like walking disabilities. Images can contain faces of nearby persons
+to with whom the citizen is associated. All this data is highly
+sensitive to the citizens privacy and can be used against the citizen
+if it falls in the wrong hands.
+
+The great importance of protecting the citizens privacy should be
+apparent from these examples. The European Union, as well as many
+other countries in the past, has set out a number of directives that
+regulate the collection, processing and use of privacy sensitive
+data. We explain the most relevant legislation in Section
+\ref{sec:legal}.
+
+The ethical aspects of privacy have been the subject of study of many
+social scientists and philosophers. One scholar which is particularly
+relevant in our context is Charles Fried. He investiages, why we are
+intuitively so sensitive to violations of our privacy. For him privacy
+is not asserted as an intrinsic value by itself, he rather sated:
+
+\begin{quote}
+Privacy is not simply an absence of information about us in the minds of others;
+rather it is the control we have over information about ourselves.
+\end{quote}
+
+Fried`s study on the understanding of privacy provided a great
+contribution to the research on the same term in philosophy and
+computer science and despite the fact his text was published in 1970,
+he already included technologies to its viewpoint (like location
+monitoring) that are particularly relevant to our Context.  We explain
+his theory in \ref{sec:ethics} and follow his definition of privacy in
+this document.
+
+In this document we perform a thorough analysis of how to protect the
+privacy of a citizen and present several implementations that form the
+core of our privacy aware Sensor Data Storage and Mining Infrastructure.
+
+We identify six main threats for the citizens privacy, and derive
+eight recommendations that should be followed in order to reduce the
+associated risks for hazards.  This analysis form the guideline for
+the selection of 9 measures that were implemented in our system and
+documented in Chapter \ref{chap:impl}.
+
+\input{PrivacyProtection-2014-09-09}
+
+\clearpage
+
+\input{Implementations}
+
+\bibliography{D1-3}
+\end{document}

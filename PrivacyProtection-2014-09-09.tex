@@ -1,0 +1,1439 @@
+% test citing
+%\cite{CFried:Privacy}
+%\cite{WarrenBrandeis:RightToPrivacy}
+%\cite{sep-privacy}
+%\cite{7ToP}
+%\cite{Grimm:ItSecRefModel}
+%\cite{ItSecGlossary}
+%\cite{SociotechnicalArchitectureForOnlinePrivacy}
+%\cite{EUDataProtectionDirective}
+%\cite{EUConventionOnHumanRights}
+%\cite{Bundesdatenschutzgesetz}
+%\cite{Gutwirth:DefiningPrivacy}
+%\cite{UKDataProtectionAct}
+
+\chapter{Legal and Ethical aspects of Privacy}
+\label{chap:privacy}
+
+\newcommand{\om}{[...]\xspace} % omission
+%\newcommand{\om}{\ldots} % omission
+
+As privacy is a very general and hard to grasp term, we need to fix a definition of privacy that is suitable for our needs.
+As background information we include an overview about historical treatments of privacy as well as legal regulation of privacy in the European Union.
+Based on this we propose a definition of privacy as {\em control over personal data}, and introduce seven privacy types that give specify the term {\em personal data} in the context of mobile sensor data collection.
+
+% \section{Histrocial Approaches to Privacy}
+
+\section{Legal Aspects of Privacy} \label{sec:legal}
+
+In the following sections we outline the most relevant legislature regarding privacy protection,
+from on European angle.
+Of particular importance is the EU Directive 95/46/EC that is discussed in section \ref{EUDIR}.
+
+\subsection{European Convention on Human Rights}
+
+The \emph{Europen Convetion on Human Rights} \cite{ECHR} was created by the members of the \emph{Council of Europe} (CoE) in 1953 as part of the aftermath of the second world war.
+It formulates universal rights of citizens against the state authority.
+All member states of the Council of Europe, which includes all EU members, have incorporated this convention into their national law.
+
+Article 8 of the ECHR contains a protection of personal data.
+
+\begin{quote}
+(1) Everyone has the right to respect for his private and family life, his home and his correspondence.
+
+(2) There shall be no interference by a public authority with the exercise of this right except such as is in accordance with the law and is necessary in a democratic society in the interests of national security, public safety or the economic well-being of the country, for the prevention of disorder or crime, for the protection of health or morals, or for the protection of the rights and freedoms of others.
+\end{quote}
+
+The protection of personal data under Article 8 is not an absolute law but must be considered in relation to other laws such as the freedom of expression (ECHR, Art. 10).
+The \emph{European Court of Human Rights} (ECtHR) overseas the implementation of this directive and has adopted a rather broad interpretation of the article.\footnote{\url{http://en.wikipedia.org/wiki/Article_8_of_the_European_Convention_on_Human_Rights}}
+
+In particular State actions of searching a persons home, gathering and storing information in a secret police file, and stopping a prisoner's communication have been ruled to interfere with Article 8.
+
+The Live+Gov systems can violate this fundamental human right if it is used to gather information about the private life without the knowledge and consent of the citizen.
+
+% In the context of the Live+Gov project the ECHR is of limited relevance, since the Live+Gov System is offered by private companies and not directly by the State authority.
+
+\subsection{OECD Guidelines and CoE Convention 108}
+
+The emergence of information technologies that allow automated processing of personal data made more detailed rules for safeguarding the privacy of citizens necessary.
+In the light of this developments the OECD  \cite{OECD80} issued Guidelines on Protection of Privacy in 1980 which establish the following basic principles of data protection:
+\begin{enumerate}
+\item Collection Limitation Principle.
+  There should be limits to the collection of personal data and any such data should be obtained \om with the knowledge or consent of the data subject.
+\item Data Quality Principle.
+  Personal data should be relevant to the purposes for which they are to be used, and,  \om accurate, complete and kept up-to-date.
+\item Purpose Specification Principle.
+  The purposes for which personal data are collected should be specified \om and the subsequent use limited to the fulfillment of those purposes \om.
+\item Use Limitation Principle.
+  Personal data should not be disclosed \om except: a) with the consent of the data subject; or b) by the authority of law.
+\item Security Safeguards Principle.
+  Personal data should be protected by reasonable security safeguards \om.
+\item Openness Principle.
+  {\om} Means should be readily available of establishing the existence and nature of personal data, and the main purposes of their use, as well as the identity and usual residence of the data controller.
+\item Individual Participation Principle.
+  An individual should have the right
+  \begin{itemize}
+  \item to obtain from a data controller, or otherwise, confirmation of whether or not the data controller has data relating to him;
+  \item to have communicated to him, data relating to him \om
+  \item \om to have the data erased, rectified, completed or amended.
+  \end{itemize}
+\item Accountability Principle.
+  A data controller should be accountable for complying with measures which give effect to the principles stated above.
+\end{enumerate}
+
+Where the following definitions are understood.
+\begin{itemize}
+\item \emph{personal data} means any information relating to an identified or identifiable person (\emph{data subject}).
+  An identifiable person is one who can be identified either directly, by reference to a name or identification number or indirectly, by one or more factors which make it possible to find out who the data subject is by conducting further research.
+\item a \emph{data controller} means any party who is competent to decide about the contents and use of personal data.
+\end{itemize}
+
+The OECD guidelines were adopted by EU law in the Strassbourg Convention 108 of the Council of Europe \cite{CONV108} in 1981.
+
+Relevant for our investigations is in particular, that sensor data collected from mobile devices is considered personal data if the individual can be identified based on the data by any direct or indirect means.
+Therefore the above principles apply.
+
+% UPDATE 2013: http://www.oecd.org/sti/ieconomy/privacy.htm
+
+\subsection{EU Data Protection Directive}\label{EUDIR}
+
+The \emph{Directive 95/46/EC} of 1995 \cite{DIR95} is the fundamental regulation of data protection in the European Union.
+It was designed to give further substance to the Convention 108.
+In particular it makes the creation of an independent supervisory authority necessary (Art. 28).
+As this text is the main legal basis for our investigation we review it in detail.
+In Section \ref{sec:ECIMPL} the status of the implementation is discussed in some example cases.
+
+The interpretation and oversight of the Directive lies at the Court of Justice of the European Union (CJEU).
+A summary of the most important rulings can be found in Handbook on European data protection law \cite{EU_HANDBOOK_2014}.
+
+The ambition of the Directive is stated at the very beginning.
+\begin{quote}
+  (Art. 1.1) In Accordance with this Directive the Member States shall protect the fundamental rights and freedoms of natural persons, and in particular their right to privacy with respect to the processing of personal data.
+\end{quote}
+
+The Directive follows the definition of personal data, data subject, and data controller of the OECD Guidelines (cf. Art. 2).
+Furthermore it introduces the role of a \emph{processor} as a person which processes, by wholly or partly automatic means (Art 3.), personal data on behalf of the controller.
+
+Data collection of intelligence agencies and the police is not restricted by the Directive (Art. 3).
+
+The most important articles are summarized in the following paragraphs.
+In order to keep the text more readable we have simplified the formulation by removing the formulation ``Member States shall provide that ...'' from each paragraph.
+\begin{itemize}
+\item (Art. 6.1.a) Personal data must be processed fairly and lawfully.
+
+[The meaning of the term 'fair processing' is entailed in the following articles.
+In particular transparency of processing, information of the data subject, and right to access the data are implied (cf. \cite{EU_HANDBOOK_2014})]
+
+\item (Art. 6.1.b) \emph{Specification of Purpose.} Personal data must be collected for specified, explicit and legitimate purposes and not be processed in a way incompatible with this purposes.
+
+Further processing of data for historical, statistical or scientific purposes shall not be considered incompatible \om.
+
+\item (Art. 6.1.c) Personal data must be adequate, relevant and non-excessive in relation to the purposes \om.
+
+\item (Art. 6.1.d) \emph{Accuracy.} Personal data must be accurate and \om every reasonable step must be taken to ensure that data which is inaccurate or incomplete \om are erased or rectified.
+
+\item (Art. 6.1e) Personal data must be kept in a form which permits identification for no longer than is necessary \om.
+% \item (Art. 6.2) It shall be for the controller to ensure that (Art. 6.1) is complied with.
+\end{itemize}
+
+In addition to strengthening the OECD Data Quality Principle in Article 6, the Directive requires a strong form of consent of the data subject, before any collection or processing of data can take place.
+
+\begin{itemize}
+\item (Art. 7). Personal data may be processed only if:
+  \begin{itemize}
+    \item [(a)] the data subject has unambiguously given his consent; or
+    \item [(..)] [exceptions are made for performance of a contracts with the data subject,  legal obligations of the controller, to protect vital interests of the data subject, the public interest and]
+     \item [(f)] the processing is necessary for purposes of legitimate interests pursued by the controller or by a third party to whom the data are disclosed, except where such interests are overridden by the interests \om of the data subject which require protection under Art. 1(1).
+  \end{itemize}
+
+\item (Art. 8.1) \emph{Special Categories.} Member Stats shall prohibit the processing of personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade-union membership, and the processing of data concerning health or sex life. [Art. 8.2 lists several exceptions, including explicitly explicit consent of the data subject.]
+\end{itemize}
+
+The OECD Participation Principle is addressed and extended in the following articles.
+
+\begin{itemize}
+\item (Art. 10, 11) The controller \om must provide a data subject \om with the following information:
+  \begin{itemize}
+    \item [(a)] the identity of the controller \om
+    \item [(b)] the purpose of processing for which the data are intended;
+    \item [(c)] any further information \om that is necessary to guarantee fair processing in respect of the data subject. [This includes in particular the recipients of the data, the existence of the right to of access and the right to rectify the data.]
+  \end{itemize}
+
+\item (Art. 12) \emph{Right to Access.} Every data subject has the right to obtain from the controller
+\begin{itemize}
+  \item (a) \om confirmation as to whether or not data relating to him are being processed \om, communication to him \om the data undergoing processing and any available information as to their source, knowledge of the logic involved in any automatic processing \om;
+  \item (b) the rectification, erasure or blocking of data the procession of which does not comply with the provisions of this Directive \om;
+  \item (c) notification to third parties to whom the data have been disclosed \om.
+\end{itemize}
+
+%\item Confidentiality of Processing (Art. 16).
+%Any person under the authority of the controller or of the processor \om who has access to personal data must not process them except on instructions from the controller, unless he is required to do so by law.
+\end{itemize}
+
+A similar form of the Security Safeguard Principle is contained in Article 17.
+
+\begin{itemize}
+\item (Art. 17) \emph{Security of processing.}
+The controller must implement appropriate technical and organizational measures to protect personal data against accidental loss, alteration, unauthorized disclosure or access \om and against all other forms of unlawful processing.
+
+[The level of security has to be balanced against the risk of processing.]
+
+% Having regard to the state of the art and the cost of their implementation, such measures shall ensure a level of security appropriate to the risk represented by the processing and the nature of the data to be processed.
+\end{itemize}
+
+Furthermore the Directive demands all data processing to be reported to a supervisory authority.
+This obligation can be lifted if an internal data protection official is appointed, who is responsible in particular for keeping a processing register, that has to be made available on request.
+
+\begin{itemize}
+\item Notification (Art. 18. 1).
+The controller \om must notify the supervisory authority referred to in Article 28 before carrying out any wholly or partly automatic processing operation \om.
+
+\item (Art. 18.2).
+Simplification or exemption from notification may be provided only under the following conditions: \om where the controller \om appoints a personal data protection official, responsible in particular:
+\begin{itemize}
+\item for ensuring in an independent manner the internal application of the national provisions taken pursuant to this directive.
+\item for keeping the register of processing operations carried out by the controller, containing the items of information referred to in Article 21 (2)
+\end{itemize}
+thereby ensuring that the rights and freedoms of the data subjects are unlikely to be adversely affected by the processing operations.
+
+\item (Art. 19.1)
+The information to be given in the notification shall include at least:
+\begin{itemize}
+  \item [(a)] the name and address of the controller \om;
+  \item [(b)] the purpose \om of processing;
+  \item [(c)] a description of the category \om of the data \om;
+  \item [(d)] the recipients \om to whom the data might be disclosed;
+  \item [(e)] proposed transfer of data to third countries;
+  \item [(f)] a general description allowing a preliminary assessment to be made of the appropriateness of the measures taken pursuant of Article 17 to ensure the security of processing;
+\end{itemize}
+
+\item (Art. 21.2) \emph{Publication}.
+A register of processing information \om shall be kept at the supervisory authority.
+The register shall contain at least the information listed in Article 19.1 (a) to (e).
+
+The register may be inspected by any person.
+
+\item (Art. 21.3). In relation to processing operations not subject to notification, that controllers \om make available at least the information referred to in Article 19.1 (a) to (e) in an appropriate form to any person on request.
+
+\item (Art. 28) \emph{Supervisory Authority.}
+Each Member State shall provide that one or more public authorities are responsible for monitoring the application \om of this Directive.
+
+These authorities shall act in complete independence in exercising this functions entrusted to them.
+\end{itemize}
+
+Data transfer to third countries outside of the EU requires those countries to have an adequate level of data protection.
+\begin{itemize}
+\item (Art. 25.1) \emph{Transfer to third countries.}
+The transfer to a third country of personal data \om may take place only if \om the third country in question ensures an adequate level of protection.
+\end{itemize}
+The European Commission can decide whether a third country ensures an adequate level of protection (Art 25.6).
+The USA, is not considered to do so.
+Data exchange between the US and EU is possible under the Safe Harbor regulation \cite{SAFE_HABOR}.
+Further Exceptions are provided by the Passenger Name Record Agreement \cite{PNR}.
+
+\subsection{Implementation of the Data Protection Directive}\label{sec:ECIMPL}
+
+\textbf{Germany}.
+Germany implements Directive 95/46 with the \emph{Bundesdatenschutzgesetz (BDSG)}
+of 2001. However, Germany has violated the directive in two points:
+\begin{enumerate}
+\item The BDSG has become effective three years too late, thus the EC filed a treaty violation proceeding against Germany.
+\item The BDSG does not implement independent supervisory authorities.
+The Bundesdatenschutzbeauftragter is subordinate to the Ministry of Interior.
+Although he is not subject to technical oversight (\emph{Fachaufsicht}), he is subject to staff supervision by the government (Rechtsaufsicht, Dienstaufsicht) and budget oversight by the ministry.
+In March 2010 Germany was found guilty of violation of Directive 95/46 by the ECJ.
+\end{enumerate}
+
+The states of Germany have their own implementation of Directive 95/46 (\emph{Landesdatenschutzgesetze}).
+Federal public authorities are only bound to their federal law.
+Churches are not subject the BDSG.
+
+\textbf{United Kingdom.}
+The UK implements Directive 95/46 with the \emph{Data Protection Act 1998} (DPA).
+
+%TODO: Reformulate Wikipedia Text
+
+%% The act is known for its high complexity: a manual record of phone numbers for business purposes could be hold subject to the DPA.
+%% Although the act seems to fully cover the directive.
+%% Even higher restriction apply for \emph{``sensitive personal data''} (race, ethnicity, politics, religion, trade union status, health, sex life or criminal record), i.e. consent must be given freely and has to be explicit.
+
+%% The Act's definition of personal data covers any data that can be used to identify a living individual.
+%% Anonymised or aggregated data is not regulated by the Act, providing the anonymisation or aggregation has not been done in a reversible way.
+
+%% The Freedom of Information Act 2000 modified the act for public bodies and authorities, and the Durant case modified the interpretation of the act by providing case law and precedent.
+
+%% The Data Protection Act creates rights for those who have their data stored, and responsibilities for those who store, process or transmit such data.
+%% The person who has their data processed has the right to:
+%% \begin{itemize}
+%% \item View the data an organization holds on them.
+%% A `subject access request' can be obtained for a nominal fee.
+%% As of January 2014, the maximum fee is \pounds2 for requests to credit reference agencies, \pounds50 for health and educational request, and \pounds10 per individual otherwise.
+%% \item Request that incorrect information be corrected.
+%% If the company ignores the request, a court can order the data to be corrected or destroyed, and in some cases compensation can be awarded.
+%% \item Require that data is not used in any way that may potentially cause damage or distress.
+%% \item Require that their data is not used for direct marketing. \cite{3}
+%% \end{itemize}
+
+
+\textbf{United States of America}
+The USA do not implement the directive, nor is there any obligation for them to do so.
+However, companies subject to US jurisdiction can be certified to comply with the seven principles enforced by Directive 95/46.
+Thus, those companies will act as \emph{safe harbors}.
+Without certification foreign companies are not allowed to store and process customer data in their country.
+
+
+\subsection{EU Charter of Fundamental Rights}\label{sec:FR}
+The Treaty of Lisbon of 2007, which introduced the fundamental functioning of the European Union
+includes the \emph{Charter of Fundamental Rights of the Europen Union} \cite{EUFR2010}.
+This Charter summarizes the full range of civil, political and economic rights of EU citizens and contains the following two articles that safeguard the privacy of the citizen.
+
+\begin{quote}
+  Article 7. Respect for private and family life.\\
+  Everyone has the right to respect for his or her private and family life, home and communications.
+
+  Article 8. Protection of personal data.
+  \begin{enumerate}
+    \item [(1)] Everyone has the right to the protection of personal data concerning him or her.
+    \item [(2)] Such data must be processed fairly for specified purposes and on the basis of the consent of the person concerned or some other legitimate basis laid down by law.
+      Everyone has the right of access to data which has been collected concerning him or her, and the right to have it rectified.
+    \item [(3)] Compliance with these rules shall be subject to control by an independent authority.
+  \end{enumerate}
+\end{quote}
+
+Although the Charter does not extend the pre-exiting Directive 95/46/EC, it amplifies the importance of this privacy protection as a fundamental right.
+
+\section{Definition and Types of Privacy}
+\label{sec:taxonomy}
+
+In this section we introduce our definition of privacy which as \emph{control over personal information} following C. Fried.
+As this description is still on a very high level we go on to specify seven different privacy types in the next section.
+These privacy types are then analyzed for their implications in the presence of different kinds of sensor data.
+
+\subsection{Defining Privacy}\label{sec:ethics}
+
+% TODO: Expand this section!!
+
+Defining privacy is a challenge which seems impossible. This is well put to words by Serge Gutwirth, who notes:
+
+\begin{quote}
+The notion of privacy remains out of the grasp of every academic chasing it. Even when it is cornered by such additional modifiers as `our' privacy, it still finds a way to remain elusive. \cite{Gutwirth}
+\end{quote}
+
+%Many researchers seem to only ``focus on the ways in which privacy can be infringed'' \cite{7ToP}.
+%Thus they try to create taxonomies of \emph{privacy harms} instead of taxonomies of \emph{privacy types}.
+%Those two differ in the respect that the former focuses on threats to prohibit whereas the latter focuses on values to protect.
+%So one should rather evaluate what aspects are precious about privacy and develop measures to ensure their security than only forbid single actions against it \cite{7ToP}.
+
+Many researchers seem to only ``focus on the ways in which privacy can be infringed'' \cite{7ToP}.
+Thus they invest a great amount of work in defining threats to prohibit instead of describing why privacy is so valuable to us.
+This way around one could derive measures to ensure and secure its value \cite{7ToP}.
+One particular scholar who does this in the context of digital monitoring is Charles Fried.
+He questioned, why we are intuitively sensitive to violations of privacy.
+But he did not assert privacy as an intrinsic value by itself, he rather sated:
+
+\begin{quote}
+Privacy is not simply an absence of information about us in the minds of others;
+rather it is \textbf{the control we have over information about ourselves}. \cite{CFried:Privacy}
+\end{quote}
+
+According to Fried privacy is a \textit{rational context}.
+Which means that one is aware of such context's existence during a rational action.
+If we are to share private information with others, we are most likely aware that this action is privacy related.
+In that case we are able to selectively disclose information along the two dimensions of quantity and quality.
+This leads Fried to his thesis, that privacy is one's ability to create and modulate his or hers social relationships, namely: friendship, love and trust. \cite{CFried:Privacy}
+
+Depending on the conversation partner, we change the degree of intimate information we share if it is a total stranger, colleague, close friend or lover.
+With close friends or lovers we share information of great intimacy we do not share with anyone else.
+Moreover, we trust those persons to not reveal information about us to others by respecting their privacy.
+Trust needs the possibility of unknown failure.
+If we would constantly monitor our partners, they cannot fail unnoticed nor can they willingly share that information with us.
+Thus they could not trust us anymore. \cite{CFried:Privacy}
+
+So privacy or the its possibility, according to Fried, is the foundation of our core relations: friendship, love and trust.
+And thus it is valuable, because those relations are essential to human society \cite{CFried:Privacy}.
+Using his anatomy of privacy as foundation of our analysis is suitable because of two points.
+At first, Fried's study on the understanding of privacy provided a great contribution to the research on the same term in philosophy \cite{sep-privacy} and computer science \cite{SociotechnicalArchitectureForOnlinePrivacy}.
+Secondly, despite the fact his text was published in 1970, he already included technologies to its viewpoint that did not only monitor location, but also record biometric data.
+
+%TODO: Iterate Section. Exmplain Triangular Relationship:
+- Subject
+- Trusted Person
+- Third Party which shall NOT obtain sensitive information.
+
+%TODO: Explain relation to DP Directive
+- Control over information in law
+
+\subsection{The Seven Types of Privacy}\label{sec:privacytypes}
+
+In Fried's definition of privacy as control over "information about onself'', the specification of what constitues such information remains open.
+There is a vast amount of information that relates to a person and we need to get a better understanding in order to perform a thorough analysis.
+To this end we use the the categorization by Friedewald, Finn and Wright \cite{7ToP} called the \textit{Seven Types of Privacy}.
+The seven types of privacy are an extension to the four types of privacy by Roger Clarke \cite{RClarke:4ToP}, which are:
+\begin{itemize}
+\item Privacy of the Person
+\item Privacy of Personal Behaviour
+\item Privacy of Personal Communication
+\item Privacy of Personal Data
+\end{itemize}
+It is important to note, that this categories do not form no taxonomy, since the categories are not mutually exclusive.
+For instance a written email is considered personal communication as well as personal data stored on a computer.
+
+Moreover, Friedewald et al. argue that Clarke's taxonomy is outdated and no longer adequate in order to describe the privacy aspect of our modern, technology driven, world.
+In order to address this shortcoming they extend the former four to the now introduced seven types privacy as follows:
+
+\begin{enumerate}
+
+\item \textbf{Privacy of the Person}
+This privacy type is generally concerned with one could best understand as biometric privacy.
+Friedewald et al. paraphrase it as \emph{``\om the right to keep body functions and body characteristics \om private''}.
+This includes but is not limited to measures like weight, height or shoulder width;
+biometric identifiers like fingerprints and DNA sequences;
+or medical conditions such as limping or having a cold.
+
+
+\item \textbf{Privacy of Behaviour and Action}
+This privacy type is concerned with one's activities in public as well as in private spaces.
+It includes but is not limited to religious practices, political activities and sexual preferences or habits.
+
+
+\item \textbf{Privacy of Communication}
+This privacy type is concerned with one's communication in a broad sense.
+It includes written correspondence, but also conversations conducted either vis-a-vis or via electronic devices.
+Friedewald et al. put it as the right to free discussion without unknown interception by third parties.
+
+
+\item \textbf{Privacy of Data and Image}
+This privacy type is concerned with the secrecy of personal data, especially its automatic disclosure to other individuals and organizations.
+It includes data such as paychecks, insurance information or records of public administration.
+However, it also refers to pictures taken without consent and digital identifiers like IP addresses or social security numbers.
+
+
+\item \textbf{Privacy of Thoughts and Feelings}
+This privacy type is the counterpart to Privacy of the Person like body and mind are counterparts of one another.
+Comparable to the Privacy of Data and Image, Friedewald et al. state that one's thoughts and feelings must not be automatically revealed to others.
+This could simply happen by the disclosure of one's diary or by technologies which allow emotion detection through biometric means.
+One's body temperature or iris reflexes might infer stress or excitation.
+
+
+\item \textbf{Privacy of Location and Space}
+This privacy type is concerned with one's movements in public spaces and the protection of private spaces.
+Friedewald et al. qualify the first dimension as one's right to move without being identified, tracked or monitored.
+The second dimension is qualified as one's general right to solitude, especially the right to the inviolability of the home.
+
+
+\item \textbf{Privacy of Association}
+This privacy type is also put as group privacy.
+Friedewald et al. state that one must have the possibility with whomever without being recorded.
+Associations like friends or organizations such as political parties must not automatically be recorded because one associates with them, and vice-versa.
+\end{enumerate}
+
+\subsection{Privacy Type Inferences}
+
+The above types of privacy types are not disjoint to each other.
+For example if the location of a citizen is known it is possible to infer information about political associations (e.g. his visits to a party meeting).
+In this section we explore possibilities how personal data can be inferred from each other.
+Our findings are summarized in Figure \ref{figure:Implicit Privacy Violation Matrix}.
+
+%\includegraphics{../diagrams/png/implicit-privacy-violation-matrix.png}
+\input{./figures/Implicit-Privacy-Violation-Matrix}
+
+\paragraph*{1. Privacy of The Person}
+
+The Privacy of The Person is concerned with one's biometric privacy.
+If this type is violated, following implicit violations are possible:
+
+\begin{itemize}
+\item [(1-5)]
+  Privacy of Thoughts and Feelings. Some psychological diseases
+  (e.g.~depression) have physiological impact. Such physiological
+  patterns could be detected.
+\end{itemize}
+
+\paragraph*{2. Privacy of Behaviour and Action}
+
+The Privacy of Behaviour and Action is concerned with one's social, political, religious, sexual, etc. activities.
+If his type is violated, following implicit violations are possible:
+
+\begin{itemize}
+\item [(2-1)] Privacy of The Person.
+  Religious practices which include body modifications (e.g.~circumcision).
+\item [(2-5)] Privacy of Thoughts and Feelings.
+  Social activities in general depend on a certain intellectual attitude.
+  Such an activity is the expressions of such an attitude.
+\item [(2-7)] Privacy of Association.
+  Recording religious, political or sexual activities can reveal association with churches, political parties or sexual partners.
+\end{itemize}
+
+\paragraph*{3. Privacy of Communication}
+
+The Privacy of Communication is concerned with not having such communication (correspondence or vis-a-vis) intercepted.
+This is very broad type of privacy.
+Depending on the contents of the intercepted communication every other type can be violated:
+
+\begin{itemize}
+\item [(3-1)] Privacy of The Person. Communication about body characteristics.
+\item [(3-2)] Privacy of Behaviour and Action. Communication about social activities.
+\item [(3-4)] Privacy of Data and Image.
+  Communication containing one's passwords or other sensitive data.
+\item [(3-5)] Privacy of Thoughts and Feelings.
+  Communication of thoughts and feelings, e.g.~wiretapping a flirt or a catholic confession
+  ritual.
+\item [(3-6)] Privacy of Location and Space.
+  Interception of face-to-face communication is only possible if one's location and space is violated (wiretapping).
+\item [(3-7)] Privacy of Association.
+  Communication about one's associations (family members, churches, etc.).
+\end{itemize}
+
+\paragraph*{4. Privacy of Data and Image}
+
+The Privacy of Data and Image is concerned with one's data not being automatically available to others.
+This also is a very broad type of privacy.
+Depending of the data or image contents every other type can be violated:
+
+\begin{itemize}
+
+\item [(4-1)] Privacy of The Person.
+  Images or stored biometric information reveal one's physical characteristics.
+\item [(4-2)]Privacy of Behaviour and Action.
+  Images or diaries can reveal one's social activities.
+\item [(4-3)]Privacy of Communication.
+  Modern communication systems usually contain some sort of archive function, e.g.~E-mail clients do not automatically delete messages.
+  Such messages are data and reveal one's communication.
+\item [(4-4)]Privacy of Thoughts and Feelings.
+  Images can show one's emotional state.
+\item [(4-5)]Privacy of Location and Space.
+  Images can reveal one's location, e.g.~making a picture in front of the Eifel Tower.
+\item [(4-6)]Privacy of Association. E-mail data can also reveal
+  association.
+\end{itemize}
+
+\paragraph*{5. Privacy of Thoughts and Feelings}
+
+The Privacy of Thoughts and Feelings is concerned with keeping such
+thoughts and feelings secret. If this type is violated, following
+implicit violations are possible:
+
+\begin{itemize}
+\item [(5-1)] Privacy of The Person.
+  Thoughts and feelings can reveal medical conditions.
+\item [(5-2)] Privacy of Behaviour and Action.
+  Thoughts and feelings can reveal a certain attitudes which create a foundation for certain   social activities.
+\item [(5-7)] Privacy of Association.
+  Thoughts and feelings can reveal individual association, e.g amorous feelings for a certain person.
+\end{itemize}
+
+\paragraph*{6. Privacy of Location and Space}
+
+The Privacy of Location and Space is concerned with one's right to move freely without being tracked and one's right to private places.
+If this type is violated, following implicit violations are possible:
+
+\begin{itemize}
+\item [(6-1)] Privacy of The Person.
+  Frequently visited doctors can reveal certain medical conditions, if such doctors are known specialsts.
+  In general it could imply illness.
+\item [(6-2)] Privacy of Behaviour and Action.
+  Frequently visited places in general can reveal association and hence implies social activities.
+\item [(6-3)] Privacy of Communication.
+  If one's location is knwon, it is possible to intercept (wiretap) one's communication.
+  This also may violate the right to private spaces.
+\item [(6-4)] Privacy of Data and Image.
+  If one's location is known, it is possible shoot pictures.
+\item [(6-5)] Privacy of Thoughts and Feelings.
+  Frequently visited persons may imply certain thoughts and feelings, e.g.~having a mistress.
+\item [(6-6)] Privacy of Association.
+  Frequently visited places can reveal associations simply by searching in maps or yellow-pages.
+\end{itemize}
+
+\paragraph*{7. Privacy of Association}
+
+The Privacy of Association is concerned with one's right to associate with whomever one wants, without that association having recorded.
+If this type is violated, following implicit violations are possible:
+
+\begin{itemize}
+
+\item [(7-1)] Privacy of The Person.
+  Association with tattoo artists could imply having tattoos or other body modifications.
+\item [(7-2)] Privacy of Behaviour and Action.
+  Association with churches or political organizations could imply certain activities.
+\item [(7-5)] Privacy of Thoughts and Feelings.
+  Association with churches of political organizations could imply a certain intellectual attitude.
+\end{itemize}
+
+\subsection{Sensor Data Privacy Impact}\label{sec:SensorPrivacyImpact}
+\input{./figures/LG-Implicit-Sensor-Privacy-Matrix}
+
+%TODO: Reformulate the section.
+% - Too much overlap with preceeding sections.
+% - Structure should be per Sensor Type
+% - Add HAR and SLD!
+
+In this section we analyze the impact of the disclosure sensor data and certain processing results to the citizens privacy.
+This analyisis builds upon the preceeding analyis, but is more focused on the concrete type of data vailable.
+For example, the disclosure of Service Line Detection results, does violate the Privacy of Location and Space but not the Privacy of Association that is violated by general GPS tracking.
+
+\textbf{GPS Data}.
+The GPS sensor gives the current longitude and latitude, the current global position of the mobile device and its carrier, although there is some artificial inaccuracy within civil use. Threefore, the collection of GPS data violates directly the citizens privacy of Location and Space, and the privacy of Data an Image.
+
+By inference we also get implicit violations of the Privacy of the Person, Privacy of Behavior and Action and Privacy of Association.
+
+\textbf{Motion Sensors.}
+Accelerometer, Rotation Vector, Gyroscope and Magnetic field sensor measure the physical movement of the mobile device on all three axes.
+If the mobile device is carried ``normally'' its safe to say that those sensors also measure the moments of its carrier.
+So his privacy is infringed regarding biometric behaviour, as it is captured automatically
+Privacy of Data and Image is trivially threatened because here sensor data is individual data, a priori.
+
+By inference we also get implicit violations of the Privacy of Behavior and Action.
+
+\textbf{Network Sensors.}
+The GSM and WLAN sensors reveal the position of the mobile device and its carrier, when used in connection with external databases.
+The GSM sensor gives the exact cell, the mobile device has registered with at the current moment.
+
+The Bluetooth sensors record lists of the bluetooth clients in the direct neighbourhood.
+Since those clients are usually moving, inference of the position is usually not possible.
+Instead, bluetooth clients carried by a third person may infringe the Privacy of Association.
+
+A similar argumentat applies to WLAN snsors. If one frequently connects with an organizational wireless network, e.g.~an university network, an association can be deduced (student or staff).
+
+\textbf{Human Activity Recognition.}
+The detection and collection of human activities like walking, standing and running, can interfer with the Privacy of the Person, e.g.~since these movement patterns can be indicators for a person's health. Also, trivially, Privacy of Data and Image is violated.
+
+\textbf{Service Line Detection.}
+The detection and collection of the service line the user currently uses in the public transportation system allows inference of the location of the user, at least when entering and leaving those service lines at e.g.~bus stops.
+Implicit privacy violations apply accordingly.
+
+%TODO: Update Graphic: Violation of Privacy of Association is implicit for GSM and WLAN.
+%TODO: Add HAR and SLD to Table
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagebreak
+
+\chapter{Privacy Analysis of Live+Gov Systems}
+\label{chap:analysis}
+
+The goal of this chapter to analyze and identify the threads to personal privacy that are posed by collecting, storing and processing sensor data from mobile phones.
+We derive concrete privacy protection measures that address the main risks involved with handling such data.
+
+The complexity of our systems and the variety of threads make a great number of counter measures plausible.
+We approach this complexity with the aid of a general security analysis model developed in \cite{Grimm:ItSecRefModel}.
+We give a brief introduction to this model and perform a IT Security Analysis with respect to the privacy asset for our system.
+
+\section{IT Security Analysis according to Grimm et. al}\label{sec:GrimmModel}
+
+We follow the Reference Model for IT Security Analysis as described in \cite{Grimm:ItSecRefModel}.
+It supersedes earlier efforts by e.g. \cite{Avizienis}.
+The reference model consists of a \emph{model} and a \emph{procedure}.
+The model aims to organize common security terminology in a reasonable and practical way.
+The procedure describes a method to analysis the IT system based on that model.
+In this section we give a brief overview over the reference model.
+
+\subsection{Model}
+
+%\includegraphics{../diagrams/png/itsec-ref-model-grimm.png}
+\input{./figures/The-IT-Security-Reference-Model-Grimm}
+
+The model is depicted in Figure \ref{fig:refmodel}.
+It is organized in four views (round boxes) that contain a number of components (rectangular boxes).
+
+%%%%%%%%%%%%%%%%%%%%
+
+The \emph{world view} contains all components describing the current state.
+It consists of the following components:
+\begin{itemize}
+\item \textbf{Actors.}
+All identifiable stakeholders of the system under study.
+Typical actors include, users, developers, clients and externals.
+
+\item
+\textbf{Assets.} Things of value to one or more stakeholders.
+The value can be hard (money, data, etc.) or soft (trust, privacy,etc.).
+In our case the only asset we are concerned with is the privacy of the citizen.
+
+\item \textbf{IT-Systems.}
+The relevant IT-Systems under study. This encompasses hardware (e.g. servers, network infrastructure), as well as software and third party services.
+The level of granularity has to be detailed enough to express all possible threats to the assets at stake.
+
+\item \textbf{Conflicts of Interests.}
+Different actors have different interests which can be in conflict which each other.
+These conflicts of interest are the origin of all attacks to the system.
+
+A typical conflict is the \emph{Criminal-User-Conflict}:
+A user wants to keep control over their private data.
+A criminal wants to gain money.
+The possibility of selling private data (user profiles) to advertisers, renders both interests conflicting.
+
+\item \textbf{Vulnerabilities.}
+All identifiable weaknesses in the IT-System.
+
+In the example of the criminal-user-conflict, the criminal has to exploit a vulnerability, e.g. a weak password, to gain access to the private data about the user.
+
+\item \textbf{Interactions.}
+This point captures all possible interactions between assets, IT-Systems, humans and vulnerabilites.
+It is described in more detail in the next view.
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+The \emph{potential view} displays the intended and unintended interactions of the components in the world view.
+The intended interactions support the underlying business objectives.
+Unintended interactions lead to threats.
+The potential view consists of the following components.
+\begin{itemize}
+\item \textbf{Business Objectives.}
+Interaction of IT-system and actors that realize a business goals of the system owner.
+
+\item \textbf{Threats.}
+A threat is a potential interaction that destroys or harms assets of the system.
+Concrete realizations of threats can be \emph{attacks} or \emph{accidents}.
+Attacks are executed by an actor in response to a conflict of interest.
+Accidents are harmful interactions that are not willfully caused by an actor.
+
+\item \textbf{Chances/Risk.}
+Evaluation of chances and risks associated to the business objectives and threats.
+The risk associated to a threat is its expected loss.
+A chance associated to a intended interaction is its expected gain.
+
+In the case that, the loss can be quantified monetary, and the likelihood of occurrence of a threat can
+be modeled probabilistically, the risk is given by the product
+\[ \text{risk} = \text{loss} \cdot P[\text{threat}]. \]
+In practice such a quantitative risk evaluation is often not possible, and a qualitative, heuristic, analysis is performed instead.
+
+\item \textbf{Security Requirements.}
+A set of interactions (e.g. threats) that shall not occur within the system in order to achieve its business objectives.
+Security requirements are targeted to protect one or more assets.
+
+An example of a security requirement is that a given communication channel shall not be infringed by externals.
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+The \emph{concept view} is a realization of the potential view of the system.
+It specifies important interactions that require further planning.
+It contains the following components:
+\begin{itemize}
+\item \textbf{Business Model.}
+The plan to achieve business objectives.
+
+\item \textbf{Accident Scenario.}
+A concrete outline of an interaction that leads to an accident.
+In particular the asset under threatened and exploited vulnerability need to be described.
+
+\item \textbf{Attack Technique.}
+A specific technique or technology to attack IT-Systems (Man in the Middle, Phishing, etc.).
+In particular the attacking actor, the conflict of interest and the exploited vulnerability need to be described.
+
+\item \textbf{Security Measures.}
+It describes a plan of sufficient measures to secure the intended interactions and to avoid the unintended interactions.
+Each security measure targets a vulnerability of the system in order to reduce a risk for a certain thread.
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+The \emph{event view} contains all actual events through out the lifetime of the system.
+The event view instantiates the concept view of the system.
+It contains the following components:
+\begin{itemize}
+\item \textbf{Business Process.}
+The actual, running instance of the business model.
+
+\item \textbf{Accidents.}
+All actually happened accidents.
+
+\item \textbf{Attacks.}
+All actually happened attacks.
+
+\item \textbf{Security Operations.}
+Instances of security measures.
+\end{itemize}
+
+
+\subsection{Procedure}
+
+The analysis procedure is an incremental and iterative process following the four views of the previously described model.
+
+%\includegraphics{../diagrams/png/itsec-ref-model-grimm-procedure.png}
+\input{./figures/The-IT-Security-Reference-Analysis-Grimm}
+
+\paragraph*{Step 1. World Analysis}
+
+At first, one has to outline the current state of the system under study. This includes description of:
+\begin{itemize}
+\item all \textbf{Assets} which must be protected
+\item all relevant \textbf{IT-Systems}
+\item all involved \textbf{Humans} and their \textbf{Conflicts of Interests}
+\item all known \textbf{Vulnerabilities}
+\item and all important \textbf{Interactions} between the former components.
+\end{itemize}
+
+\paragraph*{Step 2. Potential Analysis}
+
+Secondly, one needs to outline the potential interactions of the system under study.
+This includes both the unintended interactions (threads) and the intended interactions (business objectives).
+This step produces four artifacts:
+\begin{itemize}
+\item a \emph{threat specification}, which identifies the threat, its targeted assets, the involved actors and their conflicts of interest.
+\item a \emph{threat risk evaluation}, which quantifies the likelihood of a threat manifestation in relation to its associated loss.
+\item a \emph{security requirement specification}, which specifies requirements in order to deal with identified hazards
+\end{itemize}
+
+\paragraph*{Step 3. Concept Development}
+
+Based on \textbf{Step 2.}, the identified hazards are used alongside realistic accident scenarios and attack techniques to create a \emph{risk matrix}.
+With this matrix it is possible to decide if the risk is acceptable or not.
+Together with the previously specified security requirements, the matrix is used to define adequate security measures.
+Like a business model is an abstract concept to achieve business objectives, this step creates an concept to improve the system's security.
+
+\paragraph*{Step 4. Concept Deployment}
+
+Finally, the security measures have to be implemented.
+Additionally, all business operations, accidents, attacks and executed security operations will be recorded in the following time.
+
+The implementation of security measures changes the world view (e.g. IT-systems, actors) and renders the conducted analysis outdated.
+So this analysis procedure needs to be conducted again.
+
+\subsection{Abstraction Levels of the Reference Model}
+
+The Reference Model can be used on different levels of abstraction.
+This means each component can be used within a wide range of granularity, for instance the security measure \emph{Encryption} can be explored in general or on the level of different concrete encryption tools; or on the even finer level of concrete algorithms.
+
+The utilized abstraction level is not important for the analysis procedure, it depends on the intended audience for the analysis.
+However, it is important to use one abstraction level consistently through out the analysis.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+\section{Live+Gov Privacy Protection Analysis}\label{sec:PPA}
+
+\subsection{Step 1. World Analysis}
+
+\subsubsection{Assets: Privacy}
+
+In this document we focus our attention to only one asset: The privacy of the citizen.
+
+%TODO: UPDATE
+Our definition of privacy is described in detail in Chapter \ref{chap:privacy}. In Section \ref{sec:taxonomy} we define privacy as the ``control over private data'' and introduce the following seven different types of privacy:
+\begin{enumerate}
+\item Privacy of the Person
+\item Privacy of Behaviour and Action
+\item Privacy of Communication
+\item Privacy of Data and Image
+\item Privacy of Thoughts and Feelings
+\item Privacy of Location and Space
+\item Privacy os Association
+\end{enumerate}
+
+We refer to Section \ref{sec:taxonomy} for more details.
+
+\subsubsection{IT-Systems \& Interactions}
+\label{subsubsection:it-systems}
+
+This section outlines the general architecture (Figure \ref{figure:IT Systems}) of IT systems for public monitoring comparable to the Live+Gov project.
+This includes a description of it technical infrastructure and the interactions between its components.
+
+The IT infrastructure of the Live+Gov system, i.e. the Live+Gov toolkit and the customization of the software components are described in detail in various project deliverables: D4.1, D4.3, D1.1, D5.1.
+In this section we give an abstraction of those systems from the perspective of WP1.
+
+\input{./figures/IT-Systems}
+
+A \emph{citizen} (a) carries a mobile device running the \emph{sensor collector} application (d).
+The sensor collector application is able to collect various kinds of sensor data (accelerometer, GPS, GSM, ...) and can sent the raw data back to the \emph{data center} (c).
+The sensor collector can also be able to perform certain data mining operations.
+
+Examples of such data mining operations include human activity recognition,the detection of service lines, detection of characters and faces from images.
+
+In the Live+Gov Project mobile devices are used in particular for the following activities:
+\begin{enumerate}
+\item collection of GPS samples,
+\item mining of Human activities (HAR) based on accelerometer samples,
+\item collection of reports consisting of an image, free text and selected categories.
+\end{enumerate}
+
+The \emph{data center} stores and processes sensor data collected with the sensor collector application. It can also take into account data obtained from third parties, like the current positions of trains.
+The data center can sent mining end products (traffic jam reports, bus schedule) back to the mobile device of the citizen.
+
+In the Live+Gov Project data centers, in particular, perform the following activities:
+\begin{enumerate}
+\item storage of login credentials, name, and email address for each citizen,
+\item storage of collected GPS samples (user id, timestamp, GPS location),
+\item storage of HAR results (user id, timestamp, HAR result),
+\item detection of service lines based received GPS samples (SLD),
+\item storage of SLD results (userid, timestamp, SLD result),
+\item sent back SLD results to mobile device,
+\item storage of received reports (user id, timestamp, report),
+\item detection of inherent patterns of the received reports.
+\end{enumerate}
+
+The \emph{System Provider} (b) provides and operates technical infrastructure like the Data Center and the \emph{Reporting Tool} (f).
+The Reporting Tool queries the Data Center for aggregated data to visualize in form of charts and other means suitable to help understanding of monitored citizens.
+
+\textit{Local Authorities} (c) use the reporting tool to get information in order to understand citizen movement and improve public services.
+In such systems, the most valuable information for local authorities is not the raw sensor data, but aggregated views on the mining end products.
+
+In the Live+Gov Project the reporting tools allows, in particular the following queries:
+\begin{enumerate}
+\item show aggregate information about which routes citizens take starting from a given location,
+\item show the average waiting time of a citizen for each bus stop,
+\item show routes where citizens where running to catch a bus,
+\item show locations of all reports in a given time window,
+\item visualize detected patterns in the report data,
+\item view individual reports.
+\end{enumerate}
+
+\subsubsection{Actors}
+\label{subsubsection:humans}
+
+This section describes the human actors previously introduced within the IT system architecture (\ref{subsubsection:it-systems}).
+Also the additional actor \textit{External} is introduced as a person with no special access rights.
+
+\textbf{Citizen.}
+Citizens are persons who use the mobile device as users of the provided software.
+Their main motivation for using the software is to gain a higher level of convenience in their daily activities. For example they may have access to real time bus schedules or reports about traffic jams, that help them to avoid long waiting times.
+Also they generally benefit from improvements of public infrastructure by local authorities, which is triggered by issue reports.
+
+By using the application citizens are sharing personal information like name and address, as well as data gathered from mobile sensor with the service provider.
+This data can be exploited in ways that are harmful to the citizen.
+This need to protect this protection is manifest in several laws and constitutions as the right to privacy and data protection.
+The citizen has a vital interest in having his legal rights protected and enforced.
+
+If the right to privacy is violated, there is a magnitude of potential harms that interfere with other interests of the citizen.
+This includes just annoying spam, where their technical identity is used to send unwanted commercials.
+More severe phishing attacks can exploit personal information, and try to manipulate citizens into disclosing credentials like TAN numbers and disrespect their financial interests.
+Information about the current location (GPS) or frequently used routes (stalking) can be used to attack and directly harm the health of the citizen.
+Information about medical conditions inferred by sensor data (e.g. fintness trackers) are of interest to insurance companies, which may affect the pricing of policies and can interfere with financial interests of the citizen.
+
+Also it is well established (cf. \cite{GuardienMassSurveillance}) that the very act of being monitored can have impact on mental health and performance, promotes distrust and breeds conformity.
+
+In short, citizens are interested in
+\begin{itemize}
+\item physical wellbeing and health
+\item financial profit
+\item convenience
+\item legitimate use of personal data
+\item non-disclosure of personal data to peers of the citizen
+\item not being monitored.
+\end{itemize}
+
+\textbf{External.}
+Externals are persons who do not have privileged access to the IT systems, and are willing to break laws, security constrains and norms in order to promote their interests.
+
+If the external is in some kind of relationship to the citizen, like a friendship or business partnership, the external can have a direct interest in gaining information about the citizen in order to increase their power.
+
+Another common interest of an external is financial profit. For example they want to obtain access to critical systems to steal sensitive data or to get the system under their control.
+Controlled systems could be leased as part of a bot net.
+Stolen data could simply be sold as is or used for illegitimate purposes, e.g. spam or phishing attacks - or excessive data mining.
+
+Because local authorities are involved in the general outline of the Live+Gov system, the possibility for politically motivated attacks is given.
+
+Externals could want to harm or destroy the systems in order to damage the reputation of local authorities (politicians or other officials) or to make a political statement of their own.
+
+Another possible motivation for external  activities could be social appreciation.
+A hacker could attack critical infrastructure just to prove his skills.
+
+In short, externals are interested in
+\begin{itemize}
+\item increase power over citizen
+\item financial profit
+\item political activism
+\item social standing.
+\end{itemize}
+
+\textbf{System Provider.}
+System Providers operate the technical infrastructure (hardware and software) of the IT System.
+They are private companies and legal persons in their own right, but also employ a number of people with diverging interests, including:
+administrators, who maintain and operate the running system;
+programmer/developer, who develop the system;
+a support manager, who handles customer relations.
+
+As companies, they are interested in gaining financial profit.
+Among other things, this depends on customer satisfaction, employee happiness and task complexity.
+Unsatisfied customers may not want to pay for the service or do not continue the business relation.
+Moreover, unsatisfied customers can create a bad reputation, which affects the market for future customers.
+
+Customer satisfaction is connected with the quality of the offered product or service.
+This quality depends on the happiness of employees.
+Employees have a claim to professional excellence.
+They want to deliver a good job within their means.
+If employees cannot satisfy their demand for professional excellence, they might get discontent and deliver poor work.
+Moreover, unhappy employees can produce higher costs through sick days.
+The worst case scenario could be, that a discontent employee gets angry and steals data or harms the running systems.
+
+At last, the financial success of system providers depends on the task complexity of the maintained infrastructure.
+The complexity of a task has to be in reasonable bounds, so that system providers can complete it within time, with a satisfying quality.
+If a task has a higher complexity than expected, financial loss is almost certain.
+Either System Providers need to hire additional competence to meet schedule and requirements.
+Or system providers they stress the time-line, which also results in a higher man-hour salary ratio and additionally endangers customer satisfaction.
+Ultimately, high task complexities can affect employee happiness, if employees cannot complete it within their claim to professional excellence.
+
+In short, System Providers are interested in
+\begin{itemize}
+\item financial profit
+\item good working conditions
+\item professional excellence
+\item manageable complexity.
+\end{itemize}
+
+
+\textbf{Local Authority.}
+Local authorities are public offices (ministry, agency, department, ...) or other external public entities which act as direct customers of service providers.
+They purchase a system specialized for their needs.
+For example a department for urban mobility, orders a system to better understand usage patterns and make improvement to the urban traffic flow.
+
+Such systems are investments, and so naturally local authorities are interested in a profitable return, like increased ticket sales.
+However, the return of investment is not directly of financial nature.
+Like service providers their financial gain depends on customer satisfaction.
+Customers for local authorities are either citizens, who use their services, or politicians, who order their services.
+The satisfaction of both sides is interdependent.
+
+Citizens are satisfied customers if the services, e.g. public mobility, work well.
+If citizens are happy, it is more likely that politicians gain reputation, as they organize the public services through local authorities.
+
+The first important step of improving the public services is by obtaining business intelligence.
+For the urban mobility scenario the Live+Gov systems provide insight in form of traffic jam detection and usage pattern mining, which allow local authorities to focus their efforts to the most important sites.
+
+Additionally, since local authorities act like corporations comparable to service providers, they are also interested in good working conditions.
+Discontent employees may harm the system by e.g. disclosure of privacy sensitive data.
+
+In short, local authorities are interested in
+\begin{itemize}
+\item financial profit
+\item political reputation
+\item business intelligence
+\item good working conditions.
+\end{itemize}
+
+
+\subsubsection{Conflicts of Interests}
+\label{subsubsection:Conflicts of Interests}
+This section outlines the Conflicts of Interests (Figure \ref{figure:Live+Gov Conflicts of Interests}) between the actors of the proposed IT system architecture.
+
+The individual interests of all actors is already described in the previous section and are not elaborated any further.
+The emphasis here is put on prominent existing conflicts, because they provide a foundation for vulnerabilities and subsequent threats.
+
+\input{./figures/LG-Conflicts-Of-Interests}
+%TODO: Adapt Figure
+
+\textbf{System Complexity vs Privacy.}
+System Providers offer a service to Local Authorities, which is to provide and maintain a monitoring and mining system, e.g. for public mobility.
+This system shall produce business intelligence, so that Local Authorities can improve their public services.
+This task in it self has a high technical complexity and is the sole asset with financial return for System Providers.
+However, this task operates on privacy sensitive data provided by monitored Citizens.
+In order to ensure their privacy, System Provider would have to implement additional mechanisms, which allow Citizens to exercise control of their data.
+This will not only raise the complexity of the monitoring and mining system, System Providers also have to layout the complexity in a comprehensible manner.
+To effectively enable Citizens to preserve their privacy, they need to know what happens with their data.
+
+\textbf{Business Intelligence vs Privacy.}
+Local authorities order a monitoring and mining system from system providers, which allows them to produce business intelligence for public services.
+The system is an investment for local authorities, so they are interested in as much intelligence as possible to achieve a profitable return.
+
+The gained intelligence is the result of data mining conducted on privacy sensitive data of participating citizens.
+They are interested in the successful usage of their data, in a sense that they are also benefactors, e.g. improvement of public mobility.
+The main interest of citizens lies in maintaining control over their data and protecting their rights to privacy.
+In order do that, they need full disclosure of the processing steps and the purposes their data is used for, and to be given a choice whether such processing should be allowed for their own data.
+
+\textbf{Power of External vs. Privacy.}
+Externals which are in a social relation to the citizen can have an interest in obtaining further information in order to gain power.
+In the most simplistic example this could be a man wanting monitor the activities of his spouse.
+Another example is a Government spying on it's citizens in order to suppress opposition.
+An additional twist in the last example is, that there can be legal regulations that require the service provider to support the Governments invasion of the citizens privacy.
+
+\textbf{Financial Profit of External vs Privacy.}
+Externals can gain financial profit from stealing privacy sensitive data.
+For example by selling raw contact information to advertisers or by selling mined data to insurance companies, or intermediaries like scoring companies.
+In such cases, citizens lose complete control over their data.
+
+\textbf{Financial Profit of External vs Reputation of System Providers.}
+Externals have various business models as optional foundation for attacks on System Providers.
+For instance, they can try to invade the infrastructure for e-espionage reasons, to get control over servers to create a bot-net or to steal user data.
+All these approaches are motivated by financial interests.
+Gathered information can be sold, zombie servers can be leased.
+
+A successful attack proves the technical competence of system providers wrong and subsequently harms their professional reputation.
+This can lead to a loss of future customers or a decrease of stock price for registered companies.
+Eventually also the financial interests of system providers are endangered.
+
+\textbf{Political Activism vs Reputation of Local Authority.}
+Besides monetary reasons, externals can be motivated by political reasons to attack the monitoring and mining system.
+Externals can break the system to make a political statement of their own,
+or they can steal user data to prove the system insecure.
+Both would harm the reputation of local authorities, who endangered the privacy of the citizens.
+
+
+\subsubsection{Vulnerabilities}
+\label{subsubsection:Vulnerabilities}
+This section outlines the vulnerabilities (Figure \ref{figure:Live+Gov Vulnerabilities}) of the proposed monitoring and mining system.
+Note that vulnerabilities are not necessarily of technical nature.
+The weaknesses of IT systems are often created due to misuse or misconfiguration of the various components by one or more actors.
+
+\input{./figures/LG-Vulnerabilities}
+
+\textbf{Insecure Infrastructure.}
+The proposed monitoring system consists of many hardware and software components, each with its own concrete weaknesses.
+For instance, operating systems can be outdated or not subject to frequent updates or virus scans.
+Web-applications can be carelessly implemented and not protected against SQL-Injections or Cross-Site-Scripting attacks.
+Databases can be ill-configured, so that access from outside the system is possible.
+All those weak points can be subject to various known exploit techniques.
+
+\textbf{Insecure Data Transmission.}
+The proposed monitoring and mining system uses HTTP to exchange data between the Sensor Collector, the Data Center and the Report Tool.
+Per default, HTTP is a clear text protocol.
+This means, one can intercept the connection and read all sensitive information, which is send between the components.
+That is: passwords, raw sensor data and data mining results
+
+\textbf{Unhappy Employees.}
+
+An Employee that is frustrated with his situation for a long time
+period constitutes a security vulnerability. On the one hand he might
+want to harm his employer directly, on the other he is increasingly
+susceptible for social engineering.
+
+\textbf{Inadequate Access Rules.}
+The proposed IT system infrastructure has various accesses to privacy sensitive data.
+System Provider staff has access to Data Center hardware and software like databases, web-servers and other inspection tools.
+Local Authority staff has access to the Report Tool.
+This all enables staff members to have potential access to privacy sensitive information.
+Those accesses have to be secured against unauthorized third parties.
+Moreover, we need to ensure that no single person has to many access rights.
+For example, a system administrator should not be able to secretly download the whole database on a flash-drive.
+
+
+%TODO: Extend to general missing privacy wareness of citizen, system provider and local authority
+\textbf{Unaware Monitoring Subjects.}
+We define privacy as one's ability to control information about
+oneself.  In order to do that, monitored subjects need to know, that
+they are monitored, who monitors them, what information is recorded
+and for what purposes.  Subjects who are not aware of these things
+cannot effectively preserve control and thus lose their privacy.  This
+vulnerability expresses itself as the lack of information material
+like a Privacy Policy including concise information about applied
+processing steps, access rules and disclosure to 3rd parties.
+
+\subsection{Step 2. Potential Analysis}
+
+\subsubsection{Threat Specification}
+
+\input{./figures/Threat-Example}
+
+Recall from the security model description in Section \ref{sec:GrimmModel}, that a threat is a potential interaction of the components that targets an asset.
+We restrict ourselves to the case of attacks, and the asset of privacy.
+An attack is an interaction that is executed by an actor in response to a conflict of interest by exploiting a vulnerability of the system.
+The alternative interaction of accidents are less relevant for us, since the violation of privacy always requires an actor that takes advantage of personal data.
+
+In Figure \ref{figure:Threat-Example} we illustrate the structure of threats at the example of ``Data Theft".
+Here the attack is executed by an external person, that harms the privacy of the citizen.
+He is motivated to do so by financial profit gained by selling personal information, which is in conflict with the citizens interest in his privacy.
+To get hold of the data the external exploits an insecured HTTP transfer of recorded data.
+
+In this section we describe, in a similar fashion, threats for the citizen privacy in the Live+Gov system.
+This list can necessarily not be complete, but we make a best effort to cover the most relevant cases.
+
+% \label{figure:Threats}
+\input{./figures/Threats}
+
+\textbf{T1. Insufficient Control Features.}
+The System Provider does not offer tools for the Citizen to control his data.
+However, besides the missing features he provides a safe and secure system.
+This threat contradicts the definition of privacy as control over one's information about oneself.
+As soon as collected data of Citizens is stored on System Provider servers, all control over that data is lost.
+This is not necessarily due to bad intention, System Providers may simply have forgotten to include such features during the development process.
+Although, control capabilities for Citizens add to the system complexity, which could motivate to omit those. 
+Therefore interests of Citizens and System Providers are in conflict, namely it is the Citizen's \textit{Privacy vs. System Complexity} for System Providers.
+This is an abstract threat provoked by a general \textit{Missing Privacy Awareness} in the minds of all actors in the Live+Gov context.
+
+\textbf{T2. Excessive Data Mining.}
+The System Provider and/or the Local Authority secretly extract more private information from the collected data, than the Citizen agreed to.
+But results of the mining process create no disadvantages for Citizens, because there is no disclosure to third parties.
+This could be the case for a System Provider, who wants to test a new product and uses the pre-existing data collection.
+Or for a Local Authority, who wants to analyze the data collection regarding fare evasion.
+However, the Citizen has not agreed to such data processing nor could he, since it is conducted secretly.
+This disables a Citizen to control his data adequately.
+Thus there are two possible conflicts: \textit{Privacy vs. Financial Profit of Serivce Provider} and  \textit{Privacy vs. Buisness Intelligence of Local Authority}
+The threat can be provoked by either lax data handling policies of both System Providers and Local Authorities, or a weak law enforcement of existing supervision.
+But the main issue, which can lead to such threats, is again a general \textit{Missing Privacy Awareness}.
+
+\textbf{T3. Data Theft}
+An External infiltrates infrastructure in order to steal personal data and sell it on the black market.
+Also the External might be motivated politically and wants to harm the reputation of the System Provider or the Local Authority.
+Anyways, this threat would be manifested through a technical attack on either hardware (Packet Capture) or software (buffer overflow, SQL injection).
+Such a successful attack could harm the reputation of both System Provider and Local Authority.
+The technical competence of System Providers would be proven wrong, therefore they would lose professional reputation.
+Local Authorities would lose their political reputation, as it would seem like they had endangered data of Citizens, which lose complete control.
+Thus this threat is defined by three conflicts: \textit{Privacy vs. Financial Profit}, \textit{Reputation of Service Provider vs. Political Activism} and \textit{Reputation of Local Authority vs. Political Activism}.
+Also this threat describes the classical scenario, where attacks are provoked by \textit{Insecure Infrastructure} (SQL injection) and \textit{Insecure Communication} (Packet Capture).
+
+\textbf{T4. Surveillance}
+
+An External infiltrates infrastructure in order to obtain information
+about the citizen and exploit it directly.  In this scenario the
+external is supposed to have some direct relationship to the citizen
+which motivates his interest to obtain personal information.  Examples
+could be a public institution that wants to gain information about
+planned activities of the citizens (e.g. Nixon's Watergate scandal or
+the recent prosecution of Guardian journalists by GHCQ).  Another
+example is an insurance company that seeks to get information about
+the citizens life-style in relation to the insured risk, like car
+accidents or health hazards.
+
+In this threat the privacy interest of the citizen is in conflict with
+the aspirations for power over the citizen by the externals.
+
+\textbf{T5. Information Leak}
+
+Like an external person the Data Theft Scenario an employee of the
+service provider or the Local Authority has selfish interests to gain
+money, make political statements or harm his employer.  In order to
+pursue this interest he can steal personal data and sell it or release
+it to the public.  The corresponding conflicts of interests are:
+\textit{Privacy vs. Financial Profit} of the Employee, \textit{Reputation of Service
+  Provider vs. Political Activism} of the Employee and \textit{Reputation of Local
+  Authority vs. Political Activism} of the Employee.  The vulnerability constitutes of
+the existence of \textit{Unhappy employees} itself and possibly \textit{lax access
+rules} that enable the employee to obtain large amounts of data
+unnoticed.
+
+\textbf{T6. Social Engineering}
+
+This scenario an external manipulates an employee of a Service
+Provider or the Local Authority to leak information to the external
+person.  It is thus combination of the Data Theft and Information Leak
+scenario.
+The conflicts of interest are \textit{Privacy vs. Financial Profit} of
+the External, \textit{Reputation of Service Provider vs. Political
+  Activism} of the external and \textit{Reputation of Local Authority
+  vs. Political Activism} of the external.  The exploited
+vulnerabilities are, again, the existence of \textit{Unhappy
+  employees} and possibly \textit{lax access rules} that enable the
+employee to obtain large amounts of data unnoticed.
+
+
+\subsubsection{Threat Risk Evaluation}
+
+In this section we will associate to every identified threat a corresponding risk.
+Recall from \ref{sec:GrimmModel} that a risk is the expected loss that is associated to the threat.
+Therefore, we have to quantify the likeliness of the threat to occure and the harm or loss done in this case.
+The quantification of likeliness will be solely based on rough judgment of the authors.
+The quantification of loss, will be made in a two step process.
+For each threat listed in table \ref{firgure:Threats}, we have analyzed the affected personal data of the citizen.
+For each possible data type (e.g. GPS) we analyze the impact on the seven different types of privacy in Section \ref{sec:SensorPrivacyImpact}.
+In combination we can quantify roughly the impact of each threat on the citizens privacy. Both evaluations are necessarily fraught with a high level of uncertainty.
+
+For the quantification of the loss in case of a threat scenario we use the following rough calibration:
+\begin{itemize}
+\item 3: High. Leak of information to peers (e.g. public) which impacts citizen.
+\item 2: Medium. Undisclosed processing of personal data or disclosure to third parties that are unrelated to subject.
+\item 1: Low. Loss of control over data.
+\item 0: None
+\end{itemize}
+
+For the quantification of likeliness the following scale is used:
+\begin{itemize}
+\item 4: Always.
+\item 3: High. Occurs once in 10 cases
+\item 2: Medium. Occurs once in 100 cases
+\item 1: Low. Occurs once in 1 million cases
+\item 0: Impossible
+\end{itemize}
+
+The quantification of the risk, we add the values for loss and
+likeliness of the corresponding threats. Note, that loss and
+likeliness scales have a logarithmic character, so that that addition
+of those scales corresponds to multiplication of the usual scales.
+
+
+The likeliness, loss and the resulting risks assigned to the threats
+are discussed in the following paragraphs and summarized in Figure
+\ref{fig:risks}.
+
+
+\textbf{T1. Insufficient Control Features.}  The occurrence of this
+threat is dependent on the design on the system and given in our case,
+since we do not give the citizen control over his data once it is
+recorded. Therefore the Likeliness is evaluated as $4$ (Always).  The
+associated, risk is $1$ Low on our scale, since no direct harm is done to
+the citizen by exploiting the data.
+
+Hence the resulting risk is calculated as $4+1 = 5$.
+
+\textbf{T2. Excessive Data Mining.}
+We assess the likeliness of excessive data mining to be $3$ High, since
+these kind of analysis can be performed within the walls of the service
+provider, without somebody else noticing, and the service provider himself
+has an interest in this activity.
+
+The associated loss, on the other hand can be substantial (Medium
+$2$).  For example when GPS data is linked to data from telephone
+books the identity of the citizen can be revealed and personal details
+like visits to doctors. In the threat scenario, this information is
+not leaked to third parties, (which would justify an even higher loss
+assessment), but the very existence of this information violates the
+citizens privacy.
+
+Hence the resulting risk is calculated as $3+2 = 5$.
+
+\textbf{T3. Data Theft.}
+The likeliness of a targeted attack by a third party is dependent on
+the popularity of the offered service and financial value of the
+captured information. Moreover, the amount of manual work required to
+infiltrate a custom build system is significantly higher that that of
+compromising a standard software solution. In the scenario we assume a
+moderate popularity in a single metropolitan area, with around 10.000
+users and storage of data of only limited financial value (no
+addresses, no payment information). Therefore the likeliness
+assessment is $1-2$ (Low-Medium).
+
+The harm of leaked information to a criminal party is $3$ High.
+Hence the resulting risk is calculated as $4-5$.
+
+\textbf{T4. Surveillance.}  In the surveillance scenario an party
+related to the citizen, like a company where he is customer of, or a
+government agency, seeks to obtain sensitive information from our
+service.
+
+The likeliness of such an intrusion is hard to asses, and depends
+again on the popularity of the service. If a high popularity is
+reached we have recently learned that spying by government agencies is
+very likely to occur. The barrier for companies that do not operate
+the infrastructure used to transmit the data a surveillance attack is
+however very hard to perform. Therefore we assess the likeliness of
+the threat with $1-2$ (Low-Medium).
+
+The harm of leaked information to a related party is $3$ High.
+Hence the resulting risk is calculated as $4-5$.
+
+\textbf{T5/6. Information Leak and Social Engineering.}
+
+In our scenario we assume that the culture and ethics inside the
+service provider company and local authority are very high, so that
+the information leak scenario has a likeliness of $1$ (Low).
+
+The harm of such an information leaked is $3$ High, so that the
+resulting risk is calculated as $4$.
+
+
+\begin{figure}
+\centering
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+\textbf{Threat}                   & \textbf{Likeliness} & \textbf{Loss} & \textbf{Risk} & \textbf{Recommendation}
+\\\hline
+T1. Insufficient Control Features & 4                   & 1             & 5             & R1, R2
+\\\hline
+T2. Excessive Data Mining         & 3                   & 2             & 5             & R3, R4, R5
+\\\hline
+T3. Data Theft                    & 1 - 2               & 3             & 4 - 5         & R6
+\\\hline
+T4. Surveillance                  & 1 - 2               & 3             & 4 - 5         & R7
+\\\hline
+T5. Information Leak              & 1                   & 3             & 4             & R8
+\\\hline
+T6. Social Engineering            & 1                   & 3             & 4             & R8
+\\\hline
+\end{tabular}
+\caption{Live+Gov Risk Evaluation and Recommendations}
+\label{fig:risks}
+\end{figure}
+
+\subsubsection{Privacy Recommendations}
+\label{sec:prec}
+
+In the preceding section we have identified the main risks for the
+users privacy.  In this section we derive recommendations or
+requirements for a system that addresses these risks.  Some of these
+requirements are implemented as security measures in our systems and
+discussed in the following chapter \ref{chap:impl}.
+
+In order to address the threat with the highers risk, Insufficient
+Control (T1) of the citizen, we need to give the citizen back the
+control over its data inside the system. The most direct way to do
+this is to provide a web-based \emph{Privacy Dashboard (R1)} which allows
+the citizen to view, edit and delete all information about his person
+that is stored inside the system. Also control applied processing and
+disclosure of the data to third parties should be given to the user,
+at least in the form of an opt-out or veto option.
+
+A necessary pre-requirement for effective control of the citizen over
+his data is information and comprehension of the intended data
+capturing and processing steps. Therefore a \emph{Privacy Policy (R2)} that
+is easily readable and contains all important information is
+essential.  Moreover, the existence of a Privacy Policy is a legal
+requirement (cf. Section \ref{EUDIR}).
+
+The threat with the second largest risk is (T2) Excessive Data Mining.
+Contrary to common belief, it is neither legal nor ethical to process
+personal data for by new methods or for new purposes that were not
+stated and explained to the citizen at the time of data
+collection. Also the common practice of obtaining far-reaching
+permissions from the citizens inside the privacy policy is neither an
+ethical or legal solution to the problem (cf. Art. 6 in Section
+\ref{EUDIR}).
+
+To address this threat awareness about the limitations of data
+processors inside the company is a key element. As one mean to
+establish such a culture of privacy respect, we recommend to prepare
+an document called \emph{Data Handling Guidelines (R3)} intended for
+internal use that explains the concrete processing steps and purposes
+that are permitted by the citizens. This guideline should also be
+structured in a way that it covers the legal notification requirement
+from the EU Data Protection Directive (cf. Section \ref{EUDIR}). In
+particular the following information should be provided for each
+processing task: The name of the controller, purpose of processing,
+description of the data categories, recipients of the data if
+disclosed, transfer to third countries and a description of security
+of processing.
+
+If further processing should be performed, it is necessary to seek
+additional permissions from the citizen. A simple email explaining the
+planned processing steps, and \emph{asking for permission (R4)} would be
+enough for this purpose. The permission can be given via an embedded
+link that shall be followed in order to signal agreement.
+
+An alternative measure to address the risk of excessive data mining is
+the \emph{anonymization (R5)} of data. When all direct- or indirect
+links to the identity of the person are removed, no violation of the
+citizens privacy caused by arbitrary processing. However removing all
+such links is a challenging tasks, and full anonymity is often not
+achieved, cf. \cite{krumm2009}.
+
+The protection from threat scenario (T3) Data Theft is a case of
+classical \emph{IT infrastructure security (R6)}. The storage and processing infrastructure has
+to be secured using firewalls, up-to data software versions and proper
+authentication mechanisms.
+
+The protection from threat scenario (T4) Surveillance focuses on the
+communication channels. They are target of wiretapping attacks by
+intermediaries or externals with access to the communication
+infrastructure. Strong \emph{encryption (R7)} should be used to make
+it harder for externals to read the content of the transmitted data.
+
+Threat scenarios (T5) Information Leak and (T6) Social Engineering
+target the vulnerability of unhappy employees. Therefore a trustful,
+\emph{healthy company culture (R8)} should be maintained.
+
+In summary we recommend the following measures to secure the citizens
+privacy:
+\begin{enumerate}
+\item[R1] Privacy Dashboard. A tool which allows the citizen to view, edit
+  and delete all data personal data that is stored in the system.
+\item[R2] Privacy Policy. A document, that informs the citizen about the
+  collection and processing of personal information. It should at
+  least contain the legally required information.
+\item[R3] Issue Data Handling Guidelines that explain the permitted
+  processing methods and purposes.
+\item[R4] Ask the citizens for permissions before applying further
+  processing via Email.
+\item[R5] Anonymize personal data before processing.
+\item[R6] Securing of Storage and Processing infrastructure using e.g. firewalls.
+\item[R7] Securing communication channels using encryption.
+\item[R8] Maintain a healthy, trustful relationship with your employees.
+\end{enumerate}
+The mapping of these recommendations to the threats is summarized in Figure \ref{fig:risks}.
