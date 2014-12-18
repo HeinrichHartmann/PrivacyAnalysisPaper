@@ -10,6 +10,7 @@ Privacy Analysis of a Mobile Sensor Application
   <http://www.ares-conference.eu/conference/>  
   Deadline: 2015-03-02
 
+    Authors are invited to submit original papers not previously published nor submitted in parallel for publication to any other conference, workshop or journal. Papers should be limited to 12 pages of 11pt type including title page, figures and bibliography.
 
 ### Structure
 
