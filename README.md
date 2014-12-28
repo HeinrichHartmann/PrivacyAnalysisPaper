@@ -18,9 +18,23 @@ as recommended by Tim
 
 0. Abstract
 1. Introduction
-2. Scenario Description: Travel Survey
+2. Scenario Description: Travel Survey **(new)**
 3. Definition of Privacy
 4. Privacy Analysis
 5. Conclusion
 6. References
 
+### Targeted Size
+
+estimated according to the handout by Tim
+
+| Section | Size (Pages) |
+| ------- | ------------ |
+| Abstract | 0.5 |
+| Introduction | 0.5 | 
+| Scenario Description: Travel Survey | 1.0 |
+| Definition of Privacy | 3.0 |
+| Privacy Analysis | 12.0 |
+| Conclusion | 0.5 |
+| References | 0.5 |
+|| = **18.0** |
