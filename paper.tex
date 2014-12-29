@@ -19,6 +19,12 @@
 { \par\color{blue} \it \small }
 { \par }
 
+\usepackage{verbatim}
+% Use this to hide text in TODO commands and LGContent environments.
+%\renewcommand{\TODO}[1]{}
+%\renewenvironment{LGContent}{ \comment  }{ }
+\newenvironment{LGContent-Hidden}{ \comment  }{ }
+
 \usepackage{xspace}
 \newcommand{\om}{[...]\xspace} % omission
 
@@ -190,14 +196,75 @@ In the Live+Gov Project the reporting tools allows, in particular the following 
 
 \section{Definition of Privacy}
 
-\TODO{MM:\\
-- Shorten\\
-- DONE - Remove Implicit Type Violations\\
-- Update figure\\
-- RG: Discuss alternative definitions of privacy\\
-}
+%\TODO{MM:\\
+%- Shorten\\
+%- DONE - Remove Implicit Type Violations\\
+%- Update figure\\
+%- RG: Discuss alternative definitions of privacy\\
+%}
 
-\begin{LGContent}
+\noindent
+Defining privacy is a challenge which seems impossible. This is well put to words by Serge Gutwirth, who notes:
+\begin{quote}
+The notion of privacy remains out of the grasp of every academic chasing it. Even when it is cornered by such additional modifiers as `our' privacy, it still finds a way to remain elusive. \cite{Gutwirth}
+\end{quote}
+In this section we introduce the concept of privacy as control over information.
+We specify kinds of information we have to deal with in the context of privacy.
+And finally we outline the impact mobile sensors can have on one's privacy.
+
+\subsection{Privacy as Control over Information}
+%We may need to remove the following paragraph depinding on RG's alternative definition of privacy
+%Many definitions seem to focus on the vulnerabilities of privacy.
+%Thus a great amount of work is invested in finding threats to prohibit instead of describing why privacy is so valuable to us.
+%This way around one could derive measures to ensure and secure its value. \cite{7ToP}
+
+%One particular scholar, who did not follow this way of thinking is Charles Fried.
+One possible definition of privacy is given by Charles Fried in his work \textit{An Anatomy of Values}\cite{CFried:Privacy}.
+He questioned, why we are intuitively sensitive to privacy violations.
+But he did not assert privacy as an intrinsic value by itself, he rather stated:
+\begin{quote}
+\textbf{Privacy is} not simply an absence of information about us in the minds of others;
+rather it is \textbf{the control we have over information about ourselves}. \cite{CFried:Privacy}
+\end{quote}
+According to Fried privacy is our ability to create and modulate the relationships to other humans.
+Which makes us intuitively sensitive for its violation, because this affects what defines our identity.
+Also, the ability to build and maintain relationships is essential to society.
+This is what makes privacy valuable and deserving of protection.
+
+\subsubsection{Relationship Creation.}
+
+% Privacy + Trust ~> Relationship
+% ===============================
+% - A shares intimate information with B
+% - A trusts B not to reveal that information by not constantly monitoring B, i.e. respecting B's privacy
+% - B has now the possibility to share intimate information with A
+
+We share information of great intimacy with persons we deem trustworthy we do not share with anyone else. 
+Moreover, we trust those persons to not reveal information about us to others by not constantly monitoring them, i.e. respecting their privacy.
+Trust needs the possibility of unknown failure.
+If we would constantly monitor our partners, they cannot fail unnoticed nor can they willingly share intimate information with us.
+By trusting them as described before, we create the possibility for them to share intimate information with us.
+
+
+\subsubsection{Relationship Modulation.}
+Fried argues, depending on the person we are interacting with, we are changing the degree of intimacy we share.
+If we are to share private information with others, we are most likely aware that this action is privacy related.
+In that case we are able to selectively disclose information along the two dimensions of quantity and quality.
+
+
+\subsubsection{Alternative Definitions.}
+So privacy and its possibility, according to Fried, is the ability to build and maintain relationships between humans.
+Thus it is essential to society, \cite{CFried:Privacy}.
+Using his anatomy of privacy as foundation of our analysis is suitable because of two points.
+At first, Fried's study on the understanding of privacy provided a great contribution to the research on the same term in philosophy \cite{sep-privacy} and computer science \cite{SociotechnicalArchitectureForOnlinePrivacy}.
+Secondly, despite the fact his text was published in 1970, he already included technologies to its viewpoint that did not only monitor location, but also record biometric data.
+
+\TODO{RG: Discuss alternative definitions of privacy}
+
+%=======================================================================================
+
+
+\begin{LGContent-Hidden}
 Defining privacy is a challenge which seems impossible. This is well put to words by Serge Gutwirth, who notes:
 
 \begin{quote}
@@ -239,9 +306,12 @@ And thus it is valuable, because those relations are essential to human society 
 Using his anatomy of privacy as foundation of our analysis is suitable because of two points.
 At first, Fried's study on the understanding of privacy provided a great contribution to the research on the same term in philosophy \cite{sep-privacy} and computer science \cite{SociotechnicalArchitectureForOnlinePrivacy}.
 Secondly, despite the fact his text was published in 1970, he already included technologies to its viewpoint that did not only monitor location, but also record biometric data.
+\end{LGContent-Hidden}
 
-\subsection{The Seven Types of Privacy}\label{sec:privacytypes}
+\subsection{The Seven Types of Privacy}
+\label{sec:privacytypes}
 
+\begin{LGContent}
 In Fried's definition of privacy as control over "information about onself'', the specification of what constitues such information remains open.
 There is a vast amount of information that relates to a person and we need to get a better understanding in order to perform a thorough analysis.
 To this end we use the the categorization by Friedewald, Finn and Wright \cite{7ToP} called the \textit{Seven Types of Privacy}.
@@ -306,11 +376,58 @@ Associations like friends or organizations such as political parties must not au
 
 \end{LGContent}
 
-\subsection{Sensor Data Privacy Impact}\label{sec:SensorPrivacyImpact}
 
-\begin{LGContent}
+\subsection{Sensor Data Privacy Impact}
+\label{sec:SensorPrivacyImpact}
 
-\input{./figures/LG-Implicit-Sensor-Privacy-Matrix}
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{diagrams/png/implicit-sensor-privacy-matrix.png}
+
+
+
+\caption{Live+Gov Implicit Sensor-Privacy Matrix}
+\label{figure:Live+Gov Implicit Sensor-Privacy Matrix}
+\end{figure}
+
+In this section we analyze the impact of the disclosure sensor data and certain processing results to the citizens privacy.
+This analyisis builds upon the preceeding analyis, but is more focused on the concrete type of data vailable.
+For example, the disclosure of Service Line Detection results, does violate the Privacy of Location and Space but not the Privacy of Association that is violated by general GPS tracking.
+
+\subsubsection{GPS Data.}
+The GPS sensor gives the current longitude and latitude, the current global position of the mobile device and its carrier, although there is some artificial inaccuracy within civil use. Threefore, the collection of GPS data violates directly the citizens privacy of Location and Space, and the privacy of Data an Image.
+
+By inference we also get implicit violations of the Privacy of the Person, Privacy of Behavior and Action and Privacy of Association.
+
+\subsubsection{Motion Sensors.}
+Accelerometer, Rotation Vector, Gyroscope and Magnetic field sensor measure the physical movement of the mobile device on all three axes.
+If the mobile device is carried ``normally'' its safe to say that those sensors also measure the moments of its carrier.
+So his privacy is infringed regarding biometric behaviour, as it is captured automatically
+Privacy of Data and Image is trivially threatened because here sensor data is individual data, a priori.
+
+By inference we also get implicit violations of the Privacy of Behavior and Action.
+
+\subsubsection{Network Sensors.}
+The GSM and WLAN sensors reveal the position of the mobile device and its carrier, when used in connection with external databases.
+The GSM sensor gives the exact cell, the mobile device has registered with at the current moment.
+
+The Bluetooth sensors record lists of the bluetooth clients in the direct neighbourhood.
+Since those clients are usually moving, inference of the position is usually not possible.
+Instead, bluetooth clients carried by a third person may infringe the Privacy of Association.
+
+A similar argumentat applies to WLAN snsors. If one frequently connects with an organizational wireless network, e.g.~an university network, an association can be deduced (student or staff).
+
+\subsubsection{Human Activity Recognition.}
+The detection and collection of human activities like walking, standing and running, can interfer with the Privacy of the Person, e.g.~since these movement patterns can be indicators for a person's health. Also, trivially, Privacy of Data and Image is violated.
+
+\subsubsection{Service Line Detection.}
+The detection and collection of the service line the user currently uses in the public transportation system allows inference of the location of the user, at least when entering and leaving those service lines at e.g.~bus stops.
+Implicit privacy violations apply accordingly.
+
+
+\begin{LGContent-Hidden}
+
+%\input{./figures/LG-Implicit-Sensor-Privacy-Matrix}
 
 %TODO: Reformulate the section.
 % - Too much overlap with preceeding sections.
@@ -351,7 +468,7 @@ The detection and collection of human activities like walking, standing and runn
 The detection and collection of the service line the user currently uses in the public transportation system allows inference of the location of the user, at least when entering and leaving those service lines at e.g.~bus stops.
 Implicit privacy violations apply accordingly.
 
-\end{LGContent}
+\end{LGContent-Hidden}
 
 %============================================================
 
