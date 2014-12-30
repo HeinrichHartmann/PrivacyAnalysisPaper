@@ -1,7 +1,10 @@
-D1-3.aux
-D1-3.lof
-D1-3.log
-D1-3.lot
-D1-3.out
-D1-3.synctex.gz
-D1-3.toc
+*.aux
+*.lof
+*.log
+*.lot
+*.out
+*.synctex.gz
+*.toc
+*.pdf
+*.bbl
+*.blg
