@@ -209,7 +209,7 @@ Defining privacy is a challenge which seems impossible. This is well put to word
 The notion of privacy remains out of the grasp of every academic chasing it. Even when it is cornered by such additional modifiers as `our' privacy, it still finds a way to remain elusive. \cite{Gutwirth}
 \end{quote}
 In this section we introduce the concept of privacy as control over information.
-We specify kinds of information we have to deal with in the context of privacy.
+We specify types of information we have to deal with in the context of privacy.
 And finally we outline the impact mobile sensors can have on one's privacy.
 
 \subsection{Privacy as Control over Information}
@@ -229,7 +229,8 @@ rather it is \textbf{the control we have over information about ourselves}. \cit
 According to Fried privacy is our ability to create and modulate the relationships to other humans.
 Which makes us intuitively sensitive for its violation, because this affects what defines our identity.
 Also, the ability to build and maintain relationships is essential to society.
-This is what makes privacy valuable and deserving of protection.
+This is what makes privacy valuable and deserving of protection. 
+\cite{sep-privacy}\cite{CFried:Privacy}
 
 \subsubsection{Relationship Creation.}
 
@@ -239,29 +240,30 @@ This is what makes privacy valuable and deserving of protection.
 % - A trusts B not to reveal that information by not constantly monitoring B, i.e. respecting B's privacy
 % - B has now the possibility to share intimate information with A
 
-We share information of great intimacy with persons we deem trustworthy we do not share with anyone else. 
+We share information of great intimacy only with persons we deem trustworthy. 
 Moreover, we trust those persons to not reveal information about us to others by not constantly monitoring them, i.e. respecting their privacy.
 Trust needs the possibility of unknown failure.
 If we would constantly monitor our partners, they cannot fail unnoticed nor can they willingly share intimate information with us.
-By trusting them as described before, we create the possibility for them to share intimate information with us.
-
+By trusting them, we create the possibility for them to share intimate information with us.
+\cite{CFried:Privacy}
 
 \subsubsection{Relationship Modulation.}
 Fried argues, depending on the person we are interacting with, we are changing the degree of intimacy we share.
 If we are to share private information with others, we are most likely aware that this action is privacy related.
 In that case we are able to selectively disclose information along the two dimensions of quantity and quality.
-
+\cite{CFried:Privacy}
 
 \subsubsection{Alternative Definitions.}
-So privacy and its possibility, according to Fried, is the ability to build and maintain relationships between humans.
-Thus it is essential to society, \cite{CFried:Privacy}.
-Using his anatomy of privacy as foundation of our analysis is suitable because of two points.
-At first, Fried's study on the understanding of privacy provided a great contribution to the research on the same term in philosophy \cite{sep-privacy} and computer science \cite{SociotechnicalArchitectureForOnlinePrivacy}.
-Secondly, despite the fact his text was published in 1970, he already included technologies to its viewpoint that did not only monitor location, but also record biometric data.
+Using Fried's anatomy of privacy for this analysis is suitable because of two points.
+Despite the fact his text was published in 1970, he already included technologies to its viewpoint that did not only monitor location, but also record biometric data \cite{CFried:Privacy}. 
+Secondly, the concept of control over information does not enforce data minimization.
+Fried's definition complies with what we call \textit{self data protection}, where persons communicate their data self-determined.
+This is the opposite of \textit{system data protection}, where the collection of certain data is prohibited. 
 
 \TODO{RG: Discuss alternative definitions of privacy}
 
 %=======================================================================================
+
 
 
 \begin{LGContent-Hidden}
@@ -311,17 +313,15 @@ Secondly, despite the fact his text was published in 1970, he already included t
 \subsection{The Seven Types of Privacy}
 \label{sec:privacytypes}
 
-\begin{LGContent}
+%\begin{LGContent}
 In Fried's definition of privacy as control over "information about onself'', the specification of what constitues such information remains open.
 There is a vast amount of information that relates to a person and we need to get a better understanding in order to perform a thorough analysis.
 To this end we use the the categorization by Friedewald, Finn and Wright \cite{7ToP} called the \textit{Seven Types of Privacy}.
 The seven types of privacy are an extension to the four types of privacy by Roger Clarke \cite{RClarke:4ToP}, which are:
-\begin{itemize}
-\item Privacy of the Person
-\item Privacy of Personal Behaviour
-\item Privacy of Personal Communication
-\item Privacy of Personal Data
-\end{itemize}
+\textit{Privacy of the Person},
+\textit{Privacy of Personal Behaviour},
+\textit{Privacy of Personal Communication},
+\textit{Privacy of Personal Data}.
 It is important to note, that this categories do not form no taxonomy, since the categories are not mutually exclusive.
 For instance a written email is considered personal communication as well as personal data stored on a computer.
 
@@ -374,25 +374,88 @@ Friedewald et al. state that one must have the possibility with whomever without
 Associations like friends or organizations such as political parties must not automatically be recorded because one associates with them, and vice-versa.
 \end{enumerate}
 
-\end{LGContent}
+%\end{LGContent}
 
 
 \subsection{Sensor Data Privacy Impact}
 \label{sec:SensorPrivacyImpact}
 
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{diagrams/png/implicit-sensor-privacy-matrix.png}
-
-
-
-\caption{Live+Gov Implicit Sensor-Privacy Matrix}
-\label{figure:Live+Gov Implicit Sensor-Privacy Matrix}
-\end{figure}
-
 In this section we analyze the impact of the disclosure sensor data and certain processing results to the citizens privacy.
 This analyisis builds upon the preceeding analyis, but is more focused on the concrete type of data vailable.
 For example, the disclosure of Service Line Detection results, does violate the Privacy of Location and Space but not the Privacy of Association that is violated by general GPS tracking.
+
+\begin{figure}
+\newcommand{\tcell}[1]{\parbox[c]{4cm}{\vspace{3mm}#1\vspace{3mm}}}
+\newcommand{\thead}[1]{\tcell{\Large\centering\textbf{#1}}}
+\newcommand{\tbody}[1]{\tcell{\Large\centering #1}}
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|c||c|c|c|c|c|c|c|}
+\hline
+& \thead{Pricacy of the Person}
+& \thead{Pricacy of Behaviour and Action}
+& \thead{Pricacy of Communication}
+& \thead{Pricacy of Data and Image}
+& \thead{Pricacy of Thoughts and Feelings}
+& \thead{Pricacy of Location and Space}
+& \thead{Pricacy of Association}
+\\\hline\hline
+\thead{Geo Position}
+& \tbody{0.5} % Pricacy of the Person
+& \tbody{0.5} % Pricacy of Behaviour and Action
+& \tbody{0} % Pricacy of Communication
+& \tbody{1} % Pricacy of Data and Image
+& \tbody{0} % Pricacy of Thoughts and Feelings
+& \tbody{1} % Pricacy of Location and Space
+& \tbody{0.5} % Pricacy of Association
+\\\hline
+\thead{Motion}
+& \tbody{1} % Pricacy of the Person
+& \tbody{0.5} % Pricacy of Behaviour and Action
+& \tbody{0} % Pricacy of Communication
+& \tbody{1} % Pricacy of Data and Image
+& \tbody{0} % Pricacy of Thoughts and Feelings
+& \tbody{0} % Pricacy of Location and Space
+& \tbody{0} % Pricacy of Association
+\\\hline
+\thead{Networking}
+& \tbody{0.5} % Pricacy of the Person
+& \tbody{0.5} % Pricacy of Behaviour and Action
+& \tbody{0} % Pricacy of Communication
+& \tbody{1} % Pricacy of Data and Image
+& \tbody{0} % Pricacy of Thoughts and Feelings
+& \tbody{1} % Pricacy of Location and Space
+& \tbody{1} % Pricacy of Association
+\\\hline
+%\thead{HAR}
+%& \tbody{-} % Pricacy of the Person
+%& \tbody{-} % Pricacy of Behaviour and Action
+%& \tbody{-} % Pricacy of Communication
+%& \tbody{-} % Pricacy of Data and Image
+%& \tbody{-} % Pricacy of Thoughts and Feelings
+%& \tbody{-} % Pricacy of Location and Space
+%& \tbody{-} % Pricacy of Association
+%\\\hline
+%\thead{SLD}
+%& \tbody{-} % Pricacy of the Person
+%& \tbody{-} % Pricacy of Behaviour and Action
+%& \tbody{-} % Pricacy of Communication
+%& \tbody{-} % Pricacy of Data and Image
+%& \tbody{-} % Pricacy of Thoughts and Feelings
+%& \tbody{-} % Pricacy of Location and Space
+%& \tbody{-} % Pricacy of Association
+%\\\hline
+\end{tabular}
+}
+\newline
+\newline
+{\scriptsize 
+0: No Impact,
+0.5: Light Impact,
+1: Hard Impact}
+\caption{Sensor Data Privacy Impact Matrix}
+\label{figure:Sensor Data Privacy Impact Matrix}
+\end{figure}
 
 \subsubsection{GPS Data.}
 The GPS sensor gives the current longitude and latitude, the current global position of the mobile device and its carrier, although there is some artificial inaccuracy within civil use. Threefore, the collection of GPS data violates directly the citizens privacy of Location and Space, and the privacy of Data an Image.
@@ -417,12 +480,12 @@ Instead, bluetooth clients carried by a third person may infringe the Privacy of
 
 A similar argumentat applies to WLAN snsors. If one frequently connects with an organizational wireless network, e.g.~an university network, an association can be deduced (student or staff).
 
-\subsubsection{Human Activity Recognition.}
-The detection and collection of human activities like walking, standing and running, can interfer with the Privacy of the Person, e.g.~since these movement patterns can be indicators for a person's health. Also, trivially, Privacy of Data and Image is violated.
-
-\subsubsection{Service Line Detection.}
-The detection and collection of the service line the user currently uses in the public transportation system allows inference of the location of the user, at least when entering and leaving those service lines at e.g.~bus stops.
-Implicit privacy violations apply accordingly.
+%\subsubsection{Human Activity Recognition.}
+%The detection and collection of human activities like walking, standing and running, can interfer with the Privacy of the Person, e.g.~since these movement patterns can be indicators for a person's health. Also, trivially, Privacy of Data and Image is violated.
+%
+%\subsubsection{Service Line Detection.}
+%The detection and collection of the service line the user currently uses in the public transportation system allows inference of the location of the user, at least when entering and leaving those service lines at e.g.~bus stops.
+%Implicit privacy violations apply accordingly.
 
 
 \begin{LGContent-Hidden}
