@@ -313,7 +313,67 @@ Secondly, despite the fact his text was published in 1970, he already included t
 \subsection{The Seven Types of Privacy}
 \label{sec:privacytypes}
 
-%\begin{LGContent}
+In Fried's definition of privacy as control over information, the specification of what constitues such information remains open.
+There is a vast amount of information that relates to a person and we need to get a better understanding in order to perform a thorough analysis.
+To this end we use the the categorization by Friedewald, Finn and Wright \cite{7ToP} called the \textit{Seven Types of Privacy}.
+The seven types of privacy are an extension to the four types of privacy by Roger Clarke \cite{RClarke:4ToP}, which are:
+\textit{Privacy of the Person},
+\textit{Privacy of Personal Behaviour},
+\textit{Privacy of Personal Communication},
+\textit{Privacy of Personal Data}.
+It is important to note, that these categories do not form a taxonomy, since the categories are not mutually exclusive.
+For instance a written email is considered personal communication as well as personal data stored on a computer.
+
+Moreover, Friedewald et al. argue that Clarke's types are outdated and no longer adequate in order to describe the privacy aspect of our modern, technology driven, world.
+In order to address this shortcoming they extend the former four to the now introduced seven types privacy as follows:
+
+\begin{enumerate}
+
+\item \textbf{Privacy of the Person}
+This privacy type is generally concerned with one could best understand as biometric privacy.
+Friedewald et al. paraphrase it as \emph{``\om the right to keep body functions and body characteristics \om private''}.
+This includes but is not limited to measures like weight, height or shoulder width;
+biometric identifiers like fingerprints and DNA sequences;
+or medical conditions such as limping or having a cold.
+
+
+\item \textbf{Privacy of Behaviour and Action}
+This privacy type is concerned with one's activities in public as well as in private spaces.
+It includes but is not limited to religious practices, political activities and sexual preferences or habits.
+
+
+\item \textbf{Privacy of Communication}
+This privacy type is concerned with one's communication in a broad sense.
+It includes written correspondence, but also conversations conducted either vis-a-vis or via electronic devices.
+Friedewald et al. put it as the right to free discussion without unknown interception by third parties.
+
+
+\item \textbf{Privacy of Data and Image}
+This privacy type is concerned with the secrecy of personal data, especially its automatic disclosure to other individuals and organizations.
+It includes data such as paychecks, insurance information or records of public administration.
+However, it also refers to pictures taken without consent and digital identifiers like IP addresses or social security numbers.
+
+
+\item \textbf{Privacy of Thoughts and Feelings}
+This privacy type is the counterpart to Privacy of the Person like body and mind are counterparts of one another.
+Comparable to the Privacy of Data and Image, Friedewald et al. state that one's thoughts and feelings must not be automatically revealed to others.
+This could simply happen by the disclosure of one's diary or by technologies which allow emotion detection through biometric means.
+One's body temperature or iris reflexes might infer stress or excitation.
+
+
+\item \textbf{Privacy of Location and Space}
+This privacy type is concerned with one's movements in public spaces and the protection of private spaces.
+Friedewald et al. qualify the first dimension as one's right to move without being identified, tracked or monitored.
+The second dimension is qualified as one's general right to solitude, especially the right to the inviolability of the home.
+
+
+\item \textbf{Privacy of Association}
+This privacy type is also put as group privacy.
+Friedewald et al. state that one must have the possibility with whomever without being recorded.
+Associations like friends or organizations such as political parties must not automatically be recorded because one associates with them, and vice-versa.
+\end{enumerate}
+
+\begin{LGContent-Hidden}
 In Fried's definition of privacy as control over "information about onself'', the specification of what constitues such information remains open.
 There is a vast amount of information that relates to a person and we need to get a better understanding in order to perform a thorough analysis.
 To this end we use the the categorization by Friedewald, Finn and Wright \cite{7ToP} called the \textit{Seven Types of Privacy}.
@@ -374,18 +434,22 @@ Friedewald et al. state that one must have the possibility with whomever without
 Associations like friends or organizations such as political parties must not automatically be recorded because one associates with them, and vice-versa.
 \end{enumerate}
 
-%\end{LGContent}
+\end{LGContent-Hidden}
 
 
 \subsection{Sensor Data Privacy Impact}
 \label{sec:SensorPrivacyImpact}
 
-In this section we analyze the impact of the disclosure sensor data and certain processing results to the citizens privacy.
-This analyisis builds upon the preceeding analyis, but is more focused on the concrete type of data vailable.
-For example, the disclosure of Service Line Detection results, does violate the Privacy of Location and Space but not the Privacy of Association that is violated by general GPS tracking.
+Modern mobile devices have a broad collection of sensors.
+Disclosure or processing of sensor data can impact one's privacy.
+In this section we identify groups of sensors and their potential impact on a certain type of privacy.
+Figure \ref{figure:Sensor Data Privacy Impact Matrix} qualifies that impact on a simple scale.
+Privacy of Data and Image is trivially threatened because here sensor data is individual data, a priori.
+Indirect impact is caused by combining sensor data with additional knowledge.
+For instance, comparing a contemporary map with locational data can imply behaviour if the position matches a church.
 
 \begin{figure}
-\newcommand{\tcell}[1]{\parbox[c]{4cm}{\vspace{3mm}#1\vspace{3mm}}}
+\newcommand{\tcell}[1]{\parbox[c][2cm]{4cm}{\vspace{3mm}#1\vspace{3mm}}}
 \newcommand{\thead}[1]{\tcell{\Large\centering\textbf{#1}}}
 \newcommand{\tbody}[1]{\tcell{\Large\centering #1}}
 \centering
@@ -400,7 +464,7 @@ For example, the disclosure of Service Line Detection results, does violate the 
 & \thead{Pricacy of Location and Space}
 & \thead{Pricacy of Association}
 \\\hline\hline
-\thead{Geo Position}
+\thead{GPS Sensor}
 & \tbody{0.5} % Pricacy of the Person
 & \tbody{0.5} % Pricacy of Behaviour and Action
 & \tbody{0} % Pricacy of Communication
@@ -409,7 +473,7 @@ For example, the disclosure of Service Line Detection results, does violate the 
 & \tbody{1} % Pricacy of Location and Space
 & \tbody{0.5} % Pricacy of Association
 \\\hline
-\thead{Motion}
+\thead{Motion Sensors}
 & \tbody{1} % Pricacy of the Person
 & \tbody{0.5} % Pricacy of Behaviour and Action
 & \tbody{0} % Pricacy of Communication
@@ -418,7 +482,7 @@ For example, the disclosure of Service Line Detection results, does violate the 
 & \tbody{0} % Pricacy of Location and Space
 & \tbody{0} % Pricacy of Association
 \\\hline
-\thead{Networking}
+\thead{Networking Sensors}
 & \tbody{0.5} % Pricacy of the Person
 & \tbody{0.5} % Pricacy of Behaviour and Action
 & \tbody{0} % Pricacy of Communication
@@ -451,34 +515,35 @@ For example, the disclosure of Service Line Detection results, does violate the 
 \newline
 {\scriptsize 
 0: No Impact,
-0.5: Light Impact,
-1: Hard Impact}
+0.5: Indirect Impact,
+1: Direct Impact}
 \caption{Sensor Data Privacy Impact Matrix}
 \label{figure:Sensor Data Privacy Impact Matrix}
 \end{figure}
 
-\subsubsection{GPS Data.}
-The GPS sensor gives the current longitude and latitude, the current global position of the mobile device and its carrier, although there is some artificial inaccuracy within civil use. Threefore, the collection of GPS data violates directly the citizens privacy of Location and Space, and the privacy of Data an Image.
+\subsubsection{GPS Sensor.}
+The GPS sensor gives the current longitude and latitude, the current global position of the mobile device and its carrier, although there is some artificial inaccuracy within civil use. Therefore, the collection of GPS data violates directly the citizens privacy of Location and Space.
 
-By inference we also get implicit violations of the Privacy of the Person, Privacy of Behavior and Action and Privacy of Association.
+%By inference we also get implicit violations of the Privacy of the Person, Privacy of Behavior and Action and Privacy of Association.
 
 \subsubsection{Motion Sensors.}
 Accelerometer, Rotation Vector, Gyroscope and Magnetic field sensor measure the physical movement of the mobile device on all three axes.
 If the mobile device is carried ``normally'' its safe to say that those sensors also measure the moments of its carrier.
-So his privacy is infringed regarding biometric behaviour, as it is captured automatically
-Privacy of Data and Image is trivially threatened because here sensor data is individual data, a priori.
+So his privacy is infringed regarding biometric behaviour, i.e. the Privacy of the Person.
 
-By inference we also get implicit violations of the Privacy of Behavior and Action.
+%By inference we also get implicit violations of the Privacy of Behavior and Action.
 
 \subsubsection{Network Sensors.}
 The GSM and WLAN sensors reveal the position of the mobile device and its carrier, when used in connection with external databases.
-The GSM sensor gives the exact cell, the mobile device has registered with at the current moment.
+The both sensors give the exact cell or network, the mobile device has registered with at the current moment.
+Frequent connection to one particular network also reveals association, e.g. university networks.
 
 The Bluetooth sensors record lists of the bluetooth clients in the direct neighbourhood.
 Since those clients are usually moving, inference of the position is usually not possible.
 Instead, bluetooth clients carried by a third person may infringe the Privacy of Association.
 
-A similar argumentat applies to WLAN snsors. If one frequently connects with an organizational wireless network, e.g.~an university network, an association can be deduced (student or staff).
+%A similar argumentat applies to WLAN snsors. 
+%If one frequently connects with an organizational wireless network, e.g.~an university network, an association can be deduced (student or staff).
 
 %\subsubsection{Human Activity Recognition.}
 %The detection and collection of human activities like walking, standing and running, can interfer with the Privacy of the Person, e.g.~since these movement patterns can be indicators for a person's health. Also, trivially, Privacy of Data and Image is violated.
