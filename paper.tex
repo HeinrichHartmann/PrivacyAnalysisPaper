@@ -144,7 +144,43 @@ This includes a description of it technical infrastructure and the interactions 
 The IT infrastructure of the Live+Gov system, i.e. the Live+Gov toolkit and the customization of the software components are described in detail in various project deliverables: D4.1, D4.3, D1.1, D5.1.
 In this section we give an abstraction of those systems from the perspective of WP1.
 
-\input{./figures/IT-Systems}
+%input{./figures/IT-Systems}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{diagrams/png/it-systems.png}
+
+\begin{flushleft}
+\scriptsize
+\textbf{Legend:}
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+
+\item
+\textbf{(a) Citizen:} 
+User of the L+G client application whose privacy is at stake.
+
+\item
+\textbf{(b) Service Provider:} Provides technical infrastructure.
+
+\item
+\textbf{(c) Local Authority:} Provider of the L+G system.
+
+\item
+\textbf{(d) Mobile Device:}
+Runs the L+G client application, produces and stores data sensitive to the users privacy.
+
+\item
+\textbf{(e) Data Center:} Runs the L+G services, processes and stores user data.
+
+\item
+\textbf{(f) Report Tool:} Interface to aggregated user data.
+
+\end{itemize}
+\end{flushleft}
+
+\caption{IT Systems}
+\label{figure:IT Systems}
+\end{figure}
 
 A \emph{citizen} (a) carries a mobile device running the \emph{sensor collector} application (d).
 The sensor collector application is able to collect various kinds of sensor data (accelerometer, GPS, GSM, ...) and can sent the raw data back to the \emph{data center} (c).
@@ -555,7 +591,7 @@ Instead, bluetooth clients carried by a third person may infringe the Privacy of
 
 \begin{LGContent-Hidden}
 
-%\input{./figures/LG-Implicit-Sensor-Privacy-Matrix}
+%input{./figures/LG-Implicit-Sensor-Privacy-Matrix}
 
 %TODO: Reformulate the section.
 % - Too much overlap with preceeding sections.
@@ -629,7 +665,13 @@ this section we give a brief overview over the reference model.
 \subsection{Model}
 
 %\includegraphics{../diagrams/png/itsec-ref-model-grimm.png}
-\input{./figures/The-IT-Security-Reference-Model-Grimm}
+%input{./figures/The-IT-Security-Reference-Model-Grimm}
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{diagrams/png/itsec-ref-model-grimm.png}
+\caption{The IT Security Reference Model (Grimm)}
+\label{fig:refmodel}
+\end{figure}
 
 The model is depicted in Figure \ref{fig:refmodel}.  It is organized
 in four views (round boxes) that contain a number of components
@@ -757,8 +799,13 @@ Instances of security measures.
 
 The analysis procedure is an incremental and iterative process following the four views of the previously described model.
 
-%\includegraphics{../diagrams/png/itsec-ref-model-grimm-procedure.png}
-\input{./figures/The-IT-Security-Reference-Analysis-Grimm}
+%includegraphics{../diagrams/png/itsec-ref-model-grimm-procedure.png}
+%input{./figures/The-IT-Security-Reference-Analysis-Grimm}
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{diagrams/png/itsec-ref-model-grimm-procedure.png}
+\caption{The IT Security Reference Analysis (Grimm)}
+\end{figure}
 
 \paragraph*{Step 1. World Analysis}
 
@@ -969,7 +1016,13 @@ This section outlines the Conflicts of Interests (Figure \ref{figure:Live+Gov Co
 The individual interests of all actors is already described in the previous section and are not elaborated any further.
 The emphasis here is put on prominent existing conflicts, because they provide a foundation for vulnerabilities and subsequent threats.
 
-\input{./figures/LG-Conflicts-Of-Interests}
+%input{./figures/LG-Conflicts-Of-Interests}
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{diagrams/png/conflict-of-interests.png}
+\caption{Live+Gov Conflicts of Interests}
+\label{figure:Live+Gov Conflicts of Interests}
+\end{figure}
 %TODO: Adapt Figure
 
 \textbf{System Complexity vs Privacy.}
@@ -1024,7 +1077,41 @@ This section outlines the vulnerabilities (Figure \ref{figure:Live+Gov Vulnerabi
 Note that vulnerabilities are not necessarily of technical nature.
 The weaknesses of IT systems are often created due to misuse or misconfiguration of the various components by one or more actors.
 
-\input{./figures/LG-Vulnerabilities}
+%input{./figures/LG-Vulnerabilities}
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{diagrams/png/vulnerabilities.png}
+
+%\begin{flushleft}
+%\scriptsize
+%\textbf{Legend:}
+%
+%\begin{itemize}
+%\itemsep1pt\parskip0pt\parsep0pt
+%\item
+%  \textbf{(a) Citizen:} User of the L+G client application whose privacy
+%  is at stake.
+%\item
+%  \textbf{(b) Mobile Device:} Runs the L+G client application, produces
+%  and stores data sensitive to the users privacy.
+%\item
+%  \textbf{(c) L+G Data Center:} Runs the L+G services, proccesses and
+%  stores user data.
+%\item
+%  \textbf{(d) L+G Maintenance Crew:} Technical staff with access to
+%  critical infrastructure.
+%\item
+%  \textbf{(e) Aggregation Monitor:} Interface to aggregated user data.
+%\item
+%  \textbf{(f) Local Authority:} Provider of the L+G system.
+%\item
+%  \textbf{(g) Criminal:} Threatens the L+G system and Citizen privacy.
+%\end{itemize}
+%\end{flushleft}
+
+\caption{Live+Gov Vulnerabilities}
+\label{figure:Live+Gov Vulnerabilities}
+\end{figure}
 
 \textbf{Insecure Infrastructure.}
 The proposed monitoring system consists of many hardware and software components, each with its own concrete weaknesses.
@@ -1071,7 +1158,13 @@ processing steps, access rules and disclosure to 3rd parties.
 
 \subsubsection{Threat Specification}
 
-\input{./figures/Threat-Example}
+%input{./figures/Threat-Example}
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{diagrams/png/threat-example.png}
+\caption{Threat Example}
+\label{figure:Threat-Example}
+\end{figure}
 
 Recall from the security model description in Section \ref{sec:GrimmModel}, that a threat is a potential interaction of the components that targets an asset.
 We restrict ourselves to the case of attacks, and the asset of privacy.
@@ -1087,7 +1180,82 @@ In this section we describe, in a similar fashion, threats for the citizen priva
 This list can necessarily not be complete, but we make a best effort to cover the most relevant cases.
 
 % \label{figure:Threats}
-\input{./figures/Threats}
+%input{./figures/Threats}
+\begin{figure}
+\centering
+%\includegraphics[width=\textwidth]{diagrams/png/threat-table.png}
+\newcommand{\tcell}[1]{\parbox[c]{6cm}{#1\vspace{3mm}}}
+\newcommand{\thead}[1]{\tcell{\vspace{3mm}\centering\textbf{#1}}}
+\newcommand{\tbody}[1]{\tcell{\footnotesize\flushleft #1}}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|c|c|c|c|}
+
+\hline
+\thead{Threat}
+& \thead{Conflict of Interest}
+& \thead{Vulnerability}
+& \thead{Affected Data}
+\\\hline\hline
+\tbody{Insufficient Control Features}
+& \tbody{Privacy vs. System Complexity}
+& \tbody{Missing Privacy Awareness}
+& \tbody{All collected data}
+\\\hline
+
+
+\tbody{Exessive Data Mining}
+& \tbody{Privacy vs. Business Intelligence (LA),
+\\Privacy vs. Financial Profit (SP)}
+& \tbody{Lax data handling policies
+\\Missing Privacy Awareness
+\\Weak law enforcement}
+& \tbody{Mined Information}
+\\\hline
+
+
+\tbody{Data Theft}
+& \tbody{Privacy vs. Financial Profit
+\\Reputation (SP) vs. Political Activism
+\\Reputation (LA) vs. Political Activism}
+& \tbody{Insecure Infrastructure,
+\\Insecure Communication}
+& \tbody{Transmitted data 
+\\Data stored in data center}
+\\\hline
+
+
+\tbody{Surveillance}
+& \tbody{Privacy vs. External Power}
+& \tbody{Insecure Infrastructure
+\\Insecure Communication}
+& \tbody{Transmitted data 
+\\Data stored in data center}
+\\\hline
+
+
+\tbody{Information Leak}
+& \tbody{Privacy vs. Financial Profit
+\\Reputation (SP) vs. Political Activism
+\\Reputation (LA) vs. Political Activism}
+& \tbody{Unhappy Employee 
+\\Lax Access Rules}
+& \tbody{Data stored in data center}
+\\\hline
+
+
+\tbody{Social Engineering}
+& \tbody{Privacy vs. Financial Profit
+\\Reputation (SP) vs. Political Activism
+\\Reputation (LA) vs. Political Activism}
+& \tbody{Unhappy Employee
+\\Lax Access Rules}
+& \tbody{Data stored in data center}
+\\\hline
+\end{tabular}
+}
+\caption{Threats}
+\label{figure:Threats}
+\end{figure}
 
 \textbf{T1. Insufficient Control Features.}
 The System Provider does not offer tools for the Citizen to control his data.
