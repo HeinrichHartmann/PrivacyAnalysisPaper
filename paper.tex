@@ -666,8 +666,8 @@ The \emph{world view} contains all components describing the current state.
 It consists of the following components:
 \begin{itemize}
 	
-	\item
-	\textbf{Assets.} Things of value to one or more stakeholders.
+	\item \textbf{Assets.} 
+	Things of value to one or more stakeholders.
 	
 	\item \textbf{IT-Systems.}
 	The relevant IT-Systems under study. Already described in Section \ref{subsubsection:it-systems}.
@@ -726,8 +726,6 @@ System Providers are interested in: financial profit, manageable complexity, pro
 Local authorities are public offices (ministry, agency, department, ...) or other external public entities which act as direct customers of service providers.
 They purchase a system specialized for their needs.
 For example a department for urban mobility, orders a system to better understand usage patterns and make improvement to the urban traffic flow. Such systems are investments, and so naturally local authorities are interested in a profitable return, like increased ticket sales.
-
-The first important step of improving the public services is by obtaining business intelligence. For the urban mobility scenario the Live+Gov systems provide insight in form of traffic jam detection and usage pattern mining, which allow local authorities to focus their efforts to the most important sites.
 
 Local authorities are interested in: financial profit, political reputation, business intelligence, and good working conditions.
 
@@ -829,7 +827,7 @@ Unintended interactions lead to threats. The potential view consists of the foll
 	Evaluation of chances and risks associated to the business objectives and threats. The risk associated to a threat is its expected loss.
 
 	\item \textbf{Security Requirements.}
-	Interactions (e.g. threats) that shall not occur within the system in order to achieve its business objectives.
+	Interactions (e.g. threats) that shall not occur within the system in order to achieve its business objectives.  We included these security requirements into our analysis in Section \ref{subsec:priv-rec}.
 		
 \end{itemize}
 
@@ -937,13 +935,7 @@ The threat can be provoked by either lax data handling policies of both System P
 But the main issue, which can lead to such threats, is again a general \textit{Missing Privacy Awareness}.
 
 \textbf{T3. Data Theft}
-An External infiltrates infrastructure in order to steal personal data and sell it on the black market.
-Also the External might be motivated politically and wants to harm the reputation of the System Provider or the Local Authority.
-Anyways, this threat would be manifested through a technical attack on either hardware (Packet Capture) or software (buffer overflow, SQL injection).
-Such a successful attack could harm the reputation of both System Provider and Local Authority.
-The technical competence of System Providers would be proven wrong, therefore they would lose professional reputation.
-Local Authorities would lose their political reputation, as it would seem like they had endangered data of Citizens, which lose complete control.
-Thus this threat is defined by three conflicts: \textit{Privacy vs. Financial Profit}, \textit{Reputation of Service Provider vs. Political Activism} and \textit{Reputation of Local Authority vs. Political Activism}.
+An External infiltrates infrastructure in order to steal personal data and sell it on the black market. Also the External might be motivated politically and wants to harm the reputation of the System Provider or the Local Authority. Such a successful attack could harm the reputation of both System Provider and Local Authority. Thus this threat is defined by three conflicts: \textit{Privacy vs. Financial Profit}, \textit{Reputation of Service Provider vs. Political Activism} and \textit{Reputation of Local Authority vs. Political Activism}.
 Also this threat describes the classical scenario, where attacks are provoked by \textit{Insecure Infrastructure} (SQL injection) and \textit{Insecure Communication} (Packet Capture).
 
 \textbf{T4. Surveillance}
@@ -953,11 +945,7 @@ external is supposed to have some direct relationship to the citizen
 which motivates his interest to obtain personal information.  Examples
 could be a public institution that wants to gain information about
 planned activities of the citizens (e.g. Nixon's Watergate scandal or
-the recent prosecution of Guardian journalists by GHCQ).  Another
-example is an insurance company that seeks to get information about
-the citizens life-style in relation to the insured risk, like car
-accidents or health hazards.
-
+the recent prosecution of Guardian journalists by GHCQ). 
 In this threat the privacy interest of the citizen is in conflict with
 the aspirations for power over the citizen by the externals.
 
@@ -1020,15 +1008,7 @@ Hence the resulting risk is calculated as $4+1 = 5$.
 We assess the likeliness of excessive data mining to be $3$ High, since
 these kind of analysis can be performed within the walls of the service
 provider, without somebody else noticing, and the service provider himself
-has an interest in this activity.
-
-The associated loss, on the other hand can be substantial (Medium
-$2$).  For example when GPS data is linked to data from telephone
-books the identity of the citizen can be revealed and personal details
-like visits to doctors. In the threat scenario, this information is
-not leaked to third parties, (which would justify an even higher loss
-assessment), but the very existence of this information violates the
-citizens privacy.
+has an interest in this activity. The associated loss, on the other hand can be substantial (Medium $2$). 
 
 Hence the resulting risk is calculated as $3+2 = 5$.
 
@@ -1094,12 +1074,6 @@ T6. Social Engineering            & 1                   & 3             & 4     
 \caption{Live+Gov Risk Evaluation and Recommendations}
 \label{fig:risks}
 \end{figure}
-
-\subsubsection{Security Requirements}
-
-A set of interactions (e.g. threats) that shall not occur within the system in order to achieve its business objectives. Security requirements are targeted to protect one or more assets.
-
-An example of a security requirement is that a given communication channel shall not be infringed by externals. We included these security requirements into our analysis in Section \ref{subsec:priv-rec}.
 
 
 \subsection{Privacy Recommendations}
