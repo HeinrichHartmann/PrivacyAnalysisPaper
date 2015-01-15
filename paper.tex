@@ -28,6 +28,8 @@
 \usepackage{xspace}
 \newcommand{\om}{[...]\xspace} % omission
 
+\authorrunning{H. Hartmann, T. Wambach, M. Meffert, R. Grimm}
+
 %% END CUSTOM BINDINGS %%
 
 \begin{document}
@@ -231,6 +233,7 @@ In the Live+Gov Project the reporting tools allows, in particular the following 
 %============================================================
 
 \section{Definition of Privacy}
+\label{sec:privacydef}
 
 %\TODO{MM:\\
 %- Shorten\\
@@ -636,433 +639,126 @@ Implicit privacy violations apply accordingly.
 
 %============================================================
 
-\section{IT Security Reference Model}
 
-\TODO{TW}
 
-\begin{LGContent}
 
-The goal of this chapter to analyze and identify the threads to
+
+
+
+
+\section{Privacy Analysis}
+
+
+The goal of this chapter is to analyze and identify the threads to
 personal privacy that are posed by collecting, storing and processing
 sensor data from mobile phones.  We derive concrete privacy protection
 measures that address the main risks involved with handling such data.
 
-The complexity of our systems and the variety of threads make a great
-number of counter measures plausible.  We approach this complexity
-with the aid of a general security analysis model developed in
-\cite{Grimm:ItSecRefModel}.  We give a brief introduction to this
-model and perform a IT Security Analysis with respect to the privacy
-asset for our system.
-
-We follow the Reference Model for IT Security Analysis as described in
-\cite{Grimm:ItSecRefModel}.  It supersedes earlier efforts by
+In section \ref{subsec:world-analysis} and \ref{subsec:pot-analysis} we apply the first two steps of the Reference Model for IT Security Analysis as described in \cite{Grimm:ItSecRefModel}.  It supersedes earlier efforts by
 e.g. \cite{Avizienis}.  The reference model consists of a \emph{model}
-and a \emph{procedure}.  The model aims to organize common security
-terminology in a reasonable and practical way.  The procedure
-describes a method to analysis the IT system based on that model.  In
-this section we give a brief overview over the reference model.
+and a \emph{procedure}: The model aims to organize common security terminology in a reasonable and practical way, the procedure describes a method to analysis the IT system based on that model. In section \ref{subsec:priv-rec} we provide specific privacy recommendations as a result of the previous analysis that the operated system must comply.
 
-\subsection{Model}
+\subsection{Step 1. World Analysis}
 
-%\includegraphics{../diagrams/png/itsec-ref-model-grimm.png}
-%input{./figures/The-IT-Security-Reference-Model-Grimm}
-\begin{figure}
-\centering
-\includegraphics[width=0.6\textwidth]{diagrams/png/itsec-ref-model-grimm.png}
-\caption{The IT Security Reference Model (Grimm)}
-\label{fig:refmodel}
-\end{figure}
-
-The model is depicted in Figure \ref{fig:refmodel}.  It is organized
-in four views (round boxes) that contain a number of components
-(rectangular boxes).
-
-%%%%%%%%%%%%%%%%%%%%
+\label{subsec:world-analysis}
 
 The \emph{world view} contains all components describing the current state.
 It consists of the following components:
 \begin{itemize}
-\item \textbf{Actors.}
-All identifiable stakeholders of the system under study.
-Typical actors include, users, developers, clients and externals.
-
-\item
-\textbf{Assets.} Things of value to one or more stakeholders.
-The value can be hard (money, data, etc.) or soft (trust, privacy,etc.).
-In our case the only asset we are concerned with is the privacy of the citizen.
-
-\item \textbf{IT-Systems.}
-The relevant IT-Systems under study. This encompasses hardware (e.g. servers, network infrastructure), as well as software and third party services.
-The level of granularity has to be detailed enough to express all possible threats to the assets at stake.
-
-\item \textbf{Conflicts of Interests.}
-Different actors have different interests which can be in conflict which each other.
-These conflicts of interest are the origin of all attacks to the system.
-
-A typical conflict is the \emph{Criminal-User-Conflict}:
-A user wants to keep control over their private data.
-A criminal wants to gain money.
-The possibility of selling private data (user profiles) to advertisers, renders both interests conflicting.
-
-\item \textbf{Vulnerabilities.}
-All identifiable weaknesses in the IT-System.
-
-In the example of the criminal-user-conflict, the criminal has to exploit a vulnerability, e.g. a weak password, to gain access to the private data about the user.
-
-\item \textbf{Interactions.}
-This point captures all possible interactions between assets, IT-Systems, humans and vulnerabilites.
-It is described in more detail in the next view.
+	
+	\item
+	\textbf{Assets.} Things of value to one or more stakeholders.
+	
+	\item \textbf{IT-Systems.}
+	The relevant IT-Systems under study. Already described in Section \ref{subsubsection:it-systems}.
+		
+	\item \textbf{Actors.}
+	All identifiable stakeholders of the system under study.
+	
+	\item \textbf{Conflicts of Interests.}
+	Different actors have different interests which can be in conflict which each other.
+	
+	\item \textbf{Vulnerabilities.}
+	All identifiable weaknesses in the IT-System e.g. a weak passwords.
+	
+	\item \textbf{Interactions.}
+	This point captures all possible interactions between assets, IT-Systems, humans, and vulnerabilites as partly described in Section \ref{subsubsection:it-systems} and will be further analyzed in \ref{subsec:pot-analysis}.
+	
 \end{itemize}
 
 
-%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Assets}
 
-
-The \emph{potential view} displays the intended and unintended interactions of the components in the world view.
-The intended interactions support the underlying business objectives.
-Unintended interactions lead to threats.
-The potential view consists of the following components.
-\begin{itemize}
-\item \textbf{Business Objectives.}
-Interaction of IT-system and actors that realize a business goals of the system owner.
-
-\item \textbf{Threats.}
-A threat is a potential interaction that destroys or harms assets of the system.
-Concrete realizations of threats can be \emph{attacks} or \emph{accidents}.
-Attacks are executed by an actor in response to a conflict of interest.
-Accidents are harmful interactions that are not willfully caused by an actor.
-
-\item \textbf{Chances/Risk.}
-Evaluation of chances and risks associated to the business objectives and threats.
-The risk associated to a threat is its expected loss.
-A chance associated to a intended interaction is its expected gain.
-
-In the case that, the loss can be quantified monetary, and the likelihood of occurrence of a threat can
-be modeled probabilistically, the risk is given by the product
-\[ \text{risk} = \text{loss} \cdot P[\text{threat}]. \]
-In practice such a quantitative risk evaluation is often not possible, and a qualitative, heuristic, analysis is performed instead.
-
-\item \textbf{Security Requirements.}
-A set of interactions (e.g. threats) that shall not occur within the system in order to achieve its business objectives.
-Security requirements are targeted to protect one or more assets.
-
-An example of a security requirement is that a given communication channel shall not be infringed by externals.
-\end{itemize}
-
-
-%%%%%%%%%%%%%%%%%%%%
-
-
-The \emph{concept view} is a realization of the potential view of the system.
-It specifies important interactions that require further planning.
-It contains the following components:
-\begin{itemize}
-\item \textbf{Business Model.}
-The plan to achieve business objectives.
-
-\item \textbf{Accident Scenario.}
-A concrete outline of an interaction that leads to an accident.
-In particular the asset under threatened and exploited vulnerability need to be described.
-
-\item \textbf{Attack Technique.}
-A specific technique or technology to attack IT-Systems (Man in the Middle, Phishing, etc.).
-In particular the attacking actor, the conflict of interest and the exploited vulnerability need to be described.
-
-\item \textbf{Security Measures.}
-It describes a plan of sufficient measures to secure the intended interactions and to avoid the unintended interactions.
-Each security measure targets a vulnerability of the system in order to reduce a risk for a certain thread.
-\end{itemize}
-
-
-%%%%%%%%%%%%%%%%%%%%
-
-
-The \emph{event view} contains all actual events through out the lifetime of the system.
-The event view instantiates the concept view of the system.
-It contains the following components:
-\begin{itemize}
-\item \textbf{Business Process.}
-The actual, running instance of the business model.
-
-\item \textbf{Accidents.}
-All actually happened accidents.
-
-\item \textbf{Attacks.}
-All actually happened attacks.
-
-\item \textbf{Security Operations.}
-Instances of security measures.
-\end{itemize}
-
-
-\subsection{Procedure}
-
-The analysis procedure is an incremental and iterative process following the four views of the previously described model.
-
-%includegraphics{../diagrams/png/itsec-ref-model-grimm-procedure.png}
-%input{./figures/The-IT-Security-Reference-Analysis-Grimm}
-\begin{figure}
-\centering
-\includegraphics[width=0.6\textwidth]{diagrams/png/itsec-ref-model-grimm-procedure.png}
-\caption{The IT Security Reference Analysis (Grimm)}
-\end{figure}
-
-\paragraph*{Step 1. World Analysis}
-
-At first, one has to outline the current state of the system under study. This includes description of:
-\begin{itemize}
-\item all \textbf{Assets} which must be protected
-\item all relevant \textbf{IT-Systems}
-\item all involved \textbf{Humans} and their \textbf{Conflicts of Interests}
-\item all known \textbf{Vulnerabilities}
-\item and all important \textbf{Interactions} between the former components.
-\end{itemize}
-
-\paragraph*{Step 2. Potential Analysis}
-
-Secondly, one needs to outline the potential interactions of the system under study.
-This includes both the unintended interactions (threads) and the intended interactions (business objectives).
-This step produces four artifacts:
-\begin{itemize}
-\item a \emph{threat specification}, which identifies the threat, its targeted assets, the involved actors and their conflicts of interest.
-\item a \emph{threat risk evaluation}, which quantifies the likelihood of a threat manifestation in relation to its associated loss.
-\item a \emph{security requirement specification}, which specifies requirements in order to deal with identified hazards
-\end{itemize}
-
-\paragraph*{Step 3. Concept Development}
-
-Based on \textbf{Step 2.}, the identified hazards are used alongside realistic accident scenarios and attack techniques to create a \emph{risk matrix}.
-With this matrix it is possible to decide if the risk is acceptable or not.
-Together with the previously specified security requirements, the matrix is used to define adequate security measures.
-Like a business model is an abstract concept to achieve business objectives, this step creates an concept to improve the system's security.
-
-\paragraph*{Step 4. Concept Deployment}
-
-Finally, the security measures have to be implemented.
-Additionally, all business operations, accidents, attacks and executed security operations will be recorded in the following time.
-
-The implementation of security measures changes the world view (e.g. IT-systems, actors) and renders the conducted analysis outdated.
-So this analysis procedure needs to be conducted again.
-
-\subsection{Abstraction Levels of the Reference Model}
-
-The Reference Model can be used on different levels of abstraction.
-This means each component can be used within a wide range of granularity, for instance the security measure \emph{Encryption} can be explored in general or on the level of different concrete encryption tools; or on the even finer level of concrete algorithms.
-
-The utilized abstraction level is not important for the analysis procedure, it depends on the intended audience for the analysis.
-However, it is important to use one abstraction level consistently through out the analysis.
-\end{LGContent}
-
-\section{Privacy Analysis}
-
-\TODO{TW}
-
-\begin{LGContent}
-\subsection{Step 1. World Analysis}
-
-\subsubsection{Assets: Privacy}
-
-In this document we focus our attention to only one asset: The privacy of the citizen.
-
-%TODO: UPDATE
-Our definition of privacy is described in detail in Chapter \ref{chap:privacy}. In Section \ref{sec:taxonomy} we define privacy as the ``control over private data'' and introduce the following seven different types of privacy:
-\begin{enumerate}
-\item Privacy of the Person
-\item Privacy of Behaviour and Action
-\item Privacy of Communication
-\item Privacy of Data and Image
-\item Privacy of Thoughts and Feelings
-\item Privacy of Location and Space
-\item Privacy os Association
-\end{enumerate}
-
-We refer to Section \ref{sec:taxonomy} for more details.
-
-
-%
-%
-% SECTION: IT SYSTEM DESCRIPTION MOVED ABOVE
-%
-%
+In this scenario we focus our attention to only one asset: The privacy of the citizen.
+Our definition of privacy is described in detail in Section \ref{sec:privacydef} and introduced in Section \ref{sec:privacytypes} the seven different types of privacy.
 
 
 \subsubsection{Actors}
 \label{subsubsection:humans}
 
 This section describes the human actors previously introduced within the IT system architecture (\ref{subsubsection:it-systems}).
-Also the additional actor \textit{External} is introduced as a person with no special access rights.
+Also the additional actor \textit{External} is introduced as a person with no special access rights. Although the text is only a short description, a list of the most important interests is provided for each actor.
 
 \textbf{Citizen.}
 Citizens are persons who use the mobile device as users of the provided software.
-Their main motivation for using the software is to gain a higher level of convenience in their daily activities. For example they may have access to real time bus schedules or reports about traffic jams, that help them to avoid long waiting times.
-Also they generally benefit from improvements of public infrastructure by local authorities, which is triggered by issue reports.
+Their main motivation for using the software is to gain a higher level of convenience in their daily activities. For example they may have access to real time bus schedules or reports about traffic jams, that help them to avoid long waiting times. Also they generally benefit from improvements of public infrastructure by local authorities, which is triggered by issue reports.
 
-By using the application citizens are sharing personal information like name and address, as well as data gathered from mobile sensor with the service provider.
-This data can be exploited in ways that are harmful to the citizen.
-This need to protect this protection is manifest in several laws and constitutions as the right to privacy and data protection.
-The citizen has a vital interest in having his legal rights protected and enforced.
+By using the application, citizens are sharing personal information like name and address, as well as data gathered from mobile sensor with the service provider. This data can be exploited in ways that are harmful to the citizen (cf. \cite{GuardienMassSurveillance}).
 
-If the right to privacy is violated, there is a magnitude of potential harms that interfere with other interests of the citizen.
-This includes just annoying spam, where their technical identity is used to send unwanted commercials.
-More severe phishing attacks can exploit personal information, and try to manipulate citizens into disclosing credentials like TAN numbers and disrespect their financial interests.
-Information about the current location (GPS) or frequently used routes (stalking) can be used to attack and directly harm the health of the citizen.
-Information about medical conditions inferred by sensor data (e.g. fintness trackers) are of interest to insurance companies, which may affect the pricing of policies and can interfere with financial interests of the citizen.
-
-Also it is well established (cf. \cite{GuardienMassSurveillance}) that the very act of being monitored can have impact on mental health and performance, promotes distrust and breeds conformity.
-
-In short, citizens are interested in
-\begin{itemize}
-\item physical wellbeing and health
-\item financial profit
-\item convenience
-\item legitimate use of personal data
-\item non-disclosure of personal data to peers of the citizen
-\item not being monitored.
-\end{itemize}
+Citizens are interested in: physical wellbeing and health, financial profit, convenience, legitimate use of personal data, non-disclosure of personal data to peers of the citizen, and not being monitored.
 
 \textbf{External.}
-Externals are persons who do not have privileged access to the IT systems, and are willing to break laws, security constrains and norms in order to promote their interests.
+Externals are persons who do not have privileged access to the IT systems, and are willing to break laws, security constrains and norms in order to promote their interests. 
 
-If the external is in some kind of relationship to the citizen, like a friendship or business partnership, the external can have a direct interest in gaining information about the citizen in order to increase their power.
+A common interest of an external is financial profit. For example they want to obtain access to critical systems to steal sensitive data or to get the system under their control. Stolen data could simply be sold as is or used for illegitimate purposes, e.g. spam or phishing attacks - or excessive data mining.
 
-Another common interest of an external is financial profit. For example they want to obtain access to critical systems to steal sensitive data or to get the system under their control.
-Controlled systems could be leased as part of a bot net.
-Stolen data could simply be sold as is or used for illegitimate purposes, e.g. spam or phishing attacks - or excessive data mining.
-
-Because local authorities are involved in the general outline of the Live+Gov system, the possibility for politically motivated attacks is given.
-
-Externals could want to harm or destroy the systems in order to damage the reputation of local authorities (politicians or other officials) or to make a political statement of their own.
-
-Another possible motivation for external  activities could be social appreciation.
-A hacker could attack critical infrastructure just to prove his skills.
-
-In short, externals are interested in
-\begin{itemize}
-\item increase power over citizen
-\item financial profit
-\item political activism
-\item social standing.
-\end{itemize}
+In short, externals could be interested in: increase power over citizen, financial profit, political activism, and their social standing.
 
 \textbf{System Provider.}
 System Providers operate the technical infrastructure (hardware and software) of the IT System.
-They are private companies and legal persons in their own right, but also employ a number of people with diverging interests, including:
-administrators, who maintain and operate the running system;
-programmer/developer, who develop the system;
-a support manager, who handles customer relations.
+They are private companies and legal persons in their own right, but also employ a number of people with diverging interests including administrators, programmer/developer, and a support manager.
 
-As companies, they are interested in gaining financial profit.
-Among other things, this depends on customer satisfaction, employee happiness and task complexity.
-Unsatisfied customers may not want to pay for the service or do not continue the business relation.
-Moreover, unsatisfied customers can create a bad reputation, which affects the market for future customers.
+As companies, they are interested in gaining financial profit. The financial success of system providers depends on the task complexity of the maintained infrastructure. The complexity of a task has to be in reasonable bounds, so that system providers can complete it within time, with a satisfying quality.
 
-Customer satisfaction is connected with the quality of the offered product or service.
-This quality depends on the happiness of employees.
-Employees have a claim to professional excellence.
-They want to deliver a good job within their means.
-If employees cannot satisfy their demand for professional excellence, they might get discontent and deliver poor work.
-Moreover, unhappy employees can produce higher costs through sick days.
-The worst case scenario could be, that a discontent employee gets angry and steals data or harms the running systems.
-
-At last, the financial success of system providers depends on the task complexity of the maintained infrastructure.
-The complexity of a task has to be in reasonable bounds, so that system providers can complete it within time, with a satisfying quality.
-If a task has a higher complexity than expected, financial loss is almost certain.
-Either System Providers need to hire additional competence to meet schedule and requirements.
-Or system providers they stress the time-line, which also results in a higher man-hour salary ratio and additionally endangers customer satisfaction.
-Ultimately, high task complexities can affect employee happiness, if employees cannot complete it within their claim to professional excellence.
-
-In short, System Providers are interested in
-\begin{itemize}
-\item financial profit
-\item good working conditions
-\item professional excellence
-\item manageable complexity.
-\end{itemize}
-
+System Providers are interested in: financial profit, manageable complexity, professional excellence, and good working conditions.
 
 \textbf{Local Authority.}
 Local authorities are public offices (ministry, agency, department, ...) or other external public entities which act as direct customers of service providers.
 They purchase a system specialized for their needs.
-For example a department for urban mobility, orders a system to better understand usage patterns and make improvement to the urban traffic flow.
+For example a department for urban mobility, orders a system to better understand usage patterns and make improvement to the urban traffic flow. Such systems are investments, and so naturally local authorities are interested in a profitable return, like increased ticket sales.
 
-Such systems are investments, and so naturally local authorities are interested in a profitable return, like increased ticket sales.
-However, the return of investment is not directly of financial nature.
-Like service providers their financial gain depends on customer satisfaction.
-Customers for local authorities are either citizens, who use their services, or politicians, who order their services.
-The satisfaction of both sides is interdependent.
+The first important step of improving the public services is by obtaining business intelligence. For the urban mobility scenario the Live+Gov systems provide insight in form of traffic jam detection and usage pattern mining, which allow local authorities to focus their efforts to the most important sites.
 
-Citizens are satisfied customers if the services, e.g. public mobility, work well.
-If citizens are happy, it is more likely that politicians gain reputation, as they organize the public services through local authorities.
-
-The first important step of improving the public services is by obtaining business intelligence.
-For the urban mobility scenario the Live+Gov systems provide insight in form of traffic jam detection and usage pattern mining, which allow local authorities to focus their efforts to the most important sites.
-
-Additionally, since local authorities act like corporations comparable to service providers, they are also interested in good working conditions.
-Discontent employees may harm the system by e.g. disclosure of privacy sensitive data.
-
-In short, local authorities are interested in
-\begin{itemize}
-\item financial profit
-\item political reputation
-\item business intelligence
-\item good working conditions.
-\end{itemize}
+Local authorities are interested in: financial profit, political reputation, business intelligence, and good working conditions.
 
 
 \subsubsection{Conflicts of Interests}
 \label{subsubsection:Conflicts of Interests}
-This section outlines the Conflicts of Interests (Figure \ref{figure:Live+Gov Conflicts of Interests}) between the actors of the proposed IT system architecture.
+Different actors have different interests which can be in conflict each other. This section outlines the Conflicts of Interests between the actors of the proposed IT system architecture.
 
 The individual interests of all actors is already described in the previous section and are not elaborated any further.
 The emphasis here is put on prominent existing conflicts, because they provide a foundation for vulnerabilities and subsequent threats.
 
-%input{./figures/LG-Conflicts-Of-Interests}
-\begin{figure}
-\centering
-\includegraphics[width=0.6\textwidth]{diagrams/png/conflict-of-interests.png}
-\caption{Live+Gov Conflicts of Interests}
-\label{figure:Live+Gov Conflicts of Interests}
-\end{figure}
-%TODO: Adapt Figure
 
 \textbf{System Complexity vs Privacy.}
-System Providers offer a service to Local Authorities, which is to provide and maintain a monitoring and mining system, e.g. for public mobility.
-This system shall produce business intelligence, so that Local Authorities can improve their public services.
-This task in it self has a high technical complexity and is the sole asset with financial return for System Providers.
-However, this task operates on privacy sensitive data provided by monitored Citizens.
-In order to ensure their privacy, System Provider would have to implement additional mechanisms, which allow Citizens to exercise control of their data.
-This will not only raise the complexity of the monitoring and mining system, System Providers also have to layout the complexity in a comprehensible manner.
-To effectively enable Citizens to preserve their privacy, they need to know what happens with their data.
+System Providers offer a service to Local Authorities, so that Local Authorities can improve their public services. This task in it self has a high technical complexity and operates on privacy sensitive data provided by monitored Citizens.
 
 \textbf{Business Intelligence vs Privacy.}
-Local authorities order a monitoring and mining system from system providers, which allows them to produce business intelligence for public services.
-The system is an investment for local authorities, so they are interested in as much intelligence as possible to achieve a profitable return.
-
-The gained intelligence is the result of data mining conducted on privacy sensitive data of participating citizens.
-They are interested in the successful usage of their data, in a sense that they are also benefactors, e.g. improvement of public mobility.
-The main interest of citizens lies in maintaining control over their data and protecting their rights to privacy.
-In order do that, they need full disclosure of the processing steps and the purposes their data is used for, and to be given a choice whether such processing should be allowed for their own data.
+Local authorities order a monitoring and mining system from system providers as much as possible, which allows them to produce business intelligence for public services. They are interested in the successful usage of their data, although the interest of citizens lies in maintaining control over their data and protecting their rights to privacy.
 
 \textbf{Power of External vs. Privacy.}
-Externals which are in a social relation to the citizen can have an interest in obtaining further information in order to gain power.
-In the most simplistic example this could be a man wanting monitor the activities of his spouse.
-Another example is a Government spying on it's citizens in order to suppress opposition.
-An additional twist in the last example is, that there can be legal regulations that require the service provider to support the Governments invasion of the citizens privacy.
+Externals which are in a social relation to the citizen can have an interest in obtaining further information in order to gain power. In the most simplistic example this could be a man wanting monitor the activities of his spouse.
+
 
 \textbf{Financial Profit of External vs Privacy.}
 Externals can gain financial profit from stealing privacy sensitive data.
-For example by selling raw contact information to advertisers or by selling mined data to insurance companies, or intermediaries like scoring companies.
-In such cases, citizens lose complete control over their data.
+For example by selling raw contact information to advertisers or by selling mined data to insurance companies, or intermediaries like scoring companies. In such cases, citizens lose complete control over their data.
+
 
 \textbf{Financial Profit of External vs Reputation of System Providers.}
 Externals have various business models as optional foundation for attacks on System Providers.
-For instance, they can try to invade the infrastructure for e-espionage reasons, to get control over servers to create a bot-net or to steal user data.
-All these approaches are motivated by financial interests.
-Gathered information can be sold, zombie servers can be leased.
+For instance, they can try to invade the infrastructure for e-espionage reasons, to get control over servers to create a bot network or to steal user data. A successful attack proves the technical competence of system providers wrong and subsequently harms their professional reputation.
 
-A successful attack proves the technical competence of system providers wrong and subsequently harms their professional reputation.
-This can lead to a loss of future customers or a decrease of stock price for registered companies.
-Eventually also the financial interests of system providers are endangered.
 
 \textbf{Political Activism vs Reputation of Local Authority.}
 Besides monetary reasons, externals can be motivated by political reasons to attack the monitoring and mining system.
@@ -1080,54 +776,20 @@ The weaknesses of IT systems are often created due to misuse or misconfiguration
 %input{./figures/LG-Vulnerabilities}
 \begin{figure}
 \centering
-\includegraphics[width=0.6\textwidth]{diagrams/png/vulnerabilities.png}
+\includegraphics[width=0.8\textwidth]{diagrams/png/vulnerabilities.png}
 
-%\begin{flushleft}
-%\scriptsize
-%\textbf{Legend:}
-%
-%\begin{itemize}
-%\itemsep1pt\parskip0pt\parsep0pt
-%\item
-%  \textbf{(a) Citizen:} User of the L+G client application whose privacy
-%  is at stake.
-%\item
-%  \textbf{(b) Mobile Device:} Runs the L+G client application, produces
-%  and stores data sensitive to the users privacy.
-%\item
-%  \textbf{(c) L+G Data Center:} Runs the L+G services, proccesses and
-%  stores user data.
-%\item
-%  \textbf{(d) L+G Maintenance Crew:} Technical staff with access to
-%  critical infrastructure.
-%\item
-%  \textbf{(e) Aggregation Monitor:} Interface to aggregated user data.
-%\item
-%  \textbf{(f) Local Authority:} Provider of the L+G system.
-%\item
-%  \textbf{(g) Criminal:} Threatens the L+G system and Citizen privacy.
-%\end{itemize}
-%\end{flushleft}
-
-\caption{Live+Gov Vulnerabilities}
+\caption{Overview of vulnerabilities of the Live+Gov System; legend see \ref{figure:IT Systems} }
 \label{figure:Live+Gov Vulnerabilities}
 \end{figure}
 
 \textbf{Insecure Infrastructure.}
-The proposed monitoring system consists of many hardware and software components, each with its own concrete weaknesses.
-For instance, operating systems can be outdated or not subject to frequent updates or virus scans.
-Web-applications can be carelessly implemented and not protected against SQL-Injections or Cross-Site-Scripting attacks.
-Databases can be ill-configured, so that access from outside the system is possible.
-All those weak points can be subject to various known exploit techniques.
+The proposed monitoring system consists of many hardware and software components, each with its own concrete weaknesses. For instance, operating systems can be outdated or not subject to frequent updates or virus scans.
 
 \textbf{Insecure Data Transmission.}
 The proposed monitoring and mining system uses HTTP to exchange data between the Sensor Collector, the Data Center and the Report Tool.
-Per default, HTTP is a clear text protocol.
-This means, one can intercept the connection and read all sensitive information, which is send between the components.
-That is: passwords, raw sensor data and data mining results
+Data can be intercept and read all sensitive information, which is send between the components e.g. passwords, raw sensor data and data mining results.
 
 \textbf{Unhappy Employees.}
-
 An Employee that is frustrated with his situation for a long time
 period constitutes a security vulnerability. On the one hand he might
 want to harm his employer directly, on the other he is increasingly
@@ -1135,48 +797,51 @@ susceptible for social engineering.
 
 \textbf{Inadequate Access Rules.}
 The proposed IT system infrastructure has various accesses to privacy sensitive data.
-System Provider staff has access to Data Center hardware and software like databases, web-servers and other inspection tools.
-Local Authority staff has access to the Report Tool.
-This all enables staff members to have potential access to privacy sensitive information.
-Those accesses have to be secured against unauthorized third parties.
-Moreover, we need to ensure that no single person has to many access rights.
-For example, a system administrator should not be able to secretly download the whole database on a flash-drive.
+System Provider staff has access to Data Center hardware and software like databases, web-servers and other inspection tools. Local Authority staff has access to the Report Tool. This all enables staff members to have potential access to privacy sensitive information.
 
 
-%TODO: Extend to general missing privacy wareness of citizen, system provider and local authority
 \textbf{Unaware Monitoring Subjects.}
 We define privacy as one's ability to control information about
 oneself.  In order to do that, monitored subjects need to know, that
 they are monitored, who monitors them, what information is recorded
 and for what purposes.  Subjects who are not aware of these things
-cannot effectively preserve control and thus lose their privacy.  This
-vulnerability expresses itself as the lack of information material
-like a Privacy Policy including concise information about applied
-processing steps, access rules and disclosure to 3rd parties.
+cannot effectively preserve control and thus lose their privacy. 
 
 \subsection{Step 2. Potential Analysis}
+\label{subsec:pot-analysis}
+
+The \emph{Potential Analysis} (or \emph{Potential View}) displays the intended and unintended interactions of the components in the world view.
+The intended interactions support the underlying business objectives.
+Unintended interactions lead to threats. The potential view consists of the following components:
+
+\begin{itemize}
+
+	\item \textbf{Business Objectives.}
+	Interaction of IT-system and actors that realize a business goals of the system owner were already described in Section \ref{subsubsection:it-systems} and \ref{subsec:world-analysis}.
+
+	\item \textbf{Threats.}
+	A threat is a potential interaction that destroys or harms assets of the system.
+	Concrete realizations of threats can be \emph{attacks} or \emph{accidents}.
+	Attacks are executed by an actor in response to a conflict of interest.
+	Accidents are harmful interactions that are not willfully caused by an actor.
+	
+	\item \textbf{Chances/Risk.}
+	Evaluation of chances and risks associated to the business objectives and threats. The risk associated to a threat is its expected loss.
+
+	\item \textbf{Security Requirements.}
+	Interactions (e.g. threats) that shall not occur within the system in order to achieve its business objectives.
+		
+\end{itemize}
+
 
 \subsubsection{Threat Specification}
 
-%input{./figures/Threat-Example}
-\begin{figure}
-\centering
-\includegraphics[width=0.6\textwidth]{diagrams/png/threat-example.png}
-\caption{Threat Example}
-\label{figure:Threat-Example}
-\end{figure}
-
-Recall from the security model description in Section \ref{sec:GrimmModel}, that a threat is a potential interaction of the components that targets an asset.
+A threat is a potential interaction of the components that targets an asset.
 We restrict ourselves to the case of attacks, and the asset of privacy.
 An attack is an interaction that is executed by an actor in response to a conflict of interest by exploiting a vulnerability of the system.
 The alternative interaction of accidents are less relevant for us, since the violation of privacy always requires an actor that takes advantage of personal data.
 
-In Figure \ref{figure:Threat-Example} we illustrate the structure of threats at the example of ``Data Theft".
-Here the attack is executed by an external person, that harms the privacy of the citizen.
-He is motivated to do so by financial profit gained by selling personal information, which is in conflict with the citizens interest in his privacy.
-To get hold of the data the external exploits an insecured HTTP transfer of recorded data.
-
-In this section we describe, in a similar fashion, threats for the citizen privacy in the Live+Gov system.
+We describe threats for the citizen privacy in the Live+Gov system.
 This list can necessarily not be complete, but we make a best effort to cover the most relevant cases.
 
 % \label{figure:Threats}
@@ -1258,14 +923,7 @@ This list can necessarily not be complete, but we make a best effort to cover th
 \end{figure}
 
 \textbf{T1. Insufficient Control Features.}
-The System Provider does not offer tools for the Citizen to control his data.
-However, besides the missing features he provides a safe and secure system.
-This threat contradicts the definition of privacy as control over one's information about oneself.
-As soon as collected data of Citizens is stored on System Provider servers, all control over that data is lost.
-This is not necessarily due to bad intention, System Providers may simply have forgotten to include such features during the development process.
-Although, control capabilities for Citizens add to the system complexity, which could motivate to omit those. 
-Therefore interests of Citizens and System Providers are in conflict, namely it is the Citizen's \textit{Privacy vs. System Complexity} for System Providers.
-This is an abstract threat provoked by a general \textit{Missing Privacy Awareness} in the minds of all actors in the Live+Gov context.
+As soon as collected data of Citizens is stored on System Provider servers, all control over that data is lost. Although, control capabilities for Citizens add to the system complexity, which could motivate to omit those. Therefore interests of Citizens and System Providers are in conflict, namely it is the Citizen's \textit{Privacy vs. System Complexity} for System Providers. This is an abstract threat provoked by a general \textit{Missing Privacy Awareness} in the minds of all actors in the Live+Gov context.
 
 \textbf{T2. Excessive Data Mining.}
 The System Provider and/or the Local Authority secretly extract more private information from the collected data, than the Citizen agreed to.
@@ -1289,7 +947,6 @@ Thus this threat is defined by three conflicts: \textit{Privacy vs. Financial Pr
 Also this threat describes the classical scenario, where attacks are provoked by \textit{Insecure Infrastructure} (SQL injection) and \textit{Insecure Communication} (Packet Capture).
 
 \textbf{T4. Surveillance}
-
 An External infiltrates infrastructure in order to obtain information
 about the citizen and exploit it directly.  In this scenario the
 external is supposed to have some direct relationship to the citizen
@@ -1319,7 +976,6 @@ rules} that enable the employee to obtain large amounts of data
 unnoticed.
 
 \textbf{T6. Social Engineering}
-
 This scenario an external manipulates an employee of a Service
 Provider or the Local Authority to leak information to the external
 person.  It is thus combination of the Data Theft and Information Leak
@@ -1335,42 +991,21 @@ employee to obtain large amounts of data unnoticed.
 
 \subsubsection{Threat Risk Evaluation}
 
-In this section we will associate to every identified threat a corresponding risk.
-Recall from \ref{sec:GrimmModel} that a risk is the expected loss that is associated to the threat.
+In this section we will associate to every identified threat a corresponding risk. A risk is the expected loss that is associated to the threat.
 Therefore, we have to quantify the likeliness of the threat to occure and the harm or loss done in this case.
 The quantification of likeliness will be solely based on rough judgment of the authors.
 The quantification of loss, will be made in a two step process.
-For each threat listed in table \ref{firgure:Threats}, we have analyzed the affected personal data of the citizen.
+For each threat listed in table \ref{figure:Threats}, we have analyzed the affected personal data of the citizen.
 For each possible data type (e.g. GPS) we analyze the impact on the seven different types of privacy in Section \ref{sec:SensorPrivacyImpact}.
 In combination we can quantify roughly the impact of each threat on the citizens privacy. Both evaluations are necessarily fraught with a high level of uncertainty.
 
-For the quantification of the loss in case of a threat scenario we use the following rough calibration:
-\begin{itemize}
-\item 3: High. Leak of information to peers (e.g. public) which impacts citizen.
-\item 2: Medium. Undisclosed processing of personal data or disclosure to third parties that are unrelated to subject.
-\item 1: Low. Loss of control over data.
-\item 0: None
-\end{itemize}
-
-For the quantification of likeliness the following scale is used:
-\begin{itemize}
-\item 4: Always.
-\item 3: High. Occurs once in 10 cases
-\item 2: Medium. Occurs once in 100 cases
-\item 1: Low. Occurs once in 1 million cases
-\item 0: Impossible
-\end{itemize}
-
-The quantification of the risk, we add the values for loss and
-likeliness of the corresponding threats. Note, that loss and
-likeliness scales have a logarithmic character, so that that addition
+For the quantification of the loss in case of a threat scenario we use the following rough calibration between 3 (high) and 0 (none). For the quantification of likeliness the following scale between 4 (always) and 0 (impossible) is used. The quantification of the risk, we add the values for loss and likeliness of the corresponding threats. Note, that loss and
+likeliness scales have a logarithmic character, so that addition
 of those scales corresponds to multiplication of the usual scales.
-
 
 The likeliness, loss and the resulting risks assigned to the threats
 are discussed in the following paragraphs and summarized in Figure
 \ref{fig:risks}.
-
 
 \textbf{T1. Insufficient Control Features.}  The occurrence of this
 threat is dependent on the design on the system and given in our case,
@@ -1460,14 +1095,19 @@ T6. Social Engineering            & 1                   & 3             & 4     
 \label{fig:risks}
 \end{figure}
 
-\subsubsection{Privacy Recommendations}
-\label{sec:prec}
+\subsubsection{Security Requirements}
+
+A set of interactions (e.g. threats) that shall not occur within the system in order to achieve its business objectives. Security requirements are targeted to protect one or more assets.
+
+An example of a security requirement is that a given communication channel shall not be infringed by externals. We included these security requirements into our analysis in Section \ref{subsec:priv-rec}.
+
+
+\subsection{Privacy Recommendations}
+\label{subsec:priv-rec}
 
 In the preceding section we have identified the main risks for the
 users privacy.  In this section we derive recommendations or
-requirements for a system that addresses these risks.  Some of these
-requirements are implemented as security measures in our systems and
-discussed in the following chapter \ref{chap:impl}.
+requirements for a system that addresses these risks..
 
 In order to address the threat with the highers risk, Insufficient
 Control (T1) of the citizen, we need to give the citizen back the
@@ -1482,8 +1122,7 @@ A necessary pre-requirement for effective control of the citizen over
 his data is information and comprehension of the intended data
 capturing and processing steps. Therefore a \emph{Privacy Policy (R2)} that
 is easily readable and contains all important information is
-essential.  Moreover, the existence of a Privacy Policy is a legal
-requirement (cf. Section \ref{EUDIR}).
+essential and a legal requirement.
 
 The threat with the second largest risk is (T2) Excessive Data Mining.
 Contrary to common belief, it is neither legal nor ethical to process
@@ -1491,19 +1130,12 @@ personal data for by new methods or for new purposes that were not
 stated and explained to the citizen at the time of data
 collection. Also the common practice of obtaining far-reaching
 permissions from the citizens inside the privacy policy is neither an
-ethical or legal solution to the problem (cf. Art. 6 in Section
-\ref{EUDIR}).
-
-To address this threat awareness about the limitations of data
+ethical or legal solution to the problem. To address this threat awareness about the limitations of data
 processors inside the company is a key element. As one mean to
 establish such a culture of privacy respect, we recommend to prepare
 an document called \emph{Data Handling Guidelines (R3)} intended for
 internal use that explains the concrete processing steps and purposes
-that are permitted by the citizens. This guideline should also be
-structured in a way that it covers the legal notification requirement
-from the EU Data Protection Directive (cf. Section \ref{EUDIR}). In
-particular the following information should be provided for each
-processing task: The name of the controller, purpose of processing,
+that are permitted by the citizens. In particular the following information should be provided for each processing task: The name of the controller, purpose of processing,
 description of the data categories, recipients of the data if
 disclosed, transfer to third countries and a description of security
 of processing.
@@ -1539,22 +1171,22 @@ target the vulnerability of unhappy employees. Therefore a trustful,
 In summary we recommend the following measures to secure the citizens
 privacy:
 \begin{enumerate}
-\item[R1] Privacy Dashboard. A tool which allows the citizen to view, edit
+\item[R1] \textbf{Privacy Dashboard}. A tool which allows the citizen to view, edit
   and delete all data personal data that is stored in the system.
-\item[R2] Privacy Policy. A document, that informs the citizen about the
+\item[R2] \textbf{Privacy Policy}. A document, that informs the citizen about the
   collection and processing of personal information. It should at
   least contain the legally required information.
-\item[R3] Issue Data Handling Guidelines that explain the permitted
+\item[R3] Issue \textbf{Data Handling Guidelines} that explain the permitted
   processing methods and purposes.
-\item[R4] Ask the citizens for permissions before applying further
+\item[R4] Ask the citizens for \textbf{permissions} before applying further
   processing via Email.
-\item[R5] Anonymize personal data before processing.
-\item[R6] Securing of Storage and Processing infrastructure using e.g. firewalls.
-\item[R7] Securing communication channels using encryption.
-\item[R8] Maintain a healthy, trustful relationship with your employees.
+\item[R5] \textbf{Anonymize} personal data before processing.
+\item[R6] \textbf{Securing of Storage} and Processing infrastructure using e.g. firewalls.
+\item[R7] \textbf{Securing communication} channels using encryption.
+\item[R8] Maintain a healthy, trustful \textbf{relationship} with your employees.
 \end{enumerate}
 The mapping of these recommendations to the threats is summarized in Figure \ref{fig:risks}.
-\end{LGContent}
+%\end{LGContent}
 
 
 
