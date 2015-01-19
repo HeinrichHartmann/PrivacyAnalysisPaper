@@ -654,16 +654,19 @@ personal privacy that are posed by collecting, storing and processing
 sensor data from mobile phones.  We derive concrete privacy protection
 measures that address the main risks involved with handling such data.
 
+
 In section \ref{subsec:world-analysis} and \ref{subsec:pot-analysis} we apply the first two steps of the Reference Model for IT Security Analysis as described in \cite{Grimm:ItSecRefModel}.  It supersedes earlier efforts by
 e.g. \cite{Avizienis}.  The reference model consists of a \emph{model}
-and a \emph{procedure}: The model aims to organize common security terminology in a reasonable and practical way, the procedure describes a method to analysis the IT system based on that model. In section \ref{subsec:priv-rec} we provide specific privacy recommendations as a result of the previous analysis that the operated system must comply.
+and a \emph{procedure}: The model aims to organize common security terminology in a reasonable and practical way. The procedure describes a method to analysis the IT system based on that model. In these sections we give a brief overview over the reference model by applying it to our scenario.
+
+
+In section \ref{subsec:priv-rec} we provide specific privacy recommendations and requirements as a result of the previous analysis that the system must comply with.
 
 \subsection{Step 1. World Analysis}
 
 \label{subsec:world-analysis}
 
-The \emph{world view} contains all components describing the current state.
-It consists of the following components:
+The first step is the \emph{world view} where all components are described in their current state. It consists of the following components:
 \begin{itemize}
 	
 	\item \textbf{Assets.} 
@@ -842,83 +845,6 @@ The alternative interaction of accidents are less relevant for us, since the vio
 We describe threats for the citizen privacy in the Live+Gov system.
 This list can necessarily not be complete, but we make a best effort to cover the most relevant cases.
 
-% \label{figure:Threats}
-%input{./figures/Threats}
-\begin{figure}
-\centering
-%\includegraphics[width=\textwidth]{diagrams/png/threat-table.png}
-\newcommand{\tcell}[1]{\parbox[c]{6cm}{#1\vspace{3mm}}}
-\newcommand{\thead}[1]{\tcell{\vspace{3mm}\centering\textbf{#1}}}
-\newcommand{\tbody}[1]{\tcell{\footnotesize\flushleft #1}}
-\resizebox{\textwidth}{!}{
-\begin{tabular}{|c|c|c|c|}
-
-\hline
-\thead{Threat}
-& \thead{Conflict of Interest}
-& \thead{Vulnerability}
-& \thead{Affected Data}
-\\\hline\hline
-\tbody{Insufficient Control Features}
-& \tbody{Privacy vs. System Complexity}
-& \tbody{Missing Privacy Awareness}
-& \tbody{All collected data}
-\\\hline
-
-
-\tbody{Exessive Data Mining}
-& \tbody{Privacy vs. Business Intelligence (LA),
-\\Privacy vs. Financial Profit (SP)}
-& \tbody{Lax data handling policies
-\\Missing Privacy Awareness
-\\Weak law enforcement}
-& \tbody{Mined Information}
-\\\hline
-
-
-\tbody{Data Theft}
-& \tbody{Privacy vs. Financial Profit
-\\Reputation (SP) vs. Political Activism
-\\Reputation (LA) vs. Political Activism}
-& \tbody{Insecure Infrastructure,
-\\Insecure Communication}
-& \tbody{Transmitted data 
-\\Data stored in data center}
-\\\hline
-
-
-\tbody{Surveillance}
-& \tbody{Privacy vs. External Power}
-& \tbody{Insecure Infrastructure
-\\Insecure Communication}
-& \tbody{Transmitted data 
-\\Data stored in data center}
-\\\hline
-
-
-\tbody{Information Leak}
-& \tbody{Privacy vs. Financial Profit
-\\Reputation (SP) vs. Political Activism
-\\Reputation (LA) vs. Political Activism}
-& \tbody{Unhappy Employee 
-\\Lax Access Rules}
-& \tbody{Data stored in data center}
-\\\hline
-
-
-\tbody{Social Engineering}
-& \tbody{Privacy vs. Financial Profit
-\\Reputation (SP) vs. Political Activism
-\\Reputation (LA) vs. Political Activism}
-& \tbody{Unhappy Employee
-\\Lax Access Rules}
-& \tbody{Data stored in data center}
-\\\hline
-\end{tabular}
-}
-\caption{Threats}
-\label{figure:Threats}
-\end{figure}
 
 \textbf{T1. Insufficient Control Features.}
 As soon as collected data of Citizens is stored on System Provider servers, all control over that data is lost. Although, control capabilities for Citizens add to the system complexity, which could motivate to omit those. Therefore interests of Citizens and System Providers are in conflict, namely it is the Citizen's \textit{Privacy vs. System Complexity} for System Providers. This is an abstract threat provoked by a general \textit{Missing Privacy Awareness} in the minds of all actors in the Live+Gov context.
@@ -983,7 +909,7 @@ In this section we will associate to every identified threat a corresponding ris
 Therefore, we have to quantify the likeliness of the threat to occure and the harm or loss done in this case.
 The quantification of likeliness will be solely based on rough judgment of the authors.
 The quantification of loss, will be made in a two step process.
-For each threat listed in table \ref{figure:Threats}, we have analyzed the affected personal data of the citizen.
+For each threat listed in the previous section, we have analyzed the affected personal data of the citizen.
 For each possible data type (e.g. GPS) we analyze the impact on the seven different types of privacy in Section \ref{sec:SensorPrivacyImpact}.
 In combination we can quantify roughly the impact of each threat on the citizens privacy. Both evaluations are necessarily fraught with a high level of uncertainty.
 
