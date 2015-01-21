@@ -136,7 +136,12 @@ documented in Chapter \ref{chap:impl}.
 * Information needs of transport agency\\
 }
 
-\subsubsection{IT-Systems \& Interactions}
+\subsection{A Privacy Respecting Mobile Traffic Survey}
+
+The scenario of our privacy analysis is a mobile traffic survey that supports local travel services by collecting and evaluating mobile sensor data of their customers. The survey is executed by a trustworthy third-party service. The travel services need the personal mobile data for two reasons: firstly, they want to serve their customers individually, for example by guiding them to proximity stations, to recommend adequate travel connections, to inform about delays, or to sell electronic tickets. For this purpose, the personal data for evaluation are related to the individual customers. Secondly, the travel services want to enhance their system, in that they evaluate the demand of stations, connections, changes, ways and time spent by their customers. For this purpose, personal data are anonymized before evaluation. 
+
+
+\subsection{IT-Systems \& Interactions}
 \label{subsubsection:it-systems}
 
 \begin{LGContent}
@@ -649,18 +654,12 @@ Implicit privacy violations apply accordingly.
 \section{Privacy Analysis}
 
 
-The goal of this chapter is to analyze and identify the threads to
-personal privacy that are posed by collecting, storing and processing
-sensor data from mobile phones.  We derive concrete privacy protection
-measures that address the main risks involved with handling such data.
+The goal of this chapter is to analyze and identify the threats to personal privacy that are posed by collecting, storing and processing sensor data from mobile phones. We derive concrete privacy protection measures that address the main risks involved with handling such data.
 
+In our analysis we follow the “reference model for IT security analysis” as described in \cite{Grimm:ItSecRefModel}. It supersedes earlier efforts by e.g. \cite{Avizienis}. The reference model consists of a model and a procedure. The model organizes a common security terminology in a reasonable and practical way. The procedure describes a method for analyzing the IT system based on that model. The reference model provides four views: (1) the real world of persons and their assets, (2) the potential world of requirements and threats, (3) measures and plans specified by programs, business models and attack strategies, and, finally, (4) events of running programs, data accesses and performed attacks as well as their defense. In the following sections we apply the proposed procedures of the reference model to our scenario of a travel service that collects personal data from mobile users in order to serve the users and to enhance the service. The service intends to respect the privacy of its users. 
 
-In section \ref{subsec:world-analysis} and \ref{subsec:pot-analysis} we apply the first two steps of the Reference Model for IT Security Analysis as described in \cite{Grimm:ItSecRefModel}.  It supersedes earlier efforts by
-e.g. \cite{Avizienis}.  The reference model consists of a \emph{model}
-and a \emph{procedure}: The model aims to organize common security terminology in a reasonable and practical way. The procedure describes a method to analysis the IT system based on that model. In these sections we give a brief overview over the reference model by applying it to our scenario.
+In sections \ref{subsec:world-analysis} and \ref{subsec:pot-analysis} we apply the first two steps of the reference model \cite{Grimm:ItSecRefModel}, which are related to the views on the real world and on the measures and plans. In section \ref{subsec:priv-rec} we apply the third step of the reference model by providing specific privacy recommendations and requirements as a result of the previous analysis that the system must comply with. 
 
-
-In section \ref{subsec:priv-rec} we provide specific privacy recommendations and requirements as a result of the previous analysis that the system must comply with.
 
 \subsection{Step 1. World Analysis}
 
@@ -812,8 +811,10 @@ cannot effectively preserve control and thus lose their privacy.
 \label{subsec:pot-analysis}
 
 The \emph{Potential Analysis} (or \emph{Potential View}) displays the intended and unintended interactions of the components in the world view.
-The intended interactions support the underlying business objectives.
-Unintended interactions lead to threats. The potential view consists of the following components:
+
+The intended interactions support the underlying business objectives. Unintended interactions can lead to threats. Obviously this provides a conflict of interest with the victim's business model, to keep the asset away from unauthorized access. From the point of view of the victim, an attack would be an unintended interaction.
+
+The potential view consists of the following components:
 
 \begin{itemize}
 
