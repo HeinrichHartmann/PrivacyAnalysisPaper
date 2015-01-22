@@ -33,8 +33,8 @@ estimated according to the handout by Tim
 | Abstract | 0.5 |
 | Introduction | 0.5 | 
 | Scenario Description: Travel Survey | 1.0 |
-| Definition of Privacy | 3.0 |
-| Privacy Analysis | 12.0 |
+| Definition of Privacy | 4.0 |
+| Privacy Analysis | 9.0 |
 | Conclusion | 0.5 |
 | References | 0.5 |
-|| = **18.0** |
+|| = **16.0** |
