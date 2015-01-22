@@ -451,22 +451,20 @@ In sections \ref{subsec:world-analysis} and \ref{subsec:pot-analysis} we apply t
 
 \label{subsec:world-analysis}
 
-The first step is the \emph{world view} where all components are described in their current state. It consists of the following components: \texttt{Assets}, \texttt{IT-Systems}, \texttt{Actors}, \texttt{Conflicts of Interests}, \texttt{Vulnerabilities}, and \texttt{Interactions}.
+The first step is the \emph{world view} where all components are described in their current state. It consists of the following components: Assets, IT-Systems, Actors, Conflicts of Interests, Vulnerabilities, and Interactions.
 
-The relevant \texttt{IT-Systems} were already described in Section \ref{subsubsection:it-systems}.
-\texttt{Interactions} between assets, IT-Systems, humans, and vulnerabilites as partly described in Section \ref{subsubsection:it-systems} and will be further analyzed in Section \ref{subsec:pot-analysis}.
+The relevant \textbf{IT-Systems} were already described in Section \ref{subsubsection:it-systems}.
+\textbf{Interactions} between assets, IT-Systems, humans, and vulnerabilites as partly described in Section \ref{subsubsection:it-systems} and will be further analyzed in Section \ref{subsec:pot-analysis}.
 	
 
 \subsubsection{Assets}
 
-In this scenario we focus our attention to only one asset: The privacy of the citizen.
-Our definition of privacy is described in detail in Section \ref{sec:privacydef} and introduced in Section \ref{sec:privacytypes} the seven different types of privacy.
+In this scenario we focus our attention to only one asset: The privacy of the citizen. Our definition of privacy is described in detail in Section \ref{sec:privacydef},
 
 \subsubsection{Actors}
 \label{subsubsection:humans}
 
-This section describes the human actors previously introduced within the IT system architecture (\ref{subsubsection:it-systems}).
-Also the additional actor \textit{External} is introduced as a person with no special access rights. Although the text is only a short description, a list of the most important interests is provided for each actor.
+This section describes the human actors previously introduced within the IT system architecture (\ref{subsubsection:it-systems}). Although the text is only a short description, a list of the most important interests is provided for each actor.
 
 \textbf{Citizen.}
 Citizens are persons who use the mobile device as users of the provided software.
@@ -492,9 +490,7 @@ As companies, they are interested in gaining financial profit. The financial suc
 System Providers are interested in: financial profit, manageable complexity, professional excellence, and good working conditions.
 
 \textbf{Local Authority.}
-Local authorities are public offices (ministry, agency, department, ...) or other external public entities which act as direct customers of service providers.
-They purchase a system specialized for their needs.
-For example a department for urban mobility, orders a system to better understand usage patterns and make improvement to the urban traffic flow. Such systems are investments, and so naturally local authorities are interested in a profitable return, like increased ticket sales.
+Local authorities are public offices (ministry, agency, department, ...) or other external public entities which act as direct customers of service providers. For example a department for urban mobility, orders a system to better understand usage patterns and make improvement to the urban traffic flow. Such systems are investments, and so naturally local authorities are interested in a profitable return, like increased ticket sales.
 
 Local authorities are interested in: financial profit, political reputation, business intelligence, and good working conditions.
 
@@ -503,9 +499,7 @@ Local authorities are interested in: financial profit, political reputation, bus
 \label{subsubsection:Conflicts of Interests}
 Different actors have different interests which can be in conflict each other. This section outlines the Conflicts of Interests between the actors of the proposed IT system architecture.
 
-The individual interests of all actors is already described in the previous section and are not elaborated any further.
-The emphasis here is put on prominent existing conflicts, because they provide a foundation for vulnerabilities and subsequent threats.
-
+The individual interests of all actors is already described in the previous section and are not elaborated any further. The emphasis here is put on prominent existing conflicts, because they provide a foundation for vulnerabilities and subsequent threats.
 
 \textbf{System Complexity vs Privacy.}
 System Providers offer a service to Local Authorities, so that Local Authorities can improve their public services. This task in it self has a high technical complexity and operates on privacy sensitive data provided by monitored Citizens.
@@ -536,9 +530,7 @@ Both would harm the reputation of local authorities, who endangered the privacy 
 
 \subsubsection{Vulnerabilities}
 \label{subsubsection:Vulnerabilities}
-This section outlines the vulnerabilities (Figure \ref{figure:Live+Gov Vulnerabilities}) of the proposed monitoring and mining system.
-Note that vulnerabilities are not necessarily of technical nature.
-The weaknesses of IT systems are often created due to misuse or misconfiguration of the various components by one or more actors.
+This section outlines the vulnerabilities (Figure \ref{figure:Live+Gov Vulnerabilities}) of the proposed monitoring and mining system. 
 
 %input{./figures/LG-Vulnerabilities}
 \begin{figure}
@@ -581,49 +573,23 @@ The \emph{Potential Analysis} displays the intended and unintended interactions 
 
 The intended interactions support the underlying business objectives. Unintended interactions can lead to threats. Obviously this provides a conflict of interest with the victim's business model, to keep the asset away from unauthorized access. From the point of view of the victim, an attack would be an unintended interaction.
 
-The potential view consists of the following components:
-
-\begin{itemize}
-
-	\item \textbf{Business Objectives.}
-	Interaction of IT-system and actors that realize a business goals of the system owner were already described in Section \ref{subsubsection:it-systems} and \ref{subsec:world-analysis}.
-
-	\item \textbf{Threats.}
-	A threat is a potential interaction that destroys or harms assets of the system.
-	Concrete realizations of threats can be \emph{attacks} or \emph{accidents}.
-	Attacks are executed by an actor in response to a conflict of interest.
-	Accidents are harmful interactions that are not willfully caused by an actor.
-	
-	\item \textbf{Chances/Risk.}
-	Evaluation of chances and risks associated to the business objectives and threats. The risk associated to a threat is its expected loss.
-
-	\item \textbf{Security Requirements.}
-	Interactions (e.g. threats) that shall not occur within the system in order to achieve its business objectives.  We included these security requirements into our analysis in Section \ref{subsec:priv-rec}.
-		
-\end{itemize}
+The potential world view consists of the following components: Business Objectives, Threats, hances/Risk, and Security Requirements. 
+\textbf{Business Objectives} of the system owner were already described in Section \ref{subsubsection:it-systems} and \ref{subsec:world-analysis}. \textbf{Security Requirement}s are included to our analysis in Section \ref{subsec:priv-rec}.
 
 
-\subsubsection{Threat Specification}
+\subsubsection{Threats}
 
 A threat is a potential interaction of the components that targets an asset.
 We restrict ourselves to the case of attacks, and the asset of privacy.
-An attack is an interaction that is executed by an actor in response to a conflict of interest by exploiting a vulnerability of the system.
-The alternative interaction of accidents are less relevant for us, since the violation of privacy always requires an actor that takes advantage of personal data.
-
-We describe threats for the citizen privacy in the Live+Gov system.
+An attack is an interaction that is executed by an actor in response to a conflict of interest by exploiting a vulnerability of the system. We describe threats for the citizen privacy in the system.
 This list can necessarily not be complete, but we make a best effort to cover the most relevant cases.
 
-
 \textbf{T1. Insufficient Control Features.}
-As soon as collected data of Citizens is stored on System Provider servers, all control over that data is lost. Although, control capabilities for Citizens add to the system complexity, which could motivate to omit those. Therefore interests of Citizens and System Providers are in conflict, namely it is the Citizen's \textit{Privacy vs. System Complexity} for System Providers. This is an abstract threat provoked by a general \textit{Missing Privacy Awareness} in the minds of all actors in the Live+Gov context.
+As soon as collected data of Citizens is stored on System Provider servers, all control over that data is lost. Although, control capabilities for Citizens add to the system complexity, which could motivate to omit those. Therefore interests of Citizens and System Providers are in conflict, namely it is the Citizen's \textit{Privacy vs. System Complexity} for System Providers.
 
 \textbf{T2. Excessive Data Mining.}
-The System Provider and/or the Local Authority secretly extract more private information from the collected data, than the Citizen agreed to.
-But results of the mining process create no disadvantages for Citizens, because there is no disclosure to third parties.
-This could be the case for a System Provider, who wants to test a new product and uses the pre-existing data collection.
-Or for a Local Authority, who wants to analyze the data collection regarding fare evasion.
-However, the Citizen has not agreed to such data processing nor could he, since it is conducted secretly.
-This disables a Citizen to control his data adequately.
+The System Provider and/or the Local Authority secretly extract more private information from the collected data, than the Citizen agreed to. But results of the mining process create no disadvantages for Citizens, because there is no disclosure to third parties. This could be the case for a System Provider, who wants to test a new product and uses the pre-existing data collection.
+
 Thus there are two possible conflicts: \textit{Privacy vs. Financial Profit of Serivce Provider} and  \textit{Privacy vs. Buisness Intelligence of Local Authority}
 The threat can be provoked by either lax data handling policies of both System Providers and Local Authorities, or a weak law enforcement of existing supervision.
 But the main issue, which can lead to such threats, is again a general \textit{Missing Privacy Awareness}.
@@ -671,7 +637,7 @@ vulnerabilities are, again, the existence of \textit{Unhappy
 employee to obtain large amounts of data unnoticed.
 
 
-\subsubsection{Threat Risk Evaluation}
+\subsubsection{Chances/Risk}
 
 In this section we will associate to every identified threat a corresponding risk. A risk is the expected loss that is associated to the threat.
 Therefore, we have to quantify the likeliness of the threat to occure and the harm or loss done in this case.
