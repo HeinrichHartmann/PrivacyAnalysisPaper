@@ -240,245 +240,29 @@ In the Live+Gov Project the reporting tools allows, in particular the following 
 \section{Definition of Privacy}
 \label{sec:privacydef}
 
-%\TODO{MM:\\
-%- Shorten\\
-%- DONE - Remove Implicit Type Violations\\
-%- Update figure\\
-%- RG: Discuss alternative definitions of privacy\\
-%}
-
-\noindent
-Defining privacy is a challenge which seems impossible. This is well put to words by Serge Gutwirth, who notes:
+More than one hundred years ago, 1890, the American politician Louis Brandis had specified privacy as the right to be left alone \cite{WarrenBrandeis:RightToPrivacy}. From the data processing point of view, this right is best expressed by the absence of information about a person in the mind of others. Indeed, this principle of “data minimization” is still fundamental to modern data protection legislation. The modern principles of data protection are codified by many legal systems in different countries, especially in Europe \cite{EU-directive2}, and by the US save harbor principles. However, modern data protection is more than only the absence of personal data. It is based on the personal right on self-determination over information and communication \cite{BVerfG:census}. This is, for example, very well expressed by Fried’s definition of 1970:
 \begin{quote}
-The notion of privacy remains out of the grasp of every academic chasing it. Even when it is cornered by such additional modifiers as `our' privacy, it still finds a way to remain elusive. \cite{Gutwirth}
+	Privacy is not simply an absence of information about us in the minds of others; rather it is the control we have over information about ourselves. \cite{CFried:Privacy}
 \end{quote}
-In this section we introduce the concept of privacy as control over information.
-We specify types of information we have to deal with in the context of privacy.
-And finally we outline the impact mobile sensors can have on one's privacy.
+In order to realize this requirement in the modern IT world users are provided with user control functions, for example to decide about the access on their data for future use, and to view, modify, and delete unwanted data that had been collected. In its fundamental decision of May 13, 2014, the European Court has convicted Google to accept user demands to delete links to incorrect or irrelevant personal data in the Internet (C-131/12 – Google Spain SL). Such functions would constitute a so-called self-data-protection. It requires users to be highly aware of their rights and how to use them. Complementary, system-data-protection puts the load of data protection enforcement on the data collectors, ideally even without bothering the users. Typical system data protection functions are the deletion of personal data that are not bound to service purpose, the anonymization of personal data for research, and the abstinence from forwarding personal data to third parties. Together, system-data-protection and self-data-protection are supposed to provide a fair balance between the interests of service providers and their users.
+In our research work we focus on self-data-protection according to Fried’s user control requirement \cite{CFried:Privacy}. A system data protection point of view would lead to other results, namely to a set of obligations for service providers. This is subject to further research.
 
-\subsection{Privacy as Control over Information}
-%We may need to remove the following paragraph depinding on RG's alternative definition of privacy
-%Many definitions seem to focus on the vulnerabilities of privacy.
-%Thus a great amount of work is invested in finding threats to prohibit instead of describing why privacy is so valuable to us.
-%This way around one could derive measures to ensure and secure its value. \cite{7ToP}
-
-%One particular scholar, who did not follow this way of thinking is Charles Fried.
-One possible definition of privacy is given by Charles Fried in his work \textit{An Anatomy of Values}\cite{CFried:Privacy}.
-He questioned, why we are intuitively sensitive to privacy violations.
-But he did not assert privacy as an intrinsic value by itself, he rather stated:
-\begin{quote}
-\textbf{Privacy is} not simply an absence of information about us in the minds of others;
-rather it is \textbf{the control we have over information about ourselves}. \cite{CFried:Privacy}
-\end{quote}
-According to Fried privacy is our ability to create and modulate the relationships to other humans.
-Which makes us intuitively sensitive for its violation, because this affects what defines our identity.
-Also, the ability to build and maintain relationships is essential to society.
-This is what makes privacy valuable and deserving of protection. 
-\cite{sep-privacy}\cite{CFried:Privacy}
-
-\subsubsection{Relationship Creation.}
-
-% Privacy + Trust ~> Relationship
-% ===============================
-% - A shares intimate information with B
-% - A trusts B not to reveal that information by not constantly monitoring B, i.e. respecting B's privacy
-% - B has now the possibility to share intimate information with A
-
-We share information of great intimacy only with persons we deem trustworthy. 
-Moreover, we trust those persons to not reveal information about us to others by not constantly monitoring them, i.e. respecting their privacy.
-Trust needs the possibility of unknown failure.
-If we would constantly monitor our partners, they cannot fail unnoticed nor can they willingly share intimate information with us.
-By trusting them, we create the possibility for them to share intimate information with us.
-\cite{CFried:Privacy}
-
-\subsubsection{Relationship Modulation.}
-Fried argues, depending on the person we are interacting with, we are changing the degree of intimacy we share.
-If we are to share private information with others, we are most likely aware that this action is privacy related.
-In that case we are able to selectively disclose information along the two dimensions of quantity and quality.
-\cite{CFried:Privacy}
-
-\subsubsection{Alternative Definitions.}
-Using Fried's anatomy of privacy for this analysis is suitable because of two points.
-Despite the fact his text was published in 1970, he already included technologies to its viewpoint that did not only monitor location, but also record biometric data \cite{CFried:Privacy}. 
-Secondly, the concept of control over information does not enforce data minimization.
-Fried's definition complies with what we call \textit{self data protection}, where persons communicate their data self-determined.
-This is the opposite of \textit{system data protection}, where the collection of certain data is prohibited. 
-
-\TODO{RG: Discuss alternative definitions of privacy}
-
-%=======================================================================================
-
-
-
-\begin{LGContent-Hidden}
-Defining privacy is a challenge which seems impossible. This is well put to words by Serge Gutwirth, who notes:
-
-\begin{quote}
-The notion of privacy remains out of the grasp of every academic chasing it. Even when it is cornered by such additional modifiers as `our' privacy, it still finds a way to remain elusive. \cite{Gutwirth}
-\end{quote}
-
-%Many researchers seem to only ``focus on the ways in which privacy can be infringed'' \cite{7ToP}.
-%Thus they try to create taxonomies of \emph{privacy harms} instead of taxonomies of \emph{privacy types}.
-%Those two differ in the respect that the former focuses on threats to prohibit whereas the latter focuses on values to protect.
-%So one should rather evaluate what aspects are precious about privacy and develop measures to ensure their security than only forbid single actions against it \cite{7ToP}.
-
-Many researchers seem to only ``focus on the ways in which privacy can be infringed'' \cite{7ToP}.
-Thus they invest a great amount of work in defining threats to prohibit instead of describing why privacy is so valuable to us.
-This way around one could derive measures to ensure and secure its value \cite{7ToP}.
-One particular scholar who does this in the context of digital monitoring is Charles Fried.
-He questioned, why we are intuitively sensitive to violations of privacy.
-But he did not assert privacy as an intrinsic value by itself, he rather sated:
-
-\begin{quote}
-Privacy is not simply an absence of information about us in the minds of others;
-rather it is \textbf{the control we have over information about ourselves}. \cite{CFried:Privacy}
-\end{quote}
-
-According to Fried privacy is a \textit{rational context}.
-Which means that one is aware of such context's existence during a rational action.
-If we are to share private information with others, we are most likely aware that this action is privacy related.
-In that case we are able to selectively disclose information along the two dimensions of quantity and quality.
-This leads Fried to his thesis, that privacy is one's ability to create and modulate his or hers social relationships, namely: friendship, love and trust. \cite{CFried:Privacy}
-
-Depending on the conversation partner, we change the degree of intimate information we share if it is a total stranger, colleague, close friend or lover.
-With close friends or lovers we share information of great intimacy we do not share with anyone else.
-Moreover, we trust those persons to not reveal information about us to others by respecting their privacy.
-Trust needs the possibility of unknown failure.
-If we would constantly monitor our partners, they cannot fail unnoticed nor can they willingly share that information with us.
-Thus they could not trust us anymore. \cite{CFried:Privacy}
-
-So privacy or the its possibility, according to Fried, is the foundation of our core relations: friendship, love and trust.
-And thus it is valuable, because those relations are essential to human society \cite{CFried:Privacy}.
-Using his anatomy of privacy as foundation of our analysis is suitable because of two points.
-At first, Fried's study on the understanding of privacy provided a great contribution to the research on the same term in philosophy \cite{sep-privacy} and computer science \cite{SociotechnicalArchitectureForOnlinePrivacy}.
-Secondly, despite the fact his text was published in 1970, he already included technologies to its viewpoint that did not only monitor location, but also record biometric data.
-\end{LGContent-Hidden}
 
 \subsection{The Seven Types of Privacy}
 \label{sec:privacytypes}
 
-In Fried's definition of privacy as control over information, the specification of what constitues such information remains open.
-There is a vast amount of information that relates to a person and we need to get a better understanding in order to perform a thorough analysis.
-To this end we use the the categorization by Friedewald, Finn and Wright \cite{7ToP} called the \textit{Seven Types of Privacy}.
-The seven types of privacy are an extension to the four types of privacy by Roger Clarke \cite{RClarke:4ToP}, which are:
-\textit{Privacy of the Person},
-\textit{Privacy of Personal Behaviour},
-\textit{Privacy of Personal Communication},
-\textit{Privacy of Personal Data}.
-It is important to note, that these categories do not form a taxonomy, since the categories are not mutually exclusive.
-For instance a written email is considered personal communication as well as personal data stored on a computer.
-
-Moreover, Friedewald et al. argue that Clarke's types are outdated and no longer adequate in order to describe the privacy aspect of our modern, technology driven, world.
-In order to address this shortcoming they extend the former four to the now introduced seven types privacy as follows:
-
+In Fried's definition of privacy as control over information, the specification of what constitutes such information remains open. There is a vast amount of information that relates to a person and we need to get a better understanding in order to perform a thorough analysis. To this end we use the categorization by Friedewald, Finn and Wright of 2013 called the Seven Types of Privacy \cite{7ToP}. These are an extension to the four types of privacy by Roger Clarke of 1997 \cite{RClarke:4ToP}. It is important to note, that these categories are not mutually exclusive. For instance a written email is considered personal communication as well as personal data stored on a computer. However, the categories are very helpful for a privacy analysis with a focus on self-data-protection.
+The seven types of privacy are as follows:
 \begin{enumerate}
-
-\item \textbf{Privacy of the Person}
-This privacy type is generally concerned with one could best understand as biometric privacy.
-Friedewald et al. paraphrase it as \emph{``\om the right to keep body functions and body characteristics \om private''}.
-This includes but is not limited to measures like weight, height or shoulder width;
-biometric identifiers like fingerprints and DNA sequences;
-or medical conditions such as limping or having a cold.
-
-
-\item \textbf{Privacy of Behaviour and Action}
-This privacy type is concerned with one's activities in public as well as in private spaces.
-It includes but is not limited to religious practices, political activities and sexual preferences or habits.
-
-
-\item \textbf{Privacy of Communication}
-This privacy type is concerned with one's communication in a broad sense.
-It includes written correspondence, but also conversations conducted either vis-a-vis or via electronic devices.
-Friedewald et al. put it as the right to free discussion without unknown interception by third parties.
-
-
-\item \textbf{Privacy of Data and Image}
-This privacy type is concerned with the secrecy of personal data, especially its automatic disclosure to other individuals and organizations.
-It includes data such as paychecks, insurance information or records of public administration.
-However, it also refers to pictures taken without consent and digital identifiers like IP addresses or social security numbers.
-
-
-\item \textbf{Privacy of Thoughts and Feelings}
-This privacy type is the counterpart to Privacy of the Person like body and mind are counterparts of one another.
-Comparable to the Privacy of Data and Image, Friedewald et al. state that one's thoughts and feelings must not be automatically revealed to others.
-This could simply happen by the disclosure of one's diary or by technologies which allow emotion detection through biometric means.
-One's body temperature or iris reflexes might infer stress or excitation.
-
-
-\item \textbf{Privacy of Location and Space}
-This privacy type is concerned with one's movements in public spaces and the protection of private spaces.
-Friedewald et al. qualify the first dimension as one's right to move without being identified, tracked or monitored.
-The second dimension is qualified as one's general right to solitude, especially the right to the inviolability of the home.
-
-
-\item \textbf{Privacy of Association}
-This privacy type is also put as group privacy.
-Friedewald et al. state that one must have the possibility with whomever without being recorded.
-Associations like friends or organizations such as political parties must not automatically be recorded because one associates with them, and vice-versa.
+	\item Privacy of the Person (with respect to body functions and body characteristics)
+	\item Privacy of Behavior and Action
+	\item Privacy of Communication
+	\item Privacy of Data and Image
+	\item Privacy of Thoughts and Feelings
+	\item Privacy of Location and Space 
+	\item Privacy of Association (with persons, e.g. friends, and organizations, e.g. political parties)
 \end{enumerate}
 
-\begin{LGContent-Hidden}
-In Fried's definition of privacy as control over "information about onself'', the specification of what constitues such information remains open.
-There is a vast amount of information that relates to a person and we need to get a better understanding in order to perform a thorough analysis.
-To this end we use the the categorization by Friedewald, Finn and Wright \cite{7ToP} called the \textit{Seven Types of Privacy}.
-The seven types of privacy are an extension to the four types of privacy by Roger Clarke \cite{RClarke:4ToP}, which are:
-\textit{Privacy of the Person},
-\textit{Privacy of Personal Behaviour},
-\textit{Privacy of Personal Communication},
-\textit{Privacy of Personal Data}.
-It is important to note, that this categories do not form no taxonomy, since the categories are not mutually exclusive.
-For instance a written email is considered personal communication as well as personal data stored on a computer.
-
-Moreover, Friedewald et al. argue that Clarke's taxonomy is outdated and no longer adequate in order to describe the privacy aspect of our modern, technology driven, world.
-In order to address this shortcoming they extend the former four to the now introduced seven types privacy as follows:
-
-\begin{enumerate}
-
-\item \textbf{Privacy of the Person}
-This privacy type is generally concerned with one could best understand as biometric privacy.
-Friedewald et al. paraphrase it as \emph{``\om the right to keep body functions and body characteristics \om private''}.
-This includes but is not limited to measures like weight, height or shoulder width;
-biometric identifiers like fingerprints and DNA sequences;
-or medical conditions such as limping or having a cold.
-
-
-\item \textbf{Privacy of Behaviour and Action}
-This privacy type is concerned with one's activities in public as well as in private spaces.
-It includes but is not limited to religious practices, political activities and sexual preferences or habits.
-
-
-\item \textbf{Privacy of Communication}
-This privacy type is concerned with one's communication in a broad sense.
-It includes written correspondence, but also conversations conducted either vis-a-vis or via electronic devices.
-Friedewald et al. put it as the right to free discussion without unknown interception by third parties.
-
-
-\item \textbf{Privacy of Data and Image}
-This privacy type is concerned with the secrecy of personal data, especially its automatic disclosure to other individuals and organizations.
-It includes data such as paychecks, insurance information or records of public administration.
-However, it also refers to pictures taken without consent and digital identifiers like IP addresses or social security numbers.
-
-
-\item \textbf{Privacy of Thoughts and Feelings}
-This privacy type is the counterpart to Privacy of the Person like body and mind are counterparts of one another.
-Comparable to the Privacy of Data and Image, Friedewald et al. state that one's thoughts and feelings must not be automatically revealed to others.
-This could simply happen by the disclosure of one's diary or by technologies which allow emotion detection through biometric means.
-One's body temperature or iris reflexes might infer stress or excitation.
-
-
-\item \textbf{Privacy of Location and Space}
-This privacy type is concerned with one's movements in public spaces and the protection of private spaces.
-Friedewald et al. qualify the first dimension as one's right to move without being identified, tracked or monitored.
-The second dimension is qualified as one's general right to solitude, especially the right to the inviolability of the home.
-
-
-\item \textbf{Privacy of Association}
-This privacy type is also put as group privacy.
-Friedewald et al. state that one must have the possibility with whomever without being recorded.
-Associations like friends or organizations such as political parties must not automatically be recorded because one associates with them, and vice-versa.
-\end{enumerate}
-
-\end{LGContent-Hidden}
 
 
 \subsection{Sensor Data Privacy Impact}
@@ -665,35 +449,16 @@ In sections \ref{subsec:world-analysis} and \ref{subsec:pot-analysis} we apply t
 
 \label{subsec:world-analysis}
 
-The first step is the \emph{world view} where all components are described in their current state. It consists of the following components:
-\begin{itemize}
-	
-	\item \textbf{Assets.} 
-	Things of value to one or more stakeholders.
-	
-	\item \textbf{IT-Systems.}
-	The relevant IT-Systems under study. Already described in Section \ref{subsubsection:it-systems}.
-		
-	\item \textbf{Actors.}
-	All identifiable stakeholders of the system under study.
-	
-	\item \textbf{Conflicts of Interests.}
-	Different actors have different interests which can be in conflict which each other.
-	
-	\item \textbf{Vulnerabilities.}
-	All identifiable weaknesses in the IT-System e.g. a weak passwords.
-	
-	\item \textbf{Interactions.}
-	This point captures all possible interactions between assets, IT-Systems, humans, and vulnerabilites as partly described in Section \ref{subsubsection:it-systems} and will be further analyzed in \ref{subsec:pot-analysis}.
-	
-\end{itemize}
+The first step is the \emph{world view} where all components are described in their current state. It consists of the following components: \texttt{Assets}, \texttt{IT-Systems}, \texttt{Actors}, \texttt{Conflicts of Interests}, \texttt{Vulnerabilities}, and \texttt{Interactions}.
 
+The relevant \texttt{IT-Systems} were already described in Section \ref{subsubsection:it-systems}.
+\texttt{Interactions} between assets, IT-Systems, humans, and vulnerabilites as partly described in Section \ref{subsubsection:it-systems} and will be further analyzed in Section \ref{subsec:pot-analysis}.
+	
 
 \subsubsection{Assets}
 
 In this scenario we focus our attention to only one asset: The privacy of the citizen.
 Our definition of privacy is described in detail in Section \ref{sec:privacydef} and introduced in Section \ref{sec:privacytypes} the seven different types of privacy.
-
 
 \subsubsection{Actors}
 \label{subsubsection:humans}
@@ -810,7 +575,7 @@ cannot effectively preserve control and thus lose their privacy.
 \subsection{Step 2. Potential Analysis}
 \label{subsec:pot-analysis}
 
-The \emph{Potential Analysis} (or \emph{Potential View}) displays the intended and unintended interactions of the components in the world view.
+The \emph{Potential Analysis} displays the intended and unintended interactions of the components in the world view.
 
 The intended interactions support the underlying business objectives. Unintended interactions can lead to threats. Obviously this provides a conflict of interest with the victim's business model, to keep the asset away from unauthorized access. From the point of view of the victim, an attack would be an unintended interaction.
 
