@@ -45,11 +45,16 @@
 
 \begin{abstract}
 
-\TODO{(later)}
+
+* The system has been built in Live+Gov EU project
+* Analysis of Privacy aspects following a structured approach
+* Derive eight privacy recommendations
+* Some of them have been implemented in the service
 
 \keywords{
 privacy protection, IT security analysis, sensor data, mobile phones, traffic survey
 }
+
 
 \end{abstract}
 
@@ -57,75 +62,14 @@ privacy protection, IT security analysis, sensor data, mobile phones, traffic su
 
 \section{Introduction}
 
-\TODO{RG\\
-* Context: Reference model IT Security analysis\\
-* Application: Travel Survey\\
-* Different definitions of privacy in the literature.\\
-* Study outcomes depend on privacy definition
-}
 
-\begin{LGContent}
-In recent days the importance of privacy protection has been amplified
-by the reports about the mass surveillance of ordinary citizens on a
-global scale by the NSA and other intelligence agencies around the
-world.
 
-While aiming at the noble cause of enhancing eParticipation using
-mobile technologies, Live+Gov systems do process a large variety data
-that is potentially infringing the citizens privacy. The captured data
-includes personal information like name, phone numbers and email
-addresses and sensor data from GPS and accelerometer sensors. Also
-with some applications it is possible to gather images and textual
-input from the citizen.
-
-While the collection of this data is necessary for providing the
-advanced services that Live+Gov aims to deliver, at he same time, the
-available raw data can be used to draw a very detailed picture of the
-private life of the citizen. For instance can GPS location tracking be
-used to reveal shopping habits (e.g. when a car seller is visited) and
-associations to political groups (when a meeting is
-attended). Accelerometer data can be used to infer medical conditions
-like walking disabilities. Images can contain faces of nearby persons
-to with whom the citizen is associated. All this data is highly
-sensitive to the citizens privacy and can be used against the citizen
-if it falls in the wrong hands.
-
-The great importance of protecting the citizens privacy should be
-apparent from these examples. The European Union, as well as many
-other countries in the past, has set out a number of directives that
-regulate the collection, processing and use of privacy sensitive
-data. We explain the most relevant legislation in Section
-\ref{sec:legal}.
-
-The ethical aspects of privacy have been the subject of study of many
-social scientists and philosophers. One scholar which is particularly
-relevant in our context is Charles Fried. He investiages, why we are
-intuitively so sensitive to violations of our privacy. For him privacy
-is not asserted as an intrinsic value by itself, he rather sated:
-
-\begin{quote}
-Privacy is not simply an absence of information about us in the minds of others;
-rather it is the control we have over information about ourselves.
-\end{quote}
-
-Fried`s study on the understanding of privacy provided a great
-contribution to the research on the same term in philosophy and
-computer science and despite the fact his text was published in 1970,
-he already included technologies to its viewpoint (like location
-monitoring) that are particularly relevant to our Context.  We explain
-his theory in \ref{sec:ethics} and follow his definition of privacy in
-this document.
-
-In this document we perform a thorough analysis of how to protect the
-privacy of a citizen and present several implementations that form the
-core of our privacy aware Sensor Data Storage and Mining Infrastructure.
-
-We identify six main threats for the citizens privacy, and derive
-eight recommendations that should be followed in order to reduce the
-associated risks for hazards.  This analysis form the guideline for
-the selection of 9 measures that were implemented in our system and
-documented in Chapter \ref{chap:impl}.
-\end{LGContent}
+* Privacy Protection very important topic in current time Fundamental
+* Fundamental trade-off between enhanced functionality and convenience
+  of the service (service demands) and personal data revealed by the
+  use (privacy demands).
+* Challenge for service provider. Find the right balance.
+* We study concrete use case of a travel-survey application.
 
 %============================================================
 
@@ -139,96 +83,52 @@ documented in Chapter \ref{chap:impl}.
 \subsubsection{IT-Systems \& Interactions}
 \label{subsubsection:it-systems}
 
-\begin{LGContent}
-This section outlines the general architecture (Figure \ref{figure:IT Systems}) of IT systems for public monitoring comparable to the Live+Gov project.
-This includes a description of it technical infrastructure and the interactions between its components.
+Travel surveys are regularly conducted by providers of public
+transportation infrastructure in order to asses the current usage of
+their services and inform future planning of e.g. bus or tram lines.
+In this events a large number of citizens (e.g. 5000) is asked to keep
+track of their travel patterns for a constraint period of time
+(e.g. one month). Traditionally the travel patterns have been recorded
+manually in the form of travel diaries. Modern smart-phones are
+equipped with a wide range of sensors (in particular GPS) that allow
+the recording of travel-patterns in a fully automated way.
 
-The IT infrastructure of the Live+Gov system, i.e. the Live+Gov toolkit and the customization of the software components are described in detail in various project deliverables: D4.1, D4.3, D1.1, D5.1.
-In this section we give an abstraction of those systems from the perspective of WP1.
+Within the Live+Gov EU project, we have established a first
+prototypical implementation of such an automated travel-survey
+service. In this section we give a high level description of a generic
+travel-survey service. This description along with the introduced
+terminology will serve as a basis for our privacy analysis.
 
-%input{./figures/IT-Systems}
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.6\textwidth]{diagrams/png/it-systems.png}
+There are three stakeholders involved with the sysem: The
+\emph{citizen}, the \emph{service provider} and the \emph{travel
+  agency}. The service provider is the operator of all IT systems and
+sells the travel-survey service to the travel agency.
 
-%\begin{flushleft}
-%\scriptsize
-%\textbf{Legend:}
-%\begin{itemize}
-%\itemsep1pt\parskip0pt\parsep0pt
-%
-%\item
-%\textbf{(a) Citizen:} 
-%User of the L+G client application whose privacy is at stake.
-%
-%\item
-%\textbf{(b) Service Provider:} Provides technical infrastructure.
-%
-%\item
-%\textbf{(c) Local Authority:} Provider of the L+G system.
-%
-%\item
-%\textbf{(d) Mobile Device:}
-%Runs the L+G client application, produces and stores data sensitive to the users privacy.
-%
-%\item
-%\textbf{(e) Data Center:} Runs the L+G services, processes and stores user data.
-%
-%\item
-%\textbf{(f) Report Tool:} Interface to aggregated user data.
-%
-%\end{itemize}
-%\end{flushleft}
+The citizen is a volunteer who is willing to share his personal travel
+patterns within the travel-survey event.  He carries a mobile
+smart-phone which runs the \emph{sensor collector application}. The
+application collects data from various sensors available on modern
+smart-phones. In particular accelerometer- and GPS-samples are
+collected. Based on the accelerometer data, the application extracts
+human activities (e.g. running, walking, standing). Also, the
+application can send raw-sensor data back to a central data center.
 
-\caption{IT Systems}
-\label{figure:IT Systems}
-\end{figure}
+The \emph{data center} stores and processes sensor data collected with
+the sensor collector application. It can also take into account data
+obtained from third parties, like the current positions of trains. In
+particular, the data center determines if the citizen is using public
+transportation and if so which lines of service (bus, train, tram) are
+used. The data center can also sent mining end products and messages
+(e.g. traffic jam reports, bus schedule) back to the mobile device of
+the citizen.
 
-A \emph{citizen} (a) carries a mobile device running the \emph{sensor collector} application (d).
-The sensor collector application is able to collect various kinds of sensor data (accelerometer, GPS, GSM, ...) and can sent the raw data back to the \emph{data center} (c).
-The sensor collector can also be able to perform certain data mining operations.
-
-Examples of such data mining operations include human activity recognition,the detection of service lines, detection of characters and faces from images.
-
-In the Live+Gov Project mobile devices are used in particular for the following activities:
-\begin{enumerate}
-\item collection of GPS samples,
-\item mining of Human activities (HAR) based on accelerometer samples,
-\item collection of reports consisting of an image, free text and selected categories.
-\end{enumerate}
-
-The \emph{data center} stores and processes sensor data collected with the sensor collector application. It can also take into account data obtained from third parties, like the current positions of trains.
-The data center can sent mining end products (traffic jam reports, bus schedule) back to the mobile device of the citizen.
-
-In the Live+Gov Project data centers, in particular, perform the following activities:
-\begin{enumerate}
-\item storage of login credentials, name, and email address for each citizen,
-\item storage of collected GPS samples (user id, timestamp, GPS location),
-\item storage of HAR results (user id, timestamp, HAR result),
-\item detection of service lines based received GPS samples (SLD),
-\item storage of SLD results (userid, timestamp, SLD result),
-\item sent back SLD results to mobile device,
-\item storage of received reports (user id, timestamp, report),
-\item detection of inherent patterns of the received reports.
-\end{enumerate}
-
-The \emph{System Provider} (b) provides and operates technical infrastructure like the Data Center and the \emph{Reporting Tool} (f).
-The Reporting Tool queries the Data Center for aggregated data to visualize in form of charts and other means suitable to help understanding of monitored citizens.
-
-\textit{Local Authorities} (c) use the reporting tool to get information in order to understand citizen movement and improve public services.
-In such systems, the most valuable information for local authorities is not the raw sensor data, but aggregated views on the mining end products.
-
-In the Live+Gov Project the reporting tools allows, in particular the following queries:
-\begin{enumerate}
-\item show aggregate information about which routes citizens take starting from a given location,
-\item show the average waiting time of a citizen for each bus stop,
-\item show routes where citizens where running to catch a bus,
-\item show locations of all reports in a given time window,
-\item visualize detected patterns in the report data,
-\item view individual reports.
-\end{enumerate}
-\end{LGContent}
-
+The \emph{service provider} provides and operates all technical
+infrastructure like the data center and the sensor application. He
+also operates a web-based \emph{reporting tool} that aggregates
+information about travel patterns of citizens within the
+travel-survey. The reporting tool is used by the travel agency to gain
+insights for planning and accounting of the public transportation
+infrastructure.
 
 %============================================================
 
