@@ -45,16 +45,10 @@
 
 \begin{abstract}
 
-
 * The system has been built in Live+Gov EU project
 * Analysis of Privacy aspects following a structured approach
 * Derive eight privacy recommendations
 * Some of them have been implemented in the service
-
-\keywords{
-privacy protection, IT security analysis, sensor data, mobile phones, traffic survey
-}
-
 
 \end{abstract}
 
@@ -62,26 +56,39 @@ privacy protection, IT security analysis, sensor data, mobile phones, traffic su
 
 \section{Introduction}
 
+The rise of mobile smart-phones equipped with a wide range of sensors
+and the abundance mobile internet connectivity has paved the way to a
+whole new generation of mobile services which ease the daily life of
+citizens of the western developed world. Apps like Google
+Maps\footnote{\url{http://google.com/maps}} allows the user to
+navigate effectively in unknown cities. Others track sports activities
+in order to optimize training plans or engage in virtual competitions
+(e.g. Strava\footnote{Citation Needed}).
 
+Besides the immediate benefits, citizens using these services, reveal
+a wealth of which can be used to draw a very detailed picture of the
+private life of the citizen. For instance, GPS location tracking can
+be used to infer shopping habits or associations with political groups
+(when meetings are attended). Accelerometer data can be used to detect
+medical conditions like walking disabilities. All this data is highly
+sensitive to the citizens privacy and can be used against the citizen
+if it falls into the wrong hands.
 
-* Privacy Protection very important topic in current time Fundamental
-* Fundamental trade-off between enhanced functionality and convenience
-  of the service (service demands) and personal data revealed by the
-  use (privacy demands).
-* Challenge for service provider. Find the right balance.
-* We study concrete use case of a travel-survey application.
+Providers of these new services are faced with a fundamental trade-off
+between features and convenience of the service and the protection of
+the citizen's privacy. The service has to collect enough data to
+support the basic service-promises. If too much data is collected the
+privacy of the citizen is put at risk, with immediate implications for
+the customer trust relation and the acceptance of the service. Also
+leaks of private data can jeopardize the whole business.
+
+In this article we study the privacy risks of a travel-survey service
+for urban mobility.
 
 %============================================================
 
 \section{Scenario Description: Mobile Traffic Survey}
-
-\TODO{HH:\\
-* System description: (Raw version copied from Privacy Analysis)\\
-* Information needs of transport agency\\
-}
-
-\subsubsection{IT-Systems \& Interactions}
-\label{subsubsection:it-systems}
+\label{sec:ScenarioDescription}
 
 Travel surveys are regularly conducted by providers of public
 transportation infrastructure in order to asses the current usage of
@@ -102,7 +109,9 @@ terminology will serve as a basis for our privacy analysis.
 There are three stakeholders involved with the sysem: The
 \emph{citizen}, the \emph{service provider} and the \emph{travel
   agency}. The service provider is the operator of all IT systems and
-sells the travel-survey service to the travel agency.
+sells the travel-survey service to the travel agency. Figure
+\ref{figure:Live+Gov Vulnerabilities} contains a schematic
+visualization of the relation between these stakeholders.
 
 The citizen is a volunteer who is willing to share his personal travel
 patterns within the travel-survey event.  He carries a mobile
@@ -129,6 +138,7 @@ information about travel patterns of citizens within the
 travel-survey. The reporting tool is used by the travel agency to gain
 insights for planning and accounting of the public transportation
 infrastructure.
+
 
 %============================================================
 
