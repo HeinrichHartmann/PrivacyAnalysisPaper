@@ -36,7 +36,8 @@
 
 %============================================================
 
-\title{Privacy Aware Mobile Sensor Applications}
+\title{A Privacy Aware Mobile Sensor Application}
+
 \author{Heinrich Hartmann \and Tim Wambach \and Maximilian Meffert \and R\"udiger Grimm}
 \institute{University of Koblenz-Landau}
 \maketitle
@@ -45,7 +46,11 @@
 
 \begin{abstract}
 
-In this article we analyze the privacy aspects of a mobile sensor
+In our research work we have implemented a privacy aware mobile sensor application [diesen ersten Satz ggf. wieder streichen]. 
+In this paper we outline a scenario of a mobile traffic survey and analyse its privacy risks according to a reference model for IT security analysis.
+This leads to concrete recommendations for privacy protecting measures that are implemented in the system, for example a Web-based dashboard which allows the users to view, modify and delete all personal data that is stored in the system.
+
+Vorschlag HH: In this article we analyze the privacy aspects of a mobile sensor
 application used for recording urban travel patterns as part of a
 travel-survey service. This service has been developed and
 field-tested within the Live+Gov EU Project. The privacy analysis
@@ -53,6 +58,12 @@ follows a structured approach established in
 \cite{Grimm:ItSecRefModel}. Eight privacy recommendations are derived,
 and have already led to corresponding enhancements of the
 travel-survey service.
+
+\keywords{
+privacy protection, IT security analysis, sensor data, mobile phones, traffic survey
+}
+
+
 
 \end{abstract}
 
@@ -63,17 +74,16 @@ travel-survey service.
 The rise of mobile smart-phones equipped with a wide range of sensors
 and the abundance mobile internet connectivity has paved the way to a
 whole new generation of mobile services which ease the daily life of
-citizens of the western developed world. Apps like Google
-Maps\footnote{\url{http://google.com/maps}} allows the user to
-navigate effectively in unknown cities. Others
-(e.g. Strava\footnote{Citation Needed}) track sports activities in
-order to optimize training plans or engage in virtual competitions .
+citizens using them. Apps like Google
+Maps\footnote{\url{http://www.google.com/mobile/maps/}} allows the user to
+navigate effectively in unknown cities; others track sports activities
+in order to optimize training plans or engage in virtual competitions.
 
-Besides the immediate benefits citizens using these services reveal
-a wealth of which can be used to draw a very detailed picture of the
-private life of the citizen. For instance, GPS location tracking can
-be used to infer shopping habits or associations with political groups
-(when meetings are attended). Accelerometer data can be used to detect
+Besides the immediate benefits these services reveal a wealth of
+private information about the citizen that capture a very detailed
+picture of his life. For instance, GPS location tracking can be used
+to infer shopping habits or associations with political groups (when
+meetings are attended) and accelerometer data can be used to detect
 medical conditions like walking disabilities. All this data is highly
 sensitive to the citizens privacy and can be used against the citizen
 if it falls into the wrong hands.
@@ -81,7 +91,7 @@ if it falls into the wrong hands.
 Providers of these new services are faced with a fundamental trade-off
 between features and convenience of the service and the protection of
 the citizen's privacy. The service has to collect enough data to
-support the basic service-promises. If too much data is collected the
+support the basic service promises. If too much data is collected the
 privacy of the citizen is put at risk, with immediate implications for
 the customer trust relation and the acceptance of the service. Also
 leaks of private data can jeopardize the whole business.
@@ -144,251 +154,36 @@ travel-survey. The reporting tool is used by the travel agency to gain
 insights for planning and accounting of the public transportation
 infrastructure.
 
-
 %============================================================
 
 \section{Definition of Privacy}
 \label{sec:privacydef}
 
-%\TODO{MM:\\
-%- Shorten\\
-%- DONE - Remove Implicit Type Violations\\
-%- Update figure\\
-%- RG: Discuss alternative definitions of privacy\\
-%}
 
-\noindent
-Defining privacy is a challenge which seems impossible. This is well put to words by Serge Gutwirth, who notes:
+\subsection{Privacy and Self Data Protection}
+More than one hundred years ago, 1890, the American politician Louis Brandis had specified privacy as the right to be left alone \cite{WarrenBrandeis:RightToPrivacy}. From the data processing point of view, this right is best expressed by the absence of information about a person in the mind of others. Indeed, this principle of “data minimization” is still fundamental to modern data protection legislation. The modern principles of data protection are codified by many legal systems in different countries, especially in Europe \cite{EU-directive2}, and by the US save harbor principles. However, modern data protection is more than only the absence of personal data. It is based on the personal right on self-determination over information and communication \cite{BVerfG:census}. This is, for example, very well expressed by Fried’s definition of 1970:
 \begin{quote}
-The notion of privacy remains out of the grasp of every academic chasing it. Even when it is cornered by such additional modifiers as `our' privacy, it still finds a way to remain elusive. \cite{Gutwirth}
+	Privacy is not simply an absence of information about us in the minds of others; rather it is the control we have over information about ourselves. \cite{CFried:Privacy}
 \end{quote}
-In this section we introduce the concept of privacy as control over information.
-We specify types of information we have to deal with in the context of privacy.
-And finally we outline the impact mobile sensors can have on one's privacy.
+In order to realize this requirement in the modern IT world users are provided with user control functions, for example to decide about the access on their data for future use, and to view, modify, and delete unwanted data that had been collected. In its fundamental decision of May 13, 2014, the European Court has convicted Google to accept user demands to delete links to incorrect or irrelevant personal data in the Internet (C-131/12 – Google Spain SL). Such functions would constitute a so-called self-data-protection. It requires users to be highly aware of their rights and how to use them. Complementary, system-data-protection puts the load of data protection enforcement on the data collectors, ideally even without bothering the users. Typical system data protection functions are the deletion of personal data that are not bound to service purpose, the anonymization of personal data for research, and the abstinence from forwarding personal data to third parties. Together, system-data-protection and self-data-protection are supposed to provide a fair balance between the interests of service providers and their users.
+In our research work we focus on self-data-protection according to Fried’s user control requirement \cite{CFried:Privacy}. A system data protection point of view would lead to other results, namely to a set of obligations for service providers. This is subject to further research.
 
-\subsection{Privacy as Control over Information}
-%We may need to remove the following paragraph depinding on RG's alternative definition of privacy
-%Many definitions seem to focus on the vulnerabilities of privacy.
-%Thus a great amount of work is invested in finding threats to prohibit instead of describing why privacy is so valuable to us.
-%This way around one could derive measures to ensure and secure its value. \cite{7ToP}
-
-%One particular scholar, who did not follow this way of thinking is Charles Fried.
-One possible definition of privacy is given by Charles Fried in his work \textit{An Anatomy of Values}\cite{CFried:Privacy}.
-He questioned, why we are intuitively sensitive to privacy violations.
-But he did not assert privacy as an intrinsic value by itself, he rather stated:
-\begin{quote}
-\textbf{Privacy is} not simply an absence of information about us in the minds of others;
-rather it is \textbf{the control we have over information about ourselves}. \cite{CFried:Privacy}
-\end{quote}
-According to Fried privacy is our ability to create and modulate the relationships to other humans.
-Which makes us intuitively sensitive for its violation, because this affects what defines our identity.
-Also, the ability to build and maintain relationships is essential to society.
-This is what makes privacy valuable and deserving of protection. 
-\cite{sep-privacy}\cite{CFried:Privacy}
-
-\subsubsection{Relationship Creation.}
-
-% Privacy + Trust ~> Relationship
-% ===============================
-% - A shares intimate information with B
-% - A trusts B not to reveal that information by not constantly monitoring B, i.e. respecting B's privacy
-% - B has now the possibility to share intimate information with A
-
-We share information of great intimacy only with persons we deem trustworthy. 
-Moreover, we trust those persons to not reveal information about us to others by not constantly monitoring them, i.e. respecting their privacy.
-Trust needs the possibility of unknown failure.
-If we would constantly monitor our partners, they cannot fail unnoticed nor can they willingly share intimate information with us.
-By trusting them, we create the possibility for them to share intimate information with us.
-\cite{CFried:Privacy}
-
-\subsubsection{Relationship Modulation.}
-Fried argues, depending on the person we are interacting with, we are changing the degree of intimacy we share.
-If we are to share private information with others, we are most likely aware that this action is privacy related.
-In that case we are able to selectively disclose information along the two dimensions of quantity and quality.
-\cite{CFried:Privacy}
-
-\subsubsection{Alternative Definitions.}
-Using Fried's anatomy of privacy for this analysis is suitable because of two points.
-Despite the fact his text was published in 1970, he already included technologies to its viewpoint that did not only monitor location, but also record biometric data \cite{CFried:Privacy}. 
-Secondly, the concept of control over information does not enforce data minimization.
-Fried's definition complies with what we call \textit{self data protection}, where persons communicate their data self-determined.
-This is the opposite of \textit{system data protection}, where the collection of certain data is prohibited. 
-
-\TODO{RG: Discuss alternative definitions of privacy}
-
-%=======================================================================================
-
-
-
-\begin{LGContent-Hidden}
-Defining privacy is a challenge which seems impossible. This is well put to words by Serge Gutwirth, who notes:
-
-\begin{quote}
-The notion of privacy remains out of the grasp of every academic chasing it. Even when it is cornered by such additional modifiers as `our' privacy, it still finds a way to remain elusive. \cite{Gutwirth}
-\end{quote}
-
-%Many researchers seem to only ``focus on the ways in which privacy can be infringed'' \cite{7ToP}.
-%Thus they try to create taxonomies of \emph{privacy harms} instead of taxonomies of \emph{privacy types}.
-%Those two differ in the respect that the former focuses on threats to prohibit whereas the latter focuses on values to protect.
-%So one should rather evaluate what aspects are precious about privacy and develop measures to ensure their security than only forbid single actions against it \cite{7ToP}.
-
-Many researchers seem to only ``focus on the ways in which privacy can be infringed'' \cite{7ToP}.
-Thus they invest a great amount of work in defining threats to prohibit instead of describing why privacy is so valuable to us.
-This way around one could derive measures to ensure and secure its value \cite{7ToP}.
-One particular scholar who does this in the context of digital monitoring is Charles Fried.
-He questioned, why we are intuitively sensitive to violations of privacy.
-But he did not assert privacy as an intrinsic value by itself, he rather sated:
-
-\begin{quote}
-Privacy is not simply an absence of information about us in the minds of others;
-rather it is \textbf{the control we have over information about ourselves}. \cite{CFried:Privacy}
-\end{quote}
-
-According to Fried privacy is a \textit{rational context}.
-Which means that one is aware of such context's existence during a rational action.
-If we are to share private information with others, we are most likely aware that this action is privacy related.
-In that case we are able to selectively disclose information along the two dimensions of quantity and quality.
-This leads Fried to his thesis, that privacy is one's ability to create and modulate his or hers social relationships, namely: friendship, love and trust. \cite{CFried:Privacy}
-
-Depending on the conversation partner, we change the degree of intimate information we share if it is a total stranger, colleague, close friend or lover.
-With close friends or lovers we share information of great intimacy we do not share with anyone else.
-Moreover, we trust those persons to not reveal information about us to others by respecting their privacy.
-Trust needs the possibility of unknown failure.
-If we would constantly monitor our partners, they cannot fail unnoticed nor can they willingly share that information with us.
-Thus they could not trust us anymore. \cite{CFried:Privacy}
-
-So privacy or the its possibility, according to Fried, is the foundation of our core relations: friendship, love and trust.
-And thus it is valuable, because those relations are essential to human society \cite{CFried:Privacy}.
-Using his anatomy of privacy as foundation of our analysis is suitable because of two points.
-At first, Fried's study on the understanding of privacy provided a great contribution to the research on the same term in philosophy \cite{sep-privacy} and computer science \cite{SociotechnicalArchitectureForOnlinePrivacy}.
-Secondly, despite the fact his text was published in 1970, he already included technologies to its viewpoint that did not only monitor location, but also record biometric data.
-\end{LGContent-Hidden}
 
 \subsection{The Seven Types of Privacy}
 \label{sec:privacytypes}
 
-In Fried's definition of privacy as control over information, the specification of what constitues such information remains open.
-There is a vast amount of information that relates to a person and we need to get a better understanding in order to perform a thorough analysis.
-To this end we use the the categorization by Friedewald, Finn and Wright \cite{7ToP} called the \textit{Seven Types of Privacy}.
-The seven types of privacy are an extension to the four types of privacy by Roger Clarke \cite{RClarke:4ToP}, which are:
-\textit{Privacy of the Person},
-\textit{Privacy of Personal Behaviour},
-\textit{Privacy of Personal Communication},
-\textit{Privacy of Personal Data}.
-It is important to note, that these categories do not form a taxonomy, since the categories are not mutually exclusive.
-For instance a written email is considered personal communication as well as personal data stored on a computer.
-
-Moreover, Friedewald et al. argue that Clarke's types are outdated and no longer adequate in order to describe the privacy aspect of our modern, technology driven, world.
-In order to address this shortcoming they extend the former four to the now introduced seven types privacy as follows:
-
+In Fried's definition of privacy as control over information, the specification of what constitutes such information remains open. There is a vast amount of information that relates to a person and we need to get a better understanding in order to perform a thorough analysis. To this end we use the categorization by Friedewald, Finn and Wright of 2013 called the Seven Types of Privacy \cite{7ToP}. These are an extension to the four types of privacy by Roger Clarke of 1997 \cite{RClarke:4ToP}. It is important to note, that these categories are not mutually exclusive. For instance a written email is considered personal communication as well as personal data stored on a computer. However, the categories are very helpful for a privacy analysis with a focus on self-data-protection.
+The seven types of privacy are as follows:
 \begin{enumerate}
-
-\item \textbf{Privacy of the Person}
-This privacy type is generally concerned with one could best understand as biometric privacy.
-Friedewald et al. paraphrase it as \emph{``\om the right to keep body functions and body characteristics \om private''}.
-This includes but is not limited to measures like weight, height or shoulder width;
-biometric identifiers like fingerprints and DNA sequences;
-or medical conditions such as limping or having a cold.
-
-
-\item \textbf{Privacy of Behaviour and Action}
-This privacy type is concerned with one's activities in public as well as in private spaces.
-It includes but is not limited to religious practices, political activities and sexual preferences or habits.
-
-
-\item \textbf{Privacy of Communication}
-This privacy type is concerned with one's communication in a broad sense.
-It includes written correspondence, but also conversations conducted either vis-a-vis or via electronic devices.
-Friedewald et al. put it as the right to free discussion without unknown interception by third parties.
-
-
-\item \textbf{Privacy of Data and Image}
-This privacy type is concerned with the secrecy of personal data, especially its automatic disclosure to other individuals and organizations.
-It includes data such as paychecks, insurance information or records of public administration.
-However, it also refers to pictures taken without consent and digital identifiers like IP addresses or social security numbers.
-
-
-\item \textbf{Privacy of Thoughts and Feelings}
-This privacy type is the counterpart to Privacy of the Person like body and mind are counterparts of one another.
-Comparable to the Privacy of Data and Image, Friedewald et al. state that one's thoughts and feelings must not be automatically revealed to others.
-This could simply happen by the disclosure of one's diary or by technologies which allow emotion detection through biometric means.
-One's body temperature or iris reflexes might infer stress or excitation.
-
-
-\item \textbf{Privacy of Location and Space}
-This privacy type is concerned with one's movements in public spaces and the protection of private spaces.
-Friedewald et al. qualify the first dimension as one's right to move without being identified, tracked or monitored.
-The second dimension is qualified as one's general right to solitude, especially the right to the inviolability of the home.
-
-
-\item \textbf{Privacy of Association}
-This privacy type is also put as group privacy.
-Friedewald et al. state that one must have the possibility with whomever without being recorded.
-Associations like friends or organizations such as political parties must not automatically be recorded because one associates with them, and vice-versa.
+	\item Privacy of the Person (with respect to body functions and body characteristics)
+	\item Privacy of Behavior and Action
+	\item Privacy of Communication
+	\item Privacy of Data and Image
+	\item Privacy of Thoughts and Feelings
+	\item Privacy of Location and Space 
+	\item Privacy of Association (with persons, e.g. friends, and organizations, e.g. political parties)
 \end{enumerate}
 
-\begin{LGContent-Hidden}
-In Fried's definition of privacy as control over "information about onself'', the specification of what constitues such information remains open.
-There is a vast amount of information that relates to a person and we need to get a better understanding in order to perform a thorough analysis.
-To this end we use the the categorization by Friedewald, Finn and Wright \cite{7ToP} called the \textit{Seven Types of Privacy}.
-The seven types of privacy are an extension to the four types of privacy by Roger Clarke \cite{RClarke:4ToP}, which are:
-\textit{Privacy of the Person},
-\textit{Privacy of Personal Behaviour},
-\textit{Privacy of Personal Communication},
-\textit{Privacy of Personal Data}.
-It is important to note, that this categories do not form no taxonomy, since the categories are not mutually exclusive.
-For instance a written email is considered personal communication as well as personal data stored on a computer.
-
-Moreover, Friedewald et al. argue that Clarke's taxonomy is outdated and no longer adequate in order to describe the privacy aspect of our modern, technology driven, world.
-In order to address this shortcoming they extend the former four to the now introduced seven types privacy as follows:
-
-\begin{enumerate}
-
-\item \textbf{Privacy of the Person}
-This privacy type is generally concerned with one could best understand as biometric privacy.
-Friedewald et al. paraphrase it as \emph{``\om the right to keep body functions and body characteristics \om private''}.
-This includes but is not limited to measures like weight, height or shoulder width;
-biometric identifiers like fingerprints and DNA sequences;
-or medical conditions such as limping or having a cold.
-
-
-\item \textbf{Privacy of Behaviour and Action}
-This privacy type is concerned with one's activities in public as well as in private spaces.
-It includes but is not limited to religious practices, political activities and sexual preferences or habits.
-
-
-\item \textbf{Privacy of Communication}
-This privacy type is concerned with one's communication in a broad sense.
-It includes written correspondence, but also conversations conducted either vis-a-vis or via electronic devices.
-Friedewald et al. put it as the right to free discussion without unknown interception by third parties.
-
-
-\item \textbf{Privacy of Data and Image}
-This privacy type is concerned with the secrecy of personal data, especially its automatic disclosure to other individuals and organizations.
-It includes data such as paychecks, insurance information or records of public administration.
-However, it also refers to pictures taken without consent and digital identifiers like IP addresses or social security numbers.
-
-
-\item \textbf{Privacy of Thoughts and Feelings}
-This privacy type is the counterpart to Privacy of the Person like body and mind are counterparts of one another.
-Comparable to the Privacy of Data and Image, Friedewald et al. state that one's thoughts and feelings must not be automatically revealed to others.
-This could simply happen by the disclosure of one's diary or by technologies which allow emotion detection through biometric means.
-One's body temperature or iris reflexes might infer stress or excitation.
-
-
-\item \textbf{Privacy of Location and Space}
-This privacy type is concerned with one's movements in public spaces and the protection of private spaces.
-Friedewald et al. qualify the first dimension as one's right to move without being identified, tracked or monitored.
-The second dimension is qualified as one's general right to solitude, especially the right to the inviolability of the home.
-
-
-\item \textbf{Privacy of Association}
-This privacy type is also put as group privacy.
-Friedewald et al. state that one must have the possibility with whomever without being recorded.
-Associations like friends or organizations such as political parties must not automatically be recorded because one associates with them, and vice-versa.
-\end{enumerate}
-
-\end{LGContent-Hidden}
 
 
 \subsection{Sensor Data Privacy Impact}
@@ -564,58 +359,31 @@ Implicit privacy violations apply accordingly.
 \section{Privacy Analysis}
 
 
-The goal of this chapter is to analyze and identify the threads to
-personal privacy that are posed by collecting, storing and processing
-sensor data from mobile phones.  We derive concrete privacy protection
-measures that address the main risks involved with handling such data.
+The goal of this chapter is to analyze and identify the threats to personal privacy that are posed by collecting, storing and processing sensor data from mobile phones. We derive concrete privacy protection measures that address the main risks involved with handling such data.
 
+In our analysis we follow the “reference model for IT security analysis” as described in \cite{Grimm:ItSecRefModel}. It supersedes earlier efforts by e.g. \cite{Avizienis}. The reference model consists of a model and a procedure. The model organizes a common security terminology in a reasonable and practical way. The procedure describes a method for analyzing the IT system based on that model. The reference model provides four views: (1) the real world of persons and their assets, (2) the potential world of requirements and threats, (3) measures and plans specified by programs, business models and attack strategies, and, finally, (4) events of running programs, data accesses and performed attacks as well as their defense. In the following sections we apply the proposed procedures of the reference model to our scenario of a travel service that collects personal data from mobile users in order to serve the users and to enhance the service. The service intends to respect the privacy of its users. 
 
-In section \ref{subsec:world-analysis} and \ref{subsec:pot-analysis} we apply the first two steps of the Reference Model for IT Security Analysis as described in \cite{Grimm:ItSecRefModel}.  It supersedes earlier efforts by
-e.g. \cite{Avizienis}.  The reference model consists of a \emph{model}
-and a \emph{procedure}: The model aims to organize common security terminology in a reasonable and practical way. The procedure describes a method to analysis the IT system based on that model. In these sections we give a brief overview over the reference model by applying it to our scenario.
+In sections \ref{subsec:world-analysis} and \ref{subsec:pot-analysis} we apply the first two steps of the reference model \cite{Grimm:ItSecRefModel}, which are related to the views on the real world and on the measures and plans. In section \ref{subsec:priv-rec} we apply the third step of the reference model by providing specific privacy recommendations and requirements as a result of the previous analysis that the system must comply with. 
 
-
-In section \ref{subsec:priv-rec} we provide specific privacy recommendations and requirements as a result of the previous analysis that the system must comply with.
 
 \subsection{Step 1. World Analysis}
 
 \label{subsec:world-analysis}
 
-The first step is the \emph{world view} where all components are described in their current state. It consists of the following components:
-\begin{itemize}
-	
-	\item \textbf{Assets.} 
-	Things of value to one or more stakeholders.
-	
-	\item \textbf{IT-Systems.}
-	The relevant IT-Systems under study. Already described in Section \ref{subsubsection:it-systems}.
-		
-	\item \textbf{Actors.}
-	All identifiable stakeholders of the system under study.
-	
-	\item \textbf{Conflicts of Interests.}
-	Different actors have different interests which can be in conflict which each other.
-	
-	\item \textbf{Vulnerabilities.}
-	All identifiable weaknesses in the IT-System e.g. a weak passwords.
-	
-	\item \textbf{Interactions.}
-	This point captures all possible interactions between assets, IT-Systems, humans, and vulnerabilites as partly described in Section \ref{subsubsection:it-systems} and will be further analyzed in \ref{subsec:pot-analysis}.
-	
-\end{itemize}
+The first step is the \emph{world view} where all components are described in their current state. It consists of the following components: Assets, IT-Systems, Actors, Conflicts of Interests, Vulnerabilities, and Interactions.
 
+The relevant \textbf{IT-Systems} were already described in Section \ref{subsubsection:it-systems}.
+\textbf{Interactions} between assets, IT-Systems, humans, and vulnerabilites as partly described in Section \ref{subsubsection:it-systems} and will be further analyzed in Section \ref{subsec:pot-analysis}.
+	
 
 \subsubsection{Assets}
 
-In this scenario we focus our attention to only one asset: The privacy of the citizen.
-Our definition of privacy is described in detail in Section \ref{sec:privacydef} and introduced in Section \ref{sec:privacytypes} the seven different types of privacy.
-
+In this scenario we focus our attention to only one asset: The privacy of the citizen. Our definition of privacy is described in detail in Section \ref{sec:privacydef}.
 
 \subsubsection{Actors}
 \label{subsubsection:humans}
 
-This section describes the human actors previously introduced within the IT system architecture (\ref{subsubsection:it-systems}).
-Also the additional actor \textit{External} is introduced as a person with no special access rights. Although the text is only a short description, a list of the most important interests is provided for each actor.
+This section describes the human actors previously introduced within the IT system architecture (\ref{subsubsection:it-systems}). Although the text is only a short description, a list of the most important interests is provided for each actor.
 
 \textbf{Citizen.}
 Citizens are persons who use the mobile device as users of the provided software.
@@ -641,9 +409,7 @@ As companies, they are interested in gaining financial profit. The financial suc
 System Providers are interested in: financial profit, manageable complexity, professional excellence, and good working conditions.
 
 \textbf{Local Authority.}
-Local authorities are public offices (ministry, agency, department, ...) or other external public entities which act as direct customers of service providers.
-They purchase a system specialized for their needs.
-For example a department for urban mobility, orders a system to better understand usage patterns and make improvement to the urban traffic flow. Such systems are investments, and so naturally local authorities are interested in a profitable return, like increased ticket sales.
+Local authorities are public offices (ministry, agency, department, ...) or other external public entities which act as direct customers of service providers. For example a department for urban mobility, orders a system to better understand usage patterns and make improvement to the urban traffic flow. Such systems are investments, and so naturally local authorities are interested in a profitable return, like increased ticket sales.
 
 Local authorities are interested in: financial profit, political reputation, business intelligence, and good working conditions.
 
@@ -652,9 +418,7 @@ Local authorities are interested in: financial profit, political reputation, bus
 \label{subsubsection:Conflicts of Interests}
 Different actors have different interests which can be in conflict each other. This section outlines the Conflicts of Interests between the actors of the proposed IT system architecture.
 
-The individual interests of all actors is already described in the previous section and are not elaborated any further.
-The emphasis here is put on prominent existing conflicts, because they provide a foundation for vulnerabilities and subsequent threats.
-
+The individual interests of all actors is already described in the previous section and are not elaborated any further. The emphasis here is put on prominent existing conflicts, because they provide a foundation for vulnerabilities and subsequent threats.
 
 \textbf{System Complexity vs Privacy.}
 System Providers offer a service to Local Authorities, so that Local Authorities can improve their public services. This task in it self has a high technical complexity and operates on privacy sensitive data provided by monitored Citizens.
@@ -685,9 +449,7 @@ Both would harm the reputation of local authorities, who endangered the privacy 
 
 \subsubsection{Vulnerabilities}
 \label{subsubsection:Vulnerabilities}
-This section outlines the vulnerabilities (Figure \ref{figure:Live+Gov Vulnerabilities}) of the proposed monitoring and mining system.
-Note that vulnerabilities are not necessarily of technical nature.
-The weaknesses of IT systems are often created due to misuse or misconfiguration of the various components by one or more actors.
+This section outlines the vulnerabilities (Figure \ref{figure:Live+Gov Vulnerabilities}) of the proposed monitoring and mining system. 
 
 %input{./figures/LG-Vulnerabilities}
 \begin{figure}
@@ -723,54 +485,30 @@ they are monitored, who monitors them, what information is recorded
 and for what purposes.  Subjects who are not aware of these things
 cannot effectively preserve control and thus lose their privacy. 
 
-\subsection{Step 2. Potential Analysis}
+\subsection{Step 2. Potential World Analysis}
 \label{subsec:pot-analysis}
 
-The \emph{Potential Analysis} (or \emph{Potential View}) displays the intended and unintended interactions of the components in the world view.
-The intended interactions support the underlying business objectives.
-Unintended interactions lead to threats. The potential view consists of the following components:
+The \emph{Potential World Analysis} displays the intended and unintended interactions of the components in the world view.
 
-\begin{itemize}
+The intended interactions support the underlying business objectives. Unintended interactions can lead to threats. Obviously this provides a conflict of interest with the victim's business model, to keep the asset away from unauthorized access. From the point of view of the victim, an attack would be an unintended interaction.
 
-	\item \textbf{Business Objectives.}
-	Interaction of IT-system and actors that realize a business goals of the system owner were already described in Section \ref{subsubsection:it-systems} and \ref{subsec:world-analysis}.
-
-	\item \textbf{Threats.}
-	A threat is a potential interaction that destroys or harms assets of the system.
-	Concrete realizations of threats can be \emph{attacks} or \emph{accidents}.
-	Attacks are executed by an actor in response to a conflict of interest.
-	Accidents are harmful interactions that are not willfully caused by an actor.
-	
-	\item \textbf{Chances/Risk.}
-	Evaluation of chances and risks associated to the business objectives and threats. The risk associated to a threat is its expected loss.
-
-	\item \textbf{Security Requirements.}
-	Interactions (e.g. threats) that shall not occur within the system in order to achieve its business objectives.  We included these security requirements into our analysis in Section \ref{subsec:priv-rec}.
-		
-\end{itemize}
+The potential world view consists of the following components: Business Objectives, Threats, hances/Risk, and Security Requirements. 
+\textbf{Business Objectives} of the system owner were already described in Section \ref{subsubsection:it-systems} and \ref{subsec:world-analysis}. \textbf{Security Requirement}s are included to our analysis in Section \ref{subsec:priv-rec}.
 
 
-\subsubsection{Threat Specification}
+\subsubsection{Threats}
 
 A threat is a potential interaction of the components that targets an asset.
 We restrict ourselves to the case of attacks, and the asset of privacy.
-An attack is an interaction that is executed by an actor in response to a conflict of interest by exploiting a vulnerability of the system.
-The alternative interaction of accidents are less relevant for us, since the violation of privacy always requires an actor that takes advantage of personal data.
-
-We describe threats for the citizen privacy in the Live+Gov system.
+An attack is an interaction that is executed by an actor in response to a conflict of interest by exploiting a vulnerability of the system. We describe threats for the citizen privacy in the system.
 This list can necessarily not be complete, but we make a best effort to cover the most relevant cases.
 
-
 \textbf{T1. Insufficient Control Features.}
-As soon as collected data of Citizens is stored on System Provider servers, all control over that data is lost. Although, control capabilities for Citizens add to the system complexity, which could motivate to omit those. Therefore interests of Citizens and System Providers are in conflict, namely it is the Citizen's \textit{Privacy vs. System Complexity} for System Providers. This is an abstract threat provoked by a general \textit{Missing Privacy Awareness} in the minds of all actors in the Live+Gov context.
+As soon as collected data of Citizens is stored on System Provider servers, all control over that data is lost. Although, control capabilities for Citizens add to the system complexity, which could motivate to omit those. Therefore interests of Citizens and System Providers are in conflict, namely it is the Citizen's \textit{Privacy vs. System Complexity} for System Providers.
 
 \textbf{T2. Excessive Data Mining.}
-The System Provider and/or the Local Authority secretly extract more private information from the collected data, than the Citizen agreed to.
-But results of the mining process create no disadvantages for Citizens, because there is no disclosure to third parties.
-This could be the case for a System Provider, who wants to test a new product and uses the pre-existing data collection.
-Or for a Local Authority, who wants to analyze the data collection regarding fare evasion.
-However, the Citizen has not agreed to such data processing nor could he, since it is conducted secretly.
-This disables a Citizen to control his data adequately.
+The System Provider and/or the Local Authority secretly extract more private information from the collected data, than the Citizen agreed to. But results of the mining process create no disadvantages for Citizens, because there is no disclosure to third parties. This could be the case for a System Provider, who wants to test a new product and uses the pre-existing data collection.
+
 Thus there are two possible conflicts: \textit{Privacy vs. Financial Profit of Serivce Provider} and  \textit{Privacy vs. Buisness Intelligence of Local Authority}
 The threat can be provoked by either lax data handling policies of both System Providers and Local Authorities, or a weak law enforcement of existing supervision.
 But the main issue, which can lead to such threats, is again a general \textit{Missing Privacy Awareness}.
@@ -818,7 +556,7 @@ vulnerabilities are, again, the existence of \textit{Unhappy
 employee to obtain large amounts of data unnoticed.
 
 
-\subsubsection{Threat Risk Evaluation}
+\subsubsection{Chances/Risk}
 
 In this section we will associate to every identified threat a corresponding risk. A risk is the expected loss that is associated to the threat.
 Therefore, we have to quantify the likeliness of the threat to occure and the harm or loss done in this case.
@@ -1009,9 +747,12 @@ The mapping of these recommendations to the threats is summarized in Figure \ref
 
 \section{Conclusion}
 
-\TODO{later.\\
-* Key aspect control, can be given back to citizens via ``Privacy Dashboard''
-}
+Our goal was to find a balance between the demand of the Local Authority for location-based data to improve their public services on one side, and to keep the privacy of citizens as untouched as possible on the other side.
+In a structured manner we identified all actors and what kind of conflict of interests can occour. Doing this, we found potential risks and provided finally specific recommendations how to protect the citizen’s privacy. 
+One central idea of these recommendations is to give the citizen as much control over their data back as possible. This can be e.g. done via a Privacy Dashboard that gives a full overview about all personal data that is stored on the system.
+By implementing these privacy recommendations we found a way to satisfy the above-mentioned demand of both sides and comply with legal data protection requirements in addition.
+
+
 
 \bibliographystyle{splncs}
 \bibliography{paper}{}
