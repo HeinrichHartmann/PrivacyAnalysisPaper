@@ -915,7 +915,7 @@
         </g>
         <g class="com.sun.star.drawing.TextShape">
          <g id="id21">
-          <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="776px" font-weight="700"><tspan class="TextPosition" x="50591" y="35111"><tspan fill="rgb(0,0,0)" stroke="none">Local </tspan></tspan><tspan class="TextPosition" x="49882" y="35979"><tspan fill="rgb(0,0,0)" stroke="none">Authority</tspan></tspan></tspan></text>
+          <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="776px" font-weight="700"><tspan class="TextPosition" x="50591" y="35111"><tspan fill="rgb(0,0,0)" stroke="none">Travel </tspan></tspan><tspan class="TextPosition" x="49882" y="35979"><tspan fill="rgb(0,0,0)" stroke="none">Agency</tspan></tspan></tspan></text>
          </g>
         </g>
        </g>

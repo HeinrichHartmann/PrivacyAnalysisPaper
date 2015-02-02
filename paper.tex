@@ -70,6 +70,8 @@ privacy protection, IT security analysis, sensor data, mobile phones, traffic su
 %============================================================
 
 \section{Introduction}
+\label{sec:intro}
+
 
 The rise of mobile smart-phones equipped with a wide range of sensors
 and the abundance mobile internet connectivity has paved the way to a
@@ -173,16 +175,8 @@ In our research work we focus on self-data-protection according to Fried’s use
 \label{sec:privacytypes}
 
 In Fried's definition of privacy as control over information, the specification of what constitutes such information remains open. There is a vast amount of information that relates to a person and we need to get a better understanding in order to perform a thorough analysis. To this end we use the categorization by Friedewald, Finn and Wright of 2013 called the Seven Types of Privacy \cite{7ToP}. These are an extension to the four types of privacy by Roger Clarke of 1997 \cite{RClarke:4ToP}. It is important to note, that these categories are not mutually exclusive. For instance a written email is considered personal communication as well as personal data stored on a computer. However, the categories are very helpful for a privacy analysis with a focus on self-data-protection.
-The seven types of privacy are as follows:
-\begin{enumerate}
-	\item Privacy of the Person (with respect to body functions and body characteristics)
-	\item Privacy of Behavior and Action
-	\item Privacy of Communication
-	\item Privacy of Data and Image
-	\item Privacy of Thoughts and Feelings
-	\item Privacy of Location and Space 
-	\item Privacy of Association (with persons, e.g. friends, and organizations, e.g. political parties)
-\end{enumerate}
+The seven types of privacy are as follows: Privacy of the Person (with respect to body functions and body characteristics), Privacy of Behavior and Action, Privacy of Communication, Privacy of Data and Image, Privacy of Thoughts and Feelings, Privacy of Location and Space, Privacy of Association (with persons, e.g. friends, and organizations, e.g. political parties).
+
 
 
 
@@ -372,8 +366,8 @@ In sections \ref{subsec:world-analysis} and \ref{subsec:pot-analysis} we apply t
 
 The first step is the \emph{world view} where all components are described in their current state. It consists of the following components: Assets, IT-Systems, Actors, Conflicts of Interests, Vulnerabilities, and Interactions.
 
-The relevant \textbf{IT-Systems} were already described in Section \ref{subsubsection:it-systems}.
-\textbf{Interactions} between assets, IT-Systems, humans, and vulnerabilites as partly described in Section \ref{subsubsection:it-systems} and will be further analyzed in Section \ref{subsec:pot-analysis}.
+The relevant \textbf{IT-Systems} were already described in Section \ref{sec:intro}.
+\textbf{Interactions} between assets, IT-Systems, humans, and vulnerabilites as partly described in Section \ref{sec:intro} and will be further analyzed in Section \ref{subsec:pot-analysis}.
 	
 
 \subsubsection{Assets}
@@ -387,7 +381,7 @@ This section describes the human actors previously introduced within the IT syst
 
 \textbf{Citizen.}
 Citizens are persons who use the mobile device as users of the provided software.
-Their main motivation for using the software is to gain a higher level of convenience in their daily activities. For example they may have access to real time bus schedules or reports about traffic jams, that help them to avoid long waiting times. Also they generally benefit from improvements of public infrastructure by local authorities, which is triggered by issue reports.
+Their main motivation for using the software is to gain a higher level of convenience in their daily activities. For example they may have access to real time bus schedules or reports about traffic jams, that help them to avoid long waiting times. Also they generally benefit from improvements of public infrastructure by travel agencies, which is triggered by issue reports.
 
 By using the application, citizens are sharing personal information like name and address, as well as data gathered from mobile sensor with the service provider. This data can be exploited in ways that are harmful to the citizen (cf. \cite{GuardienMassSurveillance}).
 
@@ -409,7 +403,7 @@ As companies, they are interested in gaining financial profit. The financial suc
 System Providers are interested in: financial profit, manageable complexity, professional excellence, and good working conditions.
 
 \textbf{Local Authority.}
-Local authorities are public offices (ministry, agency, department, ...) or other external public entities which act as direct customers of service providers. For example a department for urban mobility, orders a system to better understand usage patterns and make improvement to the urban traffic flow. Such systems are investments, and so naturally local authorities are interested in a profitable return, like increased ticket sales.
+Local authorities are public offices (ministry, agency, department, ...) or other external public entities which act as direct customers of service providers. For example a department for urban mobility, orders a system to better understand usage patterns and make improvement to the urban traffic flow. Such systems are investments, and so naturally travel agencies are interested in a profitable return, like increased ticket sales.
 
 Local authorities are interested in: financial profit, political reputation, business intelligence, and good working conditions.
 
@@ -444,7 +438,7 @@ For instance, they can try to invade the infrastructure for e-espionage reasons,
 Besides monetary reasons, externals can be motivated by political reasons to attack the monitoring and mining system.
 Externals can break the system to make a political statement of their own,
 or they can steal user data to prove the system insecure.
-Both would harm the reputation of local authorities, who endangered the privacy of the citizens.
+Both would harm the reputation of travel agencies, who endangered the privacy of the citizens.
 
 
 \subsubsection{Vulnerabilities}
@@ -493,7 +487,7 @@ The \emph{Potential World Analysis} displays the intended and unintended interac
 The intended interactions support the underlying business objectives. Unintended interactions can lead to threats. Obviously this provides a conflict of interest with the victim's business model, to keep the asset away from unauthorized access. From the point of view of the victim, an attack would be an unintended interaction.
 
 The potential world view consists of the following components: Business Objectives, Threats, hances/Risk, and Security Requirements. 
-\textbf{Business Objectives} of the system owner were already described in Section \ref{subsubsection:it-systems} and \ref{subsec:world-analysis}. \textbf{Security Requirement}s are included to our analysis in Section \ref{subsec:priv-rec}.
+\textbf{Business Objectives} of the system owner were already described in Section \ref{sec:intro} and \ref{subsec:world-analysis}. \textbf{Security Requirement}s are included to our analysis in Section \ref{subsec:priv-rec}.
 
 
 \subsubsection{Threats}
@@ -556,7 +550,7 @@ vulnerabilities are, again, the existence of \textit{Unhappy
 employee to obtain large amounts of data unnoticed.
 
 
-\subsubsection{Chances/Risk}
+\subsubsection{Chances/Risks}
 
 In this section we will associate to every identified threat a corresponding risk. A risk is the expected loss that is associated to the threat.
 Therefore, we have to quantify the likeliness of the threat to occure and the harm or loss done in this case.
@@ -574,7 +568,7 @@ The likeliness, loss and the resulting risks assigned to the threats
 are discussed in the following paragraphs and summarized in Figure
 \ref{fig:risks}.
 
-\textbf{T1. Insufficient Control Features.}  The occurrence of this
+\textbf{Risk of T1. Insufficient Control Features.}  The occurrence of this
 threat is dependent on the design on the system and given in our case,
 since we do not give the citizen control over his data once it is
 recorded. Therefore the Likeliness is evaluated as $4$ (Always).  The
@@ -583,7 +577,7 @@ the citizen by exploiting the data.
 
 Hence the resulting risk is calculated as $4+1 = 5$.
 
-\textbf{T2. Excessive Data Mining.}
+\textbf{Risk of T2. Excessive Data Mining.}
 We assess the likeliness of excessive data mining to be $3$ High, since
 these kind of analysis can be performed within the walls of the service
 provider, without somebody else noticing, and the service provider himself
@@ -591,7 +585,7 @@ has an interest in this activity. The associated loss, on the other hand can be 
 
 Hence the resulting risk is calculated as $3+2 = 5$.
 
-\textbf{T3. Data Theft.}
+\textbf{Risk of T3. Data Theft.}
 The likeliness of a targeted attack by a third party is dependent on
 the popularity of the offered service and financial value of the
 captured information. Moreover, the amount of manual work required to
@@ -605,7 +599,7 @@ assessment is $1-2$ (Low-Medium).
 The harm of leaked information to a criminal party is $3$ High.
 Hence the resulting risk is calculated as $4-5$.
 
-\textbf{T4. Surveillance.}  In the surveillance scenario an party
+\textbf{Risk of T4. Surveillance.}  In the surveillance scenario an party
 related to the citizen, like a company where he is customer of, or a
 government agency, seeks to obtain sensitive information from our
 service.
@@ -621,10 +615,8 @@ the threat with $1-2$ (Low-Medium).
 The harm of leaked information to a related party is $3$ High.
 Hence the resulting risk is calculated as $4-5$.
 
-\textbf{T5/6. Information Leak and Social Engineering.}
-
-In our scenario we assume that the culture and ethics inside the
-service provider company and local authority are very high, so that
+\textbf{Risk of T5/6. Information Leak and Social Engineering.} In our scenario we assume that the culture and ethics inside the
+service provider company and travel agencies are very high, so that
 the information leak scenario has a likeliness of $1$ (Low).
 
 The harm of such an information leaked is $3$ High, so that the
@@ -665,15 +657,13 @@ requirements for a system that addresses these risks..
 In order to address the threat with the highers risk, Insufficient
 Control (T1) of the citizen, we need to give the citizen back the
 control over its data inside the system. The most direct way to do
-this is to provide a web-based \emph{Privacy Dashboard (R1)} which allows
+this is to provide a web-based \textbf{Privacy Dashboard} (R1) which allows
 the citizen to view, edit and delete all information about his person
-that is stored inside the system. Also control applied processing and
-disclosure of the data to third parties should be given to the user,
-at least in the form of an opt-out or veto option.
+that is stored inside the system. Also, control over processing and onward transfer of the data to third parties should be given to the user, at least in the form of an opt-out or veto option.
 
 A necessary pre-requirement for effective control of the citizen over
 his data is information and comprehension of the intended data
-capturing and processing steps. Therefore a \emph{Privacy Policy (R2)} that
+capturing and processing steps. Therefore a \textbf{Privacy Policy} (R2) that
 is easily readable and contains all important information is
 essential and a legal requirement.
 
@@ -686,7 +676,7 @@ permissions from the citizens inside the privacy policy is neither an
 ethical or legal solution to the problem. To address this threat awareness about the limitations of data
 processors inside the company is a key element. As one mean to
 establish such a culture of privacy respect, we recommend to prepare
-an document called \emph{Data Handling Guidelines (R3)} intended for
+an document called \textbf{Data Handling Guidelines} (R3) intended for
 internal use that explains the concrete processing steps and purposes
 that are permitted by the citizens. In particular the following information should be provided for each processing task: The name of the controller, purpose of processing,
 description of the data categories, recipients of the data if
@@ -695,49 +685,32 @@ of processing.
 
 If further processing should be performed, it is necessary to seek
 additional permissions from the citizen. A simple email explaining the
-planned processing steps, and \emph{asking for permission (R4)} would be
+planned processing steps, and asking for \textbf{permission} (R4) would be
 enough for this purpose. The permission can be given via an embedded
 link that shall be followed in order to signal agreement.
 
 An alternative measure to address the risk of excessive data mining is
-the \emph{anonymization (R5)} of data. When all direct- or indirect
+the \textbf{anonymization} (R5) of data. When all direct- or indirect
 links to the identity of the person are removed, no violation of the
 citizens privacy caused by arbitrary processing. However removing all
 such links is a challenging tasks, and full anonymity is often not
 achieved, cf. \cite{krumm2009}.
 
 The protection from threat scenario (T3) Data Theft is a case of
-classical \emph{IT infrastructure security (R6)}. The storage and processing infrastructure has
+classical \textbf{IT infrastructure security} (R6). The storage and processing infrastructure has
 to be secured using firewalls, up-to data software versions and proper
 authentication mechanisms.
 
 The protection from threat scenario (T4) Surveillance focuses on the
 communication channels. They are target of wiretapping attacks by
 intermediaries or externals with access to the communication
-infrastructure. Strong \emph{encryption (R7)} should be used to make
+infrastructure. Strong \textbf{encryption} (R7) should be used to make
 it harder for externals to read the content of the transmitted data.
 
 Threat scenarios (T5) Information Leak and (T6) Social Engineering
 target the vulnerability of unhappy employees. Therefore a trustful,
-\emph{healthy company culture (R8)} should be maintained.
+\textbf{healthy company culture} (R8) should be maintained.
 
-In summary we recommend the following measures to secure the citizens
-privacy:
-\begin{enumerate}
-\item[R1] \textbf{Privacy Dashboard}. A tool which allows the citizen to view, edit
-  and delete all data personal data that is stored in the system.
-\item[R2] \textbf{Privacy Policy}. A document, that informs the citizen about the
-  collection and processing of personal information. It should at
-  least contain the legally required information.
-\item[R3] Issue \textbf{Data Handling Guidelines} that explain the permitted
-  processing methods and purposes.
-\item[R4] Ask the citizens for \textbf{permissions} before applying further
-  processing via Email.
-\item[R5] \textbf{Anonymize} personal data before processing.
-\item[R6] \textbf{Securing of Storage} and Processing infrastructure using e.g. firewalls.
-\item[R7] \textbf{Securing communication} channels using encryption.
-\item[R8] Maintain a healthy, trustful \textbf{relationship} with your employees.
-\end{enumerate}
 The mapping of these recommendations to the threats is summarized in Figure \ref{fig:risks}.
 %\end{LGContent}
 
@@ -747,11 +720,7 @@ The mapping of these recommendations to the threats is summarized in Figure \ref
 
 \section{Conclusion}
 
-Our goal was to find a balance between the demand of the Local Authority for location-based data to improve their public services on one side, and to keep the privacy of citizens as untouched as possible on the other side.
-In a structured manner we identified all actors and what kind of conflict of interests can occour. Doing this, we found potential risks and provided finally specific recommendations how to protect the citizen’s privacy. 
-One central idea of these recommendations is to give the citizen as much control over their data back as possible. This can be e.g. done via a Privacy Dashboard that gives a full overview about all personal data that is stored on the system.
-By implementing these privacy recommendations we found a way to satisfy the above-mentioned demand of both sides and comply with legal data protection requirements in addition.
-
+The travel agency has a demand for location-based personal data in order to improve its public services. Our goal was to find a balance between this demand of the travel agency and the privacy of the citizens. In a structured manner we identified all actors and their conflicts of interest. We found potential risks and derived recommendations how to protect the citizen's privacy. A central idea of these recommendations is to give the citizen as much control over their data back as possible. For example, this can be done by a privacy dashboard in the hand of every user that shows all his or her personal data stored on the system. The implementation of these privacy recommendations satisfies the above-mentioned demand of both sides in compliance with legal data protection requirements.
 
 
 \bibliographystyle{splncs}
