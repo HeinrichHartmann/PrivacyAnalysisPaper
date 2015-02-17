@@ -9,7 +9,7 @@
 
 %% CUSTOM BINDINGS %%
 
-\usepackage{amsmath}
+%\usepackage{amsmath}
 
  
 \usepackage{alltt}
@@ -48,7 +48,7 @@
 In this article we analyze the privacy aspects of a mobile sensor
 application used for recording urban travel patterns as part of a
 travel-survey service. This service has been developed and
-field-tested within the Live+Gov EU Project. The privacy analysis
+field-tested within the Live+Gov EU Project \cite{LiveGov:Prog}. The privacy analysis
 follows a structured approach established in
 \cite{Grimm:ItSecRefModel}. Eight privacy recommendations are derived,
 and have already led to corresponding enhancements of the
@@ -67,7 +67,7 @@ privacy protection, IT security analysis, sensor data, mobile phones, traffic su
 
 
 The rise of mobile smart-phones equipped with a wide range of sensors
-and the abundance mobile internet connectivity has paved the way to a
+and the abundance mobile Internet connectivity has paved the way to a
 whole new generation of mobile services which ease the daily life of
 citizens using them. Apps like Google
 Maps\footnote{\url{http://www.google.com/mobile/maps/}} allows the user to
@@ -80,7 +80,7 @@ picture of his life. For instance, GPS location tracking can be used
 to infer shopping habits or associations with political groups (when
 meetings are attended) and accelerometer data can be used to detect
 medical conditions like walking disabilities. All this data is highly
-sensitive to the citizens privacy and can be used against the citizen
+sensitive to the citizen's privacy and can be used against the citizen 
 if it falls into the wrong hands.
 
 Providers of these new services are faced with a fundamental trade-off
@@ -88,7 +88,7 @@ between features and convenience of the service and the protection of
 the citizen's privacy. The service has to collect enough data to
 support the basic service promises. If too much data is collected the
 privacy of the citizen is put at risk, with immediate implications for
-the customer trust relation and the acceptance of the service. Also
+the customer trust relation and the acceptance of the service. Also,
 leaks of private data can jeopardize the whole business.
 
 In this article we study the privacy risks of a travel-survey service
@@ -100,9 +100,9 @@ for urban mobility that is further specified in section \ref{sec:ScenarioDescrip
 \label{sec:ScenarioDescription}
 
 Travel surveys are regularly conducted by transport authorities which provide
-public transportation infrastructure. With these surveys the current
+a public transportation infrastructure. With these surveys the current
 usage of the public transportation system is assessed and the insights
-are used for future planning of bus, tram and subway lines, etc..  For
+are used for future planning of bus, tram and subway lines, etc.  For
 each survey a large number of citizens (e.g. 5000) is asked to keep
 track of their travel patterns for a constraint period of time
 (e.g. one month). Traditionally the travel patterns have been recorded
@@ -112,7 +112,7 @@ the recording of travel-patterns in a fully automated way.
 
 The travel services need the personal mobile data for two reasons: firstly, they want to serve their customers individually, for example by guiding them to proximity stations, to recommend adequate travel connections, to inform about delays, or to sell electronic tickets. For this purpose, the personal data for evaluation are related to the individual customers. Secondly, the travel services want to enhance their system, in that they evaluate the demand of stations, connections, changes, ways and time spent by their customers. For this purpose, personal data are anonymized before evaluation.
 
-Within the Live+Gov EU project, we have established a first
+Within the Live+Gov EU project \cite{LiveGov:Prog}, we have established a first
 prototypical implementation of such an automated travel-survey
 service. In this section we give a high level description of the
 generic service architecture. This description along with the
@@ -122,7 +122,7 @@ There are three stakeholders involved in the travel-survey service:
 The \emph{citizen}, the \emph{service provider} and the \emph{transport
   authority}. The service provider is the operator of all IT systems and
 offers the travel-survey service to the transport authority. Figure
-\ref{figure:Live+Gov Vulnerabilities} contains a schematic
+\ref{figure:Live+Gov Vulnerabilities} in section \ref{subsubsection:Conflicts of Interests} below contains a schematic
 visualization of the relation between these stakeholders.
 
 The \emph{citizen} is a volunteer who is willing to share his personal travel
@@ -134,12 +134,13 @@ collected. Based on the accelerometer data, the application extracts
 human activities (e.g. running, walking, standing). Also, the
 application can send raw-sensor data back to a central data center.
 
-The \emph{data center} stores and processes sensor data collected with
+The \emph{data center} is under the control of the service provider. It 
+stores and processes sensor data collected with
 the sensor collector application. It can also take into account data
 obtained from third parties, like the current positions of trains. In
 particular, the data center determines if the citizen is using public
 transportation and if so which lines of service (bus, train, tram) are
-used. The data center can also sent mining end products and messages
+used. The data center can also send mining end products and messages
 (e.g. traffic jam reports, bus schedule) back to the mobile device of
 the citizen.
 
@@ -147,7 +148,7 @@ The \emph{service provider} provides and operates all technical
 infrastructure like the data center and the sensor application. He
 also operates a web-based \emph{reporting tool} that aggregates
 information about travel patterns of citizens within the
-travel-survey. The reporting tool is used by the transport authority to gain
+travel-survey. The reporting tool is used by the \emph{transport authority} to gain
 insights for planning and accounting of the public transportation
 infrastructure.
 
@@ -188,7 +189,7 @@ In this section we identify groups of sensors and their potential impact on a ce
 Figure \ref{figure:Sensor Data Privacy Impact Matrix} qualifies that impact on a simple scale.
 Privacy of Data and Image is trivially threatened because here sensor data is individual data, a priori.
 Indirect impact is caused by combining sensor data with additional knowledge.
-For instance, comparing a contemporary map with locational data can imply behaviour if the position matches a church.
+For instance, comparing a contemporary map with locational data can reveal behaviour and thoughts if the position matches a church.
 
 \begin{figure}
 \newcommand{\tcell}[1]{\parbox[c][2cm]{4cm}{\vspace{3mm}#1\vspace{3mm}}}
@@ -271,14 +272,14 @@ The GPS sensor gives the current longitude and latitude, the current global posi
 \subsubsection{Motion Sensors.}
 Accelerometer, Rotation Vector, Gyroscope and Magnetic field sensor measure the physical movement of the mobile device on all three axes.
 If the mobile device is carried ``normally'' its safe to say that those sensors also measure the moments of its carrier.
-So his privacy is infringed regarding biometric behaviour, i.e. the Privacy of the Person.
+So privacy is infringed regarding biometric behaviour, i.e. the Privacy of the Person.
 
 %By inference we also get implicit violations of the Privacy of Behavior and Action.
 
 \subsubsection{Network Sensors.}
-The GSM and WLAN sensors reveal the position of the mobile device and its carrier, when used in connection with external databases.
-The both sensors give the exact cell or network, the mobile device has registered with at the current moment.
-Frequent connection to one particular network also reveals association, e.g. university networks. The Bluetooth sensors record lists of the bluetooth clients in the direct neighbourhood.
+The GSM and WLAN sensors reveal the position of the mobile device and its carrier, when used in connection with external databases (location).
+Both sensors give the exact cell or network, the mobile device has registered with at the current moment.
+Frequent connection to one particular network also reveals Association, e.g. university networks. The Bluetooth sensors record lists of the bluetooth clients in the direct neighbourhood.
 Since those clients are usually moving, inference of the position is usually not possible.
 Instead, bluetooth clients carried by a third person may infringe the Privacy of Association.
 
@@ -354,7 +355,7 @@ The goal of this chapter is to analyze and identify the threats to personal priv
 
 In our analysis we follow the “reference model for IT security analysis” as described in \cite{Grimm:ItSecRefModel}. It supersedes earlier efforts by e.g. \cite{Avizienis}. The reference model consists of a model and a procedure. The model organizes a common security terminology in a reasonable and practical way. The procedure describes a method for analyzing the IT system based on that model. The reference model provides four views: (1) the real world of persons and their assets, (2) the potential world of requirements and threats, (3) measures and plans specified by programs, business models and attack strategies, and, finally, (4) events of running programs, data accesses and performed attacks as well as their defense. In the following sections we apply the proposed procedures of the reference model to our scenario of a travel service that collects personal data from mobile users in order to serve the users and to enhance the service. The service intends to respect the privacy of its users. 
 
-In sections \ref{subsec:world-analysis} and \ref{subsec:pot-analysis} we apply the first two steps of the reference model \cite{Grimm:ItSecRefModel}, which are related to the views on the real world and on the measures and plans. In section \ref{subsec:priv-rec} we apply the third step of the reference model by providing specific privacy recommendations and requirements as a result of the previous analysis that the system must comply with. 
+In sections \ref{subsec:world-analysis} and \ref{subsec:pot-analysis} we apply the first two steps of the reference model \cite{Grimm:ItSecRefModel}, which are related to the views on the real world and its privacy risks. In section \ref{subsec:priv-rec} we apply the third step of the reference model by providing specific recommendations and for privacy measures as a result of the previous analysis that the system must comply with. 
 
 
 \subsection{Step 1. World Analysis}
@@ -363,36 +364,36 @@ In sections \ref{subsec:world-analysis} and \ref{subsec:pot-analysis} we apply t
 
 The first step is the \emph{world view} where all components are described in their current state. It consists of the following components: Assets, IT-Systems, Actors, Conflicts of Interests, Vulnerabilities, and Interactions.
 
-The relevant \textbf{IT-Systems} were already described in Section \ref{sec:intro}.
-\textbf{Interactions} between assets, IT-Systems, humans, and vulnerabilites as partly described in Section \ref{sec:intro} and will be further analyzed in Section \ref{subsec:pot-analysis}.
+The relevant \textbf{IT-Systems} were already described in section \ref{sec:intro}.
+\textbf{Interactions} between assets, IT-Systems, humans, and vulnerabilites is partly described in section \ref{sec:intro} and will be further analyzed in section \ref{subsec:pot-analysis}.
 	
 
 \subsubsection{Assets}
 
-In this scenario we focus our attention to only one asset: The privacy of the citizen. Our definition of privacy is described in detail in Section \ref{sec:privacydef}.
+In this scenario we focus our attention to only one asset: The privacy of the citizen. Our definition of privacy is described in detail in section \ref{sec:privacydef}.
 
 \subsubsection{Actors}
 \label{subsubsection:humans}
 
-This section describes the human actors previously introduced in section \ref{sec:ScenarioDescription}. Although the text is only a short description, a list of the most important interests is provided for each actor.
+This section describes the human actors previously introduced in section \ref{sec:ScenarioDescription}. A short description for each actor includes a list of the most important interests.
 
 \textbf{Citizen.}
 Citizens are persons who use the mobile device as users of the provided software.
-Their main motivation for using the software is to gain a higher level of convenience in their daily activities. For example they may have access to real time bus schedules or reports about traffic jams, that help them to avoid long waiting times. Also they generally benefit from improvements of public infrastructure by travel agencies, which is triggered by issue reports. By using the application, citizens are sharing personal information like name and address, as well as data gathered from mobile sensor with the service provider. This data can be exploited in ways that are harmful to the citizen (cf. \cite{GuardienMassSurveillance}). Citizens are interested in: physical wellbeing and health, financial profit, convenience, legitimate use of personal data, non-disclosure of personal data to peers of the citizen, and not being monitored.
+Their main motivation for using the software is to gain a higher level of convenience in their daily activities. For example they may have access to real time bus schedules or reports about traffic jams that help them to avoid long waiting times. Also they generally benefit from improvements of public infrastructure by transport authorities, which is triggered by issue reports. By using the application, citizens are sharing personal information like name and address, as well as data gathered from mobile sensors with the service provider. This data can be exploited in ways that are harmful to the citizen (cf. \cite{GuardienMassSurveillance}). Citizens are interested in: physical wellbeing and health, financial profit, convenience, legitimate use of personal data, non-disclosure of personal data to peers of the citizen, and not being monitored.
 
-\textbf{External.}
-Externals are persons who do not have privileged access to the IT systems, and are willing to break laws, security constrains and norms in order to promote their interests. A common interest of an external is financial profit. For example they want to obtain access to critical systems to steal sensitive data or to get the system under their control. Stolen data could simply be sold as is or used for illegitimate purposes, e.g. spam or phishing attacks - or excessive data mining. In short, externals could be interested in: increase power over citizen, financial profit, political activism, and their social standing.
+\textbf{Malicious External.}
+Malicious externals are persons who do not have privileged access to the IT systems, and are willing to break laws, security constrains and norms in order to promote their interests. A common interest of an external is financial profit. For example they want to obtain access to critical systems to steal sensitive data or to get the system under their control. Stolen data could simply be sold as is or used for illegitimate purposes, e.g. spam or phishing attacks - or excessive data mining. In short, externals could be interested in: increase power over citizen, financial profit, political activism, and their social standing.
 
 \textbf{System Provider.}
-System Providers operate the technical infrastructure (hardware and software) of the IT System. They are private companies and legal persons in their own right, but also employ a number of people with diverging interests including administrators, programmer/developer, and a support manager. As companies, they are interested in gaining financial profit. The financial success of system providers depends on the task complexity of the maintained infrastructure. The complexity of a task has to be in reasonable bounds, so that system providers can complete it within time, with a satisfying quality. System Providers are interested in: financial profit, manageable complexity, professional excellence, and good working conditions.
+System Providers operate the technical infrastructure (hardware and software) of the IT System. They are private companies and legal persons in their own right, but also employ a number of people with diverging interests including administrators, programmer/developer, and a support manager. As companies, they are interested in gaining financial profit. The financial success of system providers depends on the task complexity of the maintained infrastructure. The complexity of a task has to be in reasonable bounds, so that system providers can complete it within time, with a satisfying quality. System Providers are interested in: financial profit, manageable complexity, professional excellence, and good working conditions, and a good reputation.
 
 \textbf{Transport Authority.}
- Transport authorities are public offices (ministry, agency, department, ...) or other external public entities which act as direct customers of service providers. For example a department for urban mobility, orders a system to better understand usage patterns and make improvement to the urban traffic flow. Such systems are investments, and so naturally travel agencies are interested in a profitable return, like increased ticket sales. Transport authorities are interested in: financial profit, political reputation, business intelligence, and good working conditions.
+ Transport authorities are public offices (ministry, agency, department, ...) or other external public entities which act as direct customers of service providers. For example a department for urban mobility orders a system to better understand usage patterns and make improvement to the urban traffic flow. Such systems are investments, and so naturally transport authorities are interested in a profitable return, like increased ticket sales. Transport authorities are interested in: financial profit, political reputation, business intelligence, and good working conditions.
 
 
 \subsubsection{Conflicts of Interests}
 \label{subsubsection:Conflicts of Interests}
-Different actors have different interests which can be in conflict each other. This section outlines the Conflicts of Interests between the actors of the proposed IT system architecture. The individual interests of all actors is already described in the previous section and are not elaborated any further. The emphasis here is put on prominent existing conflicts, because they provide a foundation for vulnerabilities and subsequent threats.
+Different actors have different interests which can be in conflict with each other. This section outlines the Conflicts of Interests between the actors of the proposed IT system architecture. The emphasis here is to put on prominent existing conflicts, because they provide a foundation for vulnerabilities and subsequent threats.
 
 \textbf{System Complexity vs Privacy.}
 System Providers offer a service to Transport Authorities, so that they are able to improve their public services. This task in it self has a high technical complexity and operates on privacy sensitive data provided by monitored Citizens.
@@ -401,11 +402,11 @@ System Providers offer a service to Transport Authorities, so that they are able
 Transport authorities order a monitoring and mining system from system providers as much as possible, which allows them to produce business intelligence for public services. They are interested in the successful usage of their data, although the interest of citizens lies in maintaining control over their data and protecting their rights to privacy.
 
 \textbf{Power of External vs. Privacy.}
-Externals which are in a social relation to the citizen can have an interest in obtaining further information in order to gain power. In the most simplistic example this could be a man wanting monitor the activities of his spouse.
+Malicious externals which are in a social relation to the citizen can have an interest in obtaining further information in order to gain power. In the most simplistic example this could be a man wanting to monitor the activities of his spouse.
 
 
 \textbf{Financial Profit of External vs Privacy.}
-Externals can gain financial profit from stealing privacy sensitive data.
+Malicious Externals can gain financial profit from stealing privacy sensitive data.
 For example by selling raw contact information to advertisers or by selling mined data to insurance companies, or intermediaries like scoring companies. In such cases, citizens lose complete control over their data.
 
 
@@ -423,7 +424,7 @@ Both would harm the reputation of travel agencies, who endangered the privacy of
 
 \subsubsection{Vulnerabilities}
 \label{subsubsection:Vulnerabilities}
-This section outlines the vulnerabilities (Figure \ref{figure:Live+Gov Vulnerabilities}) of the proposed monitoring and mining system. 
+This section outlines the vulnerabilities of the proposed monitoring and mining system. This is illustrated by figure \ref{figure:Live+Gov Vulnerabilities} below.
 
 %input{./figures/LG-Vulnerabilities}
 \begin{figure}
@@ -442,15 +443,13 @@ The proposed monitoring and mining system uses HTTP to exchange data between the
 Data can be intercept and read all sensitive information, which is send between the components e.g. passwords, raw sensor data and data mining results.
 
 \textbf{Unhappy Employees.}
-An Employee that is frustrated with his situation for a long time
-period constitutes a security vulnerability. On the one hand he might
+As an insider, an Employee who is frustrated with his situation constitutes a security vulnerability. On the one hand he might
 want to harm his employer directly, on the other he is increasingly
 susceptible for social engineering.
 
 \textbf{Inadequate Access Rules.}
 The proposed IT system infrastructure has various accesses to privacy sensitive data.
-System Provider staff has access to Data Center hardware and software like databases, web-servers and other inspection tools. Transport authority staff has access to the Report Tool. This all enables staff members to have potential access to privacy sensitive information.
-
+System Provider staff has access to Data Center hardware and software like databases, web-servers and other inspection tools. Transport authority staff has access to the Report Tool. Moreover, access control systems are security bottlenecks,
 
 \textbf{Unaware Monitoring Subjects.}
 We define privacy as one's ability to control information about
@@ -462,38 +461,38 @@ cannot effectively preserve control and thus lose their privacy.
 \subsection{Step 2. Potential World Analysis}
 \label{subsec:pot-analysis}
 
-The \emph{Potential World Analysis} displays the intended and unintended interactions of the components in the world view. The intended interactions support the underlying business objectives. Unintended interactions can lead to threats. Obviously this provides a conflict of interest with the victim's business model, to keep the asset away from unauthorized access. From the point of view of the victim, an attack would be an unintended interaction. The potential world view consists of the following components: Business Objectives, Threats, hances/Risk, and Security Requirements. 
-\textbf{Business Objectives} of the system owner were already described in Section \ref{sec:intro} and \ref{subsec:world-analysis}. \textbf{Security Requirements} are included to our analysis in Section \ref{subsec:priv-rec}.
+The \emph{Potential World Analysis} displays the intended and unintended interactions of the components in the world view. The intended interactions support the underlying business objectives. Unintended interactions can lead to threats. Obviously this provides a conflict of interest with the victim's business model, to keep the asset away from unauthorized access. From the point of view of the victim, an attack would be an unintended interaction. The potential world view consists of the following components: Business Objectives, Threats, Chances/Risks, and Security Requirements. 
+\textbf{Business Objectives} of the system owner were already described in section \ref{sec:intro} and \ref{subsec:world-analysis}. \textbf{Security Requirements} are included to our analysis in section \ref{subsec:priv-rec}.
 
 
 \subsubsection{Threats}
 
 A threat is a potential interaction of the components that targets an asset.
 We restrict ourselves to the case of attacks, and the asset of privacy.
-An attack is an interaction that is executed by an actor in response to a conflict of interest by exploiting a vulnerability of the system. We describe threats for the citizen privacy in the system. This list can necessarily not be complete, but we make a best effort to cover the most relevant cases.
+An attack is an interaction that is executed by an actor in response to a conflict of interest by exploiting a vulnerability of the system. We describe threats for the citizen's privacy in the system. As a matter of course, this list cannot be complete, but we make a best effort to cover the most relevant cases.
 
 \textbf{T1. Insufficient Control Features.}
 As soon as collected data of Citizens is stored on System Provider servers, all control over that data is lost. Although, control capabilities for Citizens add to the system complexity, which could motivate to omit those. Therefore interests of Citizens and System Providers are in conflict, namely it is the Citizen's \textit{Privacy vs. System Complexity} for System Providers.
 
 \textbf{T2. Excessive Data Mining.}
-The System Provider and/or the transport authority secretly extract more private information from the collected data, than the Citizen agreed to. But results of the mining process create no disadvantages for Citizens, because there is no disclosure to third parties. This could be the case for a System Provider, who wants to test a new product and uses the pre-existing data collection. Thus there are two possible conflicts: \textit{Privacy vs. Financial Profit of Serivce Provider} and  \textit{Privacy vs. Buisness Intelligence of Transport Authority} The threat can be provoked by either lax data handling policies of both System Providers and Transport Authorities, or a weak law enforcement of existing supervision. But the main issue, which can lead to such threats, is again a general \textit{Missing Privacy Awareness}.
+The System Provider and/or the transport authority secretly extract more private information from the collected data, than the Citizen agreed to. But results of the mining process create no disadvantages for Citizens, because there is no disclosure to third parties. This could be the case for a System Provider, who wants to test a new product and uses the pre-existing data collection. Thus there are two possible conflicts: \textit{Privacy vs. Financial Profit of Serivce Provider} and  \textit{Privacy vs. Buisness Intelligence of Transport Authority}. The threat can be provoked by either careless data handling policies of both System Providers and Transport Authorities, or a weak law enforcement of existing supervision. But the main issue, which can lead to such threats, is again a general \textit{Missing Privacy Awareness}.
 
 \textbf{T3. Data Theft}
-An External infiltrates infrastructure in order to steal personal data and sell it on the black market. Also the External might be motivated politically and wants to harm the reputation of the System Provider or the Transport Authority. Such a successful attack could harm the reputation of both System Provider and Transport Authority. Thus this threat is defined by three conflicts: \textit{Privacy vs. Financial Profit}, \textit{Reputation of Service Provider vs. Political Activism} and \textit{Reputation of Transport Authority vs. Political Activism}. Also this threat describes the classical scenario, where attacks are provoked by \textit{Insecure Infrastructure} (SQL injection) and \textit{Insecure Communication} (Packet Capture).
+An malicious external infiltrates the infrastructure in order to steal personal data and sell it on the black market. Also the External might be motivated politically and wants to harm the reputation of the System Provider or the Transport Authority. Such a successful attack could harm the reputation of both System Provider and Transport Authority. This threat is defined by three conflicts: \textit{Privacy vs. Financial Profit}, \textit{Reputation of Service Provider vs. Political Activism} and \textit{Reputation of Transport Authority vs. Political Activism}. Also this threat describes the classical scenario, where attacks are provoked by \textit{Insecure Infrastructure} (SQL injection) and \textit{Insecure Communication} (Packet Capture).
 
 \textbf{T4. Surveillance}
 An External infiltrates infrastructure in order to obtain information
-about the citizen and exploit it directly.  In this scenario the
+about citizens and exploit it directly.  In this scenario the
 external is supposed to have some direct relationship to the citizen
 which motivates his interest to obtain personal information.  Examples
 could be a public institution that wants to gain information about
 planned activities of the citizens (e.g. Nixon's Watergate scandal or
 the recent prosecution of Guardian journalists by GHCQ). 
 In this threat the privacy interest of the citizen is in conflict with
-the aspirations for power over the citizen by the externals.
+the aspirations for power over citizens by the externals.
 
 \textbf{T5. Information Leak} 
-Like an external person the Data Theft Scenario an employee of the
+Like a malicious external person in the Data Theft scenario an employee of the
 service provider or the transport authority has selfish interests to gain
 money, make political statements or harm his employer.  In order to
 pursue this interest he can steal personal data and sell it or release
@@ -501,41 +500,40 @@ it to the public.  The corresponding conflicts of interests are:
 \textit{Privacy vs. Financial Profit} of the Employee, \textit{Reputation of Service
   Provider vs. Political Activism} of the Employee and \textit{Reputation of Transport
   Authority vs. Political Activism} of the Employee.  The vulnerability constitutes of
-the existence of \textit{Unhappy employees} itself and possibly \textit{lax access
-rules} that enable the employee to obtain large amounts of data
+the existence of \textit{Unhappy employees} and possibly \textit{careless access
+rules}, which enable the employee to obtain large amounts of data
 unnoticed.
 
 \textbf{T6. Social Engineering}
-This scenario an external manipulates an employee of a Service
+In this scenario an external manipulates an employee of a Service
 Provider or the Transport Authority to leak information to the external
-person.  It is thus combination of the Data Theft and Information Leak
+person.  It is thus a combination of the Data Theft and Information Leak
 scenario.
 The conflicts of interest are \textit{Privacy vs. Financial Profit} of
-the External, \textit{Reputation of Service Provider vs. Political
+the external, \textit{Reputation of Service Provider vs. Political
   Activism} of the external and \textit{Reputation of Transport Authority
   vs. Political Activism} of the external.  The exploited
 vulnerabilities are, again, the existence of \textit{Unhappy
-  employees} and possibly \textit{lax access rules} that enable the
+  employees} and possibly \textit{careless access rules} that enable the
 employee to obtain large amounts of data unnoticed.
 
 \subsubsection{Chances/Risks}
 
-In this section we will associate to every identified threat a corresponding risk. A risk is the expected loss that is associated to the threat.
+In this section we will associate to every identified threat with a corresponding risk. A risk is the expected loss that is associated to the threat.
 Therefore, we have to quantify the likeliness of the threat to occure and the harm or loss done in this case.
 The quantification of likeliness will be solely based on rough judgment of the authors.
-The quantification of loss, will be made in a two step process.
+The quantification of loss will be made in a two step process.
 For each threat listed in the previous section, we have analyzed the affected personal data of the citizen.
-For each possible data type (e.g. GPS) we analyze the impact on the seven different types of privacy in Section \ref{sec:SensorPrivacyImpact}.
-In combination we can quantify roughly the impact of each threat on the citizens privacy. Both evaluations are necessarily fraught with a high level of uncertainty.
+For each possible data type (e.g. GPS) we analyze the impact on the seven different types of privacy in section \ref{sec:SensorPrivacyImpact}.
+In combination we can quantify roughly the impact of each threat on the citizens privacy. 
 
-For the quantification of the loss in case of a threat scenario we use the following rough calibration between 3 (high) and 0 (none). For the quantification of likeliness the following scale between 4 (always) and 0 (impossible) is used. The quantification of the risk, we add the values for loss and likeliness of the corresponding threats. Note, that loss and
+For the quantification of the loss in case of a threat scenario we use the following rough calibration between 3 (high) and 0 (none). For the quantification of likeliness the following scale between 4 (always) and 0 (impossible) is used. For the quantification of the risk, we add the values for loss and likeliness of the corresponding threats. Note, that loss and
 likeliness scales have a logarithmic character, so that addition
 of those scales corresponds to multiplication of the usual scales. The likeliness, loss and the resulting risks assigned to the threats
-are discussed in the following paragraphs and summarized in Figure
+are discussed in the following paragraphs and summarized in figure
 \ref{fig:risks}.
 
-\textbf{Risk of T1. Insufficient Control Features.}  The occurrence of this
-threat is dependent on the design on the system and given in our case,
+\textbf{Risk of T1. Insufficient Control Features.}  This threat depends on the design of the system. In our case it is always there,
 since we do not give the citizen control over his data once it is
 recorded. Therefore the Likeliness is evaluated as $4$ (Always).  The
 associated, risk is $1$ Low on our scale, since no direct harm is done to
@@ -543,13 +541,13 @@ the citizen by exploiting the data. Hence the resulting risk is calculated as $4
 
 \textbf{Risk of T2. Excessive Data Mining.}
 We assess the likeliness of excessive data mining to be $3$ High, since
-these kind of analysis can be performed within the walls of the service
+this kind of analysis can be performed within the walls of the service
 provider, without somebody else noticing, and the service provider himself
 has an interest in this activity. The associated loss, on the other hand can be substantial (Medium $2$). Hence the resulting risk is calculated as $3+2 = 5$.
 
 \textbf{Risk of T3. Data Theft.}
-The likeliness of a targeted attack by a third party is dependent on
-the popularity of the offered service and financial value of the
+The likeliness of a targeted attack by a third party dependens on
+the popularity of the offered service and on the financial value of the
 captured information. Moreover, the amount of manual work required to
 infiltrate a custom build system is significantly higher that that of
 compromising a standard software solution. In the scenario we assume a
@@ -558,15 +556,15 @@ users and storage of data of only limited financial value (no
 addresses, no payment information). Therefore the likeliness
 assessment is $1-2$ (Low-Medium). The harm of leaked information to a criminal party is $3$ High. Hence the resulting risk is calculated as $4-5$.
 
-\textbf{Risk of T4. Surveillance.}  In the surveillance scenario an party
-related to the citizen, like a company where he is customer of, or a
+\textbf{Risk of T4. Surveillance.}  In the surveillance scenario a party
+related to the citizen, like a company that he is customer of, or a
 government agency, seeks to obtain sensitive information from our
 service. The likeliness of such an intrusion is hard to asses, and depends
 again on the popularity of the service. If a high popularity is
 reached we have recently learned that spying by government agencies is
 very likely to occur. The barrier for companies that do not operate
-the infrastructure used to transmit the data a surveillance attack is
-however very hard to perform. Therefore we assess the likeliness of
+the infrastructure used to transmit the data a surveillance attack is very 
+hard to break. Therefore we assess the likeliness of
 the threat with $1-2$ (Low-Medium). The harm of leaked information to a related party is $3$ High. Hence the resulting risk is calculated as $4-5$.
 
 \textbf{Risk of T5/6. Information Leak and Social Engineering.} In our scenario we assume that the culture and ethics inside the
@@ -603,10 +601,10 @@ T6. Social Engineering            & 1                   & 3             & 4     
 \label{subsec:priv-rec}
 
 In this section we derive recommendations or
-requirements for a system that addresses these risks. The mapping of these recommendations to the threats is summarized in Figure \ref{fig:risks}.
+requirements for a system that addresses these risks. The mapping of these recommendations to the threats is summarized in figure \ref{fig:risks}.
 
-\textbf{R1. Privacy Dashboard}. In order to address the threat with the highers risk, Insufficient Control (T1) of the citizen, we need to give the citizen back the
-control over its data inside the system. The most direct way to do
+\textbf{R1. Privacy Dashboard}. In order to address the threat with the highest risk, Insufficient Control (T1) of the citizen, we need to give the citizen back the
+control over his data inside the system. The most direct way to do
 this is to provide a web-based overview which allows the citizen to view, edit and delete all information about his person
 that is stored inside the system. 
 
@@ -615,20 +613,20 @@ is easily readable and contains all important information is essential and a leg
 
 \textbf{R3. Data Handling Guidelines}. The threat with the second largest risk is (T2) Excessive Data Mining.
 Contrary to common belief, it is neither legal nor ethical to process
-personal data for by new methods or for new purposes that were not
+personal data by new methods or for new purposes that were not
 stated and explained to the citizen at the time of data
 collection. Also the common practice of obtaining far-reaching
 permissions from the citizens inside the privacy policy is neither an
 ethical or legal solution to the problem. To address this threat awareness about the limitations of data
 processors inside the company is a key element. As one mean to
 establish such a culture of privacy respect, we recommend to prepare
-an guideline intended for internal use that explains the concrete processing steps and purposes that are permitted by the citizens. 
+an guideline intended for internal use that explains the concrete processing steps and purposes that have been permitted by the citizens. 
 
-\textbf{R4. User Permissions}. If further processing should be performed, it is necessary to seek additional permissions from the citizen. A simple email explaining the planned processing steps, and asking for permissions would be enough for this purpose. The permission can be given via an embedded link that shall be followed in order to signal agreement.
+\textbf{R4. User Permissions}. If further processing should be performed, it is necessary to seek additional permissions from the citizens. A simple email explaining the planned processing steps, and asking for permissions would be enough for this purpose. The permission can be given via an embedded link that shall be followed in order to signal agreement.
 
 \textbf{R5. Anonymization}. An alternative measure to address the risk of excessive data mining is the anonymization of data. When all direct- or indirect
 links to the identity of the person are removed, no violation of the
-citizens privacy caused by arbitrary processing. However removing all
+citizen's privacy is caused by arbitrary processing. However, removing all
 such links is a challenging tasks, and full anonymity is often not
 achieved, cf. \cite{krumm2009}.
 
@@ -655,7 +653,7 @@ healthy company culture should be maintained.
 
 \section{Conclusion}
 
-The transport authority has a demand for location-based personal data in order to improve its public services. Our goal was to find a balance between this demand of the transport authority and the privacy of the citizens. In a structured manner we identified all actors and their conflicts of interest. We found potential risks and derived recommendations how to protect the citizen's privacy. A central idea of these recommendations is to give the citizen as much control over their data back as possible. For example, this can be done by a privacy dashboard in the hand of every user that shows all his or her personal data stored on the system. The implementation of these privacy recommendations satisfies the above-mentioned demand of both sides in compliance with legal data protection requirements.
+The transport authority has a demand for location-based personal data in order to improve its public services. Our goal was to find a balance between this demand of the transport authority and the privacy of the citizens. In a structured manner we identified all actors and their conflicts of interest. We found potential risks and derived recommendations how to protect the citizen's privacy. A central idea of these recommendations is to give the citizens as much control over their data back as possible. For example, this can be done by a privacy dashboard in the hand of every user that shows all his or her personal data stored on the system. The implementation of these privacy recommendations satisfies the above-mentioned demand of both sides in compliance with legal data protection requirements.
 
 
 \bibliographystyle{splncs}
