@@ -379,16 +379,22 @@ This section describes the human actors previously introduced in section \ref{se
 
 \textbf{Citizen.}
 Citizens are persons who use the mobile device as users of the provided software.
-Their main motivation for using the software is to gain a higher level of convenience in their daily activities. For example they may have access to real time bus schedules or reports about traffic jams that help them to avoid long waiting times. Also they generally benefit from improvements of public infrastructure by transport authorities, which is triggered by issue reports. By using the application, citizens are sharing personal information like name and address, as well as data gathered from mobile sensors with the service provider. This data can be exploited in ways that are harmful to the citizen (cf. \cite{GuardienMassSurveillance}). Citizens are interested in: physical wellbeing and health, financial profit, convenience, legitimate use of personal data, non-disclosure of personal data to peers of the citizen, and not being monitored.
+Their main motivation gain convenience in their daily transport activities.
+Also they generally benefit from improvements of public infrastructure enabled by data collection.
+By using the application, citizens are sharing personal information with the service provider which put their privacy at risk.
+Other interests of the citizens include: physical wellbeing and health, financial profit, legitimate use of personal data, non-disclosure of personal data to peers of the citizen, and not being monitored.
 
 \textbf{Malicious External.}
 Malicious externals are persons who do not have privileged access to the IT systems, and are willing to break laws, security constrains and norms in order to promote their interests. A common interest of an external is financial profit. For example they want to obtain access to critical systems to steal sensitive data or to get the system under their control. Stolen data could simply be sold as is or used for illegitimate purposes, e.g. spam or phishing attacks - or excessive data mining. In short, externals could be interested in: increase power over citizen, financial profit, political activism, and their social standing.
 
 \textbf{System Provider.}
-System Providers operate the technical infrastructure (hardware and software) of the IT System. They are private companies and legal persons in their own right, but also employ a number of people with diverging interests including administrators, programmer/developer, and a support manager. As companies, they are interested in gaining financial profit. The financial success of system providers depends on the task complexity of the maintained infrastructure. The complexity of a task has to be in reasonable bounds, so that system providers can complete it within time, with a satisfying quality. System Providers are interested in: financial profit, manageable complexity, professional excellence, and good working conditions, and a good reputation.
+System providers operate the technical infrastructure (hardware and software) of the IT System. They are private companies and legal persons in their own right, but also employ a number of people with diverging interests including administrators, developers, and support managers. As companies, they are interested in gaining financial profit. 
+% The financial success of system providers depends on the task complexity of the maintained infrastructure. 
+% The complexity of a task has to be in reasonable bounds, so that system providers can complete it within time, with a satisfying quality.
+System providers are interested in: financial profit, limited infrastructure complexity, professional excellence, good working conditions for their employees and good public reputation.
 
 \textbf{Transport Authority.}
- Transport authorities are public offices (ministry, agency, department, ...) or other external public entities which act as direct customers of service providers. For example a department for urban mobility orders a system to better understand usage patterns and make improvement to the urban traffic flow. Such systems are investments, and so naturally transport authorities are interested in a profitable return, like increased ticket sales. Transport authorities are interested in: financial profit, political reputation, business intelligence, and good working conditions.
+Transport authorities are public offices (ministry, agency, department, \dots) or other external public entities which act as direct customers of service providers. For example a department for urban mobility orders a system to better understand usage patterns and make improvement to the urban traffic flow. Such systems are investments, and so naturally transport authorities are interested in a profitable return, like increased ticket sales. Transport authorities are interested in: financial profit, political reputation, business intelligence, and good working conditions.
 
 
 \subsubsection{Conflicts of Interests}
@@ -396,24 +402,23 @@ System Providers operate the technical infrastructure (hardware and software) of
 Different actors have different interests which can be in conflict with each other. This section outlines the Conflicts of Interests between the actors of the proposed IT system architecture. The emphasis here is to put on prominent existing conflicts, because they provide a foundation for vulnerabilities and subsequent threats.
 
 \textbf{System Complexity vs Privacy.}
-System Providers offer a service to Transport Authorities, so that they are able to improve their public services. This task in it self has a high technical complexity and operates on privacy sensitive data provided by monitored Citizens.
+System providers offer a service to transport authorities, so that they are able to improve their public services. This task in it self has a high technical complexity and operates on privacy sensitive data provided by monitored citizens.
 
 \textbf{Business Intelligence vs Privacy.}
-Transport authorities order a monitoring and mining system from system providers as much as possible, which allows them to produce business intelligence for public services. They are interested in the successful usage of their data, although the interest of citizens lies in maintaining control over their data and protecting their rights to privacy.
+Transport authorities are purchasing monitoring and mining services from system providers.
+They are naturally interested in gaining as much business intelligence from those services as possible.
+This interest is in conflict with the citizens' interest of maintaining control over his data and protecting his privacy.
 
 \textbf{Power of External vs. Privacy.}
 Malicious externals which are in a social relation to the citizen can have an interest in obtaining further information in order to gain power. In the most simplistic example this could be a man wanting to monitor the activities of his spouse.
-
 
 \textbf{Financial Profit of External vs Privacy.}
 Malicious Externals can gain financial profit from stealing privacy sensitive data.
 For example by selling raw contact information to advertisers or by selling mined data to insurance companies, or intermediaries like scoring companies. In such cases, citizens lose complete control over their data.
 
-
 \textbf{Financial Profit of External vs Reputation of System Providers.}
-Externals have various business models as optional foundation for attacks on System Providers.
+Externals have various business models as optional foundation for attacks on system providers.
 For instance, they can try to invade the infrastructure for e-espionage reasons, to get control over servers to create a bot network or to steal user data. A successful attack proves the technical competence of system providers wrong and subsequently harms their professional reputation.
-
 
 \textbf{Political Activism vs Reputation of Transport Authority.}
 Besides monetary reasons, externals can be motivated by political reasons to attack the monitoring and mining system.
@@ -436,24 +441,27 @@ This section outlines the vulnerabilities of the proposed monitoring and mining 
 \end{figure}
 
 \textbf{Insecure Infrastructure.}
-The proposed monitoring system consists of many hardware and software components, each with its own concrete weaknesses. For instance, operating systems can be outdated or not subject to frequent updates or virus scans.
+The proposed monitoring system consists of many hardware and software components, each with its own concrete weaknesses. For instance, outdated operating systems are frequently vulnerable to attacks.
 
 \textbf{Insecure Data Transmission.}
-The proposed monitoring and mining system uses HTTP to exchange data between the Sensor Collector, the Data Center and the Report Tool.
-Data can be intercept and read all sensitive information, which is send between the components e.g. passwords, raw sensor data and data mining results.
+The proposed monitoring and mining system uses HTTP to exchange data between the sensor collector, the data center and the reporting tool.
+Data can be intercept and read all sensitive information, which is send between the components e.g. sensor data and data mining results.
 
 \textbf{Unhappy Employees.}
-As an insider, an Employee who is frustrated with his situation constitutes a security vulnerability. On the one hand he might
+As an insider, an employee who is frustrated with his situation constitutes a security vulnerability. On the one hand he might
 want to harm his employer directly, on the other he is increasingly
 susceptible for social engineering.
 
 \textbf{Inadequate Access Rules.}
-The proposed IT system infrastructure has various accesses to privacy sensitive data.
-System Provider staff has access to Data Center hardware and software like databases, web-servers and other inspection tools. Transport authority staff has access to the Report Tool. Moreover, access control systems are security bottlenecks,
+The proposed IT system infrastructure has various accesses rules for privacy sensitive data.
+Administrators of the system provider need full access to data center hardware and software.
+Developers and sales managers only have limited access.
+Transport authority staff has access to the reporting tool but not to the raw data.
+Ill configured or ineffective access systems expose data to non-authorized personal and create a vulnerability.
 
 \textbf{Unaware Monitoring Subjects.}
-We define privacy as one's ability to control information about
-oneself.  In order to do that, monitored subjects need to know, that
+We define privacy as the ability to control information about oneself. 
+In order to do that, monitored subjects need to know, that
 they are monitored, who monitors them, what information is recorded
 and for what purposes.  Subjects who are not aware of these things
 cannot effectively preserve control and thus lose their privacy. 
@@ -472,13 +480,19 @@ We restrict ourselves to the case of attacks, and the asset of privacy.
 An attack is an interaction that is executed by an actor in response to a conflict of interest by exploiting a vulnerability of the system. We describe threats for the citizen's privacy in the system. As a matter of course, this list cannot be complete, but we make a best effort to cover the most relevant cases.
 
 \textbf{T1. Insufficient Control Features.}
-As soon as collected data of Citizens is stored on System Provider servers, all control over that data is lost. Although, control capabilities for Citizens add to the system complexity, which could motivate to omit those. Therefore interests of Citizens and System Providers are in conflict, namely it is the Citizen's \textit{Privacy vs. System Complexity} for System Providers.
+As soon as collected data of citizens is stored on system provider servers all control over that data is lost,
+unless features are built into the system that enable citizens to control their data explicitly.
+These control features add to the system complexity and require extra effort by the system provider.
+Therefore interests of citizens and system providers are in conflict, namely it is the citizen's \textit{Privacy vs. System Complexity} for system providers.
 
 \textbf{T2. Excessive Data Mining.}
-The System Provider and/or the transport authority secretly extract more private information from the collected data, than the Citizen agreed to. But results of the mining process create no disadvantages for Citizens, because there is no disclosure to third parties. This could be the case for a System Provider, who wants to test a new product and uses the pre-existing data collection. Thus there are two possible conflicts: \textit{Privacy vs. Financial Profit of Serivce Provider} and  \textit{Privacy vs. Buisness Intelligence of Transport Authority}. The threat can be provoked by either careless data handling policies of both System Providers and Transport Authorities, or a weak law enforcement of existing supervision. But the main issue, which can lead to such threats, is again a general \textit{Missing Privacy Awareness}.
+The system provider and/or the transport authority secretly extract more private information from the collected data, than the citizen agreed to. This could be the case for a system provider, who wants to test a new product and uses the pre-existing data collection.
+Although this mining process do not need to create a direct harm for the citizen (e.g. when there is no disclosure to third parties) the control over his data is lost and thus his privacy is violated. 
+There are two conflicts of interest involved: \textit{Privacy vs. Financial Profit of Serivce Provider} and  \textit{Privacy vs. Buisness Intelligence of Transport Authority}.
+The threat can be provoked by either careless data handling policies of both system providers and transport authorities, or a weak rule enforcement of existing supervision. But the main issue, which can lead to such threats, is again a general \textit{Missing Privacy Awareness}.
 
 \textbf{T3. Data Theft}
-An malicious external infiltrates the infrastructure in order to steal personal data and sell it on the black market. Also the External might be motivated politically and wants to harm the reputation of the System Provider or the Transport Authority. Such a successful attack could harm the reputation of both System Provider and Transport Authority. This threat is defined by three conflicts: \textit{Privacy vs. Financial Profit}, \textit{Reputation of Service Provider vs. Political Activism} and \textit{Reputation of Transport Authority vs. Political Activism}. Also this threat describes the classical scenario, where attacks are provoked by \textit{Insecure Infrastructure} (SQL injection) and \textit{Insecure Communication} (Packet Capture).
+An malicious external infiltrates the infrastructure in order to steal personal data and sell it on the black market. Also the External might be motivated politically and wants to harm the reputation of the system provider or the transport authority. Such a successful attack could harm the reputation of both system provider and transport authority. This threat is defined by three conflicts: \textit{Privacy vs. Financial Profit}, \textit{Reputation of Service Provider vs. Political Activism} and \textit{Reputation of Transport Authority vs. Political Activism}. Also this threat describes the classical scenario, where attacks are provoked by \textit{Insecure Infrastructure} (SQL injection) and \textit{Insecure Communication}.
 
 \textbf{T4. Surveillance}
 An External infiltrates infrastructure in order to obtain information
@@ -492,22 +506,22 @@ In this threat the privacy interest of the citizen is in conflict with
 the aspirations for power over citizens by the externals.
 
 \textbf{T5. Information Leak} 
-Like a malicious external person in the Data Theft scenario an employee of the
+Like a malicious external person in the data theft scenario an employee of the
 service provider or the transport authority has selfish interests to gain
 money, make political statements or harm his employer.  In order to
 pursue this interest he can steal personal data and sell it or release
 it to the public.  The corresponding conflicts of interests are:
-\textit{Privacy vs. Financial Profit} of the Employee, \textit{Reputation of Service
-  Provider vs. Political Activism} of the Employee and \textit{Reputation of Transport
-  Authority vs. Political Activism} of the Employee.  The vulnerability constitutes of
+\textit{Privacy vs. Financial Profit} of the employee, \textit{Reputation of Service
+  Provider vs. Political Activism} of the employee and \textit{Reputation of Transport
+  Authority vs. Political Activism} of the employee.  The vulnerability constitutes of
 the existence of \textit{Unhappy employees} and possibly \textit{careless access
 rules}, which enable the employee to obtain large amounts of data
 unnoticed.
 
 \textbf{T6. Social Engineering}
-In this scenario an external manipulates an employee of a Service
-Provider or the Transport Authority to leak information to the external
-person.  It is thus a combination of the Data Theft and Information Leak
+In this scenario an external manipulates an employee of a service
+provider or the transport authority to leak information to the external
+person.  It is thus a combination of the data theft and Information Leak
 scenario.
 The conflicts of interest are \textit{Privacy vs. Financial Profit} of
 the external, \textit{Reputation of Service Provider vs. Political
@@ -520,7 +534,7 @@ employee to obtain large amounts of data unnoticed.
 \subsubsection{Chances/Risks}
 
 In this section we will associate to every identified threat with a corresponding risk. A risk is the expected loss that is associated to the threat.
-Therefore, we have to quantify the likeliness of the threat to occure and the harm or loss done in this case.
+Therefore, we have to quantify the likeliness of the threat to occur and the harm or loss done in this case.
 The quantification of likeliness will be solely based on rough judgment of the authors.
 The quantification of loss will be made in a two step process.
 For each threat listed in the previous section, we have analyzed the affected personal data of the citizen.
@@ -653,7 +667,7 @@ healthy company culture should be maintained.
 
 \section{Conclusion}
 
-The transport authority has a demand for location-based personal data in order to improve its public services. Our goal was to find a balance between this demand of the transport authority and the privacy of the citizens. In a structured manner we identified all actors and their conflicts of interest. We found potential risks and derived recommendations how to protect the citizen's privacy. A central idea of these recommendations is to give the citizens as much control over their data back as possible. For example, this can be done by a privacy dashboard in the hand of every user that shows all his or her personal data stored on the system. The implementation of these privacy recommendations satisfies the above-mentioned demand of both sides in compliance with legal data protection requirements.
+The transport authority has a demand for location-based personal data in order to improve its public services. Our goal was to find a balance between this demand of the transport authority and the privacy of the citizens. In a structured manner we identified all actors and their conflicts of interest. We found potential risks and derived recommendations how to protect the citizen's privacy. A central idea of these recommendations is to give the citizens back the control over their data. For example, this can be done by a privacy dashboard in the hand of every user that shows all his or her personal data stored on the system. The implementation of these privacy recommendations satisfies the above-mentioned demand of both sides in compliance with legal data protection requirements.
 
 
 \bibliographystyle{splncs}
